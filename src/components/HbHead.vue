@@ -1,6 +1,6 @@
 <template>
   <div>
-	<x-header class="headfix">{{headfont}}</x-header>
+	<x-header :left-options="{backText: ''}" class="headfix">{{headfont}}</x-header>
 	<div class="headMargin"></div>
   </div>
 </template>
@@ -65,6 +65,7 @@ export default {
 .headMargin{
 clear:both;
 height:50px;
+border-bottom:solid 1px #ddd;
 }
 
 </style>

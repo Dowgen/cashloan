@@ -6,8 +6,101 @@ import axios from 'axios';
 var oproto = Object.prototype;
 var serialize = oproto.toString;
 var Rxports = {
-	
-	
+	/* wb add start */
+    /* 获取验证码 */
+    sendVcode:function (phoneNum){
+        axios.get('http://120.27.198.97:8081/flower/w/cashUser/sendMsg?phoneNum='+ phoneNum)
+          .then( data => {
+            console.warn(data);
+            if(data.data == 'error') {
+              layer.msg("验证码发送失败!");
+              that.resetBtn();
+            }
+            if(data.data == 'success') {
+              layer.msg("验证码发送成功");
+            }
+          })
+          .catch( err => {
+            layer.msg("验证码发送失败!");
+            that.resetBtn();
+        });
+    },
+    
+    /**    列表    **/
+    /* 文华程度列表 */
+    eduList:[{
+        name: '研究生及以上',
+        value: '研究生及以上',
+        parent:0
+    },{
+        name: '本科',
+        value: '本科',
+        parent:0
+    },{
+        name: '大专',
+        value: '大专',
+        parent:0
+    },{
+        name: '高中',
+        value: '高中',
+        parent:0
+    },{
+        name: '中专',
+        value: '中专',
+        parent:0
+    },{
+        name: '初中及以下',
+        value: '初中及以下',
+        parent:0
+    }],
+
+    /* 婚姻状况列表 */
+    mariList:[{
+        name: '已婚',
+        value: '已婚',
+        parent:0
+    },{
+        name: '未婚',
+        value: '未婚',
+        parent:0
+    }],
+    /* 城市列表 */
+    cityList: [{
+        name: '浙江',
+        value: '浙江',
+        parent: 0
+      },{
+        name: '江苏',
+        value: '江苏',
+        parent: 0
+      },{
+        name: '杭州',
+        value: '杭州',
+        parent: '浙江'
+      },{
+        name: '衢州',
+        value: '衢州',
+        parent: '浙江'
+      },{
+        name: '金华',
+        value: '金华',
+        parent: '浙江'
+      },{
+        name: '苏州',
+        value: '苏州',
+        parent: '江苏'
+      },{
+        name: '无锡',
+        value: '无锡',
+        parent: '江苏'
+      },{
+        name: '常州',
+        value: '常州',
+        parent: '江苏'
+      }],
+	/* wb add end */
+
+
 	/**
 	  * 封装axios，减少学习成本，参数基本跟jq ajax一致
 	  * @param {String} type			请求的类型，默认post
@@ -117,17 +210,11 @@ var Rxports = {
 	  * @param Url 		自定义获取参数的链接
 	  * @param return
 	*/
-	getUrlQuery:function (name,Url){
-	
-	   //URL GET 获取值
-　　   var reg = new RegExp("(^|\\?|&)"+ name +"=([^&]*)(\\s|&|$)", "i"),
-             url = Url || location.href;
-　　     if (reg.test(url))
-　　     return unescape(RegExp.$2.replace(/\+/g, " "));
-　　     return "";
-	
-	}
-
+    GetQueryString:function (name){
+        var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if(r!=null)return  unescape(r[2]); return null;
+    }
     
 };
 

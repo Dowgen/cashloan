@@ -1,19 +1,35 @@
+/* 
+@font-face { 
+  font-family: AdobeHeitiStd-Regular; 这里是说明调用来的字体名字 
+  src: url('AdobeHeitiStd-Regular.otf'); 这里是字体文件路径 
+}  */
+@font-face { 
+  font-family: PingFang-SC-Regular; /*这里是说明调用来的字体名字*/ 
+  src: url('PingFang-SC-Regular.ttf'); /*这里是字体文件路径*/ 
+} 
+[v-cloak] {
+  display: none;
+}
+
+
+html{
+    font-size: 2.667vw;
+    font-family: "PingFang-SC-Regular" !important;
+}
 body{
-	background: #f1f0f3;
 	color: #444;
 	padding: 0;
 	margin: 0;
-	font-size: 14px;
 }
 
-
+/* 
 @font-face {font-family: "iconfont";
-  src: url('../font/iconfont.eot?t=1471339595'); /* IE9*/
-  src: url('../font/iconfont.eot?t=1471339595#iefix') format('embedded-opentype'), /* IE6-IE8 */
-  url('../font/iconfont.woff?t=1471339595') format('woff'), /* chrome, firefox */
-  url('../font/iconfont.ttf?t=1471339595') format('truetype'), /* chrome, firefox, opera, Safari, Android, iOS 4.2+*/
-  url('../font/iconfont.svg?t=1471339595#iconfont') format('svg'); /* iOS 4.1- */
-}
+  src: url('../font/iconfont.eot?t=1471339595'); IE9
+  src: url('../font/iconfont.eot?t=1471339595#iefix') format('embedded-opentype'), IE6-IE8
+  url('../font/iconfont.woff?t=1471339595') format('woff'), chrome, firefox
+  url('../font/iconfont.ttf?t=1471339595') format('truetype'), chrome, firefox, opera, Safari, Android, iOS 4.2+
+  url('../font/iconfont.svg?t=1471339595#iconfont') format('svg'); iOS 4.1-
+} */
 
 
 
@@ -88,7 +104,9 @@ input,textarea{
 	-webkit-tap-highlight-color: rgba(255, 255, 255, 0);
   	-webkit-appearance: none; 
 }
-
+input{
+    background: rgba(0,0,0,0);
+}
 .martop15 {
 	margin-top: 15px;
 }
@@ -498,7 +516,30 @@ margin-top: 0;
 	padding: 20px 0;
 }
 
+/* vux自定义 */
+.weui-btn{
+    width: 89.8667vw !important;
+    font-size: 4.8vw !important;
+}
 
+/* placeholder颜色 */
+::-webkit-input-placeholder { /* WebKit, Blink, Edge */
+    color:    #c6c7cc;
+}
+:-moz-placeholder { /* Mozilla Firefox 4 to 18 */
+   color:    #c6c7cc;
+   opacity:  1;
+}
+::-moz-placeholder { /* Mozilla Firefox 19+ */
+   color:    #c6c7cc;
+   opacity:  1;
+}
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+   color:    #c6c7cc;
+}
+::-ms-input-placeholder { /* Microsoft Edge */
+   color:    #c6c7cc;
+}
 
 
 
