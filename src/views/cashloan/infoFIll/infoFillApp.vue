@@ -85,10 +85,10 @@ export default {
 
 <style>
   .title{
-    height: 64px;
+    height: 9vh;
     width: 100%;
     text-align: center;
-    line-height: 64px;
+    line-height: 9vh;
     font-size: 4.5334vw;
     font-weight: 600;
   }
@@ -151,6 +151,7 @@ export default {
     margin-top: 4.2667vw;
   }
   .btn{
-    margin-top: 12.667vw;
+    margin-top: 9vh;
+    margin-bottom: 10vh;
   }
 </style>

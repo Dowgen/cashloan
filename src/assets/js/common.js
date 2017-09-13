@@ -1,5 +1,6 @@
 
 import conf from './conf';
+import * as pickerList from './pickerList'; /* popup-picker所需的列表数据 */
 
 import axios from 'axios';
 
@@ -27,77 +28,9 @@ var Rxports = {
     },
     
     /**    列表    **/
-    /* 文华程度列表 */
-    eduList:[{
-        name: '研究生及以上',
-        value: '研究生及以上',
-        parent:0
-    },{
-        name: '本科',
-        value: '本科',
-        parent:0
-    },{
-        name: '大专',
-        value: '大专',
-        parent:0
-    },{
-        name: '高中',
-        value: '高中',
-        parent:0
-    },{
-        name: '中专',
-        value: '中专',
-        parent:0
-    },{
-        name: '初中及以下',
-        value: '初中及以下',
-        parent:0
-    }],
-
-    /* 婚姻状况列表 */
-    mariList:[{
-        name: '已婚',
-        value: '已婚',
-        parent:0
-    },{
-        name: '未婚',
-        value: '未婚',
-        parent:0
-    }],
-    /* 城市列表 */
-    cityList: [{
-        name: '浙江',
-        value: '浙江',
-        parent: 0
-      },{
-        name: '江苏',
-        value: '江苏',
-        parent: 0
-      },{
-        name: '杭州',
-        value: '杭州',
-        parent: '浙江'
-      },{
-        name: '衢州',
-        value: '衢州',
-        parent: '浙江'
-      },{
-        name: '金华',
-        value: '金华',
-        parent: '浙江'
-      },{
-        name: '苏州',
-        value: '苏州',
-        parent: '江苏'
-      },{
-        name: '无锡',
-        value: '无锡',
-        parent: '江苏'
-      },{
-        name: '常州',
-        value: '常州',
-        parent: '江苏'
-      }],
+    eduList: pickerList.eduList,
+    mariList: pickerList.mariList,
+    cityList: pickerList.cityList,
 	/* wb add end */
 
 

@@ -19,7 +19,7 @@
         </div>
       </div>
       <router-link to='/verify2'>
-        <x-button type="primary" class="btn">下一步</x-button>
+        <x-button type="primary" class="btn1">下一步</x-button>
       </router-link> 
     </div>
   </div>
@@ -101,8 +101,9 @@ export default {
     outline: none;
     border: none;
     padding-left: 1vw;
+    font-size: 3.2vw;
   }
-  .btn{
+  .btn1{
     margin-top: 12.667vw;
   }
 </style>
