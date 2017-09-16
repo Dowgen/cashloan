@@ -15,8 +15,22 @@
 html {
     font-size: 16px;
     font-family: "PingFang-SC-Regular" !important;
+    height: 100%;
 }
-
+body{
+    background: #f2f2f2;
+    max-width: 640px;
+	position: relative;
+	min-height: 100%;
+    margin:0 auto !important;
+}
+@media screen and (min-width: 300px) {
+    html {
+        /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
+        font-size: calc(100% + 2 * (100vw - 375px) / 500);
+        font-size: calc(14px + 2 * (100vw - 375px) / 500);
+    }
+}
 @media screen and (min-width: 375px) {
     html {
         /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */
@@ -552,8 +566,8 @@ margin-top: 0;
 
 /* vux自定义 */
 .weui-btn{
-    width: 89.8667vw !important;
-    font-size: 4.8vw !important;
+    width: 20.315rem !important;
+    font-size: 1.125rem !important;
 }
 
 /* placeholder颜色 */
