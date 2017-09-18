@@ -6,7 +6,7 @@
       <h2>已发送验证短信到号码</h2>
       <p>{{$route.query.phoneNum}}</p>
     </div>
-    <div class="input">
+    <div class="input input-regist">
       <img src="./assets/icon_key.png" class="img-icon" style="width:2.1334vw;padding-right:1.5vw">
       <input type="number" placeholder="短信验证码" v-model="verifyCode">
       <div type="default" class="d-button" @click="confirmPhone" ref="d_btn">
@@ -17,16 +17,20 @@
     <countdown slot="value" v-model="time1" :start="start" v-show="show"
        @on-start="begin" @on-finish="finish"></countdown>
     <button @click="start=true">倒计时开始</button> -->
-    <div class="input" style="margin-top:2.2rem;">
+    <div class="input input-regist" style="margin-top:2.2rem;">
       <img src="./assets/code_key.png" class="img-icon">
-      <input placeholder="请设置登录密码">
+      <input placeholder="请设置登录密码" v-model="password">
+      <img src="./assets/delete.png" class="img-del" 
+           v-show="password!=''" @click="password=''">
     </div>
 		<router-link to='/'>
-  		<x-button type="primary" class="btn" style="margin-top:22.1334vw">登录</x-button>
+  		<x-button type="primary" class="btn" style="margin-top:5.19rem">登录</x-button>
   	</router-link>
-		<div class="fgtPassword">
+		<div class="agreeProto">
       开始使用即同意<span style="color:#1abc9c">《用户服务协议》</span>
     </div>
+
+    <div class="pad-btm"></div>
   </div>
 </template>
 
@@ -44,6 +48,7 @@ export default {
   },
   data () {
     return {
+      password:'',
       /*show: true,
       time1: 5,
       value: '',
@@ -145,25 +150,23 @@ export default {
 </script>
 
 <style>
-.input{
-  margin-top: 8.6667vw;
-  height: 10vw;
+.input-regist{
+  margin-top: 2.72rem;
+  height: 2.22rem;
 }
-.fgtPassword{
-  width: 25.5rem;
-  margin: 0 auto;
+.agreeProto{
   text-align: center;
   color: #545454;
-  font-size: 1.3rem;
-  margin-top: 1.15rem;
+  font-size: 0.75rem;
+  margin-top: 0.72rem;
 }
 .d-button{
   position:absolute;
-  font-size:14px;
+  font-size:0.815rem;
   color:#1abc9c;
-  right:20px;
+  right:1rem;
   top:0;
-  height:10vw;
-  line-height:10vw;
+  height:2rem;
+  line-height:2rem;
 }
 </style>

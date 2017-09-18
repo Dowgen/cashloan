@@ -20,6 +20,7 @@
         忘记密码？短信验证码登录  
       </div>
     </router-link>
+    <div class="pad-btm"></div>
   </div>
 </template>
 
@@ -56,21 +57,21 @@ export default {
   margin-top: 2.65rem;
 }
 .welcome>h2{
-  font-size: 1.5rem;
+  font-size: 0.94rem;
   color: #535353;
   font-weight: normal;
 }
 .welcome>p{
-  margin-top: 1.35rem;
-  font-size: 1.4rem;
+  margin-top: 0.845rem;
+  font-size: 0.875rem;
   color: #1abc9c;
 }
 .fgtPassword{
-  width: 25.5rem;
+  width: 19.315rem;
   margin: 0 auto;
   text-align: right;
   color: #545454;
-  font-size: 1.3rem;
-  margin-top: 2rem;
+  font-size: 0.75rem;
+  margin-top: 0.72rem;
 }
 </style>

@@ -6,12 +6,12 @@
     </div>
     <div class="input">
       <img src="./assets/phone.png" class="img-icon">
-      <input placeholder="请输入手机号" v-model="phoneNum" maxlength="11"></input>
+      <input placeholder="请输入手机号" v-model="phoneNum" maxlength="11">
       <img src="./assets/delete.png" class="img-del" 
            v-show="phoneNum!=''" @click="phoneNum=''">
     </div>
     <x-button type="primary" class="btn" @click.native="phoneVerify">开始使用</x-button>
-    
+    <div class="pad-btm"></div>
   </div>
 </template>
 
@@ -19,7 +19,7 @@
 
 import Lib from 'assets/js/Lib';
 
-import { Divider, XButton } from 'vux'
+import { XButton } from 'vux'
 
 
 import HbHead from 'components/HbHead';
@@ -51,54 +51,61 @@ export default {
 </script>
 
 <style>
-  body{
+/*  body{
+    background-color: white;
     background-image: url('./assets/bg.png');
     background-repeat: no-repeat;
-    background-size: 180vw 100vh;
+    background-size: 100% 100%;
     background-position: center 65px;
+  }*/
+  body{
+    background: white !important;
   }
   .logo{
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 8.1rem;
+    padding-top: 8.1rem;
   }
   .logo>img{
-    width:15.4667vw;
-    height: 15.4667vw;
+    width:3.19rem;
+    height: 3.5rem;
   }
   .input{
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 86.6667vw;
+    width: 20.315rem;
     margin: 0 auto;
-    margin-top: 27.8vw;
-    height: 12.6vw;
+    margin-top: 5.31rem;
+    height: 1.69rem;
     border-bottom: solid 1px #e6e6e6;
-    font-family: "PingFang-SC-Regular" !important;
   }
   .img-icon{
-    width: 3.2vw;
-    height: 4.5334vw;
-    margin-left: 1vw;
+    width: 0.75rem;
+    height: 1.065rem;
+    margin-left: .2rem;
   }
   .img-del{
-    width: 3.334vw;
-    height: 3.334vw;
+    width: 0.75rem;
+    height: 0.75rem;
     margin-left:0;
     position: absolute;
-    right: 2vw;
+    right: 1rem;
   }
   .input>input{
     outline: none;
     border: none;
-    margin-left: 7.2vw;
+    margin-left: 1.375rem;
   }
   .btn{
-    width: 86.6667vw;
-    margin-top: 9.4667vw;
+    width: 20.315rem;
+    margin-top: 2.25rem;
+  }
+  .pad-btm{
+    height: 3rem;
+    visibility: hidden;
   }
 </style>
