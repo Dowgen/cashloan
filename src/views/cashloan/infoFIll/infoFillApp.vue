@@ -75,7 +75,11 @@ export default {
   }
 }
 </script>
-
+<style>
+  .weui-btn{
+    width: 21.44rem !important;
+  }
+</style>
 <style scoped>
   .title{
     height: 4rem;

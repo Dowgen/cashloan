@@ -56,8 +56,8 @@ export default {
 			});
 			
 			Lib.M.ajax({
-				'url':'api/Getdata/vue2_multipage_getajax_demo',
-				'success':function (data){
+				url:'api/Getdata/vue2_multipage_getajax_demo',
+			  success:function (data){
 					
 					self.ajaxResult = data;
 					

@@ -4,12 +4,17 @@
     <div class="getphoto-wrapper">
       <div class="front">
         <span>身份证(人像面)</span>
-
-        <img src="./assets/id-front.png">
+        <div class="upload-wrapper">
+          <img :src="img_idFront">
+          <input id="upfile1" type="file" name="upfile1" accept="image/png,image/jpg,image/jpeg" @change='preivewImg(1)'>
+        </div>
       </div>
       <div class="back">
         <span>身份证(国徽面)</span>
-        <img src="./assets/id-back.png">
+        <div class="upload-wrapper">
+          <img :src="img_idBack">
+          <input id="upfile2" type="file" name="upfile2" accept="image/png,image/jpg,image/jpeg"  @change='preivewImg(2)'>
+        </div>
       </div>
     </div>
     <div class="info-get-wrapper">
@@ -31,7 +36,7 @@
 
 import Lib from 'assets/js/Lib';
 
-import { Divider, XButton } from 'vux'
+import { XButton } from 'vux'
 
 import HbHeadGreen from 'components/HbHeadGreen'
 
@@ -42,12 +47,44 @@ export default {
   },
   data () {
     return {
-
+      img_idFront: '/static/img/id-front.png',
+      img_idBack: '/static/img/id-back.png'
     }
   },
   methods: {
-
-
+    preivewImg(i) {
+      /* 用fileReader实现图片预览 */
+      var that = this;
+      var file = $("#upfile"+i).get(0).files[0];
+      var name = file.name;
+      var reader = new FileReader();
+      reader.onload = function(e) {
+        if(i===1) that.img_idFront = e.target.result;
+        if(i===2) that.img_idBack = e.target.result;
+      }
+      reader.readAsDataURL(file, "UTF-8");
+    },
+    /*uploadImg() {
+      var that = this;
+      var data = JSON.parse(that.localStorage.data).data;
+      var fd = new FormData();
+      fd.append("upload", 1);
+      fd.append('upfile', $("#upfile").get(0).files[0]);
+      axios({
+        method:'post',
+        url: "/cauds-account/user/account/iconImage/" + data.userInfo.account,
+        headers: {
+          sessionId: data.sessionId,
+          authKey: data.authKey,
+          token: that.localStorage.token
+        },
+        data: fd,
+      })
+      .then( rs => {
+        that.avatar = axios.defaults.baseURL+'/cauds-account/user/account/getIconImage/'+that.information.account;
+      })
+      .catch( err => window.location.href = '/login');
+    },*/
   }
 }
 </script>
@@ -67,12 +104,24 @@ export default {
     align-items: center;
     justify-content: space-between;
   }
-  .getphoto-wrapper>div>img{
-    width: 7.815rem;
-    height: 4.78rem;
-  }
   .getphoto-wrapper>div:first-child{
     border-bottom: solid 1px #e6e6e6;
+  }
+  .upload-wrapper{
+    width: 7.815rem;
+    height: 4.78rem;
+    position: relative;
+  }
+  .upload-wrapper>img{
+    width: 100%;
+    height: 100%;
+  }
+  .upload-wrapper>input{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0; left: 0;
+    opacity: 0;
   }
   .info-get-wrapper{
     width:100%;

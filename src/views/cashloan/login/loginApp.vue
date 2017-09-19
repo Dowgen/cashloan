@@ -58,6 +58,9 @@ export default {
     background-size: 100% 100%;
     background-position: center 65px;
   }*/
+  .weui-btn{
+    width: 20.315rem !important;
+  }
   body{
     background: white !important;
   }
@@ -101,7 +104,6 @@ export default {
     margin-left: 1.375rem;
   }
   .btn{
-    width: 20.315rem;
     margin-top: 2.25rem;
   }
   .pad-btm{

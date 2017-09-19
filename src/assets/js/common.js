@@ -60,16 +60,16 @@ var Rxports = {
 			method: opts.type || 'post',
 			url: opts.url,
 			params: opts.data || {},
-			headers: opts.headers || {
+			/*headers: opts.headers || {
 			  	'Content-Type':'application/x-www-form-urlencoded'
-			},
+			},*/
 			// `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
   			// 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
-			baseURL:'http://t.lanchenglv.com/tp5demo/index.php/',
+			baseURL:'https://finbridge.cn',
 			timeout: opts.time || 10*1000,
 			responseType: opts.dataType || 'json'
 		}).then(function(res){
-			
+			console.log('成功');
 			if(res.status == 200 ){
 				
 				if(opts.success){
@@ -79,7 +79,7 @@ var Rxports = {
 			}else{
 				
 				if (data.error) {
-					opts.error(error);
+					opts.error('成功error:'+ error);
 				}else{
 					alert('好多人在访问呀，请重新试试[timeout]');
 				}
@@ -88,9 +88,9 @@ var Rxports = {
 			
 				
 		}).catch(function (error){
-			console.log(error);
+			console.log('失败error:'+ error);
 			if (opts.error) {
-				opts.error(error);
+				opts.error('失败error:'+ error);
 			}else{
 				alert('好多人在访问呀，请重新试试[timeout]');
 			}
