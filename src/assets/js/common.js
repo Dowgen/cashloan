@@ -31,6 +31,8 @@ var Rxports = {
     eduList: pickerList.eduList,
     mariList: pickerList.mariList,
     cityList: pickerList.cityList,
+    workTypeList: pickerList.workTypeList,
+    adviceList: pickerList.adviceList,
 	/* wb add end */
 
 

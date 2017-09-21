@@ -1,6 +1,7 @@
 <template>
   <div>
-  
+	<x-header :left-options="{backText: ''}" class="headfix">{{headfont}}</x-header>
+	<div class="headMargin"></div>
   </div>
 </template>
 
@@ -8,7 +9,7 @@
 
 import Lib from 'assets/js/Lib';
 
-
+import { XHeader } from 'vux'
 
 export default {
   data() {
@@ -17,7 +18,7 @@ export default {
     }
   },
   components: {
-	
+	XHeader
   },
   props: {
 	headfont: {
@@ -52,6 +53,29 @@ export default {
 </script>
 
 <style lang="less">
+/* 自定义颜色 */
+.vux-header{
+  background-color: #1abc9c !important;
+}
+.vux-header-title{
+  color: white !important;
+}
+.left-arrow:before{
+  border-color:white !important;
+  border-width: 2px 0 0 2px !important;
+}
 
+.headfix{
+	position: fixed!important;
+	z-index: 77;
+	width: 100%;
+	left: 0;
+	top: 0;
+}
+
+.headMargin{
+  clear:both;
+  height:50px;
+}
 
 </style>

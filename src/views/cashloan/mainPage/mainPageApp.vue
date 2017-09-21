@@ -1,0 +1,180 @@
+<template>
+  <div>
+    <div style="background:white;height:37.69rem">
+      <div class="title">花花贷</div>
+      
+      <div class="banner">
+        
+      </div>
+      <div class="choose" style="margin-top:1rem">
+        <span>贷款金额</span>
+        <div>
+        <div class="choose-btn" :style="loanAmount==500?styleActive:''" 
+         @click="setLoanAmount(500)">
+          500
+          <img src="./assets/choose.png" v-show="loanAmount==500">
+        </div>
+        <div class="choose-btn" :style="loanAmount==1000?styleActive:''"
+          @click="setLoanAmount(1000)">
+          1000
+          <img src="./assets/choose.png" v-show="loanAmount==1000">
+        </div>
+        </div>
+      </div>
+      <div class="choose" style="margin-top:1rem">
+        <span>借款期限</span>
+        <div>
+        <div class="choose-btn" :style="term==7?styleActive:''" @click="setTerm(7)">
+          <img src="./assets/choose.png" v-show="term==7">
+          7天</div>
+        <div class="choose-btn" :style="term==14?styleActive:''" @click="setTerm(14)">
+          <img src="./assets/choose.png" v-show="term==14">
+          14天</div>
+        </div>
+      </div>
+      <div class="table thead">
+        <span>到帐金额(元)</span>
+        <span>还款日期</span>
+        <span>借款费用(元)</span>
+      </div>
+      <div class="table tbody">
+        <span>489.50</span>
+        <span>2017/09/06</span>
+        <span>10.50</span>
+      </div>
+      <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
+    </div>
+    <main-nav></main-nav>
+  </div>
+</template>
+
+<script>
+
+import Lib from 'assets/js/Lib';
+
+import { XButton, Confirm } from 'vux'
+
+import MainNav from 'components/mainNav'
+
+export default {
+  name: 'add',	
+  components: {
+    MainNav,  XButton, Confirm
+  },
+  data () {
+    return {
+      show: false,
+      loanAmount:500,
+      term: 7,
+      styleActive:{
+        'border-color': '#1abc9c',
+        'color': '#1abc9c'
+      }
+    }
+  },
+  methods: {
+    setLoanAmount(amount){
+      this.loanAmount = amount;
+    },
+    setTerm(term){
+      this.term = term;
+    },
+    jump(){
+      var _this = this
+      console.log(this.$vux);
+      let a = 1
+      if(a === 1){
+        this.$vux.confirm.show({
+          content: '亲,请先绑定银行卡再借款!',
+          onShow () {
+            console.log('plugin show')
+          },
+          onHide () {
+            console.log('plugin hide')
+          },
+          onCancel () {
+            console.log('plugin cancel')
+          },
+          onConfirm () {
+            console.log('plugin confirm')
+          }
+        })
+      }else{
+
+      }
+    }
+  }
+}
+</script>
+
+<style scoped>
+  .title{
+    height: 4rem;
+    width: 100%;
+    text-align: center;
+    line-height: 4rem;
+    font-size: 1.065rem;
+    font-weight: 600;
+  }
+  .banner{
+    width: 100%;
+    height: 10.815rem;
+    background: #1abc9c;
+  }
+  .choose{
+    box-sizing: border-box;
+    padding: 0px 7px;
+    width: 21.43rem;
+    margin:0 auto;
+    height: 3.815rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #e6e6e6;
+  }
+  .choose>span{
+    color: #4d4d4d;
+    font-size: 0.94rem;
+  }
+  .choose>div{
+    display: flex;
+    font-size: 0.875rem;
+  }
+  .choose-btn{
+    margin-left: 0.875rem;
+    position: relative;
+    width: 3.75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    border: solid 1px #c2c2c2 ;
+    border-radius: 3px;
+  }
+  .choose-btn>img{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.565rem;
+    height: 0.53rem;
+  }
+  .table{
+    display: flex;
+    margin-top: 2.065rem;
+  }
+  .table>span{
+    flex:1;
+    text-align: center;
+  }
+  .thead{
+    font-size: 0.88rem;
+    color: #808080
+  }
+  .tbody{
+    font-size: 1.065rem;
+    color: #39394A;
+    margin-top: 1.065rem;
+  }
+  .btn{
+    margin-top: 3.065rem;
+  }
+</style>

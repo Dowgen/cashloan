@@ -24,6 +24,19 @@ var eduList = [{
     parent:0
 }];
 
+var workTypeList = [{
+    name:'上班族',
+    value:'上班族',
+    parent: 0
+},{
+    name:'自由职业',
+    value:'自由职业',
+    parent: 0
+},{
+    name:'学生',
+    value:'学生',
+    parent: 0
+}];
 
 var mariList = [{
     name: '已婚',
@@ -35,6 +48,23 @@ var mariList = [{
     parent:0
 }];
 
+var adviceList = [{
+    name: '借款',
+    value: '借款',
+    parent:0
+},{
+    name: '认证',
+    value: '认证',
+    parent:0
+},{
+    name: '还款',
+    value: '还款',
+    parent:0
+},{
+    name: '其他',
+    value: '其他',
+    parent:0
+}];
 
 var cityList = [{
     name: '北京',
@@ -1626,4 +1656,4 @@ var cityList = [{
     parent:'上海'
 }]
 
-export {mariList, eduList, cityList};
+export {mariList, eduList, workTypeList, cityList,adviceList};

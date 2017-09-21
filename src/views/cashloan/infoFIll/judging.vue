@@ -31,7 +31,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .waiting{
     height: 90vh;
     background-image: url('./assets/bgGreen.png');

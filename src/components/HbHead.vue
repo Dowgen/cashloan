@@ -53,7 +53,6 @@ export default {
 </script>
 
 <style lang="less">
-
 .headfix{
 	position: fixed!important;
 	z-index: 77;
@@ -63,9 +62,8 @@ export default {
 }
 
 .headMargin{
-    clear:both;
-    height:50px;
-    border-bottom:solid 1px #ddd;
+  clear:both;
+  height:50px;
 }
 
 </style>

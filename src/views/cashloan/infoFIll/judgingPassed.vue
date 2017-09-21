@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .congradulation{
     height: 21.06vh;
     font-size: 4vw;
@@ -110,6 +110,42 @@ export default {
     margin-top: 2.7vh;
     border-radius: 10px;
     width: 90%;
+  }
+  .choose{
+    box-sizing: border-box;
+    padding: 0px 7px;
+    width: 21.43rem;
+    margin:0 auto;
+    height: 3.815rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: solid 1px #e6e6e6;
+  }
+  .choose>span{
+    color: #4d4d4d;
+    font-size: 0.94rem;
+  }
+  .choose>div{
+    display: flex;
+    font-size: 0.875rem;
+  }
+  .choose-btn{
+    margin-left: 0.875rem;
+    position: relative;
+    width: 3.75rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    text-align: center;
+    border: solid 1px #c2c2c2 ;
+    border-radius: 3px;
+  }
+  .choose-btn>img{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    width: 0.565rem;
+    height: 0.53rem;
   }
   .loan-info{
     box-sizing: border-box;
