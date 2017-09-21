@@ -568,6 +568,12 @@ margin-top: 0;
 .weui-btn{
     font-size: 1.125rem !important;
 }
+.vux-cell-box{
+	opacity: 0;
+}
+.vux-tap-active{
+	height:2rem;
+}
 
 /* placeholder颜色 */
 ::-webkit-input-placeholder { /* WebKit, Blink, Edge */

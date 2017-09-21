@@ -88,10 +88,10 @@ export default {
         float: right;
     }
     .setCenter_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;
