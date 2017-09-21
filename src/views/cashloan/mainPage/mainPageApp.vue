@@ -69,7 +69,8 @@ export default {
       styleActive:{
         'border-color': '#1abc9c',
         'color': '#1abc9c'
-      }
+      },
+      face_token:''
     }
   },
   methods: {
@@ -79,33 +80,63 @@ export default {
     setTerm(term){
       this.term = term;
     },
+    face_getToken(){
+      var self = this;
+      this.$vux.loading.show({
+          text: 'Loading'
+      });
+
+      Lib.M.ajax({
+        url : '/risk-manage/faceid/getToken',
+        data:{
+          return_url: 'https://www.baidu.com/',
+          notify_url:'https://www.sogou.com/',
+          idcard_mode:0,
+          idcard_name:'徐文斌',
+          idcard_number: 331003199205170810
+        },
+        success:function (data){
+          console.log('get:'+data);
+          self.face_token = data.data.token;
+          /* 获取token后跳转第三方 */
+          window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ self.face_token;
+        }
+      });
+    },
     jump(){
       var _this = this
       console.log(this.$vux);
-      let a = 1
+      let a = 4
       if(a === 1){
         this.$vux.confirm.show({
           content: '亲,请先绑定银行卡再借款!',
-          onShow () {
-            console.log('plugin show')
-          },
-          onHide () {
-            console.log('plugin hide')
-          },
-          onCancel () {
-            console.log('plugin cancel')
-          },
-          onConfirm () {
-            console.log('plugin confirm')
-          }
         })
+      }else if(a === 2){
+        this.$vux.confirm.show({
+          content: '亲,您的基础信息尚未完善，请先完善资料!'
+        })
+      }else if(a === 3){
+        this.$router.push('./bindBankCard')
       }else{
-
+        this.face_getToken();
       }
     }
   }
 }
 </script>
+
+<style>
+  .weui-btn{
+    width: 21.44rem !important;
+  }
+  .img-del{
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left:0;
+    position: absolute;
+    right: 1rem;
+  }
+</style>
 
 <style scoped>
   .title{

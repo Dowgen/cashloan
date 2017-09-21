@@ -71,7 +71,7 @@ devMiddleware.waitUntilValid(function () {
   console.log('> 构建完成，已自动在浏览器打开页面，如未自动打开，请手工复制下面的链接，复制到浏览器里打开。')
   console.log('> Listening at ' + uri + '\n')
   if (autoOpenBrowser && process.env.NODE_ENV !== 'testing') {
-    opn(uri)
+    /*opn(uri)*/
   }
 })
 

@@ -24,7 +24,7 @@
            v-show="password!=''" @click="password=''">
     </div>
 		<router-link to='/'>
-  		<x-button type="primary" class="btn" style="margin-top:5.19rem">登录</x-button>
+  		<x-button type="primary" style="margin-top:5.19rem">登录</x-button>
   	</router-link>
 		<div class="agreeProto">
       开始使用即同意<span style="color:#1abc9c">《用户服务协议》</span>
