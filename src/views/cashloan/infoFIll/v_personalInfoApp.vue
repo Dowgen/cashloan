@@ -30,7 +30,7 @@
     </div>
     <div class="marriged-extend" v-show="mariVal!=''">
       <div>
-        <p class="title">紧急联系人1(配偶)</p>
+        <p class="title">紧急联系人1({{emrContact1}})</p>
         <div class="inputer">
           <input type="text" placeholder="TA的姓名">
         </div>
@@ -39,7 +39,7 @@
         </div>
       </div>
       <div>
-        <p class="title">紧急联系人1(配偶)</p>
+        <p class="title">紧急联系人2({{emrContact2}})</p>
         <div class="inputer">
           <input type="text" placeholder="TA的姓名">
         </div>
@@ -72,10 +72,23 @@ export default {
     return {
       workType: [],
       workTypeList: Lib.M.workTypeList,
-      mariVal:[],
+      mariVal: [],
       mariList:Lib.M.mariList,
       cityVal: [],
-      cityList: Lib.M.cityList
+      cityList: Lib.M.cityList,
+      emrContact1:'',
+      emrContact2:''
+    }
+  },
+  watch:{
+    mariVal:function(){
+      if(this.mariVal[0] == '已婚'){
+        this.emrContact1 = '配偶'
+        this.emrContact2 = '父母/朋友'
+      }else{
+        this.emrContact1 = '父母'
+        this.emrContact2 = '朋友/同事'
+      }
     }
   },
   methods: {
@@ -119,6 +132,7 @@ export default {
     overflow: hidden;
     position: absolute;
     right: 1rem;
+    top: 1.3rem;
   }
   .inputer-street{
     height: 3.5rem;
