@@ -6,7 +6,7 @@
     <a href="infoFill.html">
       <img src="./img/renzheng.png">
     </a>
-    <a href="infoFill.html">
+    <a href="myInfo.html">
       <img src="./img/me.png">
     </a>
   </div>
@@ -49,6 +49,7 @@ export default {
   justify-content: space-around;
   align-items: center;
   border-top: solid .7rem #f2f2f2;
+  z-index: 999;
 }
 .nav img{
   width:1.375rem;
