@@ -88,7 +88,7 @@ var Rxports = {
 			
 				
 		}).catch(function (error){
-			console.log('失败error:'+ error);
+
 			if (opts.error) {
 				opts.error('失败error:'+ error);
 			}else{
