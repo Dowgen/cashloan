@@ -2,64 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="098d6b21-ab0f-4b51-ae28-54ef875fc592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/img/massage_selecte-@2x.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/img/me.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/img/rent.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/img/renzheng.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/arrow-right.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/id-back.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/id-front.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/id_certification.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/person_information.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/phone_operator.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/towards3 .png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/zhima.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/assets/agreeProto.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/assets/arrow_down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/assets/choose.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/assets/favicon.ico" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/assets/logo.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/assets/arrow_down.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/about_another.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/about_borrow.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/about_cost.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/about_repay.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/img/check_data.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/components/mainNav.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_phoneOperatorApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/questionListApp.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/verify2App.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/verify3App.vue" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/verifyApp.vue" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/bgGreen.png" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/bgGreen.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/config/index.js" afterPath="$PROJECT_DIR$/config/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package-lock.json" afterPath="$PROJECT_DIR$/package-lock.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/common.css" afterPath="$PROJECT_DIR$/src/assets/css/common.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/theme.less" afterPath="$PROJECT_DIR$/src/assets/css/theme.less" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/js/Lib.js" afterPath="$PROJECT_DIR$/src/assets/js/Lib.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/js/common.js" afterPath="$PROJECT_DIR$/src/assets/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/js/pickerList.js" afterPath="$PROJECT_DIR$/src/assets/js/pickerList.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/HbHead.vue" afterPath="$PROJECT_DIR$/src/components/HbHead.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFill.html" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFill.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFill.js" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFill.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFillApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/infoFillApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/judging.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/judging.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/judgingPassed.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/judgingPassed.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/login/login2App.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/login/login2App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/login/loginApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/login/loginApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/login/registApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/login/registApp.vue" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/components/~tpl.vue" afterPath="$PROJECT_DIR$/src/components/HbHeadGreen.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -73,36 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="myInfo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="253">
-              <caret line="26" column="31" lean-forward="false" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="31" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="addBankApp.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-              <folding>
-                <element signature="e#1296#1328#0" expanded="true" />
-                <marker date="1505824703040" expanded="false" signature="124:179" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="fillMyInfoApp.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1035">
-              <caret line="45" column="19" lean-forward="false" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
+            <state relative-caret-position="253">
+              <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -111,18 +33,74 @@
       <file leaf-file-name="setCenterApp.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="12" column="77" lean-forward="false" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
+            <state relative-caret-position="1426">
+              <caret line="84" column="6" lean-forward="false" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+              <folding>
+                <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="adviceFillApp.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="322">
+              <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+              <folding>
+                <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="v_nameApp.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="161">
+              <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="14" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="helpCenterApp.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="v_personalInfoApp.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="184">
+              <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+              <folding>
+                <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="5111">
+              <caret line="563" column="11" lean-forward="true" selection-start-line="563" selection-start-column="11" selection-end-line="563" selection-end-column="11" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="loanRecordApp.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="92">
+              <caret line="3" column="166" lean-forward="false" selection-start-line="3" selection-start-column="166" selection-end-line="3" selection-end-column="166" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="helpCenterApp.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="34" column="8" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="8" />
+            <state relative-caret-position="-2185">
+              <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -133,36 +111,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="161">
               <caret line="7" column="61" lean-forward="false" selection-start-line="7" selection-start-column="61" selection-end-line="7" selection-end-column="61" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="loginApp.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/loginApp.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="897">
-              <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="73" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="login2App.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/login2App.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="46">
-              <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="registApp.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/registApp.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="34" />
               <folding />
             </state>
           </provider>
@@ -180,15 +128,12 @@
         <option value="$PROJECT_DIR$/src/components/mainNav.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" />
-        <option value="$PROJECT_DIR$/src/assets/css/common.css" />
         <option value="$PROJECT_DIR$/src/assets/js/common.js" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue" />
         <option value="$PROJECT_DIR$/src/assets/js/pickerList.js" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/nickApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/bankNumApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue" />
@@ -196,6 +141,12 @@
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/questionListApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
+        <option value="$PROJECT_DIR$/src/assets/css/common.css" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue" />
       </list>
     </option>
   </component>
@@ -210,7 +161,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
+  <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="-217" />
     <option name="y" value="11" />
     <option name="width" value="890" />
@@ -251,6 +202,19 @@
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -266,7 +230,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
-              <item name="login" type="462c0819:PsiDirectoryNode" />
+              <item name="infoFIll" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
@@ -333,15 +297,15 @@
       <updated>1505699071875</updated>
       <workItem from="1505699078795" duration="27382000" />
       <workItem from="1505785129222" duration="28366000" />
-      <workItem from="1505958663086" duration="264000" />
+      <workItem from="1505958663086" duration="3814000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="56012000" />
+    <option name="totallyTimeSpent" value="59562000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -399,7 +363,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="276">
           <caret line="12" column="77" lean-forward="false" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
-          <folding />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -415,7 +381,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="897">
           <caret line="44" column="73" lean-forward="true" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="73" />
-          <folding />
+          <folding>
+            <marker date="1505959863821" expanded="true" signature="2219:2248" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -431,7 +399,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="34" />
-          <folding />
+          <folding>
+            <marker date="1505959863821" expanded="true" signature="1206:1274" ph="..." />
+            <marker date="1505959863821" expanded="false" signature="1234:1247" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="1338:4151" ph="..." />
+            <marker date="1505959863821" expanded="false" signature="1348:1456" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="1473:4142" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1489:1523" ph="{&quot;HbHead&quot;: HbHead...}" />
+            <marker date="1505959863821" expanded="true" signature="1535:1851" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1548:1847" ph="{&quot;password&quot;: ''...}" />
+            <marker date="1505959863821" expanded="true" signature="1575:1642" ph="/*...*/" />
+            <marker date="1505959863821" expanded="true" signature="1864:1914" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1927:4140" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1969:2265" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1996:2259" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2088:2126" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2132:2251" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2288:2348" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2379:2601" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2409:2503" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2439:2471" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2523:2568" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2632:3920" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2731:3912" ph="{&quot;type&quot;: &quot;Post&quot;...}" />
+            <marker date="1505959863821" expanded="true" signature="2840:2925" ph="{&quot;phoneNum&quot;: params.phoneNum...}" />
+            <marker date="1505959863821" expanded="true" signature="2959:3642" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2994:3111" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3028:3068" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3144:3508" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3177:3217" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3674:3904" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3706:3742" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3958:4136" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4160:4459" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="4175:4220" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4232:4320" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4330:4451" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -447,6 +451,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1380">
           <caret line="64" column="34" lean-forward="false" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -468,6 +475,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2668">
           <caret line="121" column="3" lean-forward="true" selection-start-line="121" selection-start-column="3" selection-end-line="121" selection-end-column="3" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -523,20 +533,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="26" column="40" lean-forward="true" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1127">
-          <caret line="53" column="0" lean-forward="true" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/judgingPassed.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2691">
@@ -562,13 +558,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="23">
           <caret line="34" column="37" lean-forward="false" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="534">
-          <caret line="121" column="3" lean-forward="false" selection-start-line="121" selection-start-column="3" selection-end-line="121" selection-end-column="3" />
         </state>
       </provider>
     </entry>
@@ -607,13 +596,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="92">
-          <caret line="3" column="166" lean-forward="false" selection-start-line="3" selection-start-column="166" selection-end-line="3" selection-end-column="166" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-667">
@@ -628,25 +610,11 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="64" column="34" lean-forward="false" selection-start-line="64" selection-start-column="34" selection-end-line="64" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/bankInfoApp.vue" />
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1035">
-          <caret line="45" column="19" lean-forward="false" selection-start-line="45" selection-start-column="19" selection-end-line="45" selection-end-column="19" />
           <folding />
         </state>
       </provider>
@@ -668,24 +636,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="54" column="17" lean-forward="true" selection-start-line="54" selection-start-column="17" selection-end-line="54" selection-end-column="17" />
-          <folding>
-            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="77" lean-forward="false" selection-start-line="12" selection-start-column="77" selection-end-line="12" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
@@ -701,7 +651,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="897">
           <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="73" />
-          <folding />
+          <folding>
+            <marker date="1505959863821" expanded="true" signature="2219:2248" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -717,7 +669,43 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="138">
           <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="34" />
-          <folding />
+          <folding>
+            <marker date="1505959863821" expanded="true" signature="1206:1274" ph="..." />
+            <marker date="1505959863821" expanded="false" signature="1234:1247" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="1338:4151" ph="..." />
+            <marker date="1505959863821" expanded="false" signature="1348:1456" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="1473:4142" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1489:1523" ph="{&quot;HbHead&quot;: HbHead...}" />
+            <marker date="1505959863821" expanded="true" signature="1535:1851" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1548:1847" ph="{&quot;password&quot;: ''...}" />
+            <marker date="1505959863821" expanded="true" signature="1575:1642" ph="/*...*/" />
+            <marker date="1505959863821" expanded="true" signature="1864:1914" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1927:4140" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1969:2265" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="1996:2259" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2088:2126" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2132:2251" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2288:2348" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2379:2601" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2409:2503" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2439:2471" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2523:2568" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2632:3920" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2731:3912" ph="{&quot;type&quot;: &quot;Post&quot;...}" />
+            <marker date="1505959863821" expanded="true" signature="2840:2925" ph="{&quot;phoneNum&quot;: params.phoneNum...}" />
+            <marker date="1505959863821" expanded="true" signature="2959:3642" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="2994:3111" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3028:3068" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3144:3508" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3177:3217" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3674:3904" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3706:3742" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="3958:4136" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4160:4459" ph="..." />
+            <marker date="1505959863821" expanded="true" signature="4175:4220" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4232:4320" ph="{...}" />
+            <marker date="1505959863821" expanded="true" signature="4330:4451" ph="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -729,10 +717,83 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="253">
+          <caret line="10" column="20" lean-forward="false" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1426">
+          <caret line="84" column="6" lean-forward="false" selection-start-line="84" selection-start-column="6" selection-end-line="84" selection-end-column="6" />
+          <folding>
+            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="92">
+          <caret line="3" column="166" lean-forward="false" selection-start-line="3" selection-start-column="166" selection-end-line="3" selection-end-column="166" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="690">
-          <caret line="34" column="8" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="34" selection-end-column="8" />
+        <state relative-caret-position="-2185">
+          <caret line="14" column="0" lean-forward="false" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="322">
+          <caret line="71" column="5" lean-forward="true" selection-start-line="71" selection-start-column="5" selection-end-line="71" selection-end-column="5" />
+          <folding>
+            <element signature="n#div#2;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="108" column="15" lean-forward="false" selection-start-line="108" selection-start-column="14" selection-end-line="108" selection-end-column="15" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+            <element signature="e#1557#1589#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5111">
+          <caret line="563" column="11" lean-forward="true" selection-start-line="563" selection-start-column="11" selection-end-line="563" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="184">
+          <caret line="13" column="27" lean-forward="true" selection-start-line="13" selection-start-column="27" selection-end-line="13" selection-end-column="27" />
+          <folding>
+            <element signature="n#div#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="161">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="11" selection-end-line="7" selection-end-column="14" />
           <folding />
         </state>
       </provider>

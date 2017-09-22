@@ -72,12 +72,10 @@
     }
     .sel{
         background: url('./assets/arrow_down.png') no-repeat center center;
-        background-size: 100% 100%;
-        width: 0.69rem;
-        height: 0.375rem;
+        background-size: 0.69rem 0.375rem;
+        width: 2rem;
+        height: 100%;
         overflow: hidden;
-        position: absolute;
-        right: 1rem;
     }
     .advice_head{
         height:4rem;

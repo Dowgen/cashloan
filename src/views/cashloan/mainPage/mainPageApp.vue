@@ -70,7 +70,10 @@ export default {
         'border-color': '#1abc9c',
         'color': '#1abc9c'
       },
-      face_token:''
+      faceReturn:{
+        token:'',
+        biz_id:''
+      }
     }
   },
   methods: {
@@ -83,23 +86,28 @@ export default {
     face_getToken(){
       var self = this;
       this.$vux.loading.show({
-          text: 'Loading'
+          text: '请稍等'
       });
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         data:{
-          return_url: 'https://www.baidu.com/',
-          notify_url:'https://www.sogou.com/',
+          return_url: 'www.baidu.com',
+          notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:0,
           idcard_name:'徐文斌',
           idcard_number: 331003199205170810
         },
         success:function (data){
+          self.$vux.loading.hide();
           console.log('get:'+data);
-          self.face_token = data.data.token;
+          self.faceReturn.token = data.data.token;
+          self.faceReturn.biz_id = data.data.biz_id;
           /* 获取token后跳转第三方 */
-          window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ self.face_token;
+          /*window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ self.faceReturn.token;*/
+        },
+        error:function(err){
+          self.$vux.loading.hide();
         }
       });
     },

@@ -96,7 +96,7 @@ body{
 	position: relative;
 	min-height: 100%;
     margin:0 auto !important;
-    padding-bottom: 3.065rem !important;
+    padding-bottom: 3.065rem;
 }
 @media screen and (min-width: 300px) {
     html {
@@ -567,6 +567,12 @@ margin-top: 0;
 /* vux自定义 */
 .weui-btn{
     font-size: 1.125rem !important;
+}
+.vux-cell-box{
+	opacity: 0;
+}
+.vux-tap-active{
+	height:2rem;
 }
 
 /* placeholder颜色 */

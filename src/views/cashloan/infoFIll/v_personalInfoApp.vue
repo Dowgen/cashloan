@@ -126,13 +126,13 @@ export default {
   }
   .sel{
     background: url('./assets/arrow_down.png') no-repeat center center;
-    background-size: 100% 100%;
-    width: 0.69rem;
-    height: 0.375rem;
+    background-size: 0.69rem 0.375rem;
+    width: 2rem;
+    position:absolute;
+    top:0;
+    right:1rem;
+    bottom:0;
     overflow: hidden;
-    position: absolute;
-    right: 1rem;
-    top: 1.3rem;
   }
   .inputer-street{
     height: 3.5rem;

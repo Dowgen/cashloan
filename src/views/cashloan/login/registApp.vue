@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
   	<hb-head headfont="手机验证"></hb-head>
     
     <div class="welcome">

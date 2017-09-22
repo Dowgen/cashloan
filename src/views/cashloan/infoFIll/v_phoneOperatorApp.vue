@@ -55,7 +55,7 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .infoFill{
     height: 12.1rem;
     background: white;

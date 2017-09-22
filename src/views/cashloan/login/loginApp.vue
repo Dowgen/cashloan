@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="wrapper">
   <!-- <hb-head headfont="注册"></hb-head> -->
     <div class="logo">
       <img src="./assets/logo.png">
@@ -32,32 +32,102 @@ export default {
   data () {
     return {
       phoneNum:'',
+      token:''
     }
   },
+  mounted(){
+    /* 进入页面先获取token */
+    this.getToken(); 
+  },
   methods: {
+    getToken(){
+      var self = this;
+      Lib.M.ajax({
+        url : '/uaa/oauth/token',
+        headers: {
+          Accept:'application/json',
+          Authorization:'Basic Y2xpZW50OnNlY3JldA=='
+        },
+        params:{
+          username:'juhe',
+          password:'Juhe2017!@#',
+          grant_type:'password',
+          scope:'read write'
+        },
+        success:function(data){
+          self.token = data.access_token;
+          /* 把token放入 vuex */
+          self.$store.commit('changeToken',data.access_token)
+        },
+        error:function(err){
+          console.error(err);
+        }
+      });
+    },
+    /* 点击按钮，触发手机号验证事件 */
     phoneVerify(){
       if (!this.phoneNum || !this.phoneNum.match(/^(0|86|17951)?(13[0-9]|15[012356789]|17[6780]|18[0-9]|14[57])[0-9]{8}$/)) {
-          layer.msg('请输入合法的手机号', {
-            time: 1500
-          });
-          return false;
+          this.$vux.toast.text('手机号格式不正确', 'middle')
       } else {
-        this.$router.push({path:'/regist',query:{phoneNum:this.phoneNum}});
+        this.preRegist();
+        /*this.$router.push({path:'/regist',query:{phoneNum:this.phoneNum}});*/
         /*Lib.M.sendVcode(13666604580)*/
       }
+    },
+    /* 验证是否是注册用户 */
+    preRegist(){
+      var self = this;
+
+      this.$vux.loading.show({
+        text: '请稍等'
+      });
+
+      Lib.M.ajax({
+        type: 'get',
+        url : 'cash-account/user/account/preRegist?phone='+ self.phoneNum,
+        headers: {
+          Authorization:'Bearer '+ self.token
+        },
+        success:function(data){
+          /* 登陆成功,把phoneNum塞入vuex */
+          self.$store.commit('changePhoneNum',self.phoneNum)
+          self.$vux.loading.hide();
+
+          if(data){ //注册用户跳转至登陆页
+            self.$router.push('/login2');
+          }else{  //未注册用户跳转至注册页
+            self.$router.push('/regist');
+          }      
+        },
+        error:function(err){
+          self.$vux.loading.hide();
+          console.error(err);
+        }
+      });
     }
   }
 }
 </script>
 
 <style>
-/*  body{
+  .wrapper{
+    position: absolute;
+    width: 100%;
+    height: 100%;
     background-color: white;
-    background-image: url('./assets/bg.png');
+    background-image: url('./assets/bg1.png');
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center 65px;
-  }*/
+  }
+  @media screen and (orientation: landscape) {
+    body{
+      padding-bottom: 0 !important;
+    }
+    .wrapper{
+      position:relative;   
+    }
+  }
   .weui-btn{
     width: 20.315rem !important;
   }
@@ -83,7 +153,7 @@ export default {
     width: 20.315rem;
     margin: 0 auto;
     margin-top: 5.31rem;
-    height: 1.69rem;
+    height: 2.41rem;
     border-bottom: solid 1px #e6e6e6;
   }
   .img-icon{

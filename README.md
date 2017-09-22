@@ -1,4 +1,4 @@
-## 使用前注意事项
+## 注意事项
 
 1、直接使用 `cnpm`可能会导致依赖不正确。强烈建议给 `npm` 设置 taobao 的 registry。
 
@@ -10,22 +10,6 @@
 
 4、`npm run dev`将会自动在浏览器打开页面，如未正常打开，请访问完整的路径`http:// localhost:8091/views/home/list.html`
 
-
-## 前言
-`vue2.0`上线已经有一段时间了，现在`vue2.1`也都已经发布了，是时候来更新基于vue的多页面脚手架了。
-
-相信用vue的童鞋，很多一部分在用于spa（单页面）项目，也不排除传统的多页面项目，我们就用vue开发了多页面的webapp，相对于spa开发效率更高，使用单页面或者多页面，最终还是看项目的需求啦。
-
-这一次我们基于`vuejs2+webpack2+vuxui2`(好222的项目)重新发布了全新的vue脚手架，同时还支持二级目录，以解决页面比较多时，便于归类查找的问题。基于webpack2，构建速度高。ajax获取数据，使用`axios`，当然还有其他的优化，咱们先看看demo呗。
-
-demo地址：
-http://v.lanchenglv.com/demo/vue2-cli-vux2-multe-page/views/home/list.html
-
-github地址：
-https://github.com/bluefox1688/vue-cli-multi-page
-
-** 此版仅支持vu2.0，如果需要vue1.0多页面脚手架，请访问分支 **
-https://github.com/bluefox1688/vue-cli-multi-page/tree/master 
 
 ## 2.0的主要功能
 
@@ -44,10 +28,6 @@ https://github.com/bluefox1688/vue-cli-multi-page/tree/master
  13. 支持`Less`css预处理
  14. 获取多页面的url参数的方法
  15. 全局注册vue全局过滤器的方法
-
-## Build Setup
-clone到本地仓之后，自行`npm **`，都是老司机了，这里也不重复了。
-
 
 ``` bash
 # 安装依赖
@@ -95,30 +75,6 @@ webpack
              |---calendarApp.vue		 
 ......
      
-  ```
-此次2.0版本也优化也可以自定义模块的名称，1.0版时，无法自定义模块名。
-
-例如 http:// localhost:8091/`views`/home/list.html，`views`就是我们线上的模块名，如需修改请到项目目录文件config/index.js修改`moduleName`参数，修改这里的配置的同时，也要同时重命名`/src/views`的这个文件夹名称，是否会报错的。
-  
-  从目录结构上，各种组件、页面模块、资源等都按类新建了文件夹，方便我们储存文件。其实我们所有的文件，最主要都是放在`views`文件夹里，以文件夹名为html的名称。
-例如
-
-``` stylus
-|---vuxDemo    一级目录
- |---button    二级目录
-   |---button.html
-   |---button.js
-   |---buttonApp.vue	
-```
-就是我们访问时的地址：
-
-``` stylus
-http://localhost:8091/views/vuxDemo/button.html
-```
-
-在`view`里二级文件夹，一个文件夹就是一个html，`js``vue``html` 都统一放在当前文件夹里，当然你也可以继续放其他的资源，例如css、图片等，webpack会打包到当前模块里。
-
-还有一点要注意的，所有的目录都要求为二级，不能一个目录下为一级，另一个目录下有二级。
 
 ## Lib.js库使用
 
@@ -164,13 +120,3 @@ Lib.C.appname;  #蓝橙绿
 2、暂时还没有做css自动补前缀
 
 3、......
-
-## 结束言
-此vue多页面脚手架，并不局限于vux ui 框架，但现在的UI框架都要自己对webpack简单配置下。
-
-生命在于折腾，理想还是要有的，万一实现了呢。
-
-有问题随时Issues哈！
-
-## 文章首发地址：
-http://lanchenglv.com/article/2017/0409/vue2-webpack2-cli-vux2-multe-page.html
