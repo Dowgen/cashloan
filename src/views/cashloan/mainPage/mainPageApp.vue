@@ -44,7 +44,7 @@
       </div>
       <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
     </div>
-    <main-nav></main-nav>
+    <main-nav-green></main-nav-green>
   </div>
 </template>
 
@@ -54,12 +54,12 @@ import Lib from 'assets/js/Lib';
 
 import { XButton, Confirm } from 'vux'
 
-import MainNav from 'components/mainNav'
+import MainNavGreen from 'components/mainNavGreen'
 
 export default {
   name: 'add',	
   components: {
-    MainNav,  XButton, Confirm
+    MainNavGreen,  XButton, Confirm
   },
   data () {
     return {
@@ -75,6 +75,9 @@ export default {
         biz_id:''
       }
     }
+  },
+  mounted(){
+    document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
   },
   methods: {
     setLoanAmount(amount){
@@ -112,19 +115,23 @@ export default {
       });
     },
     jump(){
-      var _this = this
+      var self = this
       console.log(this.$vux);
-      let a = 4
+      let a = 3
       if(a === 1){
         this.$vux.confirm.show({
           content: '亲,请先绑定银行卡再借款!',
+          onConfirm () {
+            self.$router.push('./bindBankCard')
+          }
         })
       }else if(a === 2){
         this.$vux.confirm.show({
-          content: '亲,您的基础信息尚未完善，请先完善资料!'
+          content: '亲,您的基础信息尚未完善，请先完善资料!',
+          onConfirm () {
+            window.location.href = 'infoFill.html' 
+          }
         })
-      }else if(a === 3){
-        this.$router.push('./bindBankCard')
       }else{
         this.face_getToken();
       }

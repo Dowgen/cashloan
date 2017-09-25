@@ -27,8 +27,11 @@
         <span>330326198905036730</span>
       </div>
     </div>
-    <p class="warn">身份证信息需提供本人真实信息</p>
     <x-button type="primary" class="btn1">确定</x-button>
+    <div class="agreement">
+      <img src="./assets/agreeProto.png">
+      点击确定即同意<span style="color:#1abc9c">《征信查询授权书》</span>
+    </div>
   </div>
 </template>
 
@@ -152,6 +155,20 @@ export default {
     margin-top: 2.22rem;
   }
   .btn1{
+    margin-top: 3.54rem;
+  }
+  .agreement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #919499;
+    font-size: 0.75rem;
     margin-top: 0.6rem;
+  }
+  .agreement>img{
+    width: 0.6rem;
+    height:  0.6rem;
+    margin-right: 0.5rem;
   }
 </style>

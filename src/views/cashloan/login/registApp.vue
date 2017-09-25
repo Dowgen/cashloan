@@ -4,19 +4,18 @@
     
     <div class="welcome">
       <h2>已发送验证短信到号码</h2>
-      <p>{{$route.query.phoneNum}}</p>
+      <p>{{phoneNum}}</p>
     </div>
     <div class="input input-regist">
       <img src="./assets/icon_key.png" class="img-icon" style="width:2.1334vw;padding-right:1.5vw">
       <input type="number" placeholder="短信验证码" v-model="verifyCode">
-      <div type="default" class="d-button" @click="confirmPhone" ref="d_btn">
-          <span v-if="!sendMessage">{{btn_words}}</span>
-          <span v-if="sendMessage">{{countdown}}s</span>
+      <div class="d-button">
+        <div v-show="start" >
+          <countdown v-model="time1" :start="start" @on-finish="finish1"></countdown><span style="padding-left:0.15rem">s</span>
+        </div>
+        <div v-show="!start" @click="start=true">{{countDownText}}</div>
       </div>
-    </div><!-- 
-    <countdown slot="value" v-model="time1" :start="start" v-show="show"
-       @on-start="begin" @on-finish="finish"></countdown>
-    <button @click="start=true">倒计时开始</button> -->
+    </div>
     <div class="input input-regist" style="margin-top:2.2rem;">
       <img src="./assets/code_key.png" class="img-icon">
       <input placeholder="请设置登录密码" v-model="password">
@@ -48,102 +47,26 @@ export default {
   },
   data () {
     return {
+      phoneNum:'',
       password:'',
-      /*show: true,
-      time1: 5,
-      value: '',
-      start: false*/
-      btn_words:'获取验证码', //验证框按钮的文字
       verifyCode: null,       //用户输入的 验证码
-      sendMessage: false,     //决定显示文字还是倒计时
-      countdown: 60,          //倒计时数
-      runCount: true,         //是否正在倒计时
+
+      /* countdown所需参数 */
+      time1: 60,
+      start: false,
+      countDownText:'获取验证码'
     }
   },
   mounted(){
-    console.info(this.$route.query.phoneNum)
+    this.phoneNum = this.$store.state.phoneNum;
+    this.token = this.$store.state.token;
   },
   methods: {
-    //手机验证模块
-    startCount: function() {
-      if (this.runCount) {
-        this.$refs.d_btn.setAttribute("disabled", true);
-        if (this.countdown == 0) {
-          this.resetBtn();
-        } else {
-          this.sendMessage = true;
-          this.countdown--;
-          setTimeout(this.startCount, 1000);
-        }
-      }
-    },
-    init: function() {
-      this.verifyCode = null;
-      this.resetBtn();
-    },
-    confirmPhone: function() {
-      if (!this.verifyCode) {
-        layer.msg('请输入验证码', {
-          time: 1500
-        });
-        return false;
-      }
-      var params = {
-        checkCode: this.verifyCode,
-      }
-      this.sended(params);
-    },
-    sended: function(params) {
-
-      var that = this;
-      that.$refs.ensure_btn.setAttribute("disabled", true);
-      $.ajax({
-        type: "Post",
-        url: "${pageContext.request.contextPath}/w/cashUser/checkMsg",
-        data: {
-          phoneNum: params.phoneNum,
-          checkCode: that.verifyCode
-        },
-        success: function(data) {
-
-          if (data.status == 0) {
-            layer.msg("验证码错误!", {
-              time: 1500
-            });
-            that.resetBtn();
-          }
-          if (data.status == 1) {
-            layer.msg("验证成功！", {
-              time: 1500
-            });
-            that.init();
-            that.user_info = JSON.parse(data.loanUser);
-            localStorage.user_info = data.loanUser; //保存用户所有信息
-            localStorage.login = true;
-            //顺便把sessionid放入localStorage
-            localStorage.sessionid = data.sessionid;
-          }
-          that.$refs.ensure_btn.removeAttribute("disabled");
-          that.$refs.ensure_btn.style.background = "#1abc9c";
-
-        },
-        error: function(data) {
-          layer.msg("验证码错误!", {
-            time: 1500
-          });
-          that.resetBtn();
-          that.$refs.ensure_btn.removeAttribute("disabled");
-          that.$refs.ensure_btn.style.background = "#1abc9c";
-        }
-      });
-    },
-    //按钮重置
-    resetBtn: function() {
-      this.sendMessage = false;
-      this.btn_words = '重新发送';
-      this.$refs.d_btn.removeAttribute("disabled");
-      this.runCount = false;
-      this.countdown = 60;
+    /* 倒计时结束时触发 */
+    finish1 (index) {
+      this.start = false
+      this.time1 = 5
+      this.countDownText = '重新发送'
     }
   }
 }
@@ -162,11 +85,13 @@ export default {
 }
 .d-button{
   position:absolute;
+  width: 5rem;
+  text-align: center;
   font-size:0.815rem;
   color:#1abc9c;
-  right:1rem;
-  top:0;
-  height:2rem;
-  line-height:2rem;
+  right: 0;
+  height:1.5rem;
+  line-height:1.5rem;
+  border-left: solid 1px #b5b5b5;
 }
 </style>

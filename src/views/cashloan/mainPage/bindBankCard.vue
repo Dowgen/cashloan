@@ -70,10 +70,10 @@ export default {
             console.log('plugin hide')
           },
           onCancel () {
-            that.$router.push('./')
+            that.$router.replace('./')
           },
           onConfirm () {
-            that.$router.push('./submitSuccess')
+            that.$router.replace('./confirmRent');
           }
         })
       }

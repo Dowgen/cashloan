@@ -4,14 +4,14 @@ import VueRouter from 'vue-router'
 import MainPage from './mainPageApp'
 import BindBankCard from './bindBankCard'
 import SubmitSuccess from './submitSuccess'
-import JudgingPassed from './judgingPassed'
+import ConfirmRent from './confirmRent'
 
 
 const routes = [
   { path: '/', component: MainPage },
   { path: '/bindBankCard', component: BindBankCard },
   { path: '/submitSuccess', component: SubmitSuccess },
-  { path: '/judgingPassed', component: JudgingPassed }
+  { path: '/confirmRent', component: ConfirmRent }
 ]
 
 Vue.use(VueRouter)
