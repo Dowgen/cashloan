@@ -1,13 +1,13 @@
 <template>
   <div class="nav">
     <a href="mainPage.html">
-      <img src="./img/rent1.png">
+      <img src="./img/rent.png">
     </a>
     <a href="infoFill.html">
-      <img src="./img/renzheng1.png">
+      <img src="./img/renzheng.png">
     </a>
     <a href="myInfo.html">
-      <img src="./img/me1.png">
+      <img src="./img/me.png">
     </a>
   </div>
 </template>

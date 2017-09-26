@@ -3,7 +3,9 @@
     <hb-head headfont="手机运营商"></hb-head>
     <div class="infoFill">
       <div class="inputer">
-        <input placeholder="请输入手机号"/>
+        <input placeholder="请输入手机号" v-model="phoneNum"/>
+        <img src="./assets/delete.png" class="img-del" 
+           v-show="phoneNum!=''" @click="phoneNum=''">
       </div>
       <div class="inputer">
         <input placeholder="请输入运营商服务密码"/>
@@ -17,15 +19,14 @@
     <x-button type="primary" class="btn2">确定</x-button>
     <div class="agreement">
       <img src="./assets/agreeProto.png">
-      已阅读及同意<span style="color:#1abc9c">《用户服务协议》</span>
+      已阅读及同意<span style="color:#1abc9c">《运营商授权协议》</span>
     </div>
     <div class="tip">
       <p style="margin-bottom:1.065rem">温馨提示:</p>
       <p>1.请授权本人实名认证的手机号。（使用满3个月）</p>
-      <p>3.根据运营商网络情况不同，授权服务需要1-3分钟时间才能完成，请耐心等待，如果您发现等待时间过长，可以选择非网络高峰期的时间重新授权</p>
-      <p>4.如账户名与密码不匹配，建议先到运营商官网查询能否登录，如登录
-失败，请联系运营商客服。</p>
-      <p>5.授权不成功可拨打客服电话<span>0571-28121621</span></p>
+      <p>2.根据运营商网络情况不同，授权服务需要1-3分钟时间才能完成，请耐心等待。</p>
+      <p>3.忘记服务密码，可以联系运营商客服或登录运营商官网进行查询或修改。</p>
+      <p>4.授权不成功可拨打客服电话<span>0571-28121621</span></p>
     </div>
   </div>
 </template>
@@ -46,7 +47,7 @@ export default {
   },
   data () {
     return {
-
+      phoneNum:''
     }
   },
   methods: {
@@ -60,6 +61,13 @@ export default {
     height: 12.1rem;
     background: white;
     margin-top: 1rem;
+  }
+  .img-del{
+    width: 0.75rem;
+    height: 0.75rem;
+    margin-left:0;
+    position: absolute;
+    right: 1rem;
   }
   .inputer{
     box-sizing: border-box;

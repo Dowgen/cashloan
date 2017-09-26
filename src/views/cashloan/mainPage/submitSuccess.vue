@@ -41,6 +41,9 @@ export default {
     return {
     }
   },
+  mounted(){
+    document.getElementsByTagName('body')[0].style.paddingBottom = 0;
+  },
   methods: {
 
   }

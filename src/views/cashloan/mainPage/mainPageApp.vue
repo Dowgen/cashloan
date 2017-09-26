@@ -44,7 +44,7 @@
       </div>
       <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
     </div>
-    <main-nav></main-nav>
+    <main-nav-green></main-nav-green>
   </div>
 </template>
 
@@ -54,12 +54,12 @@ import Lib from 'assets/js/Lib';
 
 import { XButton, Confirm } from 'vux'
 
-import MainNav from 'components/mainNav'
+import MainNavGreen from 'components/mainNavGreen'
 
 export default {
   name: 'add',	
   components: {
-    MainNav,  XButton, Confirm
+    MainNavGreen,  XButton, Confirm
   },
   data () {
     return {
@@ -69,12 +69,11 @@ export default {
       styleActive:{
         'border-color': '#1abc9c',
         'color': '#1abc9c'
-      },
-      faceReturn:{
-        token:'',
-        biz_id:''
       }
     }
+  },
+  mounted(){
+    document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
   },
   methods: {
     setLoanAmount(amount){
@@ -91,20 +90,23 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
-        data:{
-          return_url: 'www.baidu.com',
+        params:{
+          return_url: 'http://www.browsersync.cn/docs/command-line/',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:0,
           idcard_name:'徐文斌',
-          idcard_number: 331003199205170810
+          idcard_number: '331003199205170810'
         },
         success:function (data){
           self.$vux.loading.hide();
-          console.log('get:'+data);
-          self.faceReturn.token = data.data.token;
-          self.faceReturn.biz_id = data.data.biz_id;
+          console.log('getToken:'+data);
+          let faceReturn = {
+            token : data.data.token,
+            biz_id : data.data.biz_id
+          }
+          localStorage.faceReturn = JSON.stringify(faceReturn);
           /* 获取token后跳转第三方 */
-          /*window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ self.faceReturn.token;*/
+          window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
         },
         error:function(err){
           self.$vux.loading.hide();
@@ -112,19 +114,22 @@ export default {
       });
     },
     jump(){
-      var _this = this
-      console.log(this.$vux);
-      let a = 4
+      var self = this
+      let a = 3
       if(a === 1){
         this.$vux.confirm.show({
           content: '亲,请先绑定银行卡再借款!',
+          onConfirm () {
+            self.$router.push('./bindBankCard')
+          }
         })
       }else if(a === 2){
         this.$vux.confirm.show({
-          content: '亲,您的基础信息尚未完善，请先完善资料!'
+          content: '亲,您的基础信息尚未完善，请先完善资料!',
+          onConfirm () {
+            window.location.href = 'infoFill.html' 
+          }
         })
-      }else if(a === 3){
-        this.$router.push('./bindBankCard')
       }else{
         this.face_getToken();
       }
@@ -197,11 +202,15 @@ export default {
     height: 0.53rem;
   }
   .table{
+    box-sizing: border-box;
+    width: 21.43rem;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     margin-top: 2.065rem;
+    padding: 0 1rem;
   }
   .table>span{
-    flex:1;
     text-align: center;
   }
   .thead{

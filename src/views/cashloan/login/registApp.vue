@@ -3,29 +3,27 @@
   	<hb-head headfont="手机验证"></hb-head>
     
     <div class="welcome">
-      <h2>已发送验证短信到号码</h2>
-      <p>{{$route.query.phoneNum}}</p>
+      <h2>已发送验证短信到号码</h2
+      <p>{{phoneNum}}</p>
     </div>
     <div class="input input-regist">
-      <img src="./assets/icon_key.png" class="img-icon" style="width:2.1334vw;padding-right:1.5vw">
-      <input type="number" placeholder="短信验证码" v-model="verifyCode">
-      <div type="default" class="d-button" @click="confirmPhone" ref="d_btn">
-          <span v-if="!sendMessage">{{btn_words}}</span>
-          <span v-if="sendMessage">{{countdown}}s</span>
+      <img src="./assets/icon_key.png" class="img-icon" style="width:0.5rem;padding:0 0.125rem">
+      <input type="number" placeholder="短信验证码" v-model="verifyCode"
+             oninput="if(value.length>4)value=value.slice(0,4)">
+      <div class="d-button">
+        <div v-show="start" >
+          <countdown v-model="time1" :start="start" @on-finish="finish1"></countdown><span style="padding-left:0.15rem">s</span>
+        </div>
+        <div v-show="!start" @click="begin1">{{countDownText}}</div>
       </div>
-    </div><!-- 
-    <countdown slot="value" v-model="time1" :start="start" v-show="show"
-       @on-start="begin" @on-finish="finish"></countdown>
-    <button @click="start=true">倒计时开始</button> -->
+    </div>
     <div class="input input-regist" style="margin-top:2.2rem;">
       <img src="./assets/code_key.png" class="img-icon">
       <input placeholder="请设置登录密码" v-model="password">
       <img src="./assets/delete.png" class="img-del" 
            v-show="password!=''" @click="password=''">
     </div>
-		<router-link to='/'>
-  		<x-button type="primary" style="margin-top:5.19rem">登录</x-button>
-  	</router-link>
+  	<x-button type="primary" style="margin-top:5.19rem" @click.native="checkVerify">登录</x-button>
 		<div class="agreeProto">
       开始使用即同意<span style="color:#1abc9c">《用户服务协议》</span>
     </div>
@@ -48,103 +46,88 @@ export default {
   },
   data () {
     return {
+      phoneNum:'',
+      token: '',
       password:'',
-      /*show: true,
-      time1: 5,
-      value: '',
-      start: false*/
-      btn_words:'获取验证码', //验证框按钮的文字
       verifyCode: null,       //用户输入的 验证码
-      sendMessage: false,     //决定显示文字还是倒计时
-      countdown: 60,          //倒计时数
-      runCount: true,         //是否正在倒计时
+
+      /* countdown所需参数 */
+      time1: 5,
+      start: false,
+      countDownText:'获取验证码'
     }
   },
   mounted(){
-    console.info(this.$route.query.phoneNum)
+    this.phoneNum = this.$store.state.phoneNum;
+    this.token = this.$store.state.token;
   },
   methods: {
-    //手机验证模块
-    startCount: function() {
-      if (this.runCount) {
-        this.$refs.d_btn.setAttribute("disabled", true);
-        if (this.countdown == 0) {
-          this.resetBtn();
-        } else {
-          this.sendMessage = true;
-          this.countdown--;
-          setTimeout(this.startCount, 1000);
-        }
-      }
+    /* 开始倒计时 */
+    begin1(){
+      this.start = true;
+      this.sendVerify();
     },
-    init: function() {
-      this.verifyCode = null;
-      this.resetBtn();
+    /* 倒计时结束时触发 */
+    finish1 (index) {
+      this.start = false
+      this.time1 = 5
+      this.countDownText = '重新发送'
     },
-    confirmPhone: function() {
-      if (!this.verifyCode) {
-        layer.msg('请输入验证码', {
-          time: 1500
-        });
-        return false;
-      }
-      var params = {
-        checkCode: this.verifyCode,
-      }
-      this.sended(params);
+    regist(){
+      
     },
-    sended: function(params) {
-
-      var that = this;
-      that.$refs.ensure_btn.setAttribute("disabled", true);
-      $.ajax({
-        type: "Post",
-        url: "${pageContext.request.contextPath}/w/cashUser/checkMsg",
-        data: {
-          phoneNum: params.phoneNum,
-          checkCode: that.verifyCode
+    /* 发送验证码 */
+    sendVerify(){
+      var self = this;
+      Lib.M.ajax({
+        type:'get',
+        url : 'cash-account/msg/sendVerify/'+ self.phoneNum,
+        headers: {
+          Authorization:'Bearer '+ self.token
         },
-        success: function(data) {
-
-          if (data.status == 0) {
-            layer.msg("验证码错误!", {
-              time: 1500
-            });
-            that.resetBtn();
+        success:function(data){
+          if(data=='success'){
+            self.$vux.toast.text('发送成功！', 'middle')
           }
-          if (data.status == 1) {
-            layer.msg("验证成功！", {
-              time: 1500
-            });
-            that.init();
-            that.user_info = JSON.parse(data.loanUser);
-            localStorage.user_info = data.loanUser; //保存用户所有信息
-            localStorage.login = true;
-            //顺便把sessionid放入localStorage
-            localStorage.sessionid = data.sessionid;
-          }
-          that.$refs.ensure_btn.removeAttribute("disabled");
-          that.$refs.ensure_btn.style.background = "#1abc9c";
-
         },
-        error: function(data) {
-          layer.msg("验证码错误!", {
-            time: 1500
-          });
-          that.resetBtn();
-          that.$refs.ensure_btn.removeAttribute("disabled");
-          that.$refs.ensure_btn.style.background = "#1abc9c";
+        error:function(err){
+          if(err.error = 'invalid_token'){
+            self.$vux.toast.text('token过期，请重新输入！', 'middle')
+            self.$router.replace('./')
+          }else{
+            self.$vux.toast.text('发送验证码失败，请重试！', 'middle')
+          }
+          console.error(err);
         }
       });
     },
-    //按钮重置
-    resetBtn: function() {
-      this.sendMessage = false;
-      this.btn_words = '重新发送';
-      this.$refs.d_btn.removeAttribute("disabled");
-      this.runCount = false;
-      this.countdown = 60;
-    }
+    /* 验证验证码 */
+    checkVerify(){
+      var self = this;
+      Lib.M.ajax({
+        type:'get',
+        url : 'cash-account/msg/checkVerify/'+ self.phoneNum+'/'+ self.verifyCode,
+        headers: {
+          Authorization:'Bearer '+ self.token
+        },
+        success:function(data){
+          if(data=='success'){
+            self.$vux.toast.text('验证成功！', 'middle')
+          }else{
+            self.$vux.toast.text('验证失败，请重试！', 'middle')
+          }
+        },
+        error:function(err){
+          if(err.error = 'invalid_token'){
+            self.$vux.toast.text('token过期，请重新输入！', 'middle')
+            self.$router.replace('./')
+          }else{
+            self.$vux.toast.text('验证失败，请重试！', 'middle')
+          }
+          console.error(err);
+        }
+      });
+    },
   }
 }
 </script>
@@ -162,11 +145,13 @@ export default {
 }
 .d-button{
   position:absolute;
+  width: 5rem;
+  text-align: center;
   font-size:0.815rem;
   color:#1abc9c;
-  right:1rem;
-  top:0;
-  height:2rem;
-  line-height:2rem;
+  right: 0;
+  height:1.5rem;
+  line-height:1.5rem;
+  border-left: solid 1px #b5b5b5;
 }
 </style>

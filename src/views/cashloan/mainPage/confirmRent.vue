@@ -1,8 +1,10 @@
 <template>
-  <div style="background:#f2f2f2;height:100vh;">
-    <div class="congradulation">
-      <p>恭喜您! <span>通过</span> 申请评估</p>
-      <p>(请再次确认您要借款的金额与期限)</p>
+  <div>
+    <div class="header">
+      <img src="./assets/back.png" @click="$router.go(-1)">
+    </div>
+    <div class="confirm">
+      <p>亲，请再次确认您要借款的金额与期限</p>
     </div>
     <div class="content">
       <div class="loan-info">
@@ -42,13 +44,9 @@
         </div>
       </div>
     </div>
-    <router-link to='/verify'>
+    <router-link to='/submitSuccess'>
       <x-button type="primary" class="btnEnsur">确认借款</x-button>
     </router-link>
-
-    <div class="tip">
-      未绑定银行卡，先去绑定哦>>
-    </div> 
   </div>
 </template>
 
@@ -73,43 +71,69 @@ export default {
       }
     }
   },
+  mounted(){
+    document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
+    this.face_getResult();
+  },
   methods: {
     setLoanAmount(amount){
       this.loanAmount = amount;
     },
     setTerm(term){
       this.term = term;
+    },
+    face_getResult(){
+      var self = this;
+
+      Lib.M.ajax({
+        url : '/risk-manage/faceid/getResult',
+        params:{
+          user_id:'',
+          biz_id: JSON.parse(localStorage.faceReturn).biz_id
+        },
+        success:function (data){
+          self.$vux.alert.show({
+            title: 'face++ getResult',
+            content: data.error
+          })
+          console.log('getResult:'+data)
+        },
+        error:function(err){
+        }
+      });
     }
   }
 }
 </script>
 
 <style scoped>
-  .congradulation{
-    height: 21.06vh;
-    font-size: 4vw;
+  .header{
+    width: 100%;
+    height: 3.03rem;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  .header>img{
+    width: 0.655rem;
+    height: 1.065rem;
+    margin-left: 1.19rem;
+  }
+  .confirm{
+    height: 0.875rem;
+    font-size: 0.875rem;
     text-align: center;
-    padding-top: 9vh;
-    box-sizing: border-box;
-  }
-  .congradulation>p>span{
-    color: #fa8383;
-    font-size: 4.5vw;
-  }
-  .congradulation>p:last-child{
-    font-size: 3.2vw;
-    margin-top: 22px;
   }
   .content{
     box-sizing: border-box;
     margin:0 auto;
-    padding:5vw;
-    height: 51.2vh;
+    padding:1.3rem;
+    height: 21.34rem;
     background: white;
     overflow: hidden;
-    margin-top: 2.7vh;
-    border-radius: 10px;
-    width: 90%;
+    margin-top: 3.03rem;
+    border-radius: 5px;
+    width: 21.065rem;
   }
   .choose{
     box-sizing: border-box;
@@ -149,47 +173,41 @@ export default {
   }
   .loan-info{
     box-sizing: border-box;
-    padding: 0px 7px;
+    padding: 0px 0.28rem;
     width: auto;
     margin:0 auto;
-    height: 6.41vh;
+    height: 3rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: solid 1px #e6e6e6;
-    margin-top: 2.7vh;
+    margin-top: 1.5rem;
   }
   .loan-info>span{
     color: #4d4d4d;
-    font-size: 4vw;
+    font-size: 0.875rem;
   }
   .loan-info>div{
     display: flex;
-    font-size: 3.7334vw;
+    font-size: 0.875rem;
   }
   .repay-info{
     display: flex;
     justify-content: space-between;
-    margin-top: 3.8vh;
+    margin-top: 1rem;
   }
   .repay-info>div{
     display: flex;
     flex-direction: column;
-    font-size: 3.7334vw;
+    font-size: 0.875rem;
     color: #737373;
   }
   .repay-info>div:last-child{
-    font-size: 3.4667vw;
+    font-size: 0.815rem;
     color: #b5b5b5;
     text-align: right;
   }
   .repay-info>div>p{
-    margin-top: 2.6vh;
-  }
-  .tip{
-    position: absolute;
-    bottom: 2vh;
-    width: 100%;
-    text-align: center;
+    margin-top: 1.125rem;
   }
 </style>
