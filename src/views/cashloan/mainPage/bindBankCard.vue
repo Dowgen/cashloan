@@ -9,7 +9,7 @@
       <div class="inputer">
         <input placeholder="银行卡号" type="number" v-model="bankCard"/>
         <img src="./assets/delete.png" class="img-del" 
-           v-show="bankCard!=null" @click="bankCard=null">
+           v-show="bankCard!=''" @click="bankCard=''">
       </div>
       <div class="inputer">
         <input placeholder="发卡行"/>
@@ -17,13 +17,15 @@
       <div class="inputer">
         <input placeholder="银行预留手机号" type="number" maxlength="11" v-model="phoneNum"/>
         <img src="./assets/delete.png" class="img-del" 
-           v-show="phoneNum!=null" @click="phoneNum=null">
+           v-show="phoneNum!=''" @click="phoneNum=''">
       </div>
       <div class="inputer">
         <input type="number" placeholder="验证码" v-model="verifyCode">
-        <div type="default" class="d-button" ref="d_btn">
-          <span v-if="!sendMessage">{{btn_words}}</span>
-          <span v-if="sendMessage">{{countdown}}s</span>
+        <div class="d-button">
+          <div v-show="start" >
+            <countdown v-model="time1" :start="start" @on-finish="finish1"></countdown><span style="padding-left:0.15rem">s</span>
+          </div>
+          <div v-show="!start" @click="start=true">{{countDownText}}</div>
         </div>
       </div>
     </div>
@@ -35,7 +37,7 @@
 
 import Lib from 'assets/js/Lib';
 
-import { PopupPicker, XButton } from 'vux'
+import { PopupPicker, XButton, Countdown } from 'vux'
 
 
 import HbHead from 'components/HbHead';
@@ -43,20 +45,27 @@ import HbHead from 'components/HbHead';
 export default {
   name: 'add',	
   components: {
-    HbHead,  PopupPicker, XButton
+    HbHead, PopupPicker, XButton, Countdown
   },
   data () {
     return {
-      bankCard:null,
-      phoneNum:null,
-      btn_words:'获取验证码', //验证框按钮的文字
+      bankCard:'',
+      phoneNum:'',
       verifyCode: null,       //用户输入的 验证码
-      sendMessage: false,     //决定显示文字还是倒计时
-      countdown: 60,          //倒计时数
-      runCount: true         //是否正在倒计时
+
+      /* countdown所需参数 */
+      time1: 5,
+      start: false,
+      countDownText:'发送验证码'
     }
   },
   methods: {
+    /* 倒计时结束时触发 */
+    finish1 (index) {
+      this.start = false
+      this.time1 = 5
+      this.countDownText = '重新发送'
+    },
     bindCard(){
       var that = this;
       let a = 1
@@ -137,7 +146,14 @@ export default {
     right: 1rem;
   }
   .d-button{
-    margin-right: .1rem;
+    position:absolute;
+    width: 5rem;
+    text-align: center;
+    font-size:0.815rem;
+    color:#1abc9c;
+    right: 0;
+    height:1.5rem;
+    line-height:1.5rem;
   }
   .btn3{
     margin-top: 0.815rem;

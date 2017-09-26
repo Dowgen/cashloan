@@ -69,10 +69,6 @@ export default {
       styleActive:{
         'border-color': '#1abc9c',
         'color': '#1abc9c'
-      },
-      faceReturn:{
-        token:'',
-        biz_id:''
       }
     }
   },
@@ -94,20 +90,23 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
-        data:{
-          return_url: 'www.baidu.com',
+        params:{
+          return_url: 'http://www.browsersync.cn/docs/command-line/',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:0,
           idcard_name:'徐文斌',
-          idcard_number: 331003199205170810
+          idcard_number: '331003199205170810'
         },
         success:function (data){
           self.$vux.loading.hide();
-          console.log('get:'+data);
-          self.faceReturn.token = data.data.token;
-          self.faceReturn.biz_id = data.data.biz_id;
+          console.log('getToken:'+data);
+          let faceReturn = {
+            token : data.data.token,
+            biz_id : data.data.biz_id
+          }
+          localStorage.faceReturn = JSON.stringify(faceReturn);
           /* 获取token后跳转第三方 */
-          /*window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ self.faceReturn.token;*/
+          window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
         },
         error:function(err){
           self.$vux.loading.hide();
@@ -116,7 +115,6 @@ export default {
     },
     jump(){
       var self = this
-      console.log(this.$vux);
       let a = 3
       if(a === 1){
         this.$vux.confirm.show({
@@ -204,11 +202,15 @@ export default {
     height: 0.53rem;
   }
   .table{
+    box-sizing: border-box;
+    width: 21.43rem;
+    margin: 0 auto;
     display: flex;
+    justify-content: space-between;
     margin-top: 2.065rem;
+    padding: 0 1rem;
   }
   .table>span{
-    flex:1;
     text-align: center;
   }
   .thead{

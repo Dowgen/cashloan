@@ -73,6 +73,7 @@ export default {
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
+    this.face_getResult();
   },
   methods: {
     setLoanAmount(amount){
@@ -80,6 +81,26 @@ export default {
     },
     setTerm(term){
       this.term = term;
+    },
+    face_getResult(){
+      var self = this;
+
+      Lib.M.ajax({
+        url : '/risk-manage/faceid/getResult',
+        params:{
+          user_id:'',
+          biz_id: JSON.parse(localStorage.faceReturn).biz_id
+        },
+        success:function (data){
+          self.$vux.alert.show({
+            title: 'face++ getResult',
+            content: data.error
+          })
+          console.log('getResult:'+data)
+        },
+        error:function(err){
+        }
+      });
     }
   }
 }
