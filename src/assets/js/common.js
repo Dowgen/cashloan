@@ -62,9 +62,9 @@ var Rxports = {
 			url: opts.url,
             data: opts.data || {},
 			params: opts.params || {},
-			headers: opts.headers || {
+			headers: opts.headers || {/*
                 Accept:'application/json',
-			  	'Content-Type':'application/x-www-form-urlencoded'
+			  	'Content-Type':'application/x-www-form-urlencoded'*/
 			},
 			// `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
   			// 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
