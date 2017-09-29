@@ -8,25 +8,6 @@ var oproto = Object.prototype;
 var serialize = oproto.toString;
 var Rxports = {
 	/* wb add start */
-    /* 获取验证码 */
-    sendVcode:function (phoneNum){
-        axios.get('http://120.27.198.97:8081/flower/w/cashUser/sendMsg?phoneNum='+ phoneNum)
-          .then( data => {
-            console.warn(data);
-            if(data.data == 'error') {
-              layer.msg("验证码发送失败!");
-              that.resetBtn();
-            }
-            if(data.data == 'success') {
-              layer.msg("验证码发送成功");
-            }
-          })
-          .catch( err => {
-            layer.msg("验证码发送失败!");
-            that.resetBtn();
-        });
-    },
-    
     /**    列表    **/
     eduList: pickerList.eduList,
     mariList: pickerList.mariList,
@@ -69,10 +50,10 @@ var Rxports = {
 			// `baseURL` 将自动加在 `url` 前面，除非 `url` 是一个绝对 URL。
   			// 它可以通过设置一个 `baseURL` 便于为 axios 实例的方法传递相对 URL
 			baseURL:'https://finbridge.cn',
-			/*timeout: opts.time || 10*1000,
-			responseType: opts.dataType || 'json'*/
+			/*timeout: opts.time || 10*1000,*/
+			responseType: opts.dataType || 'json'
 		}).then(function(res){
-			console.log('成功');
+            
 			if(res.status == 200 ){
 				
 				if(opts.success){
@@ -83,6 +64,9 @@ var Rxports = {
 				
 				if (data.error) {
 					opts.error(error);
+                    if(error.error == 'invalid_token'){
+                        window.location.href = 'login.html';
+                    }
 				}else{
 					alert('好多人在访问呀，请重新试试[timeout]');
 				}
@@ -94,6 +78,9 @@ var Rxports = {
 
 			if (opts.error) {
 				opts.error(error);
+                if(error.error == 'invalid_token'){
+                    window.location.href = 'login.html';
+                }
 			}else{
 				alert('好多人在访问呀，请重新试试[timeout]');
 			}

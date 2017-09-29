@@ -38,9 +38,9 @@
         <span>借款费用(元)</span>
       </div>
       <div class="table tbody">
-        <span>489.50</span>
-        <span>2017/09/06</span>
-        <span>10.50</span>
+        <span>{{userGetMoney}}</span>
+        <span>{{repayDate}}</span>
+        <span>{{interest}}</span>
       </div>
       <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
     </div>
@@ -69,11 +69,24 @@ export default {
       styleActive:{
         'border-color': '#1abc9c',
         'color': '#1abc9c'
-      }
+      },
+      userInfo:{}
+    }
+  },
+  computed:{
+    userGetMoney(){
+       return this.loanAmount - this.loanAmount*this.term*0.01
+    },
+    interest(){
+       return this.loanAmount*this.term*0.01
+    },
+    repayDate(){
+      return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
     }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
+    this.userInfo = JSON.parse(localStorage.userInfo);
   },
   methods: {
     setLoanAmount(amount){
@@ -93,9 +106,9 @@ export default {
         params:{
           return_url: 'http://www.browsersync.cn/docs/command-line/',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
-          idcard_mode:0,
+          idcard_mode:2/*,
           idcard_name:'徐文斌',
-          idcard_number: '331003199205170810'
+          idcard_number: '331003199205170810'*/
         },
         success:function (data){
           self.$vux.loading.hide();
@@ -115,14 +128,9 @@ export default {
     },
     jump(){
       var self = this
-      let a = 3
+      let a = 1
       if(a === 1){
-        this.$vux.confirm.show({
-          content: '亲,请先绑定银行卡再借款!',
-          onConfirm () {
-            self.$router.push('./bindBankCard')
-          }
-        })
+        this.bankCardCheck();
       }else if(a === 2){
         this.$vux.confirm.show({
           content: '亲,您的基础信息尚未完善，请先完善资料!',
@@ -133,6 +141,29 @@ export default {
       }else{
         this.face_getToken();
       }
+    },
+    /* 查询银行卡是否绑定 */
+    bankCardCheck(){
+      var self = this;
+      Lib.M.ajax({
+        url : '/pay/repayment/bankCardCheck',
+        data:{
+          user_id: self.userInfo.userInfo.userId
+        },
+        success:function (res){
+          if(res.code == '0000'){
+            self.$vux.confirm.show({
+              content: '亲,请先绑定银行卡再借款!',
+              onConfirm () {
+                self.$router.push('./bindBankCard')
+              }
+            })
+          }
+        },
+        error:function(err){
+          console.log(err)
+        }
+      });
     }
   }
 }
@@ -206,13 +237,14 @@ export default {
     width: 21.43rem;
     margin: 0 auto;
     display: flex;
-    justify-content: space-between;
     margin-top: 2.065rem;
     padding: 0 1rem;
   }
   .table>span{
     text-align: center;
+    flex: 1;
   }
+  
   .thead{
     font-size: 0.88rem;
     color: #808080
