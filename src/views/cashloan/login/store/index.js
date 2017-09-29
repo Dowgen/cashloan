@@ -7,7 +7,8 @@ const store = new Vuex.Store({
 
   state: {
     phoneNum:'',
-    token: '' 
+    token: '',
+    registType:'regist' //默认regist
   },
   mutations: {
     changePhoneNum (state, num) {
@@ -17,6 +18,10 @@ const store = new Vuex.Store({
     changeToken (state, token) {
       state.token = token
       console.warn('token:'+ state.token)
+    },
+    changeRegistType (state, registType) {
+      state.registType = registType
+      console.warn('registType:'+ state.registType)
     }
   }
 })
