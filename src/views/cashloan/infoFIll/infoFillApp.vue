@@ -13,12 +13,12 @@
             <img src="./assets/arrow-right.png" v-show="realName!='已完成'" @click="face_getToken">
           </div>
         </div>
-        <div class="step" @click="doInfo">
+        <div class="step">
           <img :src="information=='已完成'?logoColorful[1]:logoColorless[1]">
           <div>
             <span>完善信息</span>
             <i :style="information=='已完成'?fontBlack:''">{{information}}</i>
-            <img src="./assets/arrow-right.png" v-show="information!='已完成'" >
+            <img src="./assets/arrow-right.png" v-show="information!='已完成'"  @click="doInfo">
           </div>
         </div>
 
@@ -27,7 +27,7 @@
           <div>
             <span>芝麻信用</span>
             <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
-            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'" @click="doZhima">
+            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'" @click="zhimaAuth">
           </div>
         </div>
         <div class="step">
@@ -80,6 +80,7 @@ export default {
   mounted(){
      this.userInfo = JSON.parse(localStorage.userInfo);
      this.getauthStatus();
+     this.isZhimaAuthed();
   },
   methods: {
     /* 获取用户认证信息 */
@@ -140,7 +141,55 @@ export default {
         }
       });
     },
-    face_getResult(){
+    /* 跳转至芝麻认证 */
+    zhimaAuth(){
+      var self = this;
+      window.location.href=
+          'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
+          '&certNo=' + this.userInfo.idInfo.idCardNumber +
+          '&phoneNum='+ this.userInfo.userInfo.phone
+    },
+    /* 判断是否芝麻认证，如果认证了的话就把芝麻返回的参数传给后端 */
+    isZhimaAuthed(){
+      var self = this;
+      console.log(Lib.M.GetQueryString('params')== null)
+      if( Lib.M.GetQueryString('params') == null){
+        /* 还未芝麻认证，啥也不干 */
+      }else{
+        /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
+        Lib.M.ajax({
+          type: 'get',
+          url : '/risk-manage/zhima/zhimaCredit',
+          /* 返回的数据需原封不动，因此用 encodeURIComponent 再编码 */
+          params:{
+            name:this.userInfo.idInfo.name,
+            certNo:this.userInfo.idInfo.idCardNumber,
+            phoneNum:this.userInfo.userInfo.phone,
+            params: encodeURIComponent( Lib.M.GetQueryString('params') ),
+            sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
+            userid: self.userInfo.userInfo.userId
+          },
+          success:function (data){
+            console.log('authedSUCCESS:'+data);
+            if(res.data.code == '1'){
+                
+            }else{
+              self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
+            }
+          },
+          error:function(err){
+            self.$vux.alert.show({title: '温馨提示',content: error})
+          }
+        });
+      }
+    },
+    doInfo(){
+      this.$router.push('./vPersonalInfo')
+    },
+    doOperator(){
+      this.$router.push('./vPhoneOperator')
+    }
+/*    face_getResult(){
       var self = this;
 
       Lib.M.ajax({
@@ -155,16 +204,7 @@ export default {
         error:function(err){
         }
       });
-    },
-    doInfo(){
-      this.$router.push('./vPersonalInfo')
-    },
-    doZhima(){
-      
-    },
-    doOperator(){
-      this.$router.push('./vPhoneOperator')
-    }
+    },*/
   }
 }
 </script>

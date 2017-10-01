@@ -9,16 +9,13 @@
         </div>
       </div>
       <div class="inputer">
-        <input placeholder="紧急联系人"/>
-      </div>
-      <div class="inputer">
         <input placeholder="省份，城市" v-model="cityVal" readonly="readonly"/>
         <div class="sel">
           <popup-picker :data="cityList" :columns="3" v-model="cityVal" ref="cityPicker" ></popup-picker>
         </div>
       </div>
       <div class="inputer inputer-street">
-        <input type="text" />
+        <input type="text" v-model="specLoc"/>
         <p>请填写具体街道门牌号</p>
       </div>
       <div class="inputer">
@@ -32,25 +29,23 @@
       <div>
         <p class="title">紧急联系人1({{emrContact1}})</p>
         <div class="inputer">
-          <input type="text" placeholder="TA的姓名">
+          <input type="text" placeholder="TA的姓名" v-model="contName1">
         </div>
         <div class="inputer">
-          <input type="number" placeholder="TA的手机号码">
+          <input type="number" placeholder="TA的手机号码" v-model="contPhone1">
         </div>
       </div>
       <div>
         <p class="title">紧急联系人2({{emrContact2}})</p>
         <div class="inputer">
-          <input type="text" placeholder="TA的姓名">
+          <input type="text" placeholder="TA的姓名" v-model="contName2">
         </div>
         <div class="inputer">
-          <input type="number" placeholder="TA的手机号码">
+          <input type="number" placeholder="TA的手机号码" v-model="contPhone2">
         </div>
       </div>
     </div>
-    <router-link to='/judging'>
-      <x-button type="primary" class="btn3">提交</x-button>
-    </router-link> 
+    <x-button type="primary" class="btn3" @click.native="submit">提交</x-button>
   </div>
 </template>
 
@@ -76,8 +71,13 @@ export default {
       mariList:Lib.M.mariList,
       cityVal: [],
       cityList: Lib.M.cityList,
+      specLoc: '',
       emrContact1:'',
-      emrContact2:''
+      emrContact2:'',
+      contName1:'',
+      contPhone1:'',
+      contName2:'',
+      contPhone2:''
     }
   },
   watch:{
@@ -92,14 +92,65 @@ export default {
     }
   },
   methods: {
+    submit(){
+      if(this.workType[0]=='' || this.mariVal[0]=='' 
+         || this.cityVal[0]=='' || this.specLoc ==''
+         || this.contName1 =='' || this.contPhone1 =='' 
+         || this.contName2 =='' || this.contPhone2 =='' ){
+        this.$vux.toast.text('信息请填写完整', 'middle')
+      }else {
+        if(Lib.M.isPhoneWrong(this.contPhone1) || Lib.M.isPhoneWrong(this.contPhone2)){
+          this.$vux.toast.text('请检查手机号格式', 'middle')
+        }else{
+          this.send();
+        }
+      }
+    },
+    send(){
+      var self = this;
+      let workVal,mariVal;
 
+      /* 给传给后台的值做转化 */
+      if(self.mariVal[0] == '未婚'){
+        mariVal = 1;
+      }else{
+        mariVal = 2;
+      }
+      if(self.workType[0] == '学生'){
+        workVal = 1;
+      }else if(self.workType[0] == '上班族'){
+        workVal = 2;
+      }else if(self.workType[0] == '自由职业'){
+        workVal = 3;
+      }
+      Lib.M.ajax({
+        url : '/cash-account/user/account/userInfo/edit/'+ 
+               JSON.parse(localStorage.userInfo).userInfo.phone,
+        data:{
+          "jobType": workVal,
+          "marriage": mariVal,
+          "location": self.cityVal.join(' ') + self.specLoc,
+          "emergencyContactName1": self.contName1,
+          "emergencyContactPhone1": self.contPhone1,
+          "emergencyContactName2": self.contName2,
+          "emergencyContactPhone2": self.contPhone2
+        },
+        success:function (data){
+          self.$vux.toast.text('提交成功！', 'middle')
+          setTimeout("window.location.href = 'infoFill.html'",1000);
+        },
+        error:function(err){
+          console.log('send:'+err);
+        }
+      });
+    }
   }
 }
 </script>
 
 <style scoped>
   .infoFill{
-    height: 15rem;
+    height: 12.25rem;
     background: white;
     margin-top: 1rem;
   }

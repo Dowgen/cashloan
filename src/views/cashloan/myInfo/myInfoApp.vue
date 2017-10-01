@@ -7,10 +7,10 @@
 
         <div class="mainInfo">
             <div class="aboutMyInfo">
-                <div style="height: 3.15rem">
+                <div style="height: 3.15rem" v-cloak>
                     <dl>
                         <dt class="fl" @click="jumpToFillInfo">
-                            <img style="width: 3.25rem;height: 3.25rem;display: block;border-radius: 50%;" :src="img_id" alt="头像">
+                            <img style="width: 3.25rem;height: 3.25rem;display: block;border-radius: 50%;" :src="img_id">
                         </dt>
                         <dd class="fl">
                             <p style="font-size: 1rem">您好，{{userInfo.userName}}</p>
@@ -147,7 +147,7 @@
                     },
                     success:function (res) {
                         /*console.log(res);*/
-                        self.userInfo = res.data.userIfno;
+                        self.userInfo = res.data.userInfo;
                     },
                     error:function(err){
                         console.log(err);
