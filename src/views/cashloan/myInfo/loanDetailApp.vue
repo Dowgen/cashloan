@@ -5,19 +5,19 @@
               <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back_white.png" alt=""></span>
               <p>借单详情</p>
           </div>
-          <div v-show="repayStatus==1 || repayStatus==2">
+          <div v-show="loanStatus==1 || loanStatus==2 || loanStatus==3">
               <p>借款周期</p>
-              <p style="font-size: 2.515rem">14<span style="font-size: 1.125rem">天</span></p>
+              <p style="font-size: 2.515rem">{{loanDetail.loanPeriod}}<span style="font-size: 1.125rem">天</span></p>
               <p>下款后请及时确认还款时间避免逾期风险</p>
           </div>
-          <div v-show="repayStatus==3">
+          <div v-show="loanStatus==4">
               <p>距离还款日</p>
-              <p style="font-size: 2.515rem">12<span style="font-size: 1.125rem">天</span></p>
+              <p style="font-size: 2.515rem">{{toPayDay}}<span style="font-size: 1.125rem">天</span></p>
               <p>请确保及时还款以保持您的良好信用记录</p>
           </div>
-          <div v-show="repayStatus==4">
+          <div v-show="loanStatus==4 && loanDetail.isOverdue == 1">
               <p>逾期天数</p>
-              <p style="font-size: 2.515rem">3<span style="font-size: 1.125rem">天</span></p>
+              <p style="font-size: 2.515rem">{{overDueDay}}<span style="font-size: 1.125rem">天</span></p>
               <p>请确保及时还款以保持您的良好信用记录</p>
           </div>
       </div>
@@ -25,35 +25,36 @@
           <ul v-show="sShow">
               <li>
                   <span>借款日</span>
-                  <span>2017/08/23</span>
+                  <span>{{loanDate.split(' ')[0].replace(/-/g, "/")}}</span>
               </li>
               <li>
                   <span>还款日</span>
-                  <span style="color: rgba(255,142,103,1)">2017/09/06 <span class="question" v-show="repayStatus==1 || repayStatus==2" @click="isShowOf()"></span></span>
+                  <span style="color: rgba(255,142,103,1)">{{repayDate.split(' ')[0].replace(/-/g, "/")}} <span class="question" v-show="loanStatus==1 || loanStatus==2 ||loanStatus==3" @click="isShowOf()"></span></span>
               </li>
               <li>
-                  <span>借款金额</span>
-                  <span style="margin-left: 5.75rem;">1000元</span>
+                  <span>到账金额</span>
+                  <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount}}元</span>
               </li>
               <li>
                   <span>借款费用</span>
-                  <span style="margin-left: 5.75rem;">31.50元</span>
+                  <span style="margin-left: 5.75rem;">{{loanDetail.feeAmount}}元</span>
               </li>
               <li>
                   <span>应还金额</span>
-                  <span style="margin-left: 5.75rem;">1031.50元</span>
+                  <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount+loanDetail.penaltInterest}}元</span>
               </li>
           </ul>
-          <div class="instruction" v-show="repayStatus == 1">借款失败</div>
-          <div class="instruction" v-show="repayStatus == 2">下款成功</div>
-          <div class="instruction" v-show="repayStatus !== 1 && repayStatus !== 2">立即还款</div>
+          <div class="instruction" v-show="loanStatus == 1">正在审核中...</div>
+          <div class="instruction" v-show="loanStatus == 2">借款失败</div>
+          <div class="instruction" v-show="loanStatus == 3">下款成功</div>
+          <div class="instruction" v-show="loanStatus == 4">立即还款</div>
       </div>
     
       <div class="aboutPayTime" v-show="isShow">
           <div>
               <p>关于还款日期</p>
-              <p>还款日期是取决于下款时间的，如下款时间在借款日之后，那么即从下款时间开始计算还款时间。</p>
-              <p>如：您是<span>2017年8月23日</span>提交借款申请，借款周期是14天，但是我们给您下款时间在<span>2017年8月25日</span>，那么还款日期是<span>2017年09月08日哦。</span></p>
+              <p>还款日期以下款当日开始计算，到还款日期系统会从用户绑定的银行卡中自动扣款。您也可以在还款日18:00前通过储蓄卡主动还款，以免产生逾期费并影响您的信用评级。
+              </p>
               <p @click="close()">我知道了</p>
           </div>
       </div>
@@ -72,22 +73,72 @@ export default {
        },
   data () {
     return {
-        repayStatus:1,
+        loanStatus:'',
+        loanDetail:{},
+        repayDate:'',
+        loanDate:'',
+        repayDateReal:'',
+        toPayDay:'',
+        overDueDay:'',
         isShow:false,
-        sShow:true
+        sShow:true,
+
     }
   },
+    mounted(){
+        this.getLoanStatus();
+
+
+    },
   methods: {
       isShowOf(){
           this.isShow = true;
           this.sShow = false;
-
-
       },
       close(){
           this.isShow = false;
           this.sShow = true;
-      }
+      },
+      getLoanStatus(){
+          var self = this;
+          Lib.M.ajax({
+              type:'GET',
+              url:'cash-account/loan/getOne/JHCL170912105944926701',
+              headers:{
+                  'Authorization':'Bearer '+ self.$store.state.token,
+                  'phone':'18858278343'
+              },
+              success:function (res) {
+                  /*console.log(res);*/
+                  self.loanDetail = res.data;
+                  self.loanStatus = res.data.loanStatus;
+                  self.loanDate = res.data.loanDate;
+                  self.repayDate = res.data.repayDate;
+                  self.repayDateReal = res.data.repayDateReal;
+
+                  console.log(self.loanDate.split(' ')[0].replace(/-/g, "/"));
+
+
+                  const loanTime = Date.parse(new Date(self.loanDate));
+                  const repayTime = Date.parse(new Date(self.repayDate));
+                  const repayRealTime = Date.parse(new Date(self.repayDateReal));
+
+                  //计算距离还款日
+                  self.toPayDay = Math.ceil((repayTime -loanTime)/1000/60/60/24) ;
+
+                  //判断实际还款日期和还款日期，计算出逾期天数
+                  if(repayRealTime > repayTime ){
+                      self.overDueDay = Math.ceil((repayRealTime -repayTime)/1000/60/60/24) ;
+
+                  }
+
+              },
+              error:function (error) {
+                  console.log(error);
+              }
+          })
+      },
+
   }
 }
 </script>
@@ -198,27 +249,27 @@ export default {
         text-align: center;
     }
     .aboutPayTime>div p:nth-of-type(1){
+        height: 2rem;
         font-size: 0.94rem;
+        line-height: 2rem;
         color: rgba(136,136,136,1);
         margin-top: 1rem;
-    }
-    .aboutPayTime>div p:nth-of-type(2),.aboutPayTime>div p:nth-of-type(3){
-        text-align: left;
-        font-size: 0.815rem;
-        color: rgba(85,85,85,1);
-        margin-left: 1.345rem;
-        margin-right: 1.345rem;
-
+        border-bottom: 1px solid #C6C6C6;
     }
     .aboutPayTime>div p:nth-of-type(2){
+        text-align: left;
+        font-size: 0.815rem;
+        color: #000;
         margin:2rem 1.345rem 1rem 1.345rem;
+        line-height: 1.3rem;
+
     }
-    .aboutPayTime>div p:nth-of-type(3) span{
-        color: rgba(26,188,156,1);
-    }
-    .aboutPayTime>div p:nth-of-type(4){
+
+    .aboutPayTime>div p:nth-of-type(3){
+        border-top: 1px solid #C6C6C6;
         font-size: 1rem;
         color: rgba(26,188,156,1);
         margin:1.6rem auto 1rem;
+        line-height: 3rem;
     }
 </style>

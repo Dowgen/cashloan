@@ -4,39 +4,39 @@
             <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
             <span>个人信息</span>
         </div>
-        <div class="headShot pad" @on-click-more="showMenus = true">
+        <div class="headShot pad">
             <span>头像</span>
             <span>
-                <img src="./assets/info_headshot.png" alt="">
-                <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+                <img :src="img_id" alt="头像">
+                <input id="upfile" type="file" name="upfile" accept="image/png,image/jpg,image/jpeg" @change='preivewImg'>
+                <img @click='preivewImg' style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
-        </div>
-        <div v-transfer-dom>
-            <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
-        </div>
 
+        </div>
 
         <div class="info_public pad" @click="$router.push({path:'/nick'})">
             <span>昵称</span>
             <span class="fr">
+                <span>{{userInfo.userName}}</span>
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>
         <div class="info_public pad" style="margin-top: 1rem">
             <span>真实名字</span>
             <span class="fr">
+                {{idInfo.name}}
             </span>
         </div>
         <div class="info_public pad">
             <span>手机号码</span>
             <span class="fr color">
-                188****2560
+                {{userInfo.phone.substr(0, 3)}}****{{userInfo.phone.substr(7)}}
             </span>
         </div>
         <div class="info_public pad" style="margin-top: 1.0315rem">
             <span>身份证号</span>
             <span class="fr color">
-                330***********6430
+                {{idInfo.idCardNumber.substr(0, 3)}}***********{{idInfo.idCardNumber.substr(14)}}
             </span>
         </div>
         <div class="info_public pad">
@@ -51,36 +51,103 @@
             </span>
         </div>
     </div>
-
 </template>
 
 <script>
-
-
 import Lib from 'assets/js/Lib';
-import { XHeader, Actionsheet, TransferDom, ButtonTab, ButtonTabItem } from 'vux'
-
-
-
 export default {
   name: 'add',
-    directives: {
-        TransferDom
-    },
+
     components: {
-        XHeader, Actionsheet, ButtonTab, ButtonTabItem
+
     },
   data () {
     return {
         bankCard:'',
-        menus: {
-            menu1: '解除绑定',
-        },
-        showMenus: false
+        img_id: '/static/img/headshot.png',
+        idInfo:{},
+        userInfo:{},
+        localUserInfo:{}
     }
   },
+    mounted(){
+        this.localUserInfo = JSON.parse(localStorage.userInfo);
+        this.getInfo();
+        this.getImg();
+    },
   methods: {
+      preivewImg() {
+          /* 用fileReader实现图片预览 */
+          var self = this;
+          var file = document.getElementById("upfile").files[0];
+          /*var name = file.name;*/
+          var reader = new FileReader();
+          reader.onload = function(e) {
+              /*if(i===1)*/
+              self.img_id = e.target.result;
+              /*if(i===2) that.img_idBack = e.target.result;*/
+              self.uploadImg();
+          }
+          reader.readAsDataURL(file, "UTF-8");
+      },
+      getImg(){
+          var self = this;
+          Lib.M.ajax({
+              type:'get',
+              url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
+              headers:{
+                  Authorization: 'Bearer ' + self.$store.state.token,
+                  phone:self.localUserInfo.userInfo.phone
+              },
+              dataType:'blob',
+              success:function (res) {
+                  console.log(res);
+                  self.img_id =  window.URL.createObjectURL(res);
+              },
+              error:function (error) {
+                  console.log(error);
+              }
+          })
+      },
+      uploadImg(){
+          var self = this;
+          var fd = new FormData();
+          fd.append("upload", 1);
+          fd.append('file', document.getElementById("upfile").files[0]);
+          Lib.M.ajax({
+              url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
+              headers: {
+                  Authorization: 'Bearer ' + self.$store.state.token,
+                  phone:self.localUserInfo.userInfo.phone
+              },
+              data: fd,
+              success:function (res) {
+                  console.log(res);
+              },
+              error:function (error) {
+                  console.log(error);
+              }
+          })
+      },
+      getInfo(){
+          var self = this;
+          Lib.M.ajax({
+              type:'GET',
+              url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
+              headers: {
+                  'Authorization':'Bearer '+ self.$store.state.token,
+              },
+              success:function (res) {
+                  console.log(res);
+                  self.idInfo = res.data.idInfo;
+                  self.userInfo = res.data.userIfno;
+              },
+              error:function(err){
+                  console.log(err);
+              }
 
+          })
+      }
   }
 }
 
@@ -94,10 +161,10 @@ export default {
         float: right;
     }
     .info_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;
@@ -106,6 +173,7 @@ export default {
         position: absolute;
         left: 1.47rem;
     }
+
     .headShot{
         height:5.44rem;
         background:rgba(255,255,255,1);
@@ -123,7 +191,18 @@ export default {
         position: absolute;
         left: -3rem;
         top: 1.25rem;
+        border-radius:50% ;
     }
+    .headShot span:nth-of-type(2) input{
+        width: 2.5rem;
+        height: 2.5rem;
+        position: absolute;
+        left: -3rem;
+        top: 1.25rem;
+        opacity: 0;
+        border-radius:50% ;
+    }
+
     .info_public{
         height:2.815rem;
         background:rgba(255,255,255,1);

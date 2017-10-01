@@ -4,34 +4,21 @@
           <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back_white.png" alt=""></span>
           <p>借款记录</p>
       </div>
-      <div class="record_detail">
+      <div class="record_detail" v-for="item in loanList">
           <div>
               <p>借款金额</p>
-              <p>1000.00元</p>
+              <p>{{item.loanAmount.toString()+".00"}}元</p>
           </div>
           <div>
               <p>还款日期</p>
-              <p>2017/09/06</p>
+              <p>{{item.payDate || 0}}</p>
           </div>
           <div>
               <p>借款周期</p>
-              <p>14天</p>
+              <p>{{item.loanPeriod}}天</p>
           </div>
       </div>
-      <div class="record_detail">
-          <div>
-              <p>借款金额</p>
-              <p>1000.00元</p>
-          </div>
-          <div>
-              <p>还款日期</p>
-              <p>2017/09/06</p>
-          </div>
-          <div>
-              <p>借款周期</p>
-              <p>14天</p>
-          </div>
-      </div>
+
 
   </div>
 </template>
@@ -46,20 +33,40 @@ import { XHeader, XButton } from 'vux'
 import HbHead from 'components/HbHead';
 
 export default {
-  name: 'add',	
-  components: {
-      XHeader,  XButton
-  },
-  data () {
-    return {
-        phoneNum:'',
-        repayStatus:1
-
-    }
-  },
-  methods: {
-
-  }
+      name: 'add',
+      components: {
+          XHeader,  XButton
+      },
+      data () {
+        return {
+            phoneNum:'',
+            repayStatus:1,
+            loanList:[]
+        }
+      },
+      mounted(){
+          this.getAllRecord();
+      },
+      methods: {
+          getAllRecord(){
+              var self = this;
+              Lib.M.ajax({
+                    type:'GET',
+                    url:'cash-account/loan/getAllEnd/ef08c4aa58824fda8118b76b424d8186',
+                    headers:{
+                        'Authorization':'Bearer '+ self.$store.state.token,
+                        'phone':'18858278343'
+                    },
+                    success:function (res) {
+                        /*console.log(res);*/
+                        self.loanList = res.data;
+                    },
+                    error:function (error) {
+                        console.log(error);
+                    }
+                })
+          }
+      }
 }
 </script>
 
@@ -70,11 +77,11 @@ export default {
     }
     .record_head{
         width: 100%;
-        height: 4rem;
+        height: 3rem;
         background: url("./assets/loan_record_head_bg.png");
         color: #fff;
         font-weight: bold;
-        line-height: 4rem;
+        line-height: 3rem;
         margin-top: 0;
         position: relative;
     }
@@ -95,6 +102,7 @@ export default {
         display: flex;
         flex-direction: row;
         align-items: center;
+        color: rgba(181,181,181,1);
     }
     .record_detail>div{
         flex-grow:1 ;

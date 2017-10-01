@@ -9,10 +9,12 @@
             <div class="aboutMyInfo">
                 <div style="height: 3.15rem">
                     <dl>
-                        <dt class="fl" @click="jumpToFillInfo"><img style="width: 3.25rem;height: 3.25rem;display: block;" src="./assets/pic_headshot.png" alt=""></dt>
+                        <dt class="fl" @click="jumpToFillInfo">
+                            <img style="width: 3.25rem;height: 3.25rem;display: block;border-radius: 50%;" :src="img_id" alt="头像">
+                        </dt>
                         <dd class="fl">
-                            <p style="font-size: 1rem">您好，张均瑞</p>
-                            <p>150****1352</p>
+                            <p style="font-size: 1rem">您好，{{userInfo.userName}}</p>
+                            <p>{{userInfo.phone.substr(0, 3)}}****{{userInfo.phone.substr(7)}}</p>
                         </dd>
 
                     </dl>
@@ -24,48 +26,44 @@
                 </div>
             </div>
 
-            <div class="repayment" v-show="repayStatus!==6" >
-                <div class="reviewing_pay public special" v-show="repayStatus==0">
-                    <p>审核中</p>
+            <div class="repayment" v-show="loanStatus!==5" >
+                <div class="reviewing_pay public special" v-show="loanStatus==1" @click="jumpToLoanDetail">
+                    <p>审核中(1)</p>
                     <p class="special_p">
-                        <span>¥1000.00 <em>2019/09/06</em></span>
+                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
-                <div class="overdue_pay active public" v-show="repayStatus==1"  @click="jumpToLoanDetail">
+                <div class="overdue_pay active public" v-show="loanStatus==2"  @click="jumpToLoanDetail">
                     <p>借款单(1)</p>
                     <p style="margin-top: 1.25rem">共有1笔借款申请<span><em style="color: rgba(250,131,131,1);">借款失败</em> <img  class="arrow" src="./assets/arrow.png" alt=""></span></p>
                 </div>
-                <div class="reviewing_pay public special" v-show="repayStatus==2"  @click="jumpToLoanDetail">
-                    <p>已下款</p>
+                <div class="reviewing_pay public special" v-show="loanStatus==3"  @click="jumpToLoanDetail">
+                    <p>已下款(1)</p>
                     <p class="special_p">
-                        <span>¥1000.00 <em>2019/09/06</em></span>
+                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
-                <div class="waiting_pay public special" v-show="repayStatus==3"  @click="jumpToLoanDetail">
-                    <p>待还款</p>
+                <div class="waiting_pay public special" v-show="loanStatus==4"  @click="jumpToLoanDetail">
+                    <p>待还款(1)</p>
                     <p class="special_p">
-                        <span>¥1000.00 <em>2019/09/06</em></span>
+                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
-                <div class="overdue_pay active public" v-show="repayStatus==4"  @click="jumpToLoanDetail">
-                    <p>借款记录(1)</p>
+                <div class="overdue_pay active public" v-show="loanStatus==4 &&processLoan.isOverdue==1" @click="jumpToLoanDetail">
+                    <p>待还款(1)</p>
                     <p style="margin-top: 1.25rem">1笔借款已完成还款 <span><em style="color: rgba(250,131,131,1);">已逾期</em> <img  class="arrow" src="./assets/arrow.png" alt=""></span></p>
                 </div>
-                <div class="failed_pay active public" v-show="repayStatus==5">
-                    <p>借款记录(1)</p>
-                    <p style="margin-top: 1.25rem">1笔借款已完成还款 <span><em style="color: rgba(250,131,131,1);font-style: normal">还款失败</em> <img  class="arrow" src="./assets/arrow.png" alt=""></span></p>
-                </div>
-                <!--<div class="completed_pay" v-show="repayStatus==6">
+                <!--<div class="completed_pay" v-show="loanStatus==5">
                 </div>-->
             </div>
 
             <div class="loan_record active public" @click="jumpToLoanRecord">
                 <p>借款记录</p>
                 <p style="margin-top: 1.25rem">
-                    共1笔借款待还
+                    共{{loanLength}}笔借款待还
                     <span><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </p>
             </div>
@@ -87,16 +85,133 @@
         },
         data () {
             return {
+                isOverDue:'',
                 payDeatil:'',
-                repayStatus:1,
-                /*isReviewingPay:0审核中,已下款1，
-                isWaitingPay:2待还款,
-                isOverduePay:3已逾期,
-                isFailedPay:4还款失败,
-                isCompletedPay:5,*/
+                loanStatus:'',
+                userInfo:{},
+                token:'',
+                loanLength:'',
+                img_id: '/static/img/headshot.png',
+                processLoan:{},
+                localUserInfo:{}
+                /*isReviewingPay:1审核中,借款失败2，已下款3，isWaitingPay:4待还款,isOverduePay:4已逾期,isCompletedPay:已还款5,*/
             }
         },
+        mounted(){
+            this.getToken();
+            this.localUserInfo = JSON.parse(localStorage.userInfo);
+        },
         methods: {
+            getToken(){
+                var self = this;
+                Lib.M.ajax({
+                    url : '/uaa/oauth/token',
+                    headers: {
+                        Accept:'application/json',
+                        Authorization:'Basic Y2xpZW50OnNlY3JldA=='
+                    },
+                    params:{
+                        username:'juhe',
+                        password:'Juhe2017!@#',
+                        grant_type:'password',
+                        scope:'read write'
+                    },
+                    success:function(data){
+                        self.token = data.access_token;
+                        /* 把token放入 vuex */
+                        self.$store.commit('changeToken',data.access_token)
+                        self.getInfo();
+                        self.getOrderStatus();
+                        self.getAllRecord();
+                        self.getImg();
+                    },
+                    error:function(err){
+                        console.error(err);
+                    }
+                });
+            },
+            getInfo(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'GET',
+                    url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
+                    headers: {
+                        'Authorization':'Bearer '+ self.token,
+                        /*'authKey':'MTQ3OTEyMDIyOTk2QTUxQkE4MjYwQkNGMz'+
+                                    'dGMkEyNTQyNEQyRUYyQzdCNDVBMDM1OUY0OTN'+
+                                    'ERDc3MzhEOUExMDFGOTBGNTQwQTlEQkF'+
+                                    'FQzQ2NzkxQzJBOTNDMDg5NEVEMTdDMTF'+
+                                    'BN0Y3REY2OTdDOA==',
+                        'sessionId':'664f37fb-8516-40ee-b2f8-b86b6481a95f',*/
+                        'phone':self.localUserInfo.userInfo.phone
+                    },
+                    success:function (res) {
+                        /*console.log(res);*/
+                        self.userInfo = res.data.userIfno;
+                    },
+                    error:function(err){
+                        console.log(err);
+                    }
+
+                })
+            },
+            getOrderStatus(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'GET',
+                    url:'cash-account/loan/getAllProcessing/'+self.localUserInfo.userInfo.userId,
+                    headers:{
+                        'Authorization':'Bearer '+ self.token,
+                        'phone':self.localUserInfo.userInfo.phone
+                    },
+                    success:function (res) {
+                        console.log(res);
+                        self.processLoan = res.data[0];
+                        self.loanStatus = res.data[0].loanStatus;
+                        /*console.log(self.processLoan);*/
+                    },
+                    error:function (error) {
+                        console.log(error);
+                    }
+                })
+            },
+            getAllRecord(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'GET',
+                    url:'cash-account/loan/getAllEnd/'+self.localUserInfo.userInfo.userId,
+                    headers:{
+                        'Authorization':'Bearer '+ self.token,
+                        'phone':self.localUserInfo.userInfo.phone
+                    },
+                    success:function (res) {
+                        /*console.log(res);*/
+                        self.loanLength = res.data.length;
+                    },
+                    error:function (error) {
+                        console.log(error);
+                    }
+                })
+            },
+            getImg(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'get',
+                    url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
+                    headers:{
+                        Authorization:'Bearer '+ self.token,
+                        phone:self.localUserInfo.userInfo.phone
+                    },
+                    dataType:'blob',
+                    success:function (res) {
+                        console.log(res);
+                        self.img_id =  window.URL.createObjectURL(res);
+                    },
+                    error:function (error) {
+                        console.log(error);
+                    }
+                })
+            },
             jumpToLoanDetail(){
                 this.$router.push({path:'/loanDetail',query:{payDeatil:this.payDeatil}});
             },
@@ -108,7 +223,8 @@
             },
             jumpToSetCenter(){
                 this.$router.push({path:'/setCenter',query:{}});
-            }
+            },
+
         }
     }
 </script>
@@ -172,6 +288,7 @@
         font-size: 0.815rem;
         color: rgba(105,105,105,1);
         margin-top:0.35rem;
+        line-height: 1.6rem;
     }
     .mainInfo .aboutMyInfo span img{
         margin-top:1.375rem;

@@ -1,5 +1,7 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import Vuex from 'vuex'
+import store from './store/index'
 
 import MyInfo from './myInfoApp'
 import loanDetail from './loanDetailApp'
@@ -15,7 +17,7 @@ import aboutJuHe from './aboutJuHeApp'
 import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
 
-
+Vue.use(Vuex)
 
 const routes = [
     { path: '/', component: MyInfo },
@@ -41,5 +43,6 @@ const router = new VueRouter({
 
 
 new Vue({
-  router: router
+  router: router,
+    store
 }).$mount('#app')

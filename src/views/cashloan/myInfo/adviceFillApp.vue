@@ -4,9 +4,6 @@
             <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
             <span>意见反馈</span>
         </div>
-        <!--<div class="advice_type">
-            <p>意见类型</p>
-        </div>-->
         <div class="inputer">
             <input placeholder="意见类型" v-model="adviceType" readonly="readonly"/>
             <div class="sel">
@@ -18,7 +15,7 @@
             </textarea>
             <div class="wordsLimit">{{words.length}}/200</div>
         </div>
-        <div class="submit">
+        <div class="submit" @click="submitAdvice">
             提交
         </div>
     </div>
@@ -38,11 +35,46 @@
         data () {
             return {
                 words:'',
-                adviceType: [],
-                adviceList: Lib.M.adviceList
+                /*adviceTypeId: Lib.M.adviceList[index].id,*/
+                adviceList: Lib.M.adviceList,
+                localUserInfo:{},
+
             }
         },
+        mounted(){
+            this.localUserInfo = JSON.parse(localStorage.userInfo);
+        },
         methods: {
+            submitAdvice(){
+                var self = this;
+               /* console.log(self.localUserInfo.userInfo.userId);
+                console.log(self.adviceType[0]);
+                console.log(self.words);*/
+
+                if(self.words !== '' && self.adviceType[0] !== undefined){
+                   Lib.M.ajax({
+                       url: "cash-account/user/account/suggestions",
+                       headers: {
+                           Authorization: 'Bearer ' + self.$store.state.token,
+                           phone:self.localUserInfo.userInfo.phone
+                       },
+                       data: {
+                           "user_id":self.localUserInfo.userInfo.userId,
+                           "type":self.adviceType[0],
+                           "content":self.words
+                       },
+                       success:function (res) {
+                           console.log(res);
+
+                       },
+                       error:function (error) {
+                           console.log(error);
+                       }
+                   })
+               }else{
+                    self.$vux.toast.text('请填写意见类型及内容', 'middle')
+                }
+            }
 
         }
     }
@@ -78,10 +110,10 @@
         overflow: hidden;
     }
     .advice_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;
@@ -97,16 +129,15 @@
         margin: 0.675rem auto 0;
         position: relative;
         overflow: hidden;
-
+        padding: 0 1.375rem;
     }
     textarea{
         width: 100%;
+        height: 12.25rem;
         resize: none;
         border:0;
         outline: none;
         font-size: 0.94rem;
-        text-align: left;
-        text-indent: 1.375rem;
         line-height: 2rem;
         font-family:PingFangSC-Light;
 
@@ -119,6 +150,7 @@
         color: rgba(181,181,181,1);
     }
     .submit{
+        width: 21.44rem;
         height:2.75rem;
         background:rgba(26,188,156,1);
         border-radius: 0.315rem ;

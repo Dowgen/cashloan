@@ -36,7 +36,7 @@
         </div>
 
 
-        <div class="log_off">退出登录</div>
+        <div class="log_off"><a href="login.html">退出登录</a></div>
 
     </div>
 
@@ -117,7 +117,8 @@ export default {
         left: -2rem;
         top: 0.1rem;
     }
-    .log_off{
+    .log_off a{
+        display: block;
         height:3.44rem;
         background:rgba(255,255,255,1);
         margin-top: 2.47rem;

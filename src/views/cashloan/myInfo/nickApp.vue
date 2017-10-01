@@ -6,7 +6,7 @@
         </div>
         <div class="fill_nick_name">
             <span>昵称</span>
-            <input type="text" placeholder="输入昵称" v-model="nickName">
+            <input type="text" placeholder="输入昵称" v-model="nickName" maxlength=6 @keyup.enter="KeyDown">
             <span class="delete" @click="deleteName()" v-show="nickName!=''"><img src="./assets/delete.png" alt=""></span>
         </div>
 
@@ -24,10 +24,42 @@
         },
         data () {
             return {
-                nickName:''
+                nickName:'',
+                localUserInfo:{}
             }
         },
+        mounted(){
+            this.localUserInfo = JSON.parse(localStorage.userInfo);
+            this.KeyDown();
+        },
         methods: {
+             KeyDown(){
+                 if (event.keyCode == 13)
+                 {
+                     var self = this;
+
+                     event.returnValue=false;
+                     event.cancel = true;
+
+                     Lib.M.ajax({
+                         type:'get',
+                         url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone,
+                         headers: {
+                             Authorization: 'Bearer ' + self.$store.state.token,
+                             phone:self.localUserInfo.userInfo.phone
+                         },
+                         success:function (res) {
+                             console.log(res);
+                         },
+                         error:function (error) {
+                             console.log(error);
+                         }
+                     })
+
+                     /*返回上一页*/
+                     self.$router.go(-1);
+                 }
+             },
             deleteName(){
                 this.nickName = '';
             }
@@ -37,10 +69,10 @@
 
 <style>
     .nick_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;

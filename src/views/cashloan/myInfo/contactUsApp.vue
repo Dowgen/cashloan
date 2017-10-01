@@ -7,20 +7,16 @@
         <div class="contact_ways">
             <ul>
                 <li>
-                    <p>品牌活动、市场推广、媒体采访：</p>
-                    <p>my@juhetech.cn</p>
-                </li>
-                <li>
                     <p>商务合作</p>
-                    <p>lhx@juhetech.cn</p>
+                    <p>E-Mail: kyziliao08@126.com</p>
                 </li>
                 <li>
-                    <p>贷款产品洽谈</p>
-                    <p>sz@juhetech.cn</p>
+                    <p>品牌合作</p>
+                    <p>E-Mail: my@juhetech.cn</p>
                 </li>
                 <li>
-                    <p>客服联系电话</p>
-                    <p>0571-86798570</p>
+                    <p>客服电话</p>
+                    <p>0571-28121621</p>
                 </li>
             </ul>
         </div>
@@ -51,10 +47,10 @@
 <style>
 
     .contact_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;
@@ -64,7 +60,7 @@
         left: 1.47rem;
     }
     .contact_ways{
-        height: 18.75rem;
+        /*height: 18.75rem;*/
         background:rgba(255,255,255,1);
         margin: 0.2rem auto 0;
         font-size: 0.94rem;

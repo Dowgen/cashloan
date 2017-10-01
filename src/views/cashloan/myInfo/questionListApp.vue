@@ -6,7 +6,7 @@
         </div>
         <div class="question_main">
             <p class="question_title">{{$route.query.question}}</p>
-            <p class="answer">题主不要急，个人当时就认证了两次，可能是你的某一条信息有错误。提示认证失败后，一般3个月后会有APP或者短信提醒，你可以根据信息提示重新提交资料。题主不要急，个人当时就认证了两次，可能是你的某一条信息有错误。</p>
+            <pre class="answer">{{$route.query.answer}}</pre>
         </div>
 
 
@@ -40,10 +40,10 @@
 <style>
 
     .help_head{
-        height:4rem;
+        height:3rem;
         background:rgba(255,255,255,1);
         text-align: center;
-        line-height: 4rem;
+        line-height: 3rem;
         font-size:1.065rem;
         color: rgba(0,0,0,1);
         position: relative;
@@ -54,7 +54,6 @@
     }
     .question_main{
         width:21.065rem;
-        height:12.69rem;
         background:rgba(255,255,255,1);
         border-radius: 0.315rem ;
         margin:1rem auto;
@@ -74,6 +73,8 @@
         color: rgba(84,84,84,1);
         line-height: 1.4rem;
         padding: 1rem;
+        font-family: "PingFang-SC-Regular";
+        white-space: pre-wrap;
     }
 
 
