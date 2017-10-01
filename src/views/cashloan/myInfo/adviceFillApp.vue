@@ -35,7 +35,7 @@
         data () {
             return {
                 words:'',
-                /*adviceTypeId: Lib.M.adviceList[index].id,*/
+                adviceType:[],
                 adviceList: Lib.M.adviceList,
                 localUserInfo:{},
 
@@ -60,7 +60,7 @@
                        },
                        data: {
                            "user_id":self.localUserInfo.userInfo.userId,
-                           "type":self.adviceType[0],
+                           "type": parseInt(self.adviceType[0]),
                            "content":self.words
                        },
                        success:function (res) {

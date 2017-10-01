@@ -87,8 +87,6 @@ export default {
   },
     mounted(){
         this.getLoanStatus();
-
-
     },
   methods: {
       isShowOf(){
@@ -103,7 +101,7 @@ export default {
           var self = this;
           Lib.M.ajax({
               type:'GET',
-              url:'cash-account/loan/getOne/JHCL170912105944926701',
+              url:'cash-account/loan/getOne/'+self.$route.query.orderId,
               headers:{
                   'Authorization':'Bearer '+ self.$store.state.token,
                   'phone':'18858278343'
