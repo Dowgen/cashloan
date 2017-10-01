@@ -26,8 +26,8 @@
                 </div>
             </div>
 
-            <div class="repayment" v-show="loanStatus!==5" >
-                <div class="reviewing_pay public special" v-show="loanStatus==1" @click="jumpToLoanDetail">
+            <div class="repayment" v-show="loanStatus==1 ||loanStatus==2||loanStatus==3||loanStatus==4">
+                <div class="reviewing_pay public special" v-show="loanStatus==1" ><!--@click="jumpToLoanDetail"-->
                     <p>审核中(1)</p>
                     <p class="special_p">
                         <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
@@ -63,8 +63,8 @@
             <div class="loan_record active public" @click="jumpToLoanRecord">
                 <p>借款记录</p>
                 <p style="margin-top: 1.25rem">
-                    共{{loanLength}}笔借款待还
-                    <span><img  class="arrow" src="./assets/arrow.png" alt=""></span>
+                    共<!--{{loanLength}}-->0笔借款待还
+                    <span v-show="loanLength !== 0"><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </p>
             </div>
         </div>
@@ -90,10 +90,11 @@
                 loanStatus:'',
                 userInfo:{},
                 token:'',
-                loanLength:'',
+                loanLength:0,
                 img_id: '/static/img/headshot.png',
                 processLoan:{},
-                localUserInfo:{}
+                localUserInfo:{},
+                orderId:''
                 /*isReviewingPay:1审核中,借款失败2，已下款3，isWaitingPay:4待还款,isOverduePay:4已逾期,isCompletedPay:已还款5,*/
             }
         },
@@ -168,7 +169,8 @@
                         console.log(res);
                         self.processLoan = res.data[0];
                         self.loanStatus = res.data[0].loanStatus;
-                        /*console.log(self.processLoan);*/
+                        self.orderId = res.data[0].orderId;
+                        console.log(self.loanStatus);
                     },
                     error:function (error) {
                         console.log(error);
@@ -187,6 +189,7 @@
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanLength = res.data.length;
+                        console.log(self.loanLength);
                     },
                     error:function (error) {
                         console.log(error);
@@ -204,8 +207,11 @@
                     },
                     dataType:'blob',
                     success:function (res) {
+                        console.log('getImage:');
                         console.log(res);
-                        self.img_id =  window.URL.createObjectURL(res);
+                        if(res.size!=0){
+                            self.img_id =  window.URL.createObjectURL(res);
+                        }
                     },
                     error:function (error) {
                         console.log(error);
@@ -213,10 +219,15 @@
                 })
             },
             jumpToLoanDetail(){
-                this.$router.push({path:'/loanDetail',query:{payDeatil:this.payDeatil}});
+                this.$router.push({path:'/loanDetail',query:{orderId:this.orderId}});
+
             },
             jumpToLoanRecord(){
-                this.$router.push({path:'/loanRecord',query:{}});
+                console.log('loanLength:'+ this.loanLength)
+                if(this.loanLength !== 0){
+                    this.$router.push({path:'/loanRecord',query:{}});
+                }
+
             },
             jumpToFillInfo(){
                 this.$router.push({path:'/fillMyInfo',query:{}});

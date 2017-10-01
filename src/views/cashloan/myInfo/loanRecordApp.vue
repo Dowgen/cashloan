@@ -41,18 +41,22 @@ export default {
         return {
             phoneNum:'',
             repayStatus:1,
-            loanList:[]
+            loanList:[],
+            localUserInfo:{}
         }
       },
       mounted(){
+          this.localUserInfo = JSON.parse(localStorage.userInfo);
           this.getAllRecord();
       },
       methods: {
           getAllRecord(){
               var self = this;
+              console.log(self.localUserInfo.userInfo);
               Lib.M.ajax({
                     type:'GET',
-                    url:'cash-account/loan/getAllEnd/ef08c4aa58824fda8118b76b424d8186',
+                    url:'cash-account/loan/getAllEnd/'+
+                         self.localUserInfo.userInfo.userId,
                     headers:{
                         'Authorization':'Bearer '+ self.$store.state.token,
                         'phone':'18858278343'
@@ -64,7 +68,7 @@ export default {
                     error:function (error) {
                         console.log(error);
                     }
-                })
+              })
           }
       }
 }

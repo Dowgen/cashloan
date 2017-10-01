@@ -52,22 +52,18 @@ var adviceList = [{
     name: '借款',
     value: '借款',
     parent:0,
-    id:1
 },{
     name: '认证',
     value: '认证',
     parent:0,
-    id:2
 },{
     name: '还款',
     value: '还款',
     parent:0,
-    id:3
 },{
     name: '其他',
     value: '其他',
     parent:0,
-    id:4
 }];
 
 var cityList = [{

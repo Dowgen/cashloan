@@ -102,7 +102,10 @@ export default {
               dataType:'blob',
               success:function (res) {
                   console.log(res);
-                  self.img_id =  window.URL.createObjectURL(res);
+                  if(res.size!=0){
+                      self.img_id =  window.URL.createObjectURL(res);
+                  }
+
               },
               error:function (error) {
                   console.log(error);
@@ -140,7 +143,7 @@ export default {
               success:function (res) {
                   console.log(res);
                   self.idInfo = res.data.idInfo;
-                  self.userInfo = res.data.userIfno;
+                  self.userInfo = res.data.userInfo;
               },
               error:function(err){
                   console.log(err);
