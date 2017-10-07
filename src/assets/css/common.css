@@ -3,10 +3,10 @@
   font-family: AdobeHeitiStd-Regular; 这里是说明调用来的字体名字 
   src: url('AdobeHeitiStd-Regular.otf'); 这里是字体文件路径 
 }  */
-@font-face { 
-  font-family: PingFang-SC-Regular; /*这里是说明调用来的字体名字*/ 
-  src: url('PingFang-SC-Regular.ttf'); /*这里是字体文件路径*/ 
-} 
+/* @font-face { 
+  font-family: PingFang-SC-Regular; 这里是说明调用来的字体名字 
+  src: url('PingFang-SC-Regular.ttf'); 这里是字体文件路径 
+}  */
 [v-cloak] {
   display: none;
 }
@@ -86,7 +86,7 @@ body{
 /* font-size订制 */
 html {
     font-size: 16px;
-    font-family: "PingFang-SC-Regular" !important;
+    /* font-family: "PingFang-SC-Regular" !important; */
     height: 100%;
 }
 body{
