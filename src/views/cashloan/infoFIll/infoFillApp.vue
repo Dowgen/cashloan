@@ -6,7 +6,8 @@
       <div class="grey-strip"></div>
       <div class="step-wrapper" v-cloak>
         <div class="step">
-          <img :src="realName=='已完成'?logoColorful[0]:logoColorless[0]">
+          <img v-show="realName!='已完成'" src="./assets/id_certification.png">
+          <img v-show="realName=='已完成'" src="./assets/id_certification_color.png">
           <div>
             <span>实名认证</span>
             <i :style="realName=='已完成'?fontBlack:''">{{realName}}</i>
@@ -14,7 +15,8 @@
           </div>
         </div>
         <div class="step">
-          <img :src="information=='已完成'?logoColorful[1]:logoColorless[1]">
+          <img v-show="information!='已完成'" src="./assets/person_information.png">
+          <img v-show="information=='已完成'" src="./assets/person_information_color.png">
           <div>
             <span>完善信息</span>
             <i :style="information=='已完成'?fontBlack:''">{{information}}</i>
@@ -23,7 +25,8 @@
         </div>
 
         <div class="step">
-          <img :src="zhima=='已完成'?logoColorful[2]:logoColorless[2]">
+          <img v-show="zhima!='已完成'" src="./assets/zhima.png">
+          <img v-show="zhima=='已完成'" src="./assets/zhima_color.png">
           <div>
             <span>芝麻信用</span>
             <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
@@ -31,7 +34,8 @@
           </div>
         </div>
         <div class="step">
-          <img :src="operator=='已完成'?logoColorful[3]:logoColorless[3]">
+          <img v-show="operator!='已完成'" src="./assets/phone_operator.png">
+          <img v-show="operator=='已完成'" src="./assets/phone_operator_color.png">
           <div>
             <span>手机运营商</span>
             <i :style="operator=='已完成'?fontBlack:''">{{operator}}</i>
@@ -66,15 +70,7 @@ export default {
       fontBlack:{
         'color': 'black',
         'font-style': 'normal'
-      },
-      logoColorless:['/static/img/id_certification.png',
-                      '/static/img/person_information.png',
-                      '/static/img/zhima.png',
-                      '/static/img/phone_operator.png'],
-      logoColorful :['/static/img/id_certification_color.png',
-                      '/static/img/person_information_color.png',
-                      '/static/img/zhima_color.png',
-                      '/static/img/phone_operator_color.png']
+      }
     }
   },
   mounted(){

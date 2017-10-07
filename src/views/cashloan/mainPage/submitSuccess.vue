@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url('../../static/img/bgGreen.png');">
     <div class="title">申请成功</div>
     <div class="content">
       <div class="tip">

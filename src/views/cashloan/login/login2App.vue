@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
   	<hb-head headfont="登录"></hb-head>
     
     <div class="welcome">

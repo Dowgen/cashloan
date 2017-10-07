@@ -10,9 +10,10 @@
                 <div style="height: 3.15rem" v-cloak>
                     <dl>
                         <dt class="fl" @click="jumpToFillInfo">
-                            <img style="width: 3.25rem;height: 3.25rem;display: block;border-radius: 50%;" :src="img_id">
+                            <img v-show="noAvatar" class="avatar" src="./assets/headshot.png">
+                            <img v-show="!noAvatar" class="avatar" :src="img_id">
                         </dt>
-                        <dd class="fl">
+                        <dd class="fl" v-cloak>
                             <p style="font-size: 1rem">您好，{{userInfo.userName}}</p>
                             <p>{{userInfo.phone.substr(0, 3)}}****{{userInfo.phone.substr(7)}}</p>
                         </dd>
@@ -91,7 +92,8 @@
                 userInfo:{},
                 token:'',
                 loanLength:0,
-                img_id: '/static/img/headshot.png',
+                img_id: '',
+                noAvatar: true,
                 processLoan:{},
                 localUserInfo:{},
                 orderId:''
@@ -211,6 +213,9 @@
                         console.log(res);
                         if(res.size!=0){
                             self.img_id =  window.URL.createObjectURL(res);
+                            self.noAvatar = false;
+                        }else{
+                            self.noAvatar = true;
                         }
                     },
                     error:function (error) {
@@ -241,6 +246,12 @@
 </script>
 
 <style>
+    .avatar{
+        width: 3.25rem;
+        height: 3.25rem;
+        display: block;
+        border-radius: 50%;
+    }
     em{
         font-style: normal
     }

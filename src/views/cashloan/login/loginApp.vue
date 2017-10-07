@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
   <!-- <hb-head headfont="注册"></hb-head> -->
     <div class="logo">
       <img src="./assets/logo.png">
@@ -114,8 +114,8 @@ export default {
     position: absolute;
     width: 100%;
     height: 100%;
-    background-color: white;
     background-image: url('./assets/bg1.png');
+    background-color: white;
     background-repeat: no-repeat;
     background-size: 100% 100%;
     background-position: center 65px;
