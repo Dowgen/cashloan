@@ -1,6 +1,6 @@
 <template>
   <div>
-      <div class="about_loan" style="background:url('./assets/loan_detail_head_bg.png)">
+      <div class="about_loan" style="background:url('../../static/img/loan_detail_head_bg.png)">
           <div class="head">
               <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back_white.png" alt=""></span>
               <p>借单详情</p>
