@@ -93,7 +93,7 @@
         height: 2.815rem;
         border:none;
         outline: none;
-        font-family: "PingFang-SC-Regular" !important;
+        /* font-family: "PingFang-SC-Regular" !important; */
         color: rgba(115,115,115,1);
         font-size: 1rem;
         margin-left:1.125rem;
