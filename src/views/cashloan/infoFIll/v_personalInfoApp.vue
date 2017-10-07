@@ -137,7 +137,7 @@ export default {
         },
         success:function (data){
           self.$vux.toast.text('提交成功！', 'middle')
-          setTimeout("window.location.href = 'infoFill.html'",1000);
+          setTimeout("window.location.href = '/views/cashloan/infoFill.html'",1000);
         },
         error:function(err){
           console.log('send:'+err);

@@ -36,7 +36,7 @@
         </div>
 
 
-        <div class="log_off"><a href="login.html">退出登录</a></div>
+        <div class="log_off"><a href="/views/cashloan/login.html">退出登录</a></div>
 
     </div>
 

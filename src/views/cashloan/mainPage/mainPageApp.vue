@@ -136,7 +136,7 @@ export default {
         this.$vux.confirm.show({
           content: '亲,您的基础信息尚未完善，请先完善资料!',
           onConfirm () {
-            window.location.href = 'infoFill.html' 
+            window.location.href = '/views/cashloan/infoFill.html' 
           }
         })
       }else if( a===1 ){

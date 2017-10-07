@@ -81,7 +81,7 @@ export default {
             if(data.code==200){
               self.$vux.toast.text('登陆成功！', 'middle');
               localStorage.userInfo = JSON.stringify(data.data);
-              window.location.href = 'mainPage.html';
+              window.location.href = '/views/cashloan/mainPage.html';
             }else if(data.code==-100){
               if(data.error=='密码错误'){
                 self.$vux.toast.text('密码错误，请重试！', 'middle')
