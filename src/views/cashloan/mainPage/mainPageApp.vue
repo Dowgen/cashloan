@@ -107,7 +107,7 @@ export default {
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         params:{
-          return_url: 'http://www.browsersync.cn/docs/command-line/',
+          return_url: 'http://talentplanet.cn/views/cashloan/mainPage.html#/',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',
@@ -132,14 +132,14 @@ export default {
     jump(){
       var self = this
       let a = 2;
-      if(this.authPassed != 4){
+      if(/*this.authPassed != 4*/a===4){
         this.$vux.confirm.show({
           content: '亲,您的基础信息尚未完善，请先完善资料!',
           onConfirm () {
             window.location.href = '/views/cashloan/infoFill.html' 
           }
         })
-      }else if( a===1 ){
+      }else if( a===2 ){
         this.bankCardCheck();
       }else{
         this.face_getToken();
@@ -174,7 +174,7 @@ export default {
     bankCardCheck(){
       var self = this;
       Lib.M.ajax({
-        url : '/pay/repayment/bankCardCheck',
+        url : '/pay/repayment/bankCardCheckList',
         data:{
           user_id: self.userInfo.userInfo.userId
         },

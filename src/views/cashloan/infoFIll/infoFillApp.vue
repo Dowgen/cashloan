@@ -8,38 +8,38 @@
         <div class="step">
           <img v-show="realName!='已完成'" src="./assets/id_certification.png">
           <img v-show="realName=='已完成'" src="./assets/id_certification_color.png">
-          <div>
+          <div @click="doFace">
             <span>实名认证</span>
             <i :style="realName=='已完成'?fontBlack:''">{{realName}}</i>
-            <img src="./assets/arrow-right.png" v-show="realName!='已完成'" @click="face_getToken">
+            <img src="./assets/arrow-right.png" v-show="realName!='已完成'">
           </div>
         </div>
         <div class="step">
           <img v-show="information!='已完成'" src="./assets/person_information.png">
           <img v-show="information=='已完成'" src="./assets/person_information_color.png">
-          <div>
+          <div @click="doInfo">
             <span>完善信息</span>
             <i :style="information=='已完成'?fontBlack:''">{{information}}</i>
-            <img src="./assets/arrow-right.png" v-show="information!='已完成'"  @click="doInfo">
+            <img src="./assets/arrow-right.png" v-show="information!='已完成'">
           </div>
         </div>
 
         <div class="step">
           <img v-show="zhima!='已完成'" src="./assets/zhima.png">
           <img v-show="zhima=='已完成'" src="./assets/zhima_color.png">
-          <div>
+          <div @click="zhimaAuth">
             <span>芝麻信用</span>
             <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
-            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'" @click="zhimaAuth">
+            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'">
           </div>
         </div>
         <div class="step">
           <img v-show="operator!='已完成'" src="./assets/phone_operator.png">
           <img v-show="operator=='已完成'" src="./assets/phone_operator_color.png">
-          <div>
+          <div @click="doOperator">
             <span>手机运营商</span>
             <i :style="operator=='已完成'?fontBlack:''">{{operator}}</i>
-            <img src="./assets/arrow-right.png" v-show="operator!='已完成'" @click="doOperator">
+            <img src="./assets/arrow-right.png" v-show="operator!='已完成'">
           </div>
         </div>
       </div>
@@ -65,6 +65,7 @@ export default {
     return {
       realName:'',
       information:'',
+      informationPassed: false,
       zhima:'',
       operator:'',
       fontBlack:{
@@ -97,6 +98,10 @@ export default {
               self[data[i].type] = '已失效'
             }else if(data[i].code =='2'){
               self[data[i].type] = '已完成'
+            }
+            /* 获取完善信息是否完成 */
+            if(data[i].type=='information'){
+              self.informationPassed = true
             }
           }
         },
@@ -137,14 +142,6 @@ export default {
         }
       });
     },
-    /* 跳转至芝麻认证 */
-    zhimaAuth(){
-      var self = this;
-      window.location.href=
-          'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
-          '&certNo=' + this.userInfo.idInfo.idCardNumber +
-          '&phoneNum='+ this.userInfo.userInfo.phone
-    },
     /* 判断是否芝麻认证，如果认证了的话就把芝麻返回的参数传给后端 */
     isZhimaAuthed(){
       var self = this;
@@ -179,11 +176,26 @@ export default {
         });
       }
     },
+    doFace(){
+      if(this.operator!='已完成') this.face_getToken();
+    },
+    /* 跳转至芝麻认证 */
+    zhimaAuth(){
+      if(this.zhima=='已完成'){
+        /* 认证过了，不作跳转 */
+      }else{
+        var self = this;
+        window.location.href=
+          'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
+          '&certNo=' + this.userInfo.idInfo.idCardNumber +
+          '&phoneNum='+ this.userInfo.userInfo.phone
+      }
+    },
     doInfo(){
-      this.$router.push('./vPersonalInfo')
+      this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
     },
     doOperator(){
-      this.$router.push('./vPhoneOperator')
+      if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
     }
 /*    face_getResult(){
       var self = this;

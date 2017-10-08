@@ -7,7 +7,8 @@
         <div class="headShot pad">
             <span>头像</span>
             <span>
-                <img :src="img_id" alt="头像">
+                <img v-show="noAvatar" class="avatar2" src="./assets/headshot.png">
+                <img v-show="!noAvatar" class="avatar2" :src="img_id">
                 <input id="upfile" type="file" name="upfile" accept="image/png,image/jpg,image/jpeg" @change='preivewImg'>
                 <img @click='preivewImg' style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
@@ -64,7 +65,8 @@ export default {
   data () {
     return {
         bankCard:'',
-        img_id: '/static/img/headshot.png',
+        img_id: '',
+        noAvatar:true,
         idInfo:{},
         userInfo:{},
         localUserInfo:{}
@@ -104,8 +106,10 @@ export default {
                   console.log(res);
                   if(res.size!=0){
                       self.img_id =  window.URL.createObjectURL(res);
+                      self.noAvatar = false;
+                  }else{
+                      self.noAvatar = true;
                   }
-
               },
               error:function (error) {
                   console.log(error);
@@ -187,7 +191,7 @@ export default {
         float: right;
         position: relative;
     }
-    .headShot span:nth-of-type(2) img:nth-of-type(1){
+    .avatar2{
         width: 2.5rem;
         height: 2.5rem;
         display: inline-block;

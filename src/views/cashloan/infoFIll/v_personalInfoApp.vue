@@ -77,7 +77,8 @@ export default {
       contName1:'',
       contPhone1:'',
       contName2:'',
-      contPhone2:''
+      contPhone2:'',
+      userInfo:{}
     }
   },
   watch:{
@@ -90,6 +91,9 @@ export default {
         this.emrContact2 = '朋友/同事'
       }
     }
+  },
+  mounted(){
+    this.userInfo = JSON.parse(localStorage.userInfo);
   },
   methods: {
     submit(){

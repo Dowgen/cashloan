@@ -8,8 +8,8 @@
     </div>
     <div class="input">
       <img src="./assets/code_key.png" class="img-icon">
-      <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
-      <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
+      <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
+      <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
       <div class="password-icon">
         <img src="./assets/delete.png" class="icon-del" 
              v-show="password!=''" @click="password=''">
