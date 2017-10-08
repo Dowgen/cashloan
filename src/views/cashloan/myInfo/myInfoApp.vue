@@ -101,8 +101,8 @@
             }
         },
         mounted(){
-            this.getToken();
             this.localUserInfo = JSON.parse(localStorage.userInfo);
+            this.getToken();
         },
         methods: {
             getToken(){

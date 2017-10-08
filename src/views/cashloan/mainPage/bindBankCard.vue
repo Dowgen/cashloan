@@ -18,7 +18,7 @@
     </group>
     <x-button type="primary" class="btn3" @click.native="click">确定</x-button>
 
-    <form action="https://cashier.lianlianpay.com/payment/instalmentsign.htm" method="post">
+    <!-- <form action="https://cashier.lianlianpay.com/payment/instalmentsign.htm" method="post">
       <input type="text" name="version" :value="backParams.version"/>
       <input type="text" name="oid_partner" :value="backParams.oid_partner"/>
       <input type="text" name="user_id" :value="backParams.user_id"/>
@@ -31,7 +31,7 @@
       <input type="text" name="acct_name" :value="backParams.acct_name"/>
       <input type="text" name="card_no" :value="backParams.card_no"/>
       <input type="submit" value="请求签约"/>
-    </form>
+    </form> -->
   </div>
 </template>
 
@@ -96,7 +96,9 @@ export default {
           url_return: 'https://www.baidu.com'
         },
         success:function(data){
-          self.backParams = data.data;
+          console.log('backParams:'+JSON.stringify(data.data))
+          self.backParams = JSON.stringify(data.data);
+          self.realBindCard();
         },
         error:function(err){
           console.log('bindCard2:'+err);
@@ -119,15 +121,15 @@ export default {
       var self = this;
       console.log('backParams:'+self.backParams)
       Lib.M.ajax({
-        url : 'https://cashier.lianlianpay.com/payment/instalmentsign.htm',
+        url : 'https://wap.lianlianpay.com/signApply.htm',
         data: self.backParams,
-        transformRequest: [function (data) {
+        /*transformRequest: [function (data) {
           let ret = ''
           for (let it in data) {
             ret += encodeURIComponent(it) + '=' + encodeURIComponent(data[it]) + '&'
           }
           return ret
-        }],
+        }],*/
         success:function(data){
           console.log('realbindCard1:'+data);
         },
