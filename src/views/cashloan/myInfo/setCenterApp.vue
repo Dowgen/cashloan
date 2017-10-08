@@ -59,23 +59,10 @@ export default {
   },
   methods: {
     wechat(){
-        console.log('sdf');
-        this.$vux.confirm.show({
+        this.$vux.alert.show({
             content: '已复制公众号，打开微信-通讯录\n' +
-            '—粘贴“炬有钱”公众号—关注',
-            onShow () {
-                console.log('plugin show')
-            },
-            onHide () {
-                console.log('plugin hide')
-            },
-            onCancel () {
-                console.log('plugin cancel')
-            },
-            onConfirm () {
-                console.log('plugin confirm')
-            }
-        })
+            '—粘贴“炬有钱”公众号—关注'})
+
     }
   }
 }
