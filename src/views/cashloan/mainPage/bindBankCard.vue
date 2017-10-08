@@ -18,7 +18,7 @@
     </group>
     <x-button type="primary" class="btn3" @click.native="click">确定</x-button>
 
-    <!-- <form action="https://test.yintong.com.cn/payment/authsign.htm" method="post">
+    <form action="https://cashier.lianlianpay.com/payment/instalmentsign.htm" method="post">
       <input type="text" name="version" :value="backParams.version"/>
       <input type="text" name="oid_partner" :value="backParams.oid_partner"/>
       <input type="text" name="user_id" :value="backParams.user_id"/>
@@ -26,12 +26,12 @@
       <input type="text" name="sign_type" :value="backParams.sign_type"/>
       <input type="text" name="sign" :value="backParams.sign"/>
       <input type="text" name="url_return" :value="backParams.url_return"/>
-      <input type="text" name=" risk_item" :value="backParams.risk_item"/>
-      <input type="text" name=" id_no" :value="backParams.id_no"/>
-      <input type="text" name=" acct_name" :value="backParams.acct_name"/>
-      <input type="text" name=" card_no" :value="backParams.card_no"/>
+      <input type="text" name="risk_item" :value="backParams.risk_item"/>
+      <input type="text" name="id_no" :value="backParams.id_no"/>
+      <input type="text" name="acct_name" :value="backParams.acct_name"/>
+      <input type="text" name="card_no" :value="backParams.card_no"/>
       <input type="submit" value="请求签约"/>
-    </form> -->
+    </form>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ export default {
     /* 点击按钮 */
     click(){
       if(this.bankCard!=''){
-        this.checkVerify();   
+        this.getBindCardParams();   
       }else{
         this.$vux.toast.text('信息请填写完整!', 'middle')
       }
@@ -83,13 +83,15 @@ export default {
         url : 'pay/repayment/requestDataForSign',
         data:{
           user_id:self.userInfo.userInfo.userId,
-          phone_num:self.userInfo.userInfo.phone,
-          /*id_no: self.userInfo.idInfo.idCardNumber,
+          /*phone_num:self.userInfo.userInfo.phone,
+          register_time: self.userInfo.idInfo.create_time,
+          id_no: self.userInfo.idInfo.idCardNumber,
           acct_name: self.userInfo.idInfo.name,
           card_no: self.bankCard*/
+          phone_num:'13666604580',
+          register_time: '2017-10-07',
           id_no: '331003199205170810',
           acct_name: '徐文斌',
-          phone_num:'13666604580',
           card_no:'6212261202040138076',
           url_return: 'https://www.baidu.com'
         },
@@ -115,6 +117,7 @@ export default {
     },
     realBindCard(){
       var self = this;
+      console.log('backParams:'+self.backParams)
       Lib.M.ajax({
         url : 'https://cashier.lianlianpay.com/payment/instalmentsign.htm',
         data: self.backParams,
