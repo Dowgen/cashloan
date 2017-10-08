@@ -107,7 +107,7 @@ export default {
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         params:{
-          return_url: 'http://talentplanet.cn/views/cashloan/mainPage.html#/',
+          return_url: 'http://talentplanet.cn/views/cashloan/mainPage.html#/confirmRent',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',

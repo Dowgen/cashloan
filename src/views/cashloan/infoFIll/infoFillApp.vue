@@ -120,7 +120,7 @@ export default {
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         params:{
-          return_url: 'http://localhost:8999/views/cashloan/infoFill.html#/',
+          return_url: 'http://talentplanet.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',
