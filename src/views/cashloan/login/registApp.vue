@@ -104,15 +104,6 @@ export default {
           if(data=='success'){
             self.$vux.toast.text('发送成功！', 'middle')
           }
-        },
-        error:function(err){
-          if(err.error = 'invalid_token'){
-            self.$vux.toast.text('token过期，请重新输入！', 'middle')
-            self.$router.replace('./')
-          }else{
-            self.$vux.toast.text('发送验证码失败，请重试！', 'middle')
-          }
-          console.error(err);
         }
       });
     },
@@ -136,15 +127,6 @@ export default {
           }else{
             self.$vux.toast.text('验证失败，请重试！', 'middle')
           }
-        },
-        error:function(err){
-          if(err.error = 'invalid_token'){
-            self.$vux.toast.text('token过期，请重新输入！', 'middle')
-            self.$router.replace('./')
-          }else{
-            self.$vux.toast.text('验证失败，请重试！', 'middle')
-          }
-          console.error(err);
         }
       });
     },
@@ -172,11 +154,6 @@ export default {
           }else if(data.code == -100){
             self.$vux.toast.text(data.error, 'middle');
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          self.$vux.toast.text('注册失败，请重试！', 'middle')
-          console.error(err);
         }
       });
     },
@@ -204,11 +181,6 @@ export default {
           }else if(data.code==-100){
             self.$vux.toast.text(data.error, 'middle');
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          self.$vux.toast.text('注册失败，请重试！', 'middle')
-          console.error(err);
         }
       });
     }

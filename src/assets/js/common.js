@@ -1,9 +1,13 @@
+import { ToastPlugin } from 'vux'
+import Vue from 'vue';
+Vue.use(ToastPlugin); 
 
 import conf from './conf';
 import * as pickerList from './pickerList'; /* popup-picker所需的列表数据 */
 
 import axios from 'axios';
 
+var vm = new Vue({});
 var oproto = Object.prototype;
 var serialize = oproto.toString;
 var Rxports = {
@@ -37,6 +41,24 @@ var Rxports = {
 			alert('请填写接口地址');
 			return false;
 		}
+        // http response 拦截器
+        axios.interceptors.response.use(
+            response => {
+                return response;
+            },
+            error => {
+                if (error.response) {
+                    switch (error.response.status) {
+                        case 401:
+                            // 返回 401 清除localStorage并跳转到登录页面
+                            vm.$vux.loading.show({text: 'token过期，请重新登录！'});
+                            localStorage.clear();
+                            setTimeout("window.location.href = '/views/cashloan/login.html'",1500);     
+                    }
+                }
+                return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+            }
+        );
 		
 		axios({
 			method: opts.type || 'post',
@@ -63,26 +85,20 @@ var Rxports = {
 			}else{
 				
 				if (data.error) {
-					opts.error(error);
-                    if(error.error == 'invalid_token'){
-                        window.location.href = 'login.html';
-                    }
+					opts.error(data.error);
 				}else{
-					alert('好多人在访问呀，请重新试试[timeout]');
-				}
-				
-			}
-			
-				
-		}).catch(function (error){
-
-			if (opts.error) {
-				opts.error(error);
-                if(error.error == 'invalid_token'){
-                    window.location.href = 'login.html';
+                    console.error('then:'+data.error);
                 }
-			}else{
-				alert('好多人在访问呀，请重新试试[timeout]');
+                
+            }
+            
+                
+        }).catch(function (error){
+
+            if (opts.error) {
+                opts.error(error);
+            }else{
+				console.error('catch:'+error);
 			}
 		});
 			

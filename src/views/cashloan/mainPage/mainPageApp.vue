@@ -123,9 +123,6 @@ export default {
           localStorage.faceReturn = JSON.stringify(faceReturn);
           /* 获取token后跳转第三方 */
           window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
-        },
-        error:function(err){
-          self.$vux.loading.hide();
         }
       });
     },
@@ -163,10 +160,6 @@ export default {
             if(data[i].code=='2') ++self.authPassed;
           }
           self.$vux.loading.hide();
-        },
-        error:function(err){
-          console.log(err)
-          self.$vux.loading.hide();
         }
       });
     },
@@ -187,9 +180,6 @@ export default {
               }
             })
           }
-        },
-        error:function(err){
-          console.log(err)
         }
       });
     }

@@ -99,9 +99,6 @@ export default {
           console.log('backParams:'+JSON.stringify(data.data))
           self.backParams = JSON.stringify(data.data);
           self.realBindCard();
-        },
-        error:function(err){
-          console.log('bindCard2:'+err);
         }
       });
    /*   let a = 1
@@ -132,9 +129,6 @@ export default {
         }],*/
         success:function(data){
           console.log('realbindCard1:'+data);
-        },
-        error:function(err){
-          console.log('realbindCard2:'+err);
         }
       });
     }
