@@ -43,11 +43,11 @@
 
                      Lib.M.ajax({
                          type:'get',
-                         url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone,
-                         headers: {
+                         url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone+'/'+self.nickName,
+                         /*headers: {
                              Authorization: 'Bearer ' + self.$store.state.token,
                              phone:self.localUserInfo.userInfo.phone
-                         },
+                         },*/
                          success:function (res) {
                              console.log(res);
                          },
