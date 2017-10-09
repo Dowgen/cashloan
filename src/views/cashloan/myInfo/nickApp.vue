@@ -52,11 +52,12 @@
                          },
                          success:function (res) {
                              console.log(res);
+                             /*返回上一页*/
+                             self.$router.go(-1);
                          }
                      })
 
-                     /*返回上一页*/
-                     self.$router.go(-1);
+
                  }
              },
             deleteName(){
