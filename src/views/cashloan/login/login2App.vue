@@ -89,11 +89,6 @@ export default {
                 self.$vux.toast.text('登陆失败，请重试！', 'middle')
               }
             }
-          },
-          error:function(err){
-            self.$vux.loading.hide();
-            self.$vux.toast.text('登陆失败，请重试！', 'middle')
-            console.error(err);
           }
         });
       }

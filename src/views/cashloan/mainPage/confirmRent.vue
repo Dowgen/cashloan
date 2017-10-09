@@ -121,9 +121,6 @@ export default {
             self.$vux.toast.text(data.error, 'middle')
           }
           /*self.$router.push('./submitSuccess')*/
-        },
-        error:function(err){
-          self.$vux.toast.text('提交失败，请重试！', 'middle')
         }
       });
     }

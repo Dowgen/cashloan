@@ -153,10 +153,6 @@ export default {
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          console.log(err);
         }
       });
     },
@@ -193,10 +189,6 @@ export default {
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          console.log(err);
         }
       });
     },
@@ -223,10 +215,6 @@ export default {
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          console.log(err);
         }
       });
     },
@@ -246,10 +234,6 @@ export default {
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          console.log(err);
         }
       });
     },
@@ -269,10 +253,6 @@ export default {
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
-        },
-        error:function(err){
-          self.$vux.loading.hide();
-          console.log(err);
         }
       });
     }

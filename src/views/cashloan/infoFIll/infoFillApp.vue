@@ -104,9 +104,6 @@ export default {
               self.informationPassed = true
             }
           }
-        },
-        error:function(err){
-          console.log(err)
         }
       });
     },
@@ -136,9 +133,6 @@ export default {
           localStorage.faceReturn = JSON.stringify(faceReturn);
           /* 获取token后跳转第三方 */
           window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
-        },
-        error:function(err){
-          self.$vux.loading.hide();
         }
       });
     },
@@ -169,9 +163,6 @@ export default {
             }else{
               self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
             }
-          },
-          error:function(err){
-            self.$vux.alert.show({title: '温馨提示',content: error})
           }
         });
       }
@@ -208,8 +199,6 @@ export default {
         },
         success:function (data){
           console.log('getResult:'+data)
-        },
-        error:function(err){
         }
       });
     },*/
