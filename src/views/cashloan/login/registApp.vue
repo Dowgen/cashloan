@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
   	<hb-head headfont="手机验证"></hb-head>
     
     <div class="welcome">
@@ -168,7 +168,7 @@ export default {
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
             self.$vux.toast.text('注册成功，正在跳转', 'middle');
-            setTimeout("window.location.href = 'mainPage.html'",1000);
+            setTimeout("window.location.href = '/views/cashloan/mainPage.html'",1000);
           }else if(data.code == -100){
             self.$vux.toast.text(data.error, 'middle');
           }
@@ -200,7 +200,7 @@ export default {
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
             self.$vux.toast.text('密码修改成功，正在跳转', 'middle');
-            setTimeout("window.location.href = 'mainPage.html'",1000);
+            setTimeout("window.location.href = '/views/cashloan/mainPage.html'",1000);
           }else if(data.code==-100){
             self.$vux.toast.text(data.error, 'middle');
           }

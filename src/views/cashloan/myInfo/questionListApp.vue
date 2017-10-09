@@ -73,7 +73,7 @@
         color: rgba(84,84,84,1);
         line-height: 1.4rem;
         padding: 1rem;
-        font-family: "PingFang-SC-Regular";
+        /* font-family: "PingFang-SC-Regular"; */
         white-space: pre-wrap;
     }
 

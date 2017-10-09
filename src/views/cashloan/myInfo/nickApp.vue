@@ -44,7 +44,11 @@
                      Lib.M.ajax({
                          type:'get',
                          url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone+'/'+self.nickName,
+<<<<<<< HEAD
                          /*headers: {
+=======
+                        /* headers: {
+>>>>>>> ece99b99cd938520412b415359bdaaf960db3413
                              Authorization: 'Bearer ' + self.$store.state.token,
                              phone:self.localUserInfo.userInfo.phone
                          },*/
@@ -93,7 +97,7 @@
         height: 2.815rem;
         border:none;
         outline: none;
-        font-family: "PingFang-SC-Regular" !important;
+        /* font-family: "PingFang-SC-Regular" !important; */
         color: rgba(115,115,115,1);
         font-size: 1rem;
         margin-left:1.125rem;

@@ -70,6 +70,7 @@ export default {
         'border-color': '#1abc9c',
         'color': '#1abc9c'
       },
+      authPassed: 0,
       userInfo:{}
     }
   },
@@ -87,6 +88,8 @@ export default {
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
     this.userInfo = JSON.parse(localStorage.userInfo);
+    /* 得到认证通过标志 */
+    this.getauthStatus();
   },
   methods: {
     setLoanAmount(amount){
@@ -104,7 +107,7 @@ export default {
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         params:{
-          return_url: 'http://www.browsersync.cn/docs/command-line/',
+          return_url: 'http://talentplanet.cn/views/cashloan/mainPage.html#/confirmRent',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',
@@ -128,25 +131,50 @@ export default {
     },
     jump(){
       var self = this
-      let a = 1
-      if(a === 1){
-        this.bankCardCheck();
-      }else if(a === 2){
+      let a = 2;
+      if(/*this.authPassed != 4*/a===4){
         this.$vux.confirm.show({
           content: '亲,您的基础信息尚未完善，请先完善资料!',
           onConfirm () {
-            window.location.href = 'infoFill.html' 
+            window.location.href = '/views/cashloan/infoFill.html' 
           }
         })
+      }else if( a===2 ){
+        this.bankCardCheck();
       }else{
         this.face_getToken();
       }
     },
-    /* 查询银行卡是否绑定 */
+    /* 检查认证是否全部通过 */
+    getauthStatus(){
+      var self = this;
+      this.$vux.loading.show({
+          text: '请稍等'
+      });
+      Lib.M.ajax({
+        url : '/risk-manage/auth/authStatus',
+        data:{
+          phone: self.userInfo.userInfo.phone,
+          user_id: self.userInfo.userInfo.userId
+        },
+        success:function (res){
+          let data = res.data;
+          for(let i in data){
+            if(data[i].code=='2') ++self.authPassed;
+          }
+          self.$vux.loading.hide();
+        },
+        error:function(err){
+          console.log(err)
+          self.$vux.loading.hide();
+        }
+      });
+    },
+    /* 检查银行卡是否绑定 */
     bankCardCheck(){
       var self = this;
       Lib.M.ajax({
-        url : '/pay/repayment/bankCardCheck',
+        url : '/pay/repayment/bankCardCheckList',
         data:{
           user_id: self.userInfo.userInfo.userId
         },

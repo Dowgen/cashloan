@@ -38,15 +38,13 @@
           <p>借款费用(元)</p>
         </div>
         <div>
-          <p>489.50</p>
-          <p>2017/09/06</p>
-          <p>10.50</p>
+          <p>{{userGetMoney}}</p>
+          <p>{{repayDate}}</p>
+          <p>{{interest}}</p>
         </div>
       </div>
     </div>
-    <router-link to='/submitSuccess'>
-      <x-button type="primary" class="btnEnsur">确认借款</x-button>
-    </router-link>
+    <x-button type="primary" class="btnEnsur" @click.native="confirm">确认借款</x-button>
   </div>
 </template>
 
@@ -68,12 +66,24 @@ export default {
       styleActive:{
         'border-color': '#1abc9c',
         'color': '#1abc9c'
-      }
+      },
+      userInfo:{}
+    }
+  },
+  computed:{
+    userGetMoney(){
+       return this.loanAmount - this.loanAmount*this.term*0.01
+    },
+    interest(){
+       return this.loanAmount*this.term*0.01
+    },
+    repayDate(){
+      return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
     }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
-    this.face_getResult();
+    this.userInfo = JSON.parse(localStorage.userInfo);
   },
   methods: {
     setLoanAmount(amount){
@@ -81,6 +91,41 @@ export default {
     },
     setTerm(term){
       this.term = term;
+    },
+    confirm(){
+      var self = this;
+      self.$vux.confirm.show({
+        content: '是否确认提交借款？',
+        onConfirm () {
+          self.createOrder();
+        }
+      })
+    },
+    createOrder(){
+      var self = this;
+      Lib.M.ajax({
+        url : '/cash-account/loan/createOrder/',
+        data:{
+          "userId":self.userInfo.userInfo.userId,
+          "phone": self.userInfo.userInfo.phone,
+          "loanAmount": self.loanAmount,
+          "loanPeriod": self.term,
+          "receivedAmount": self.userGetMoney,
+          "feeAmount": self.interest
+        },
+        success:function (data){
+          if(data.code==200){
+            self.$vux.toast.text('提交成功！', 'middle')
+            
+          }else{
+            self.$vux.toast.text(data.error, 'middle')
+          }
+          /*self.$router.push('./submitSuccess')*/
+        },
+        error:function(err){
+          self.$vux.toast.text('提交失败，请重试！', 'middle')
+        }
+      });
     }
   }
 }

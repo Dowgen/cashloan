@@ -139,7 +139,7 @@
         outline: none;
         font-size: 0.94rem;
         line-height: 2rem;
-        font-family:PingFangSC-Light;
+       /*  font-family:PingFangSC-Light; */
 
     }
     .wordsLimit{

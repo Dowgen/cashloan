@@ -1,5 +1,5 @@
 <template>
-  <div class="wrapper">
+  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
   	<hb-head headfont="登录"></hb-head>
     
     <div class="welcome">
@@ -8,8 +8,8 @@
     </div>
     <div class="input">
       <img src="./assets/code_key.png" class="img-icon">
-      <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
-      <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
+      <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
+      <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
       <div class="password-icon">
         <img src="./assets/delete.png" class="icon-del" 
              v-show="password!=''" @click="password=''">
@@ -81,7 +81,7 @@ export default {
             if(data.code==200){
               self.$vux.toast.text('登陆成功！', 'middle');
               localStorage.userInfo = JSON.stringify(data.data);
-              /*window.location.href = 'mainPage.html';*/
+              window.location.href = '/views/cashloan/mainPage.html';
             }else if(data.code==-100){
               if(data.error=='密码错误'){
                 self.$vux.toast.text('密码错误，请重试！', 'middle')

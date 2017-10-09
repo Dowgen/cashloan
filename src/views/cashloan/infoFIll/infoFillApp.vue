@@ -6,36 +6,40 @@
       <div class="grey-strip"></div>
       <div class="step-wrapper" v-cloak>
         <div class="step">
-          <img :src="realName=='已完成'?logoColorful[0]:logoColorless[0]">
-          <div>
+          <img v-show="realName!='已完成'" src="./assets/id_certification.png">
+          <img v-show="realName=='已完成'" src="./assets/id_certification_color.png">
+          <div @click="doFace">
             <span>实名认证</span>
             <i :style="realName=='已完成'?fontBlack:''">{{realName}}</i>
-            <img src="./assets/arrow-right.png" v-show="realName!='已完成'" @click="face_getToken">
+            <img src="./assets/arrow-right.png" v-show="realName!='已完成'">
           </div>
         </div>
-        <div class="step" @click="doInfo">
-          <img :src="information=='已完成'?logoColorful[1]:logoColorless[1]">
-          <div>
+        <div class="step">
+          <img v-show="information!='已完成'" src="./assets/person_information.png">
+          <img v-show="information=='已完成'" src="./assets/person_information_color.png">
+          <div @click="doInfo">
             <span>完善信息</span>
             <i :style="information=='已完成'?fontBlack:''">{{information}}</i>
-            <img src="./assets/arrow-right.png" v-show="information!='已完成'" >
+            <img src="./assets/arrow-right.png" v-show="information!='已完成'">
           </div>
         </div>
 
         <div class="step">
-          <img :src="zhima=='已完成'?logoColorful[2]:logoColorless[2]">
-          <div>
+          <img v-show="zhima!='已完成'" src="./assets/zhima.png">
+          <img v-show="zhima=='已完成'" src="./assets/zhima_color.png">
+          <div @click="zhimaAuth">
             <span>芝麻信用</span>
             <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
-            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'" @click="doZhima">
+            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'">
           </div>
         </div>
         <div class="step">
-          <img :src="operator=='已完成'?logoColorful[3]:logoColorless[3]">
-          <div>
+          <img v-show="operator!='已完成'" src="./assets/phone_operator.png">
+          <img v-show="operator=='已完成'" src="./assets/phone_operator_color.png">
+          <div @click="doOperator">
             <span>手机运营商</span>
             <i :style="operator=='已完成'?fontBlack:''">{{operator}}</i>
-            <img src="./assets/arrow-right.png" v-show="operator!='已完成'" @click="doOperator">
+            <img src="./assets/arrow-right.png" v-show="operator!='已完成'">
           </div>
         </div>
       </div>
@@ -61,25 +65,19 @@ export default {
     return {
       realName:'',
       information:'',
+      informationPassed: false,
       zhima:'',
       operator:'',
       fontBlack:{
         'color': 'black',
         'font-style': 'normal'
-      },
-      logoColorless:['/static/img/id_certification.png',
-                      '/static/img/person_information.png',
-                      '/static/img/zhima.png',
-                      '/static/img/phone_operator.png'],
-      logoColorful :['/static/img/id_certification_color.png',
-                      '/static/img/person_information_color.png',
-                      '/static/img/zhima_color.png',
-                      '/static/img/phone_operator_color.png']
+      }
     }
   },
   mounted(){
      this.userInfo = JSON.parse(localStorage.userInfo);
      this.getauthStatus();
+     this.isZhimaAuthed();
   },
   methods: {
     /* 获取用户认证信息 */
@@ -101,6 +99,10 @@ export default {
             }else if(data[i].code =='2'){
               self[data[i].type] = '已完成'
             }
+            /* 获取完善信息是否完成 */
+            if(data[i].type=='information'){
+              self.informationPassed = true
+            }
           }
         },
         error:function(err){
@@ -118,7 +120,7 @@ export default {
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
         params:{
-          return_url: 'http://localhost:8999/views/cashloan/infoFill.html#/',
+          return_url: 'http://talentplanet.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',
@@ -140,7 +142,62 @@ export default {
         }
       });
     },
-    face_getResult(){
+    /* 判断是否芝麻认证，如果认证了的话就把芝麻返回的参数传给后端 */
+    isZhimaAuthed(){
+      var self = this;
+      console.log(Lib.M.GetQueryString('params')== null)
+      if( Lib.M.GetQueryString('params') == null){
+        /* 还未芝麻认证，啥也不干 */
+      }else{
+        /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
+        Lib.M.ajax({
+          type: 'get',
+          url : '/risk-manage/zhima/zhimaCredit',
+          /* 返回的数据需原封不动，因此用 encodeURIComponent 再编码 */
+          params:{
+            name:this.userInfo.idInfo.name,
+            certNo:this.userInfo.idInfo.idCardNumber,
+            phoneNum:this.userInfo.userInfo.phone,
+            params: encodeURIComponent( Lib.M.GetQueryString('params') ),
+            sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
+            userid: self.userInfo.userInfo.userId
+          },
+          success:function (data){
+            console.log('authedSUCCESS:'+data);
+            if(res.data.code == '1'){
+                
+            }else{
+              self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
+            }
+          },
+          error:function(err){
+            self.$vux.alert.show({title: '温馨提示',content: error})
+          }
+        });
+      }
+    },
+    doFace(){
+      if(this.operator!='已完成') this.face_getToken();
+    },
+    /* 跳转至芝麻认证 */
+    zhimaAuth(){
+      if(this.zhima=='已完成'){
+        /* 认证过了，不作跳转 */
+      }else{
+        var self = this;
+        window.location.href=
+          'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
+          '&certNo=' + this.userInfo.idInfo.idCardNumber +
+          '&phoneNum='+ this.userInfo.userInfo.phone
+      }
+    },
+    doInfo(){
+      this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
+    },
+    doOperator(){
+      if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
+    }
+/*    face_getResult(){
       var self = this;
 
       Lib.M.ajax({
@@ -155,16 +212,7 @@ export default {
         error:function(err){
         }
       });
-    },
-    doInfo(){
-      this.$router.push('./vPersonalInfo')
-    },
-    doZhima(){
-      
-    },
-    doOperator(){
-      this.$router.push('./vPhoneOperator')
-    }
+    },*/
   }
 }
 </script>
