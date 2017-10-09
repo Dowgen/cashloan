@@ -7,31 +7,31 @@
 
         <div class="mainInfo">
             <div class="aboutMyInfo">
-                <div style="height: 3.15rem" v-cloak>
+                <div style="height: 3.15rem" v-cloak  @click="jumpToFillInfo">
                     <dl>
-                        <dt class="fl" @click="jumpToFillInfo">
+                        <dt class="fl">
                             <img v-show="noAvatar" class="avatar" src="./assets/headshot.png">
                             <img v-show="!noAvatar" class="avatar" :src="img_id">
                         </dt>
                         <dd class="fl" v-cloak>
-                            <p style="font-size: 1rem">您好，{{userInfo.userName}}</p>
+                            <p style="font-size: 1rem">您好，{{userInfo.userName || '用户'}}</p>
                             <p>{{userInfo.phone.substr(0, 3)}}****{{userInfo.phone.substr(7)}}</p>
                         </dd>
 
                     </dl>
-                    <!--<span><img  class="arrow" src="./assets/arrow.png" alt=""></span>-->
+                    <span><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </div>
                 <div class="money_limit">
                     <p>可用额度(元) 1000</p>
-                    <p>最高额度(元) 1000 <a href="/views/cashloan/mainPage.html">去借款</a></p>
+                    <p><!--最高额度(元)--> <a href="/views/cashloan/mainPage.html">去借款</a></p>
                 </div>
             </div>
 
-            <div class="repayment" v-show="loanStatus==1 ||loanStatus==2||loanStatus==3||loanStatus==4">
+            <div class="repayment" v-if="loanStatus==1 ||loanStatus==2||loanStatus==3||loanStatus==4">
                 <div class="reviewing_pay public special" v-show="loanStatus==1" ><!--@click="jumpToLoanDetail"-->
                     <p>审核中(1)</p>
                     <p class="special_p">
-                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
+                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate }}00</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
@@ -102,10 +102,14 @@
         },
         mounted(){
             this.localUserInfo = JSON.parse(localStorage.userInfo);
-            this.getToken();
+            /*this.getToken();*/
+            this.getInfo();
+            this.getOrderStatus();
+            this.getAllRecord();
+            this.getImg();
         },
         methods: {
-            getToken(){
+           /* getToken(){
                 var self = this;
                 Lib.M.ajax({
                     url : '/uaa/oauth/token',
@@ -121,7 +125,7 @@
                     },
                     success:function(data){
                         self.token = data.access_token;
-                        /* 把token放入 vuex */
+                        把token放入 vuex 
                         self.$store.commit('changeToken',data.access_token)
                         self.getInfo();
                         self.getOrderStatus();
@@ -132,28 +136,21 @@
                         console.error(err);
                     }
                 });
-            },
+          }, */
             getInfo(){
                 var self = this;
                 Lib.M.ajax({
                     type:'GET',
                     url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
                     headers: {
-                        'Authorization':'Bearer '+ self.token,
-                        /*'authKey':'MTQ3OTEyMDIyOTk2QTUxQkE4MjYwQkNGMz'+
-                                    'dGMkEyNTQyNEQyRUYyQzdCNDVBMDM1OUY0OTN'+
-                                    'ERDc3MzhEOUExMDFGOTBGNTQwQTlEQkF'+
-                                    'FQzQ2NzkxQzJBOTNDMDg5NEVEMTdDMTF'+
-                                    'BN0Y3REY2OTdDOA==',
-                        'sessionId':'664f37fb-8516-40ee-b2f8-b86b6481a95f',*/
+                        'Authorization':'Bearer '+ self.localUserInfo.token,
+                        'authKey':self.localUserInfo.authKey,
+                        'sessionId':self.localUserInfo.sessionId,
                         'phone':self.localUserInfo.userInfo.phone
                     },
                     success:function (res) {
                         /*console.log(res);*/
                         self.userInfo = res.data.userInfo;
-                    },
-                    error:function(err){
-                        console.log(err);
                     }
 
                 })
@@ -164,18 +161,23 @@
                     type:'GET',
                     url:'cash-account/loan/getAllProcessing/'+self.localUserInfo.userInfo.userId,
                     headers:{
-                        'Authorization':'Bearer '+ self.token,
+                        'Authorization':'Bearer '+ self.localUserInfo.token,
+                        'authKey':self.localUserInfo.authKey,
+                        'sessionId':self.localUserInfo.sessionId,
                         'phone':self.localUserInfo.userInfo.phone
                     },
                     success:function (res) {
+                        console.log('这是getallprocessing');
                         console.log(res);
-                        self.processLoan = res.data[0];
-                        self.loanStatus = res.data[0].loanStatus;
-                        self.orderId = res.data[0].orderId;
-                        console.log(self.loanStatus);
-                    },
-                    error:function (error) {
-                        console.log(error);
+                       if(res.data.length != 0){
+                           console.log('这里有数据');
+                           self.processLoan = res.data[0];
+                           self.loanStatus = res.data[0].loanStatus;
+                           self.orderId = res.data[0].orderId;
+                           console.log(self.loanStatus);
+                           console.log('1111');
+                       }
+
                     }
                 })
             },
@@ -185,16 +187,15 @@
                     type:'GET',
                     url:'cash-account/loan/getAllEnd/'+self.localUserInfo.userInfo.userId,
                     headers:{
-                        'Authorization':'Bearer '+ self.token,
+                        'Authorization':'Bearer '+ self.localUserInfo.token,
+                        'authKey':self.localUserInfo.authKey,
+                        'sessionId':self.localUserInfo.sessionId,
                         'phone':self.localUserInfo.userInfo.phone
                     },
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanLength = res.data.length;
                         console.log(self.loanLength);
-                    },
-                    error:function (error) {
-                        console.log(error);
                     }
                 })
             },
@@ -204,8 +205,10 @@
                     type:'get',
                     url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
                     headers:{
-                        Authorization:'Bearer '+ self.token,
-                        phone:self.localUserInfo.userInfo.phone
+                        'Authorization':'Bearer '+ self.localUserInfo.token,
+                        'authKey':self.localUserInfo.authKey,
+                        'sessionId':self.localUserInfo.sessionId,
+                        'phone':self.localUserInfo.userInfo.phone
                     },
                     dataType:'blob',
                     success:function (res) {
@@ -217,9 +220,6 @@
                         }else{
                             self.noAvatar = true;
                         }
-                    },
-                    error:function (error) {
-                        console.log(error);
                     }
                 })
             },
@@ -303,7 +303,7 @@
     }
 
     .mainInfo .aboutMyInfo{
-        height:6.355rem;
+        height:7.03rem;
     }
     .mainInfo .aboutMyInfo dd{
         margin-left: 0.815rem;
@@ -328,9 +328,18 @@
         color: rgba(181,181,181,1);
     }
     .money_limit p:nth-of-type(2) a{
+        display: inline-block;
         float: right;
         font-size: 0.94rem;
         color: rgba(26,188,156,1);
+
+        width:4.375rem;
+        height:1.565rem;
+        border: 1px solid rgba(26,188,156,1);
+        border-radius: 0.63rem ;
+        text-align: center;
+        line-height: 1.565rem;
+
     }
 
     .public{

@@ -36,7 +36,7 @@
         </div>
 
 
-        <div class="log_off"><a href="/views/cashloan/login.html">退出登录</a></div>
+        <div class="log_off" @click="clearLocalStorage">退出登录</div>
 
     </div>
 
@@ -55,6 +55,7 @@ export default {
   },
   data () {
     return {
+        href:''
     }
   },
   methods: {
@@ -63,14 +64,20 @@ export default {
             content: '已复制公众号，打开微信-通讯录\n' +
             '—粘贴“炬有钱”公众号—关注'})
 
-    }
+    },
+      clearLocalStorage(){
+          localStorage.clear();
+          window.location.href = '/views/cashloan/login.html';
+      }
   }
 }
 
 </script>
 
 <style>
-
+    .weui-mask{
+        z-index: 2 !important;
+    }
     .setCenter_fr{
         float: right;
     }
@@ -104,8 +111,7 @@ export default {
         left: -2rem;
         top: 0.1rem;
     }
-    .log_off a{
-        display: block;
+    .log_off{
         height:3.44rem;
         background:rgba(255,255,255,1);
         margin-top: 2.47rem;

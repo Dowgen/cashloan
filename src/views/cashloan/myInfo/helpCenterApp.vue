@@ -7,9 +7,19 @@
         <div class="help_question" v-for="(item,index) in questionList">
             <dl>
             <dt class="fl">
-                <p><img :style=item.imgStyle :src="item.img"></p>
-                <p>{{item.title}}</p>
-                <p :id="'arrow'+index" @click="show(index)">
+                <!--<p><img :style=item.imgStyle :src="item.img"></p>-->
+               <div class="img">
+                   <p><img v-show="item.img == 1" :style=item.imgStyle src="./assets/check_data.png" alt=""></p>
+                   <p><img v-show="item.img == 2" :style=item.imgStyle src="./assets/about_borrow.png" alt=""></p>
+                   <p><img v-show="item.img == 3" :style=item.imgStyle src="./assets/about_repay.png" alt=""></p>
+                   <p><img v-show="item.img == 4" :style=item.imgStyle src="./assets/about_cost.png" alt=""></p>
+                   <p><img v-show="item.img == 5" :style=item.imgStyle src="./assets/about_another.png" alt=""></p>
+               </div>
+
+
+
+                <p class="title">{{item.title}}</p>
+                <p :id="'arrow'+index" @click="show(index)" class="arrows">
                     <img class="show_arrow" src="./assets/show_up.png" alt="">
                 </p>
 
@@ -41,7 +51,7 @@
             return {
                 isShow:[false,false,false,false,false],
                 questionList:[{
-                    img:'/static/img/check_data.png',
+                    img:1,
                     imgStyle:{
                         width: '1.625rem',
                         height: '1.095rem'
@@ -70,7 +80,7 @@
                         '绑定的银行卡不是您本人的，请用本人的银行卡进行绑定。'
                     ]
                 },{
-                    img:'/static/img/about_borrow.png',
+                    img:2,
                     imgStyle:{
                         width: '1.44rem',
                         height: '1.345rem'
@@ -102,7 +112,7 @@
                         'A：未完成借款期间，用户不可自行更换银行卡，您可联系客服重置借款状态，重新绑定银行卡。客服电话:0571-28121621'
                     ]
                 },{
-                    img:'/static/img/about_repay.png',
+                    img:3,
                     imgStyle:{
                         width: '1.44rem',
                         height: '1.065rem'
@@ -129,7 +139,7 @@
                         'A：还款日期以下款当日开始计算，到还款日期如未主动还款，系统会从用户绑定的银行卡中自动扣款，您可在【我的】-【待还款】中查看您的还款日期，目前不支持推迟还款，如逾期还款将产生逾期费用。'
                     ]
                 },{
-                    img:'/static/img/about_cost.png',
+                    img:4,
                     imgStyle:{
                         width: '1.44rem',
                         height: '1.095rem'
@@ -147,7 +157,7 @@
 
                     ]
                 },{
-                    img:'/static/img/about_another.png',
+                    img:5,
                     imgStyle:{
                         width: '1.5rem',
                         height: '1.03rem'
@@ -238,16 +248,16 @@
         margin-top: 1rem;
         position: relative;
     }
-    .help_question dt p:nth-of-type(1) img{
+    .help_question dt .img img{
         display: block;
         margin:0 auto;
     }
-    .help_question dt p:nth-of-type(2){
+    .help_question dt .title{
         font-size: 0.875rem;
         color: rgba(18,128,106,1);
         line-height: 2rem;
     }
-    .help_question dt p:nth-of-type(3){
+    .help_question dt .arrows{
         width: 0.655rem;
         height: 0.405rem;
         line-height: 1rem;

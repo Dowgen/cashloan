@@ -44,19 +44,14 @@
                      Lib.M.ajax({
                          type:'get',
                          url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone+'/'+self.nickName,
-<<<<<<< HEAD
-                         /*headers: {
-=======
-                        /* headers: {
->>>>>>> ece99b99cd938520412b415359bdaaf960db3413
-                             Authorization: 'Bearer ' + self.$store.state.token,
-                             phone:self.localUserInfo.userInfo.phone
-                         },*/
+                         headers: {
+                             'Authorization':'Bearer '+ self.localUserInfo.token,
+                             'authKey':self.localUserInfo.authKey,
+                             'sessionId':self.localUserInfo.sessionId,
+                             'phone':self.localUserInfo.userInfo.phone
+                         },
                          success:function (res) {
                              console.log(res);
-                         },
-                         error:function (error) {
-                             console.log(error);
                          }
                      })
 

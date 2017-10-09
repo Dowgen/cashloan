@@ -55,8 +55,10 @@
                    Lib.M.ajax({
                        url: "cash-account/user/account/suggestions",
                        headers: {
-                           Authorization: 'Bearer ' + self.$store.state.token,
-                           phone:self.localUserInfo.userInfo.phone
+                           'Authorization':'Bearer '+ self.localUserInfo.token,
+                           'authKey':self.localUserInfo.authKey,
+                           'sessionId':self.localUserInfo.sessionId,
+                           'phone':self.localUserInfo.userInfo.phone
                        },
                        data: {
                            "user_id":self.localUserInfo.userInfo.userId,
@@ -66,9 +68,6 @@
                        success:function (res) {
                            console.log(res);
 
-                       },
-                       error:function (error) {
-                           console.log(error);
                        }
                    })
                }else{

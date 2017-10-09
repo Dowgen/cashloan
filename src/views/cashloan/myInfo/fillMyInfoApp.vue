@@ -98,8 +98,10 @@ export default {
               type:'get',
               url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
               headers:{
-                  Authorization: 'Bearer ' + self.$store.state.token,
-                  phone:self.localUserInfo.userInfo.phone
+                  'Authorization':'Bearer '+ self.localUserInfo.token,
+                  'authKey':self.localUserInfo.authKey,
+                  'sessionId':self.localUserInfo.sessionId,
+                  'phone':self.localUserInfo.userInfo.phone
               },
               dataType:'blob',
               success:function (res) {
@@ -110,9 +112,6 @@ export default {
                   }else{
                       self.noAvatar = true;
                   }
-              },
-              error:function (error) {
-                  console.log(error);
               }
           })
       },
@@ -124,15 +123,14 @@ export default {
           Lib.M.ajax({
               url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
               headers: {
-                  Authorization: 'Bearer ' + self.$store.state.token,
-                  phone:self.localUserInfo.userInfo.phone
+                  'Authorization':'Bearer '+ self.localUserInfo.token,
+                  'authKey':self.localUserInfo.authKey,
+                  'sessionId':self.localUserInfo.sessionId,
+                  'phone':self.localUserInfo.userInfo.phone
               },
               data: fd,
               success:function (res) {
                   console.log(res);
-              },
-              error:function (error) {
-                  console.log(error);
               }
           })
       },
@@ -142,15 +140,15 @@ export default {
               type:'GET',
               url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
               headers: {
-                  'Authorization':'Bearer '+ self.$store.state.token,
+                  'Authorization':'Bearer '+ self.localUserInfo.token,
+                  'authKey':self.localUserInfo.authKey,
+                  'sessionId':self.localUserInfo.sessionId,
+                  'phone':self.localUserInfo.userInfo.phone
               },
               success:function (res) {
                   console.log(res);
                   self.idInfo = res.data.idInfo;
                   self.userInfo = res.data.userInfo;
-              },
-              error:function(err){
-                  console.log(err);
               }
 
           })
@@ -186,6 +184,7 @@ export default {
         background:rgba(255,255,255,1);
         line-height: 5.44rem;
         margin-top: 1.065rem;
+        color: rgba(115,115,115,1);
     }
     .headShot span:nth-of-type(2){
         float: right;

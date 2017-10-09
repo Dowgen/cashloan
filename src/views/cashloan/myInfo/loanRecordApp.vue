@@ -40,7 +40,7 @@ export default {
       data () {
         return {
             phoneNum:'',
-            repayStatus:1,
+            /*repayStatus:1,*/
             loanList:[],
             localUserInfo:{}
         }
@@ -58,15 +58,14 @@ export default {
                     url:'cash-account/loan/getAllEnd/'+
                          self.localUserInfo.userInfo.userId,
                     headers:{
-                        'Authorization':'Bearer '+ self.$store.state.token,
-                        'phone':'18858278343'
+                        'Authorization':'Bearer '+ self.localUserInfo.token,
+                        'authKey':self.localUserInfo.authKey,
+                        'sessionId':self.localUserInfo.sessionId,
+                        'phone':self.localUserInfo.userInfo.phone
                     },
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanList = res.data;
-                    },
-                    error:function (error) {
-                        console.log(error);
                     }
               })
           }

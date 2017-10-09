@@ -103,8 +103,10 @@ export default {
               type:'GET',
               url:'cash-account/loan/getOne/'+self.$route.query.orderId,
               headers:{
-                  'Authorization':'Bearer '+ self.$store.state.token,
-                  'phone':'18858278343'
+                  'Authorization':'Bearer '+ self.localUserInfo.token,
+                  'authKey':self.localUserInfo.authKey,
+                  'sessionId':self.localUserInfo.sessionId,
+                  'phone':self.localUserInfo.userInfo.phone
               },
               success:function (res) {
                   /*console.log(res);*/
@@ -130,9 +132,6 @@ export default {
 
                   }
 
-              },
-              error:function (error) {
-                  console.log(error);
               }
           })
       },
