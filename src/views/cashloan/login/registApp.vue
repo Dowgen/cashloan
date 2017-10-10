@@ -58,7 +58,7 @@ export default {
       verifyCode: '',       //用户输入的 验证码
 
       /* countdown所需参数 */
-      time1: 5,
+      time1: 60,
       start: false,
       countDownText:'获取验证码'
     }
@@ -176,7 +176,7 @@ export default {
           self.$vux.loading.hide();  
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
-            self.$vux.toast.text('密码修改成功，正在跳转', 'middle');
+            self.$vux.toast.text('密码设置成功，正在跳转', 'middle');
             setTimeout("window.location.href = '/views/cashloan/mainPage.html'",1000);
           }else if(data.code==-100){
             self.$vux.toast.text(data.error, 'middle');

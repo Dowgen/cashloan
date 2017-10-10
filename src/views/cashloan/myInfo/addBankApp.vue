@@ -5,14 +5,14 @@
             <span v-show="!isShow">添加银行卡</span>
             <span v-show="isShow">银行卡信息</span>
         </div>-->
-        <x-header v-show="!isShow" :left-options="{backText: ''}">添加银行卡</x-header>
+        <x-header :left-options="{backText: ''}">添加银行卡</x-header>
 
-        <x-header v-show="isShow" :left-options="{backText: ''}" :right-options="{showMore: true}" @on-click-more="showMenus = true">我的银行卡</x-header>
+        <!-- <x-header v-show="isShow" :left-options="{backText: ''}" :right-options="{showMore: true}" @on-click-more="showMenus = true">我的银行卡</x-header>
         <div v-transfer-dom>
             <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
-        </div>
-        <div class="add_bank oBank" v-show="!isShow">
-            <div id="wrap" @click="addBank">
+        </div> -->
+        <div class="add_bank oBank" v-show="!isShow" @click="addBank">
+            <div id="wrap">
                 <div id="div1">
                     <div></div>
                     <div></div>
@@ -23,9 +23,9 @@
                 </div>
             </div>
         </div>
-        <div class="exist_bank oBank" v-show="isShow">
-            <p>建设银行</p>
-            <p><span style="font-size: 0.94rem">**** **** **** </span><span>6430</span></p>
+        <div class="exist_bank oBank" v-show="isShow" @click="clickCard"> 
+            <p>{{bank_name}}</p>
+            <p><span style="font-size: 0.94rem">**** **** **** </span><span>{{card_no}}</span></p>
         </div>
 
 
@@ -42,25 +42,90 @@
         name: 'add',
         directives: {
             TransferDom
-          },
+        },
         components: {
             XHeader, Actionsheet, ButtonTab, ButtonTabItem
         },
         data () {
             return {
-               isShow:false,
+                isShow:false,
                 menus: {
                     menu1: '解除绑定',
                 },
-                showMenus: false
+                userInfo:{},
+                showMenus: false,
+                cardData:[],    //用户绑定的银行卡信息
+                bank_name: '',
+                card_no: ''
             }
         },
+        mounted(){
+            this.userInfo = JSON.parse(localStorage.userInfo);
+            this.bankCardCheck();  
+        },
         methods: {
-            deleteName(){
-                this.nickName = '';
-            },
             addBank(){
-                this.isShow = true;
+                /*this.isShow = true;*/
+                this.$router.push('./bindBankCard')
+            },
+            /* 得到银行卡信息 */
+            bankCardCheck(){
+                var self = this;
+                Lib.M.ajax({
+                    url : '/pay/repayment/bankCardCheckList',
+                    headers:{
+                      'Authorization':'Bearer '+ self.userInfo.token,
+                      'authKey':self.userInfo.authKey,
+                      'sessionId':self.userInfo.sessionId,
+                      'phone':self.userInfo.userInfo.phone
+                    },
+                    data:{
+                      user_id: self.userInfo.userInfo.userId
+                    },
+                    success:function (res){
+                      console.log(res.data.length)
+                      if(res.data.length!=0){
+                        self.cardData = res.data;
+                        self.bank_name = self.cardData[0].bank_name
+                        self.card_no = self.cardData[0].card_no  
+                        self.isShow = true
+                      }
+                    }
+                });
+            },
+            /* 点击银行卡 */
+            clickCard(){
+                var self = this;
+                this.$vux.confirm.show({
+                  content: '亲,是否想要解绑银行卡?',
+                  onConfirm () {
+                    self.unbind();
+                  }
+                })
+            },
+            /* 解绑银行卡 */
+            unbind(){
+                var self = this;
+                Lib.M.ajax({
+                    url : '/pay/repayment/bankCardUnbind',
+                    headers:{
+                      'Authorization':'Bearer '+ self.userInfo.token,
+                      'authKey':self.userInfo.authKey,
+                      'sessionId':self.userInfo.sessionId,
+                      'phone':self.userInfo.userInfo.phone
+                    },
+                    data: {
+                      user_id: self.userInfo.userInfo.userId,
+                      no_agree: self.cardData[0].no_agree
+                    },
+                    success:function(res){
+                      if(res.code=='0000'){
+                        self.$vux.toast.text('解绑成功!','middle'); 
+                      }else{
+                        self.$vux.toast.text(res.error,'middle');
+                      }
+                    }
+                });
             }
         }
     }

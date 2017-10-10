@@ -16,6 +16,7 @@ import contactUs from './contactUsApp'
 import aboutJuHe from './aboutJuHeApp'
 import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
+import BindBankCard from './bindBankCard'
 
 Vue.use(Vuex)
 
@@ -33,6 +34,7 @@ const routes = [
     { path: '/aboutJuHe', component: aboutJuHe},
     { path: '/helpCenter', component: helpCenter},
     { path: '/questionList', component: questionList},
+    { path: '/bindBankCard', component: BindBankCard }
 ]
 
 Vue.use(VueRouter)

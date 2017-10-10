@@ -129,7 +129,13 @@ export default {
       }
       Lib.M.ajax({
         url : '/cash-account/user/account/userInfo/edit/'+ 
-               JSON.parse(localStorage.userInfo).userInfo.phone,
+               self.userInfo.userInfo.phone,
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         data:{
           "jobType": workVal,
           "marriage": mariVal,

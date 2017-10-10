@@ -85,6 +85,12 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         data:{
           phone: self.userInfo.userInfo.phone,
           user_id: self.userInfo.userInfo.userId
@@ -116,6 +122,12 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         params:{
           return_url: 'http://talentplanet.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',

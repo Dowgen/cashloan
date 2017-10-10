@@ -109,12 +109,18 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         params:{
-          return_url: 'http://talentplanet.cn/views/cashloan/mainPage.html#/confirmRent',
+          return_url: 'https://moneyboom.cn/views/cashloan/mainPage.html#/confirmRent',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
-          idcard_mode:2/*,
-          idcard_name:'徐文斌',
-          idcard_number: '331003199205170810'*/
+          idcard_mode:0,
+          idcard_name: self.userInfo.idInfo.name,
+          idcard_number: self.userInfo.idInfo.idcardInfo
         },
         success:function (data){
           self.$vux.loading.hide();
@@ -132,7 +138,7 @@ export default {
     jump(){
       var self = this
       let a = 2;
-      if(/*this.authPassed != 4*/a===4){
+      if(this.authPassed != 4){
         this.$vux.confirm.show({
           content: '亲,您的基础信息尚未完善，请先完善资料!',
           onConfirm () {
@@ -158,6 +164,12 @@ export default {
       });
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         data:{
           phone: self.userInfo.userInfo.phone,
           user_id: self.userInfo.userInfo.userId
@@ -176,6 +188,12 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : '/pay/repayment/bankCardCheckList',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         data:{
           user_id: self.userInfo.userInfo.userId
         },

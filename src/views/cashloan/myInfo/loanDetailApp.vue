@@ -98,20 +98,21 @@
                 var self = this;
                 Lib.M.ajax({
                     url : 'pay/repayment/wapRequestDataForPay',
+                    headers:{
+                      'Authorization':'Bearer '+ self.userInfo.token,
+                      'authKey':self.userInfo.authKey,
+                      'sessionId':self.userInfo.sessionId,
+                      'phone':self.userInfo.userInfo.phone
+                    },
                     data:{
                         user_id:self.userInfo.userInfo.userId,
-                        /*phone_num:self.userInfo.userInfo.phone,
+                        phone_num:self.userInfo.userInfo.phone,
                         register_time: self.userInfo.idInfo.create_time,
                         id_no: self.userInfo.idInfo.idCardNumber,
                         acct_name: self.userInfo.idInfo.name,
-                        card_no: self.bankCard*/
-                        acct_name: '徐文斌',
-                        phone_num:'13666604580',
-                        id_no: '331003199205170810',
                         money_order: '0.01',
-                        register_time: '2017-10-07',
                         oid_business: 'JHCL171009204631259180',
-                        url_return: 'http://localhost:8999/views/cashloan/myInfo.html#/loanDetail'
+                        url_return: 'https://moneyboom.cn/views/cashloan/myInfo.html#/loanDetail'
                     },
                     success:function(data){
                         /*console.log('backParams:'+JSON.stringify(data.data))*/

@@ -42,12 +42,12 @@
         </div>
         <div class="info_public pad">
             <span>银行卡号</span>
-            <span v-if="bankCard == ''" class="fr" @click="$router.push({'path':'/addBank'})">
-                <span v-model="bankCard"></span>
+            <span v-show="bankCard == ''" class="fr" @click="$router.push({'path':'/addBank'})">
+                <span>未绑定</span>
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
-            <span v-if="bankCard !== ''" class="fr color">
-                <span v-model="bankCard">330626********06430</span>
+            <span v-show="bankCard != ''" class="fr color">
+                <span>*******{{bankCard}}</span>
                 <img style="width: 1.065rem;height: 1.065rem;display: inline-block" src="./assets/edit.png" @click="$router.push({path:'/addBank'})" alt="">
             </span>
         </div>
@@ -76,6 +76,7 @@ export default {
         this.localUserInfo = JSON.parse(localStorage.userInfo);
         this.getInfo();
         this.getImg();
+        this.bankCardCheck();
     },
   methods: {
       preivewImg() {
@@ -152,7 +153,29 @@ export default {
               }
 
           })
-      }
+      },
+      /* 得到银行卡信息 */
+      bankCardCheck(){
+          var self = this;
+          Lib.M.ajax({
+              url : '/pay/repayment/bankCardCheckList',
+              headers:{
+                'Authorization':'Bearer '+ self.localUserInfo.token,
+                'authKey':self.localUserInfo.authKey,
+                'sessionId':self.localUserInfo.sessionId,
+                'phone':self.localUserInfo.userInfo.phone
+              },
+              data:{
+                user_id: self.localUserInfo.userInfo.userId
+              },
+              success:function (res){
+                console.log(res.data.length)
+                if(res.data.length!=0){
+                  self.bankCard = res.data[0].card_no
+                }
+              }
+          });
+      },
   }
 }
 
