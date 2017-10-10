@@ -79,7 +79,7 @@ export default {
     },
     repayDate(){
       return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
-    }
+    },
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
@@ -105,6 +105,12 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : '/cash-account/loan/createOrder/',
+        headers: {
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
@@ -116,11 +122,11 @@ export default {
         success:function (data){
           if(data.code==200){
             self.$vux.toast.text('提交成功！', 'middle')
+            self.$router.replace('./submitSuccess')
             
           }else{
             self.$vux.toast.text(data.error, 'middle')
           }
-          /*self.$router.push('./submitSuccess')*/
         }
       });
     }

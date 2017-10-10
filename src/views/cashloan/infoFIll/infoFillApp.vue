@@ -149,9 +149,9 @@ export default {
           url : '/risk-manage/zhima/zhimaCredit',
           /* 返回的数据需原封不动，因此用 encodeURIComponent 再编码 */
           params:{
-            name:this.userInfo.idInfo.name,
-            certNo:this.userInfo.idInfo.idCardNumber,
-            phoneNum:this.userInfo.userInfo.phone,
+            name:self.userInfo.idInfo.name,
+            certNo:self.userInfo.idInfo.idCardNumber,
+            phoneNum:self.userInfo.userInfo.phone,
             params: encodeURIComponent( Lib.M.GetQueryString('params') ),
             sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
             userid: self.userInfo.userInfo.userId

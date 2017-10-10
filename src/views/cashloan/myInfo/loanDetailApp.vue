@@ -1,4 +1,3 @@
-
 <template>
     <div class="wrapper" style="background-image: url('../../static/img/loan_detail_head_bg.png');">
         <div class="about_loan">
@@ -320,3 +319,4 @@
         line-height: 3rem;
     }
 </style>
+

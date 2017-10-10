@@ -71,6 +71,7 @@ export default {
         'color': '#1abc9c'
       },
       authPassed: 0,
+      cardBinded: false,
       userInfo:{}
     }
   },
@@ -88,6 +89,8 @@ export default {
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
     this.userInfo = JSON.parse(localStorage.userInfo);
+    /* 得到绑卡数据 */
+    this.bankCardCheck();
     /* 得到认证通过标志 */
     this.getauthStatus();
   },
@@ -136,8 +139,13 @@ export default {
             window.location.href = '/views/cashloan/infoFill.html' 
           }
         })
-      }else if( a===2 ){
-        this.bankCardCheck();
+      }else if( this.cardBinded === false){
+        this.$vux.confirm.show({
+          content: '亲,请先绑定银行卡再借款!',
+          onConfirm () {
+            self.$router.push('./bindBankCard')
+          }
+        })
       }else{
         this.face_getToken();
       }
@@ -172,13 +180,11 @@ export default {
           user_id: self.userInfo.userInfo.userId
         },
         success:function (res){
-          if(res.code == '0000'){
-            self.$vux.confirm.show({
-              content: '亲,请先绑定银行卡再借款!',
-              onConfirm () {
-                self.$router.push('./bindBankCard')
-              }
-            })
+          console.log('length:'+res.data.length)
+          if(res.data.length == 0){
+            self.cardBinded = false
+          }else{
+            self.cardBinded = true
           }
         }
       });
