@@ -64,6 +64,7 @@ export default {
   data () {
     return {
       realName:'',
+      realNamePassed:false,
       information:'',
       informationPassed: false,
       zhima:'',
@@ -109,6 +110,9 @@ export default {
             if(data[i].type=='information'){
               self.informationPassed = true
             }
+            if(data[i].type=='realName'){
+              self.realNamePassed = true
+            }
           }
         }
       });
@@ -129,7 +133,7 @@ export default {
           'phone':self.userInfo.userInfo.phone
         },
         params:{
-          return_url: 'http://talentplanet.cn/views/cashloan/infoFill.html',
+          return_url: 'https://moneyboom.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:2/*,
           idcard_name:'徐文斌',
@@ -180,25 +184,35 @@ export default {
       }
     },
     doFace(){
-      if(this.operator!='已完成') this.face_getToken();
+      if(this.realName!='已完成') this.face_getToken();
     },
     /* 跳转至芝麻认证 */
     zhimaAuth(){
-      if(this.zhima=='已完成'){
-        /* 认证过了，不作跳转 */
+      if(this.realNamePassed){
+        /* 还未实名认证 */
+        this.$vux.toast.text('请先通过实名认证','middle')
       }else{
-        var self = this;
-        window.location.href=
-          'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
-          '&certNo=' + this.userInfo.idInfo.idCardNumber +
-          '&phoneNum='+ this.userInfo.userInfo.phone
+        if(this.zhima=='已完成'){
+          /* 认证过了，不作跳转 */
+        }else{
+          var self = this;
+          window.location.href=
+            'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
+            '&certNo=' + this.userInfo.idInfo.idCardNumber +
+            '&phoneNum='+ this.userInfo.userInfo.phone
+        }
       }
     },
     doInfo(){
-      this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
+        this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
     },
     doOperator(){
-      if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
+      if(this.realNamePassed){
+        /* 还未实名认证 */
+        this.$vux.toast.text('请先通过实名认证','middle')
+      }else{
+        if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
+      }
     }
 /*    face_getResult(){
       var self = this;

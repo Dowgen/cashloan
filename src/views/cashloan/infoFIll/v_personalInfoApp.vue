@@ -94,6 +94,17 @@ export default {
   },
   mounted(){
     this.userInfo = JSON.parse(localStorage.userInfo);
+    let u = this.userInfo
+    if(this.$route.query.isPassed){
+      this.workType[0] = this.workTypeList[parseInt(u.userInfo.jobType)].name
+      this.mariVal[0] = this.mariList[parseInt(u.userInfo.marriage)].name
+      this.cityVal[0] = u.userInfo.location.split(' ')[0]
+      this.specLoc = u.userInfo.location.split(' ')[1]
+      this.contName1 = u.userInfo.emergencyContactName1
+      this.contName2 = u.userInfo.emergencyContactName2
+      this.contPhone1 = u.userInfo.emergencyContactPhone1
+      this.contPhone2 = u.userInfo.emergencyContactPhone2
+    }
   },
   methods: {
     submit(){
@@ -118,14 +129,14 @@ export default {
       if(self.mariVal[0] == '未婚'){
         mariVal = 1;
       }else{
-        mariVal = 2;
+        mariVal = 0;
       }
-      if(self.workType[0] == '学生'){
-        workVal = 1;
-      }else if(self.workType[0] == '上班族'){
-        workVal = 2;
+      if(self.workType[0] == '上班族'){
+        workVal = 0;
       }else if(self.workType[0] == '自由职业'){
-        workVal = 3;
+        workVal = 1;
+      }else if(self.workType[0] == '学生'){
+        workVal = 2;
       }
       Lib.M.ajax({
         url : '/cash-account/user/account/userInfo/edit/'+ 
@@ -139,7 +150,7 @@ export default {
         data:{
           "jobType": workVal,
           "marriage": mariVal,
-          "location": self.cityVal.join(' ') + self.specLoc,
+          "location": self.cityVal.join(',')+ ' ' + self.specLoc,
           "emergencyContactName1": self.contName1,
           "emergencyContactPhone1": self.contPhone1,
           "emergencyContactName2": self.contName2,
@@ -147,7 +158,11 @@ export default {
         },
         success:function (data){
           self.$vux.toast.text('提交成功！', 'middle')
-          setTimeout("window.location.href = '/views/cashloan/infoFill.html'",1000);
+          /* 重设localStorage里的userInfo */
+          let u = JSON.parse(localStorage.userInfo)
+          u.userInfo = data.data
+          localStorage.userInfo = JSON.stringify(u)
+          /*setTimeout("window.location.href = '/views/cashloan/infoFill.html'",1000);*/
         }
       });
     }

@@ -49,6 +49,7 @@ var Rxports = {
             error => {
                 if (error.response) {
                     switch (error.response.status) {
+                        case 303:
                         case 401:
                             // 返回 401 清除localStorage并跳转到登录页面
                             vm.$vux.loading.show({text: 'token过期，请重新登录！'});

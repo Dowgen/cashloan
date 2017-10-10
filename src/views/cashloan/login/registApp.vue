@@ -83,8 +83,8 @@ export default {
       if(this.verifyCode==='' || this.password === ''){
         this.$vux.toast.text('参数请填写完整！', 'middle')
       }else{
-        if(this.password.length<6){
-          this.$vux.toast.text('密码不能小于6位！', 'middle')
+        if(!this.checkPassword(this.password)){
+
         }else{
           /* 先验证短信，然后根据登录方式决定是注册还是更改密码 */
           this.checkVerify(this.$store.state.registType);
@@ -183,6 +183,21 @@ export default {
           }
         }
       });
+    },
+    /* 校验密码 */
+    checkPassword(num){
+      let reg = /^(?![^a-zA-Z]+$)(?!\D+$)/;
+      let pass1 = reg.test(num);
+      let pass2 = num.length>=6 && num.length<=16;
+      if(!pass2){
+        this.$vux.toast.text('密码长度必须大于6位且小于16位','middle')
+        return false
+      }else if(!pass1){
+        this.$vux.toast.text('密码必须同时包含字母和数字','middle')
+        return false
+      }else{
+        return true
+      }
     }
   }
 }
