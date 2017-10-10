@@ -1,6 +1,6 @@
 <template>
-  <div>
-      <div class="about_loan" style="background:url('../../static/img/loan_detail_head_bg.png)">
+  <div class="wrapper" style="background-image: url('../../static/img/loan_detail_head_bg.png');">
+      <div class="about_loan">
           <div class="head">
               <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back_white.png" alt=""></span>
               <p>借单详情</p>
@@ -25,11 +25,11 @@
           <ul v-show="sShow">
               <li>
                   <span>借款日</span>
-                  <span>{{loanDate.split(' ')[0].replace(/-/g, "/")}}</span>
+                  <span>{{loanDate}}</span>
               </li>
               <li>
                   <span>还款日</span>
-                  <span style="color: rgba(255,142,103,1)">{{repayDate.split(' ')[0].replace(/-/g, "/")}} <span class="question" v-show="loanStatus==1 || loanStatus==2 ||loanStatus==3" @click="isShowOf()"></span></span>
+                  <span style="color: rgba(255,142,103,1)">{{repayDate}} <span class="question" v-show="loanStatus==1 || loanStatus==2 ||loanStatus==3" @click="isShowOf()"></span></span>
               </li>
               <li>
                   <span>到账金额</span>
@@ -47,7 +47,11 @@
           <div class="instruction" v-show="loanStatus == 1">正在审核中...</div>
           <div class="instruction" v-show="loanStatus == 2">借款失败</div>
           <div class="instruction" v-show="loanStatus == 3">下款成功</div>
-          <div class="instruction" v-show="loanStatus == 4">立即还款</div>
+          <!-- <div class="instruction">立即还款</div> -->
+          <form v-show="loanStatus == 4" action="https://wap.lianlianpay.com/installment.htm" method="post">
+            <input name="req_data" :value="backParams"/>
+            <input type="submit" value="立即还款"/>
+          </form>
       </div>
     
       <div class="aboutPayTime" v-show="isShow">
@@ -58,6 +62,7 @@
               <p @click="close()">我知道了</p>
           </div>
       </div>
+
   </div>
 </template>
 
@@ -82,13 +87,46 @@ export default {
         overDueDay:'',
         isShow:false,
         sShow:true,
-
+        userInfo:{},
+        backParams:{}
     }
   },
     mounted(){
+        this.userInfo = JSON.parse(localStorage.userInfo);
         this.getLoanStatus();
+        this.getRepayParams();
     },
   methods: {
+    /* 得到绑卡所需参数 */
+    getRepayParams(){
+      var self = this;
+      Lib.M.ajax({
+        url : 'pay/repayment/wapRequestDataForPay',
+        data:{
+          user_id:self.userInfo.userInfo.userId,
+          /*phone_num:self.userInfo.userInfo.phone,
+          register_time: self.userInfo.idInfo.create_time,
+          id_no: self.userInfo.idInfo.idCardNumber,
+          acct_name: self.userInfo.idInfo.name,
+          card_no: self.bankCard*/
+          acct_name: '徐文斌',
+          phone_num:'13666604580',
+          id_no: '331003199205170810',
+          money_order: '0.01',
+          register_time: '2017-10-07',
+          oid_business: 'JHCL171009204631259180',
+          url_return: 'http://localhost:8999/views/cashloan/myInfo.html#/loanDetail'
+        },
+        success:function(data){
+          /*console.log('backParams:'+JSON.stringify(data.data))*/
+          self.backParams = JSON.stringify(data.data);
+        }
+      });
+    },
+      repay(){
+
+
+      },
       isShowOf(){
           this.isShow = true;
           this.sShow = false;
@@ -103,10 +141,10 @@ export default {
               type:'GET',
               url:'cash-account/loan/getOne/'+self.$route.query.orderId,
               headers:{
-                  'Authorization':'Bearer '+ self.localUserInfo.token,
-                  'authKey':self.localUserInfo.authKey,
-                  'sessionId':self.localUserInfo.sessionId,
-                  'phone':self.localUserInfo.userInfo.phone
+                  'Authorization':'Bearer '+ self.userInfo.token,
+                  'authKey':self.userInfo.authKey,
+                  'sessionId':self.userInfo.sessionId,
+                  'phone':self.userInfo.userInfo.phone
               },
               success:function (res) {
                   /*console.log(res);*/
@@ -131,15 +169,40 @@ export default {
                       self.overDueDay = Math.ceil((repayRealTime -repayTime)/1000/60/60/24) ;
 
                   }
+                  self.loanDate = self.loanDate.split(' ')[0].replace(/-/g, "/")
+                  self.repayDate = self.repayDate.split(' ')[0].replace(/-/g, "/")
 
               }
           })
-      },
+      }
 
   }
 }
 </script>
-
+<style scoped>
+  form>input{
+    visibility: hidden;
+  }
+  form>input[type="submit"]{
+    visibility: visible;
+    width: 100%;
+    height: 2.75rem;
+    background: rgba(26,188,156,1);
+    opacity: 0.66;
+    border-radius: 0.315rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-align: center;
+    line-height: 2.75rem;
+    font-size: 1.125rem;
+    color: #fff;
+    overflow: hidden;
+    border-width: 0;
+    outline: 0;
+    -webkit-appearance: none;
+  }
+</style>
 <style>
     em{
         font-style: normal
@@ -147,10 +210,12 @@ export default {
     body{
         position: relative;
     }
+    .wrapper{
+      background-image: url('./assets/loan_detail_head_bg.png');
+    }
     .about_loan{
         width: 100%;
         height: 14.405rem;
-        background: url("./assets/loan_detail_head_bg.png");
         overflow: hidden;
     }
     .head{

@@ -11,17 +11,17 @@
         <p class="name">小额现金贷</p>
         <div class="middle">
           <div class="detail">
-            <p>1000<span>元</span></p>
+            <p>{{loanAmount}}<span>元</span></p>
             <p>贷款金额</p>
           </div>
           <div class="detail">
-            <p>14<span>天</span></p>
+            <p>{{loanPeriod}}<span>天</span></p>
             <p>借款周期</p>
           </div>
         </div>
-        <p class="gotoDetail">查看详情</p>
+        <p class="gotoDetail" @click="detail">查看详情</p>
       </div>
-      <div class="btn">返回首页</div>
+      <div class="btn" @click="back">返回首页</div>
     </div>
   </div>
 </template>
@@ -39,13 +39,40 @@ export default {
   },
   data () {
     return {
+      loanAmount:'',
+      loanPeriod:'',
+      userInfo:{}
     }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = 0;
+    this.userInfo = JSON.parse(localStorage.userInfo);
+    this.get();
   },
   methods: {
-
+    get(){
+      var self = this
+      Lib.M.ajax({
+        type:'GET',
+        url:'cash-account/loan/getAllProcessing/'+self.userInfo.userInfo.userId,
+        headers:{
+            'Authorization':'Bearer '+ self.userInfo.token,
+            'authKey':self.userInfo.authKey,
+            'sessionId':self.userInfo.sessionId,
+            'phone':self.userInfo.userInfo.phone
+        },
+        success:function (res) {
+          self.loanAmount = res.data[0].loanAmount
+          self.loanPeriod = res.data[0].loanPeriod
+        }
+      })
+    },
+    back(){
+      window.location.href = '/views/cashloan/mainPage.html'
+    },
+    detail(){
+      window.location.href = '/views/cashloan/myInfo.html'
+    }
   }
 }
 </script>
