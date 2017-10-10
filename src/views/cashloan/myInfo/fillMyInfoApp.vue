@@ -37,7 +37,7 @@
         <div class="info_public pad" style="margin-top: 1.0315rem">
             <span>身份证号</span>
             <span class="fr color">
-                {{idInfo.idCardNumber.substr(0, 3)}}***********{{idInfo.idCardNumber.substr(14)}}
+                {{idInfo.idCardNumber.substr(0, 3) || '无'}}***********{{idInfo.idCardNumber.substr(14) || '号'}}
             </span>
         </div>
         <div class="info_public pad">

@@ -61,8 +61,7 @@ export default {
   methods: {
     wechat(){
         this.$vux.alert.show({
-            content: '已复制公众号，打开微信-通讯录\n' +
-            '—粘贴“炬有钱”公众号—关注'})
+            content: '打开微信—通讯录—关注“炬有钱”公众号'})
 
     },
       clearLocalStorage(){

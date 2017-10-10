@@ -7,7 +7,7 @@
         </div>-->
         <x-header v-show="!isShow" :left-options="{backText: ''}">添加银行卡</x-header>
 
-        <x-header v-show="isShow" :left-options="{backText: ''}" :right-options="{showMore: true}" @on-click-more="showMenus = true">银行卡信息</x-header>
+        <x-header v-show="isShow" :left-options="{backText: ''}" :right-options="{showMore: true}" @on-click-more="showMenus = true">我的银行卡</x-header>
         <div v-transfer-dom>
             <actionsheet :menus="menus" v-model="showMenus" show-cancel></actionsheet>
         </div>

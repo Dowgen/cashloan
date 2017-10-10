@@ -22,13 +22,13 @@
                     <span><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </div>
                 <div class="money_limit">
-                    <p>可用额度(元) 1000</p>
+                    <p>最高额度(元) 1000</p>
                     <p><!--最高额度(元)--> <a href="/views/cashloan/mainPage.html">去借款</a></p>
                 </div>
             </div>
 
             <div class="repayment" v-if="loanStatus==1 ||loanStatus==2||loanStatus==3||loanStatus==4">
-                <div class="reviewing_pay public special" v-show="loanStatus==1" ><!--@click="jumpToLoanDetail"-->
+                <div class="reviewing_pay public special" v-show="loanStatus==1" @click="jumpToLoanDetail">
                     <p>审核中(1)</p>
                     <p class="special_p">
                         <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate }}00</em></span>
@@ -64,7 +64,7 @@
             <div class="loan_record active public" @click="jumpToLoanRecord">
                 <p>借款记录</p>
                 <p style="margin-top: 1.25rem">
-                    共<!--{{loanLength}}-->0笔借款待还
+                    共{{loanLength}}笔借款待还
                     <span v-show="loanLength !== 0"><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </p>
             </div>
@@ -336,7 +336,7 @@
         width:4.375rem;
         height:1.565rem;
         border: 1px solid rgba(26,188,156,1);
-        border-radius: 0.63rem ;
+        border-radius: 0.315rem ;
         text-align: center;
         line-height: 1.565rem;
 
