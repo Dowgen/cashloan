@@ -94,8 +94,10 @@ export default {
           'phone':self.userInfo.userInfo.phone
         },
         data:{
-          phone: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId
+          mobile: self.userInfo.userInfo.phone,
+          user_id: self.userInfo.userInfo.userId,
+          certNo: self.userInfo.idInfo.idCardNumber || '',
+          name: self.userInfo.idInfo.name || ''
         },
         success:function (res){
           let data = res.data;

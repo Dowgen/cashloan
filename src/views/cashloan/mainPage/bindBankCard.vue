@@ -7,8 +7,8 @@
       <x-input title='银行卡号 ' placeholder="请输入银行卡号" v-model="bankCard"></x-input>
     </group>
     <div class="button">
-      <form action="https://wap.lianlianpay.com/signApply.htm" method="post">
-        <input name="req_data" :value="backParams"/>
+      <form id="myForm" v-on:submit.prevent="click" action="https://wap.lianlianpay.com/signApply.htm" method="post">
+        <input id="backParams" type="text" name="req_data" value=""/>
         <input type="submit" value="确定"/>
       </form>
     </div>
@@ -34,7 +34,7 @@ export default {
       bankCard:'',
       userInfo:{},
       realName: '', //姓名（固定）
-      backParams:{} //后台返回的参数，用来传给连连支付
+      backParams:'' //后台返回的参数，用来传给连连支付
     }
   },
   mounted(){
@@ -42,13 +42,12 @@ export default {
     this.realName = this.userInfo.idInfo.name;
     /* 进页面判断一下是否是从连连跳过来的 */
     this.isBindCard();
-    this.getBindCardParams();
   },
   methods: {
     /* 点击按钮 */
     click(){
       if(this.bankCard!=''){
-        
+        this.getBindCardParams();
       }else{
         this.$vux.toast.text('信息请填写完整!', 'middle')
       }
@@ -74,8 +73,8 @@ export default {
           url_return: 'https://moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
         },
         success:function(data){
-          /*console.log('backParams:'+JSON.stringify(data.data))*/
-          self.backParams = JSON.stringify(data.data);
+          document.getElementById('backParams').value = JSON.stringify(data.data);
+          document.getElementById('myForm').submit()
         }
       });
     },
