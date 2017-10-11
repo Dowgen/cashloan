@@ -221,6 +221,12 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getResult',
+        headers:{
+          'Authorization':'Bearer '+ self.userInfo.token,
+          'authKey':self.userInfo.authKey,
+          'sessionId':self.userInfo.sessionId,
+          'phone':self.userInfo.userInfo.phone
+        },
         params:{
           user_id: self.userInfo.userInfo.userId,
           biz_id: JSON.parse(localStorage.faceReturn).biz_id
