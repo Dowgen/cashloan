@@ -30,7 +30,7 @@
     </div>
   	<x-button type="primary" style="margin-top:5.19rem" @click.native="registOrchange">登录</x-button>
 		<div class="agreeProto">
-      开始使用即同意<span style="color:#1abc9c">《用户服务协议》</span>
+      开始使用即同意<span style="color:#1abc9c" @click="$router.push({path:'/userAgreement'})">《用户服务协议》</span>
     </div>
 
     <div class="pad-btm"></div>

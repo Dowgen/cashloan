@@ -22,7 +22,7 @@
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>
-        <div class="setCenter_public" style="margin-top: 1.0315rem">
+        <div class="setCenter_public" style="margin-top: 1.0315rem"><!--privacyAgreement userAgreement-->
             <span><img class="iconfont" style="width: 1.25rem;height: 1.22rem;" src="./assets/Rated.png" alt="">不错，去评分</span>
             <span class="setCenter_fr">
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
