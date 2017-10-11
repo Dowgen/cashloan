@@ -93,7 +93,7 @@ export default {
           id_no: self.userInfo.idInfo.idCardNumber,
           acct_name: self.userInfo.idInfo.name,
           card_no: self.bankCard,
-          url_return: 'https://pay.moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
+          url_return: 'https://moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
         },
         success:function(data){
           /*console.log('backParams:'+JSON.stringify(data.data))*/
