@@ -173,10 +173,18 @@ export default {
             sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
             userid: self.userInfo.userInfo.userId
           },
-          success:function (data){
-            console.log('authedSUCCESS:'+data);
-            if(res.data.code == '1'){
-                
+          success:function (res){
+            console.log(res);
+            if(res.code == 200){
+                self.$vux.alert.show({
+                  content: '芝麻认证成功!',
+                  onShow () {
+                    console.log('Plugin: I\'m showing')
+                  },
+                  onHide () {
+                    window.location.replace('https://moneyboom.cn/views/cashloan/infoFill.html')
+                  }
+                })
             }else{
               self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
             }
@@ -189,7 +197,7 @@ export default {
     },
     /* 跳转至芝麻认证 */
     zhimaAuth(){
-      if(this.realNamePassed){
+      if(!this.realNamePassed){
         /* 还未实名认证 */
         this.$vux.toast.text('请先通过实名认证','middle')
       }else{
@@ -208,7 +216,7 @@ export default {
         this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
     },
     doOperator(){
-      if(this.realNamePassed){
+      if(!this.realNamePassed){
         /* 还未实名认证 */
         this.$vux.toast.text('请先通过实名认证','middle')
       }else{
@@ -234,7 +242,7 @@ export default {
         success:function (data){
           console.log('getResult:'+data)
           self.$vux.alert.show({
-            content: '认证成功!',
+            content: '实名认证成功!',
             onShow () {
               console.log('Plugin: I\'m showing')
             },

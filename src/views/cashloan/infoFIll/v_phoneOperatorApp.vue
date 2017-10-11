@@ -73,7 +73,7 @@ export default {
       isSend:false,   //是否已经发送验证码
       reqId:'',  //第一次【免费获取】得到的reqId
       /* countdown所需参数 */
-      time1: 5,
+      time1: 60,
       start: false,
       countDownText:'免费获取'
     }
@@ -106,7 +106,7 @@ export default {
     /* 倒计时结束时触发 */
     finish1 (index) {
       this.start = false
-      this.time1 = 5
+      this.time1 = 60
       this.countDownText = '重新发送'
     },
     /* 登录总线 */
