@@ -120,13 +120,14 @@
                     },
                     success:function(res){
                       if(res.code=='0000'){
+                        self.isShow = false;
                         self.$vux.alert.show({
                             content: '解绑成功!',
                             onShow () {
                               console.log('Plugin: I\'m showing')
                             },
                             onHide () {
-                              window.location.reload()
+                              /*window.location.reload()*/
                             }
                         })
                       }else{
