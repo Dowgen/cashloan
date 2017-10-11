@@ -142,12 +142,6 @@
                 Lib.M.ajax({
                     type:'GET',
                     url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
-                    headers: {
-                        'Authorization':'Bearer '+ self.localUserInfo.token,
-                        'authKey':self.localUserInfo.authKey,
-                        'sessionId':self.localUserInfo.sessionId,
-                        'phone':self.localUserInfo.userInfo.phone
-                    },
                     success:function (res) {
                         /*console.log(res);*/
                         self.userInfo = res.data.userInfo;
@@ -160,12 +154,6 @@
                 Lib.M.ajax({
                     type:'GET',
                     url:'cash-account/loan/getAllProcessing/'+self.localUserInfo.userInfo.userId,
-                    headers:{
-                        'Authorization':'Bearer '+ self.localUserInfo.token,
-                        'authKey':self.localUserInfo.authKey,
-                        'sessionId':self.localUserInfo.sessionId,
-                        'phone':self.localUserInfo.userInfo.phone
-                    },
                     success:function (res) {
                         console.log('这是getallprocessing');
                         console.log(res);
@@ -186,12 +174,6 @@
                 Lib.M.ajax({
                     type:'GET',
                     url:'cash-account/loan/getAllEnd/'+self.localUserInfo.userInfo.userId,
-                    headers:{
-                        'Authorization':'Bearer '+ self.localUserInfo.token,
-                        'authKey':self.localUserInfo.authKey,
-                        'sessionId':self.localUserInfo.sessionId,
-                        'phone':self.localUserInfo.userInfo.phone
-                    },
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanLength = res.data.length;
@@ -204,12 +186,6 @@
                 Lib.M.ajax({
                     type:'get',
                     url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
-                    headers:{
-                        'Authorization':'Bearer '+ self.localUserInfo.token,
-                        'authKey':self.localUserInfo.authKey,
-                        'sessionId':self.localUserInfo.sessionId,
-                        'phone':self.localUserInfo.userInfo.phone
-                    },
                     dataType:'blob',
                     success:function (res) {
                         console.log('getImage:');

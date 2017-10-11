@@ -76,10 +76,12 @@ export default {
     }
   },
   mounted(){
-     this.userInfo = JSON.parse(localStorage.userInfo);
-     if(document.referrer.indexOf('megvii.com')!= -1) this.face_getResult();
-     this.getauthStatus();
-     this.isZhimaAuthed();
+    this.userInfo = JSON.parse(localStorage.userInfo);
+    if(document.referrer.indexOf('megvii.com')!= -1){
+      this.face_getResult();
+    } 
+    this.getauthStatus();
+    this.isZhimaAuthed();
   },
   methods: {
     /* 获取用户认证信息 */
@@ -87,12 +89,6 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         data:{
           mobile: self.userInfo.userInfo.phone,
           user_id: self.userInfo.userInfo.userId,
@@ -130,12 +126,6 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         params:{
           return_url: 'https://moneyboom.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
@@ -235,12 +225,6 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getResult',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         params:{
           user_id: self.userInfo.userInfo.userId,
           biz_id: JSON.parse(localStorage.faceReturn).biz_id

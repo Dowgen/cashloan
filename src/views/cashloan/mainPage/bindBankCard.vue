@@ -57,12 +57,6 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : 'pay/repayment/requestDataForSign',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         data:{
           user_id:self.userInfo.userInfo.userId,
           phone_num:self.userInfo.userInfo.phone,
@@ -98,12 +92,6 @@ export default {
       let self = this;
       Lib.M.ajax({
         url : '/pay/repayment/instalmentSignData',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         data:{
           card_no: localStorage.bankCard,
           acct_name:self.userInfo.idInfo.name,

@@ -102,12 +102,6 @@
                 var self = this;
                 Lib.M.ajax({
                     url : 'pay/repayment/wapRequestDataForPay',
-                    headers:{
-                      'Authorization':'Bearer '+ self.userInfo.token,
-                      'authKey':self.userInfo.authKey,
-                      'sessionId':self.userInfo.sessionId,
-                      'phone':self.userInfo.userInfo.phone
-                    },
                     data:{
                         user_id:self.userInfo.userInfo.userId,
                         phone_num:self.userInfo.userInfo.phone,
@@ -139,12 +133,6 @@
                 Lib.M.ajax({
                     type:'GET',
                     url:'cash-account/loan/getOne/'+self.$route.query.orderId,
-                    headers:{
-                        'Authorization':'Bearer '+ self.userInfo.token,
-                        'authKey':self.userInfo.authKey,
-                        'sessionId':self.userInfo.sessionId,
-                        'phone':self.userInfo.userInfo.phone
-                    },
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanDetail = res.data;

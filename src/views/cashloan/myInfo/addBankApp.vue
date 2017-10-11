@@ -73,12 +73,6 @@
                 var self = this;
                 Lib.M.ajax({
                     url : '/pay/repayment/bankCardCheckList',
-                    headers:{
-                      'Authorization':'Bearer '+ self.userInfo.token,
-                      'authKey':self.userInfo.authKey,
-                      'sessionId':self.userInfo.sessionId,
-                      'phone':self.userInfo.userInfo.phone
-                    },
                     data:{
                       user_id: self.userInfo.userInfo.userId
                     },
@@ -108,12 +102,6 @@
                 var self = this;
                 Lib.M.ajax({
                     url : '/pay/repayment/bankCardUnbind',
-                    headers:{
-                      'Authorization':'Bearer '+ self.userInfo.token,
-                      'authKey':self.userInfo.authKey,
-                      'sessionId':self.userInfo.sessionId,
-                      'phone':self.userInfo.userInfo.phone
-                    },
                     data: {
                       user_id: self.userInfo.userInfo.userId,
                       no_agree: self.cardData[0].no_agree

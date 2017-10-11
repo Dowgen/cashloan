@@ -149,6 +149,9 @@ export default {
           self.$vux.loading.hide();  
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
+            localStorage.authKey = data.data.authKey;
+            localStorage.sessionId = data.data.sessionId;
+            localStorage.phoneNum = data.data.userInfo.phone;
             self.$vux.toast.text('注册成功，正在跳转', 'middle');
             setTimeout("window.location.href = '/views/cashloan/mainPage.html'",1000);
           }else if(data.code == -100){
@@ -176,6 +179,9 @@ export default {
           self.$vux.loading.hide();  
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
+            localStorage.authKey = data.data.authKey;
+            localStorage.sessionId = data.data.sessionId;
+            localStorage.phoneNum = data.data.userInfo.phone;
             self.$vux.toast.text('密码设置成功，正在跳转', 'middle');
             setTimeout("window.location.href = '/views/cashloan/mainPage.html'",1000);
           }else if(data.code==-100){

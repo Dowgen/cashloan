@@ -76,11 +76,6 @@ export default {
       axios({
         method:'post',
         url: "/cauds-account/user/account/iconImage/" + data.userInfo.account,
-        headers: {
-          sessionId: data.sessionId,
-          authKey: data.authKey,
-          token: that.localStorage.token
-        },
         data: fd,
       })
       .then( rs => {
