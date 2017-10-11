@@ -142,14 +142,17 @@ export default {
         },
         success:function (data){
           self.$vux.loading.hide();
-          console.log('getToken:'+data);
-          let faceReturn = {
-            token : data.data.token,
-            biz_id : data.data.biz_id
+          if(data.code == 200){
+            let faceReturn = {
+              token : data.data.token,
+              biz_id : data.data.biz_id
+            }
+            localStorage.faceReturn = JSON.stringify(faceReturn);
+            /* 获取token后跳转第三方 */
+            window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
+          }else{
+            self.$vux.toast.text(data.error,'middle');
           }
-          localStorage.faceReturn = JSON.stringify(faceReturn);
-          /* 获取token后跳转第三方 */
-          window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
         }
       });
     },

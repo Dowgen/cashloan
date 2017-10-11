@@ -120,7 +120,15 @@
                     },
                     success:function(res){
                       if(res.code=='0000'){
-                        self.$vux.toast.text('解绑成功!','middle'); 
+                        self.$vux.alert.show({
+                            content: '解绑成功!',
+                            onShow () {
+                              console.log('Plugin: I\'m showing')
+                            },
+                            onHide () {
+                              window.location.reload()
+                            }
+                        })
                       }else{
                         self.$vux.toast.text(res.error,'middle');
                       }

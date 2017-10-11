@@ -162,7 +162,7 @@ export default {
           let u = JSON.parse(localStorage.userInfo)
           u.userInfo = data.data
           localStorage.userInfo = JSON.stringify(u)
-          /*setTimeout("window.location.href = '/views/cashloan/infoFill.html'",1000);*/
+          setTimeout("window.location.href = '/views/cashloan/infoFill.html'",800);
         }
       });
     }

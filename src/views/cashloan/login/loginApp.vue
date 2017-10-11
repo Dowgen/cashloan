@@ -142,8 +142,8 @@ export default {
     padding-top: 8.1rem;
   }
   .logo>img{
-    width:3.19rem;
-    height: 3.5rem;
+    width:3.4rem;
+    height: 3.44rem;
   }
   .input{
     position: relative;

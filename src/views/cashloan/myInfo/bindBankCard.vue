@@ -9,7 +9,7 @@
     <div class="button">
       <form action="https://wap.lianlianpay.com/signApply.htm" method="post">
         <input name="req_data" :value="backParams"/>
-        <input type="submit" value="请求签约"/>
+        <input type="submit" value="确定"/>
       </form>
     </div>
   </div>
