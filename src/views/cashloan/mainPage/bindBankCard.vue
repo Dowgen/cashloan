@@ -7,11 +7,9 @@
       <x-input title='银行卡号 ' placeholder="请输入银行卡号" v-model="bankCard"></x-input>
     </group>
     <div class="button">
-      <x-button type="primary" class="btn3" @click.native="unbind">解绑</x-button>
-
       <form action="https://wap.lianlianpay.com/signApply.htm" method="post">
         <input name="req_data" :value="backParams"/>
-        <input type="submit" value="请求签约"/>
+        <input type="submit" value="确定"/>
       </form>
     </div>
   </div>
@@ -103,26 +101,6 @@ export default {
         }
       });
     },
-    /* 解绑银行卡 */
-    unbind(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/pay/repayment/bankCardUnbind',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
-        data: {
-          user_id: self.userInfo.userInfo.userId,
-          no_agree: self.cardData[0].no_agree
-        },
-        success:function(data){
-          console.log('realbindCard1:'+data);
-        }
-      });
-    },
     /* 判断是否绑定了银行卡，如果绑定了的话就推一下后端 */
     isBindCard(){
       var self = this;
@@ -134,7 +112,7 @@ export default {
         if(self.$route.query.status=='0000'){
           self.trigBackLLPay();
         }else{
-          this.$vux.toast.text(self.$route.query.result, 'middle')
+          self.$vux.toast.text(self.$route.query.result, 'middle')
         }
       }
     },
