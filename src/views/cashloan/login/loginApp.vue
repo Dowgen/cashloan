@@ -173,6 +173,8 @@ export default {
     border: none;
     margin-left: 1.375rem;
     font-size: 1rem;
+    height: 1.065rem;
+    line-height: 1.065rem;
   }
   .btn{
     margin-top: 2.25rem;
