@@ -74,7 +74,7 @@ export default {
           },
           data:{
             phone: self.phoneNum,
-            password: self.password
+            password: sha1(self.password).toUpperCase()
           },
           success:function(data){
             self.$vux.loading.hide();  

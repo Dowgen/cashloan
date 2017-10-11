@@ -42,8 +42,6 @@ export default {
     this.realName = this.userInfo.idInfo.name;
     /* 进页面判断一下是否是从连连跳过来的 */
     this.isBindCard();
-
-    this.bankCardCheck();
     this.getBindCardParams();
   },
   methods: {

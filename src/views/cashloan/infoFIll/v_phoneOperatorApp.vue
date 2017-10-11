@@ -150,6 +150,13 @@ export default {
             self.reqId = data.data.reqId;
             self.isSend = true; //已经发送验证码，更改标志
             self.start = true;  // 发送验证码成功，开始倒计时
+          }else if(data.resultCode == 'CCOM3014'){
+            self.isSend = true; //已经发送验证码，更改标志
+            self.reqId = data.data.reqId;
+            self.$vux.toast.text('二次鉴权码发送成功!','middle')
+            self.verifyCode = ''    //重置验证码
+            self.veriField = '请输入二次鉴权码' //更改验证码placeholder
+            self.phoneType = 'whatever'  //修改手机号运营商归属
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
@@ -211,7 +218,7 @@ export default {
           self.$vux.loading.hide();
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('校验二次鉴权码成功!','middle')
-            setTimeout("window.location.href = '/views/cashloan/infoFill.html'",8000);
+            /*setTimeout("window.location.href = '/views/cashloan/infoFill.html'",8000);*/
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }
