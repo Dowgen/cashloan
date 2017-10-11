@@ -10,7 +10,7 @@
                 <img v-show="noAvatar" class="avatar2" src="./assets/headshot.png">
                 <img v-show="!noAvatar" class="avatar2" :src="img_id">
                 <input id="upfile" type="file" name="upfile" accept="image/png,image/jpg,image/jpeg" @change='preivewImg'>
-                <img @click='preivewImg' style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+                <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
 
         </div>
