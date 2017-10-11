@@ -84,6 +84,17 @@ export default {
     this.isZhimaAuthed();
   },
   methods: {
+    /* 获取用户基本信息 */
+    getInfo(){
+      var self = this;
+      Lib.M.ajax({
+        type:'GET',
+        url:'cash-account/user/account/accountInfo/'+localStorage.phoneNum,
+        success:function (res) {
+            localStorage.userInfo = JSON.stringify(res.data)
+        }
+      })
+    },
     /* 获取用户认证信息 */
     getauthStatus(){
       var self = this;
@@ -172,6 +183,7 @@ export default {
           success:function (res){
             console.log(res);
             if(res.code == 200){
+              self.getInfo();
                 self.$vux.alert.show({
                   content: '芝麻认证成功!',
                   onShow () {

@@ -145,6 +145,7 @@
                     success:function (res) {
                         /*console.log(res);*/
                         self.userInfo = res.data.userInfo;
+                        localStorage.userInfo = JSON.stringify(res.data)
                     }
 
                 })
