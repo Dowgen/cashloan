@@ -77,6 +77,7 @@ export default {
   },
   mounted(){
      this.userInfo = JSON.parse(localStorage.userInfo);
+     if(document.referrer.indexOf('megvii.com')!= -1) this.face_getResult();
      this.getauthStatus();
      this.isZhimaAuthed();
   },
@@ -213,8 +214,9 @@ export default {
       }else{
         if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
       }
-    }
-/*    face_getResult(){
+    },
+    /* 触发后台拿到face++认证 */
+    face_getResult(){
       var self = this;
 
       Lib.M.ajax({
@@ -225,9 +227,18 @@ export default {
         },
         success:function (data){
           console.log('getResult:'+data)
+          self.$vux.alert.show({
+            content: '认证成功!',
+            onShow () {
+              console.log('Plugin: I\'m showing')
+            },
+            onHide () {
+              window.location.reload()
+            }
+          })
         }
       });
-    },*/
+    }
   }
 }
 </script>

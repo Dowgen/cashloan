@@ -39,6 +39,10 @@
                     <span>借款费用</span>
                     <span style="margin-left: 5.75rem;">{{loanDetail.feeAmount}}元</span>
                 </li>
+                <li v-show="loanStatus==4 && loanDetail.isOverdue == 1">
+                    <span>逾期罚息</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount+loanDetail.penaltInterest}}元</span>
+                </li>
                 <li>
                     <span>应还金额</span>
                     <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount+loanDetail.penaltInterest}}元</span>
@@ -240,8 +244,15 @@
         top: 12.94rem;
         margin-left: -10.72rem;
     }
+    .loan_detail ul{
+        margin-top: 1rem;
+        height: 18rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+    }
     .loan_detail li{
-        margin:2.315rem auto 0;
+        
     }
     .loan_detail span:nth-of-type(1){
         margin-left: 1.28rem;

@@ -89,6 +89,7 @@ export default {
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
     this.userInfo = JSON.parse(localStorage.userInfo);
+    if(document.referrer.indexOf('megvii.com')!= -1) this.face_getResult();
     /* 得到绑卡数据 */
     this.bankCardCheck();
     /* 得到认证通过标志 */
@@ -116,7 +117,7 @@ export default {
           'phone':self.userInfo.userInfo.phone
         },
         params:{
-          return_url: 'https://moneyboom.cn/views/cashloan/mainPage.html#/confirmRent',
+          return_url: 'https://moneyboom.cn/views/cashloan/mainPage.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
           idcard_mode:0,
           idcard_name: self.userInfo.idInfo.name,
@@ -204,6 +205,23 @@ export default {
           }else{
             self.cardBinded = true
           }
+        }
+      });
+    },
+    /* 触发后台拿到face++认证 */
+    face_getResult(){
+      var self = this;
+
+      Lib.M.ajax({
+        url : '/risk-manage/faceid/getResult',
+        params:{
+          user_id: self.userInfo.userInfo.userId,
+          biz_id: JSON.parse(localStorage.faceReturn).biz_id
+        },
+        success:function (data){
+          console.log('getResult:'+data)
+          self.$vux.toast.text('认证成功!')
+          self.$router.push('./confirmRent')
         }
       });
     }
