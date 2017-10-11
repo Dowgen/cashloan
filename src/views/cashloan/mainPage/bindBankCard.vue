@@ -34,8 +34,7 @@ export default {
       bankCard:'',
       userInfo:{},
       realName: '', //姓名（固定）
-      backParams:{}, //后台返回的参数，用来传给连连支付
-      cardData:[]    //用户绑定的银行卡信息
+      backParams:{} //后台返回的参数，用来传给连连支付
     }
   },
   mounted(){
@@ -55,25 +54,6 @@ export default {
       }else{
         this.$vux.toast.text('信息请填写完整!', 'middle')
       }
-    },
-    /* 得到银行卡信息 */
-    bankCardCheck(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/pay/repayment/bankCardCheckList',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
-        data:{
-          user_id: self.userInfo.userInfo.userId
-        },
-        success:function (res){
-          self.cardData = res.data;
-        }
-      });
     },
     /* 得到绑卡所需参数 */
     getBindCardParams(){
