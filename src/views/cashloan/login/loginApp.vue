@@ -172,6 +172,7 @@ export default {
     outline: none;
     border: none;
     margin-left: 1.375rem;
+    font-size: 1rem;
   }
   .btn{
     margin-top: 2.25rem;
