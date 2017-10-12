@@ -302,6 +302,7 @@ export default {
     border: none;
     font-size: 0.94rem;
     padding-left: 0.5rem;
+    height: 3rem;
   }
   .inputer .btn-getCode{
     border: solid 1px #1abc9c;

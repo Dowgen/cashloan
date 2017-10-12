@@ -33,7 +33,7 @@
                 </li>
                 <li>
                     <span>到账金额</span>
-                    <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount}}元</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.loanAmount}}元</span>
                 </li>
                 <li>
                     <span>借款费用</span>
@@ -41,11 +41,11 @@
                 </li>
                 <li v-show="loanStatus==4 && loanDetail.isOverdue == 1">
                     <span>逾期罚息</span>
-                    <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount+loanDetail.penaltInterest}}元</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.loanAmount+loanDetail.feeAmount}}元</span>
                 </li>
                 <li>
                     <span>应还金额</span>
-                    <span style="margin-left: 5.75rem;">{{loanDetail.receivedAmount+loanDetail.penaltInterest}}元</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.loanAmount+loanDetail.feeAmount}}元</span>
                 </li>
             </ul>
             <div class="instruction" v-show="loanStatus == 1">正在审核中...</div>
