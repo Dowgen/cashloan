@@ -2,16 +2,36 @@
     <div>
         <div class="main">
             <div class="main_head">
-                <div class="first_head"><a href="#1">一、引言</a></div>
-                <div class="first_head"><a href="#2">二、本政策的适用范围</a></div>
-                <div class="first_head"><a href="#3">三、我们可能收集的信息</a></div>
-                <div class="first_head"><a href="#4">四、我们可能如何使用信息</a></div>
-                <div class="first_head"><a href="#5">五、您如何访问和控制自己的个人信息</a></div>
-                <div class="first_head"><a href="#6">六、我们可能分享的信息</a></div>
-                <div class="first_head"><a href="#7">七、某些技术的使用</a></div>
-                <div class="first_head"><a href="#8">八、您的个人信息保护</a></div>
-                <div class="first_head"><a href="#9">九、本政策的修订</a></div>
-                <div class="first_head"><a href="#10">十、其他</a></div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('1')">一、引言</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('2')">二、本政策的适用范围</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('3')">三、我们可能收集的信息</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('4')">四、我们可能如何使用信息</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('5')">五、您如何访问和控制自己的个人信息</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('6')">六、我们可能分享的信息</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('7')">七、某些技术的使用</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('8')">八、您的个人信息保护</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('9')">九、本政策的修订</a>
+                </div>
+                <div class="first_head">
+                    <a href="javascript:void(0)" @click="goAnchor('10')">十、其他</a>
+                </div>
             </div>
             <div class="main_content">
                 <div class="con_item">
@@ -129,27 +149,13 @@
 
             }
         },
-        mounted(){
-            this.scroll();
-        },
         methods: {
-            scroll(){
-               $(function () {
-                   //滚动效果
-                   var head_scroll_top = $('.main_head').height();
-                   console.log(head_scroll_top);
-
-                   $('.first_head').each(function () {
-                       $(this).click(function (e) {
-                           e.preventDefault();
-
-                           if($("body,html").is(":animated")){return;}
-
-                           $('body,html').animate({scrollTop:$('#'+($(this).index()+1)).offset().top - head_scroll_top},600);
-                       });
-                   });
-               })
+            goAnchor(selector) {
+                console.log(document.getElementById(selector).offsetTop)
+                
+                document.documentElement.scrollTop = document.getElementById(selector).offsetTop
             }
+
         }
     }
 </script>
@@ -160,7 +166,6 @@
         margin-top: 2px;
         overflow: hidden;
         font-size:0.815rem;
-        font-family:PingFangSC-Thin;
         color:rgba(26,26,26,1);
         line-height: 24px;
     }
