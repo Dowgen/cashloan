@@ -133,27 +133,7 @@
 
             }
         },
-        mounted(){
-            /*this.scroll();*/
-        },
         methods: {
-            /*scroll(){
-               $(function () {
-                   //滚动效果
-                   var head_scroll_top = $('.main_head').height();
-                   console.log(head_scroll_top);
-
-                   $('.first_head').each(function () {
-                       $(this).click(function (e) {
-                           e.preventDefault();
-
-                           if($("body,html").is(":animated")){return;}
-
-                           $('body,html').animate({scrollTop:$('#'+($(this).index()+1)).offset().top - head_scroll_top},600);
-                       });
-                   });
-               })
-            }*/
             goAnchor(selector) {
                 console.log(document.getElementById(selector).offsetTop)
                 

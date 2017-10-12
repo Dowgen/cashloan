@@ -30,6 +30,7 @@
 <script>
 
 import Lib from 'assets/js/Lib';
+import Sha1 from './sha1'
 
 import { XButton,Toast } from 'vux'
 
