@@ -133,9 +133,6 @@ export default {
     /* 注册 */
     regist(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         url : 'cash-account/user/account/regist',
         headers: {
@@ -146,7 +143,6 @@ export default {
           password: sha1(self.password).toUpperCase()
         },
         success:function(data){
-          self.$vux.loading.hide();  
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
             localStorage.authKey = data.data.authKey;
@@ -163,9 +159,6 @@ export default {
     /* 修改密码 */
     changePassword(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         url : 'cash-account/user/account/login/message',
         headers: {
@@ -176,7 +169,6 @@ export default {
           password: sha1(self.password).toUpperCase()
         },
         success:function(data){
-          self.$vux.loading.hide();  
           if(data.code==200){
             localStorage.userInfo = JSON.stringify(data.data);
             localStorage.authKey = data.data.authKey;

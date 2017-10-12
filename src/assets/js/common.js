@@ -1,6 +1,7 @@
-import { ToastPlugin } from 'vux'
+import { ToastPlugin,LoadingPlugin } from 'vux'
 import Vue from 'vue';
 Vue.use(ToastPlugin); 
+Vue.use(LoadingPlugin); 
 
 import conf from './conf';
 import * as pickerList from './pickerList'; /* popup-picker所需的列表数据 */
@@ -34,7 +35,9 @@ var Rxports = {
 	  * @param return 
 	*/
 	ajax:function (opt){
-		
+		vm.$vux.loading.show({
+            text: '请稍等'
+        });
 		var opts = opt || {};
 		
 		if (!opts.url) {
@@ -52,7 +55,7 @@ var Rxports = {
                         case 303:
                         case 401:
                             // 返回 401 清除localStorage并跳转到登录页面
-                            vm.$vux.loading.show({text: 'token过期，请重新登录！'});
+                            vm.$vux.toast.text('token过期，请重新登录！','middle');
                             localStorage.clear();
                             setTimeout("window.location.href = '/views/cashloan/login.html'",1500);  
                             break;
@@ -80,7 +83,7 @@ var Rxports = {
 			/*timeout: opts.time || 10*1000,*/
 			responseType: opts.dataType || 'json'
 		}).then(function(res){
-            
+            vm.$vux.loading.hide();
 			if(res.status == 200 ){
 				
 				if(opts.success){

@@ -56,6 +56,7 @@ export default {
     /* 得到绑卡所需参数 */
     getBindCardParams(){
       var self = this;
+      localStorage.bankCard = self.bankCard
       Lib.M.ajax({
         url : 'pay/repayment/requestDataForSign',
         data:{
@@ -64,7 +65,7 @@ export default {
           register_time: self.userInfo.idInfo.create_time,
           id_no: self.userInfo.idInfo.idCardNumber,
           acct_name: self.userInfo.idInfo.name,
-          card_no: self.bankCard,
+          card_no: localStorage.bankCard,
           url_return: 'https://moneyboom.cn/views/cashloan/myInfo.html#/bindBankCard'
         },
         success:function(data){

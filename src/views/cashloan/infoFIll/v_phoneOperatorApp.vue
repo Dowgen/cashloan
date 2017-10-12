@@ -125,9 +125,6 @@ export default {
     firstLogin(){
       var self = this;
 
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
 
       Lib.M.ajax({
         url : 'risk-manage/whiteknight/login',
@@ -144,7 +141,6 @@ export default {
           'pwd': self.pwd
         },
         success:function (data){
-          self.$vux.loading.hide();
           if(data.resultCode == 'CCOM3069'){
             self.$vux.toast.text('验证码发送成功！', 'middle')
             self.reqId = data.data.reqId;
@@ -166,9 +162,6 @@ export default {
     /* 校验短信验证码 */
     secondLogin(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         url : 'risk-manage/whiteknight/login',
         headers:{
@@ -183,7 +176,6 @@ export default {
           'smsCode': self.verifyCode
         },
         success:function (data){
-          self.$vux.loading.hide();
           self.reqId = data.data.reqId;
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('校验成功!','middle')
@@ -202,9 +194,6 @@ export default {
     /* 校验二次鉴权码(只有联通和电信需要) */
     verify10010(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         url : 'risk-manage/whiteknight/checkcode',
         headers:{
@@ -215,7 +204,6 @@ export default {
           'smsCode': self.verifyCode
         },
         success:function (data){
-          self.$vux.loading.hide();
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('校验二次鉴权码成功!','middle')
             setTimeout("window.location.href = '/views/cashloan/infoFill.html'",800);
@@ -228,14 +216,10 @@ export default {
     /* 重发登录短信验证码 */
     resent10086(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         type:'get',
         url : 'risk-manage/whiteknight/resentcode/'+ self.reqId,
         success:function (data){
-          self.$vux.loading.hide();
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('验证码发送成功!','middle')
           }else{
@@ -247,14 +231,10 @@ export default {
     /* 重发二次鉴权码 */
     resent10010(){
       var self = this;
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
       Lib.M.ajax({
         type:'get',
         url : 'risk-manage/whiteknight/resendauthsms/'+ self.reqId,
         success:function (data){
-          self.$vux.loading.hide();
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('二次鉴权码发送成功!','middle')
           }else{

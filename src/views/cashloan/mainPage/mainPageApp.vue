@@ -106,9 +106,6 @@ export default {
     },
     face_getToken(){
       var self = this;
-      this.$vux.loading.show({
-          text: '请稍等'
-      });
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
@@ -120,7 +117,6 @@ export default {
           idcard_number: self.userInfo.idInfo.idCardNumber
         },
         success:function (data){
-          self.$vux.loading.hide();
           if(data.code == 200){
             let faceReturn = {
               token : data.data.token,
@@ -159,9 +155,6 @@ export default {
     /* 检查认证是否全部通过 */
     getauthStatus(){
       var self = this;
-      this.$vux.loading.show({
-          text: '请稍等'
-      });
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
         data:{
@@ -175,7 +168,6 @@ export default {
           for(let i in data){
             if(data[i].code=='2') ++self.authPassed;
           }
-          self.$vux.loading.hide();
         }
       });
     },

@@ -145,7 +145,6 @@ export default {
           idcard_number: '331003199205170810'*/
         },
         success:function (data){
-          self.$vux.loading.hide();
           if(data.code == 200){
             let faceReturn = {
               token : data.data.token,
@@ -186,7 +185,6 @@ export default {
             console.log(res);
             if(res.code == 200){
               self.getInfo();
-              self.$vux.loading.hide();
               self.$vux.alert.show({
                 content: '芝麻认证成功!',
                 onShow () {

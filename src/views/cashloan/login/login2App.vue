@@ -65,9 +65,6 @@ export default {
         this.$vux.toast.text('请输入密码！', 'middle')
       }else{
         var self = this;
-        this.$vux.loading.show({
-          text: '请稍等'
-        });
         Lib.M.ajax({
           url : 'cash-account/user/account/login/password',
           headers: {
@@ -78,7 +75,6 @@ export default {
             password: sha1(self.password).toUpperCase()
           },
           success:function(data){
-            self.$vux.loading.hide();  
             if(data.code==200){
               self.$vux.toast.text('登陆成功！', 'middle');
               localStorage.userInfo = JSON.stringify(data.data);

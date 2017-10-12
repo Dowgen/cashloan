@@ -79,10 +79,6 @@ export default {
     preRegist(){
       var self = this;
 
-      this.$vux.loading.show({
-        text: '请稍等'
-      });
-
       Lib.M.ajax({
         type: 'get',
         url : 'cash-account/user/account/preRegist?phone='+ self.phoneNum,
@@ -92,7 +88,6 @@ export default {
         success:function(data){
           /* 登陆成功,把phoneNum塞入vuex */
           self.$store.commit('changePhoneNum',self.phoneNum)
-          self.$vux.loading.hide();
 
           if(data){ //注册用户跳转至登陆页
             self.$router.push('/login2');
@@ -101,7 +96,6 @@ export default {
           }      
         },
         error:function(err){
-          self.$vux.loading.hide();
           console.error(err);
         }
       });
