@@ -54,7 +54,9 @@ var Rxports = {
                             // 返回 401 清除localStorage并跳转到登录页面
                             vm.$vux.loading.show({text: 'token过期，请重新登录！'});
                             localStorage.clear();
-                            setTimeout("window.location.href = '/views/cashloan/login.html'",1500);     
+                            setTimeout("window.location.href = '/views/cashloan/login.html'",1500);  
+                            break;
+                        default: vm.$vux.toast.text('请求异常！请重试','middle')   
                     }
                 }
                 return Promise.reject(error.response.data)   // 返回接口返回的错误信息

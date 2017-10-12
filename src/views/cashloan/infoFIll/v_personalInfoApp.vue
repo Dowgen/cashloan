@@ -83,13 +83,7 @@ export default {
   },
   watch:{
     mariVal:function(){
-      if(this.mariVal[0] == '已婚'){
-        this.emrContact1 = '配偶'
-        this.emrContact2 = '父母/朋友'
-      }else{
-        this.emrContact1 = '父母'
-        this.emrContact2 = '朋友/同事'
-      }
+      this.emerContChange();
     }
   },
   mounted(){
@@ -104,9 +98,19 @@ export default {
       this.contName2 = u.userInfo.emergencyContactName2
       this.contPhone1 = u.userInfo.emergencyContactPhone1
       this.contPhone2 = u.userInfo.emergencyContactPhone2
+      this.emerContChange();
     }
   },
   methods: {
+    emerContChange(){
+      if(this.mariVal[0] == '已婚'){
+        this.emrContact1 = '配偶'
+        this.emrContact2 = '父母/朋友'
+      }else{
+        this.emrContact1 = '父母'
+        this.emrContact2 = '朋友/同事'
+      }
+    },
     submit(){
       if(this.workType[0]=='' || this.mariVal[0]=='' 
          || this.cityVal[0]=='' || this.specLoc ==''
@@ -153,10 +157,8 @@ export default {
         success:function (data){
           self.$vux.toast.text('提交成功！', 'middle')
           /* 重设localStorage里的userInfo */
-          let u = JSON.parse(localStorage.userInfo)
-          u.userInfo = data.data
-          localStorage.userInfo = JSON.stringify(u)
-          setTimeout("window.location.href = demo.html",800);
+          localStorage.userInfo = JSON.stringify(data.data);
+          setTimeout("window.location.href = '/views/cashloan/infoFill.html'",800);
         }
       });
     },
