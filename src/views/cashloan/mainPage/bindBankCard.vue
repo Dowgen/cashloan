@@ -7,11 +7,9 @@
       <x-input title='银行卡号 ' placeholder="请输入银行卡号" v-model="bankCard"></x-input>
     </group>
     <div class="button">
-      <x-button type="primary" class="btn3" @click.native="unbind">解绑</x-button>
-
       <form action="https://wap.lianlianpay.com/signApply.htm" method="post">
         <input name="req_data" :value="backParams"/>
-        <input type="submit" value="请求签约"/>
+        <input type="submit" value="确定"/>
       </form>
     </div>
   </div>
@@ -36,8 +34,7 @@ export default {
       bankCard:'',
       userInfo:{},
       realName: '', //姓名（固定）
-      backParams:{}, //后台返回的参数，用来传给连连支付
-      cardData:[]    //用户绑定的银行卡信息
+      backParams:{} //后台返回的参数，用来传给连连支付
     }
   },
   mounted(){
@@ -45,8 +42,6 @@ export default {
     this.realName = this.userInfo.idInfo.name;
     /* 进页面判断一下是否是从连连跳过来的 */
     this.isBindCard();
-
-    this.bankCardCheck();
     this.getBindCardParams();
   },
   methods: {
@@ -57,25 +52,6 @@ export default {
       }else{
         this.$vux.toast.text('信息请填写完整!', 'middle')
       }
-    },
-    /* 得到银行卡信息 */
-    bankCardCheck(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/pay/repayment/bankCardCheckList',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
-        data:{
-          user_id: self.userInfo.userInfo.userId
-        },
-        success:function (res){
-          self.cardData = res.data;
-        }
-      });
     },
     /* 得到绑卡所需参数 */
     getBindCardParams(){
@@ -95,31 +71,11 @@ export default {
           id_no: self.userInfo.idInfo.idCardNumber,
           acct_name: self.userInfo.idInfo.name,
           card_no: self.bankCard,
-          url_return: 'https://pay.moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
+          url_return: 'https://moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
         },
         success:function(data){
           /*console.log('backParams:'+JSON.stringify(data.data))*/
           self.backParams = JSON.stringify(data.data);
-        }
-      });
-    },
-    /* 解绑银行卡 */
-    unbind(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/pay/repayment/bankCardUnbind',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
-        data: {
-          user_id: self.userInfo.userInfo.userId,
-          no_agree: self.cardData[0].no_agree
-        },
-        success:function(data){
-          console.log('realbindCard1:'+data);
         }
       });
     },
@@ -134,7 +90,7 @@ export default {
         if(self.$route.query.status=='0000'){
           self.trigBackLLPay();
         }else{
-          this.$vux.toast.text(self.$route.query.result, 'middle')
+          self.$vux.toast.text(self.$route.query.result, 'middle')
         }
       }
     },

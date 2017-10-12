@@ -108,10 +108,11 @@ export default {
               self[data[i].type] = '已完成'
             }
             /* 获取完善信息是否完成 */
-            if(data[i].type=='information'){
+            if(data[i].type=='information' && data[i].code=='2'){
               self.informationPassed = true
             }
-            if(data[i].type=='realName'){
+            /* face++实名认证是否完成 */
+            if(data[i].type=='realName' && data[i].code=='2'){
               self.realNamePassed = true
             }
           }

@@ -1,10 +1,10 @@
 <template>
   <div>
     <div style="background:white;height:37.69rem">
-      <div class="title">花花贷</div>
+      <div class="title">现金斗士</div>
       
       <div class="banner">
-        
+        <img src="./assets/banner.png">
       </div>
       <div class="choose" style="margin-top:1rem">
         <span>贷款金额</span>
@@ -262,8 +262,10 @@ export default {
   }
   .banner{
     width: 100%;
+  }
+  .banner>img{
+    width: 100%;
     height: 10.815rem;
-    background: #1abc9c;
   }
   .choose{
     box-sizing: border-box;
