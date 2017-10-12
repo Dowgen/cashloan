@@ -115,6 +115,8 @@ export default {
               self[data[i].type] = '已失效'
             }else if(data[i].code =='2'){
               self[data[i].type] = '已完成'
+            }else if(data[i].code =='3'){
+              self[data[i].type] = '认证失败'
             }
             /* 获取完善信息是否完成 */
             if(data[i].type=='information' && data[i].code=='2'){
@@ -124,6 +126,7 @@ export default {
             if(data[i].type=='realName' && data[i].code=='2'){
               self.realNamePassed = true
             }
+            if(data[i])
           }
         }
       });
@@ -211,7 +214,8 @@ export default {
           window.location.href=
             'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
             '&certNo=' + this.userInfo.idInfo.idCardNumber +
-            '&phoneNum='+ this.userInfo.userInfo.phone
+            '&phoneNum='+ this.userInfo.userInfo.phone +
+            '&user_id=' + this.userInfo.userInfo.userId
         }
       }
     },
