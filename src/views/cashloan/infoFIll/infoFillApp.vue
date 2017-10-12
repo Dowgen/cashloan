@@ -131,9 +131,6 @@ export default {
     /* face++实名认证 */
     face_getToken(){
       var self = this;
-      this.$vux.loading.show({
-          text: '请稍等'
-      });
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
@@ -165,9 +162,6 @@ export default {
       if( Lib.M.GetQueryString('params') == null){
         /* 还未芝麻认证，啥也不干 */
       }else{
-        this.$vux.loading.show({
-          text: '正在审核中，请稍等'
-        });
         /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
         Lib.M.ajax({
           type: 'get',
