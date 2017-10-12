@@ -140,7 +140,9 @@ export default {
         },
         data:{
           phone: self.phoneNum,
-          password: sha1(self.password).toUpperCase()
+          password: sha1(self.password).toUpperCase(),
+          imei:'',
+          deviceType: localStorage.deviceType
         },
         success:function(data){
           if(data.code==200){
@@ -166,7 +168,9 @@ export default {
         },
         data:{
           phone: self.phoneNum,
-          password: sha1(self.password).toUpperCase()
+          password: sha1(self.password).toUpperCase(),
+          imei:'',
+          deviceType: localStorage.deviceType
         },
         success:function(data){
           if(data.code==200){

@@ -8,6 +8,22 @@ import * as pickerList from './pickerList'; /* popup-picker所需的列表数据
 
 import axios from 'axios';
 
+/* 进页面的时候就判断一下设备是安卓还是ios */
+(function(){
+    let u = navigator.userAgent, app = navigator.appVersion;
+    //android终端或者uc浏览器
+    let isAndroid = u.indexOf('Android') > -1 || u.indexOf('Linux') > -1; 
+    //ios终端
+    let isiOS = !!u.match(/\(i[^;]+;( U;)? CPU.+Mac OS X/); 
+    //需要传给后端的device类型
+    let device = 0;
+    if(isAndroid) device=3
+    else if(isiOS) device=4
+    else device=5
+    localStorage.deviceType = device
+})()
+
+
 var vm = new Vue({});
 var oproto = Object.prototype;
 var serialize = oproto.toString;
