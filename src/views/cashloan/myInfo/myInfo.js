@@ -30,16 +30,20 @@ const routes = [
     { path: '/aboutJuHe', component: aboutJuHe},
     { path: '/helpCenter', component: helpCenter},
     { path: '/questionList', component: questionList},
-    { path: '/bindBankCard', component: BindBankCard }
+    { path: '/bindBankCard', component: BindBankCard },
+
 ]
 
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-  routes:routes
+  routes:routes,
+
 })
 
 
 new Vue({
   router: router,
+
 }).$mount('#app')
+

@@ -24,7 +24,7 @@
     <x-button type="primary" class="btn2" @click.native="login">确定</x-button>
     <div class="agreement">
       <img src="./assets/agreeProto.png">
-      已阅读及同意<span style="color:#1abc9c">《运营商授权协议》</span>
+      已阅读及同意<span style="color:#1abc9c" @click="$router.push({path:'/privacyAgreement'})">《运营商授权协议》</span>
     </div>
     <div class="tip">
       <p style="margin-bottom:1.065rem">温馨提示:</p>
