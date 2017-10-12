@@ -54,12 +54,6 @@
                 if(self.words !== '' && self.adviceType[0] !== undefined){
                    Lib.M.ajax({
                        url: "cash-account/user/account/suggestions",
-                       headers: {
-                           'Authorization':'Bearer '+ self.localUserInfo.token,
-                           'authKey':self.localUserInfo.authKey,
-                           'sessionId':self.localUserInfo.sessionId,
-                           'phone':self.localUserInfo.userInfo.phone
-                       },
                        data: {
                            "user_id":self.localUserInfo.userInfo.userId,
                            "type": parseInt(self.adviceType[0]),

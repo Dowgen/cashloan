@@ -10,7 +10,7 @@
                 <img v-show="noAvatar" class="avatar2" src="./assets/headshot.png">
                 <img v-show="!noAvatar" class="avatar2" :src="img_id">
                 <input id="upfile" type="file" name="upfile" accept="image/png,image/jpg,image/jpeg" @change='preivewImg'>
-                <img @click='preivewImg' style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+                <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
 
         </div>
@@ -98,12 +98,6 @@ export default {
           Lib.M.ajax({
               type:'get',
               url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
-              headers:{
-                  'Authorization':'Bearer '+ self.localUserInfo.token,
-                  'authKey':self.localUserInfo.authKey,
-                  'sessionId':self.localUserInfo.sessionId,
-                  'phone':self.localUserInfo.userInfo.phone
-              },
               dataType:'blob',
               success:function (res) {
                   console.log(res);
@@ -123,12 +117,6 @@ export default {
           fd.append('file', document.getElementById("upfile").files[0]);
           Lib.M.ajax({
               url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
-              headers: {
-                  'Authorization':'Bearer '+ self.localUserInfo.token,
-                  'authKey':self.localUserInfo.authKey,
-                  'sessionId':self.localUserInfo.sessionId,
-                  'phone':self.localUserInfo.userInfo.phone
-              },
               data: fd,
               success:function (res) {
                   console.log(res);
@@ -140,12 +128,6 @@ export default {
           Lib.M.ajax({
               type:'GET',
               url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
-              headers: {
-                  'Authorization':'Bearer '+ self.localUserInfo.token,
-                  'authKey':self.localUserInfo.authKey,
-                  'sessionId':self.localUserInfo.sessionId,
-                  'phone':self.localUserInfo.userInfo.phone
-              },
               success:function (res) {
                   console.log(res);
                   self.idInfo = res.data.idInfo;
@@ -159,12 +141,6 @@ export default {
           var self = this;
           Lib.M.ajax({
               url : '/pay/repayment/bankCardCheckList',
-              headers:{
-                'Authorization':'Bearer '+ self.localUserInfo.token,
-                'authKey':self.localUserInfo.authKey,
-                'sessionId':self.localUserInfo.sessionId,
-                'phone':self.localUserInfo.userInfo.phone
-              },
               data:{
                 user_id: self.localUserInfo.userInfo.userId
               },

@@ -76,26 +76,35 @@ export default {
     }
   },
   mounted(){
-     this.userInfo = JSON.parse(localStorage.userInfo);
-     if(document.referrer.indexOf('megvii.com')!= -1) this.face_getResult();
-     this.getauthStatus();
-     this.isZhimaAuthed();
+    this.userInfo = JSON.parse(localStorage.userInfo);
+    if(document.referrer.indexOf('megvii.com')!= -1){
+      this.face_getResult();
+    } 
+    this.getauthStatus();
+    this.isZhimaAuthed();
   },
   methods: {
+    /* 获取用户基本信息 */
+    getInfo(){
+      var self = this;
+      Lib.M.ajax({
+        type:'GET',
+        url:'cash-account/user/account/accountInfo/'+localStorage.phoneNum,
+        success:function (res) {
+            localStorage.userInfo = JSON.stringify(res.data)
+        }
+      })
+    },
     /* 获取用户认证信息 */
     getauthStatus(){
       var self = this;
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         data:{
-          phone: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId
+          mobile: self.userInfo.userInfo.phone,
+          user_id: self.userInfo.userInfo.userId,
+          certNo: self.userInfo.idInfo.idCardNumber || '',
+          name: self.userInfo.idInfo.name || ''
         },
         success:function (res){
           let data = res.data;
@@ -128,12 +137,6 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getToken',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         params:{
           return_url: 'https://moneyboom.cn/views/cashloan/infoFill.html',
           notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
@@ -180,6 +183,7 @@ export default {
           success:function (res){
             console.log(res);
             if(res.code == 200){
+              self.getInfo();
                 self.$vux.alert.show({
                   content: '芝麻认证成功!',
                   onShow () {
@@ -233,12 +237,6 @@ export default {
 
       Lib.M.ajax({
         url : '/risk-manage/faceid/getResult',
-        headers:{
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         params:{
           user_id: self.userInfo.userInfo.userId,
           biz_id: JSON.parse(localStorage.faceReturn).biz_id

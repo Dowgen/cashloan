@@ -105,12 +105,6 @@ export default {
       var self = this;
       Lib.M.ajax({
         url : '/cash-account/loan/createOrder/',
-        headers: {
-          'Authorization':'Bearer '+ self.userInfo.token,
-          'authKey':self.userInfo.authKey,
-          'sessionId':self.userInfo.sessionId,
-          'phone':self.userInfo.userInfo.phone
-        },
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,

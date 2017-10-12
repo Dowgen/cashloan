@@ -55,12 +55,6 @@ export default {
       Lib.M.ajax({
         type:'GET',
         url:'cash-account/loan/getAllProcessing/'+self.userInfo.userInfo.userId,
-        headers:{
-            'Authorization':'Bearer '+ self.userInfo.token,
-            'authKey':self.userInfo.authKey,
-            'sessionId':self.userInfo.sessionId,
-            'phone':self.userInfo.userInfo.phone
-        },
         success:function (res) {
           self.loanAmount = res.data[0].loanAmount
           self.loanPeriod = res.data[0].loanPeriod

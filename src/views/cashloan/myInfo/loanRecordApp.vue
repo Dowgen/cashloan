@@ -57,12 +57,6 @@ export default {
                     type:'GET',
                     url:'cash-account/loan/getAllEnd/'+
                          self.localUserInfo.userInfo.userId,
-                    headers:{
-                        'Authorization':'Bearer '+ self.localUserInfo.token,
-                        'authKey':self.localUserInfo.authKey,
-                        'sessionId':self.localUserInfo.sessionId,
-                        'phone':self.localUserInfo.userInfo.phone
-                    },
                     success:function (res) {
                         /*console.log(res);*/
                         self.loanList = res.data;
