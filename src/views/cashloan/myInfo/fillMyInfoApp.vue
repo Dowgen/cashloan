@@ -119,7 +119,7 @@ export default {
               url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
               data: fd,
               success:function (res) {
-                  console.log(res);
+                  self.getImg();
               }
           })
       },

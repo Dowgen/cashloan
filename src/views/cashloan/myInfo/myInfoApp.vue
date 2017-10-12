@@ -70,7 +70,7 @@
             </div>
         </div>
 
-        <main-nav></main-nav>
+        <main-nav which="myInfo"></main-nav>
     </div>
 </template>
 

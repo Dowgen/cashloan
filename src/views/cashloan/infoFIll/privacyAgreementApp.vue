@@ -10,7 +10,7 @@
                 <div class="first_head"><a href="#2">二、本政策的适用范围</a></div>
                 <div class="first_head"><a href="#3">三、我们可能收集的信息</a></div>
                 <div class="first_head"><a href="#4">四、我们可能如何使用信息</a></div>
-                <div class="first_head"><a href="#5">五、您如何访问和控制自己的个人信息</a></div>
+                <div class="first_head"><a href="javascript:void(0)" @click="goAnchor('anchor-5')">五、您如何访问和控制自己的个人信息</a></div>
                 <div class="first_head"><a href="#6">六、我们可能分享的信息</a></div>
                 <div class="first_head"><a href="#7">七、某些技术的使用</a></div>
                 <div class="first_head"><a href="#8">八、您的个人信息保护</a></div>
@@ -66,7 +66,7 @@
                     </div>
                 </div>
                 <div class="con_item">
-                    <div class="first_head" id="5">五、您如何访问和控制自己的个人信息</div>
+                    <div class="first_head" id="anchor-5">五、您如何访问和控制自己的个人信息</div>
                     <div>
                         <p class="first_con">我们提供了便捷的方法，让您可以查询、更新和更正自己的注册信息或使用我们的服务时提供的其他个人信息。在访问、更新、更正和删除前述信息时，我们可能会有要求您进行身份验证，以保障账户安全。</p>
                     </div>
@@ -134,10 +134,10 @@
             }
         },
         mounted(){
-            this.scroll();
+            /*this.scroll();*/
         },
         methods: {
-            scroll(){
+            /*scroll(){
                $(function () {
                    //滚动效果
                    var head_scroll_top = $('.main_head').height();
@@ -153,7 +153,13 @@
                        });
                    });
                })
+            }*/
+            goAnchor(selector) {
+                console.log(document.getElementById(selector).offsetTop)
+                
+                document.documentElement.scrollTop = document.getElementById(selector).offsetTop
             }
+
         }
     }
 </script>

@@ -70,7 +70,7 @@ export default {
         Lib.M.ajax({
           url : 'cash-account/user/account/login/password',
           headers: {
-            Authorization:'Bearer '+ self.token
+            Authorization:'Bearer '+ localStorage.token
           },
           data:{
             phone: self.phoneNum,
