@@ -68,8 +68,12 @@ export default {
           url_return: 'https://moneyboom.cn/views/cashloan/myInfo.html#/bindBankCard'
         },
         success:function(data){
-          document.getElementById('backParams').value = JSON.stringify(data.data);
-          document.getElementById('myForm').submit()
+          if(data.code == '0000'){
+            document.getElementById('backParams').value = JSON.stringify(data.data);
+            document.getElementById('myForm').submit()
+          }else{
+            self.$vux.toast.text(data.error,'middle')
+          }
         }
       });
     },
@@ -84,7 +88,7 @@ export default {
         if(self.$route.query.status=='0000'){
           self.trigBackLLPay();
         }else{
-          this.$vux.toast.text(self.$route.query.result, 'middle')
+          self.$vux.toast.text(self.$route.query.result, 'middle')
         }
       }
     },
@@ -100,8 +104,19 @@ export default {
           user_id: self.userInfo.userInfo.userId
         },
         success:function (data){
-          self.$vux.toast.text('绑定成功!请确认借款信息', 'middle')
-          self.$router.replace('./addBank');
+          if(data.code == '0000'){
+            self.$vux.alert.show({
+              content: data.msg,
+              onShow () {
+                console.log('Plugin: I\'m showing')
+              },
+              onHide () {
+                window.location.replace('/views/cashloan/infoFill.html')
+              }
+            })
+          }else{
+            self.$vux.toast.text(data.error,'middle')
+          }
         }
       });
     }

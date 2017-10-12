@@ -116,7 +116,7 @@
                               console.log('Plugin: I\'m showing')
                             },
                             onHide () {
-                              /*window.location.reload()*/
+                              window.location.replace('/views/cashloan/infoFill.html')
                             }
                         })
                       }else{

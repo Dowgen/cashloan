@@ -113,8 +113,11 @@
                         url_return: 'https://moneyboom.cn/views/cashloan/myInfo.html#/loanDetail'
                     },
                     success:function(data){
-                        /*console.log('backParams:'+JSON.stringify(data.data))*/
-                        self.backParams = JSON.stringify(data.data);
+                        if(data.code == '0000'){
+                            self.backParams = JSON.stringify(data.data);
+                        }else{
+                            self.$vux.toast.text(data.error,'middle')
+                        }
                     }
                 });
             },
