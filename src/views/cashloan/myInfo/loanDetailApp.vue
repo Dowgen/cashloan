@@ -52,8 +52,8 @@
             <div class="instruction" v-show="loanStatus == 2">借款失败</div>
             <div class="instruction" v-show="loanStatus == 3">下款成功</div>
             <!-- <div class="instruction">立即还款</div> -->
-            <form v-show="loanStatus == 4" action="https://wap.lianlianpay.com/installment.htm" method="post">
-                <input name="req_data" :value="backParams"/>
+            <form v-show="loanStatus == 4" id="myForm" v-on:submit.prevent="getRepayParams"action="https://wap.lianlianpay.com/installment.htm" method="post">
+                <input id="backParams" type="text" name="req_data" value=""/>
                 <input type="submit" value="立即还款"/>
             </form>
         </div>
@@ -87,17 +87,15 @@
                 overDueDay:'',
                 isShow:false,
                 sShow:true,
-                userInfo:{},
-                backParams:{}
+                userInfo:{}
             }
         },
         mounted(){
             this.userInfo = JSON.parse(localStorage.userInfo);
             this.getLoanStatus();
-            this.getRepayParams();
         },
         methods: {
-            /* 得到绑卡所需参数 */
+            /* 得到主动还款所需参数 */
             getRepayParams(){
                 var self = this;
                 Lib.M.ajax({
@@ -114,7 +112,8 @@
                     },
                     success:function(data){
                         if(data.code == '0000'){
-                            self.backParams = JSON.stringify(data.data);
+                            document.getElementById('backParams').value = JSON.stringify(data.data);
+                            document.getElementById('myForm').submit()
                         }else{
                             self.$vux.toast.text(data.error,'middle')
                         }

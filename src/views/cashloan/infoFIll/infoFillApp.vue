@@ -126,7 +126,10 @@ export default {
             if(data[i].type=='realName' && data[i].code=='2'){
               self.realNamePassed = true
             }
-            if(data[i])
+            /* 手机运营商是否完成 */
+            if(data[i].type=='operator' && data[i].code=='2'){
+              localStorage.operatorPassed = true
+            }
           }
         }
       });
