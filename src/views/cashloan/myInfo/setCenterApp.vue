@@ -22,12 +22,12 @@
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>
-        <div class="setCenter_public" style="margin-top: 1.0315rem"><!--privacyAgreement userAgreement-->
+      <!--  <div class="setCenter_public" style="margin-top: 1.0315rem">&lt;!&ndash;privacyAgreement userAgreement&ndash;&gt;
             <span><img class="iconfont" style="width: 1.25rem;height: 1.22rem;" src="./assets/Rated.png" alt="">不错，去评分</span>
             <span class="setCenter_fr">
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
-        </div>
+        </div>-->
         <div class="setCenter_public"   @click="$router.push({path:'/aboutUs'})">
             <span><img class="iconfont" style="width: 1.28rem;height: 1.655rem;" src="./assets/aboutus.png" alt="">关于我们</span>
             <span class="setCenter_fr">

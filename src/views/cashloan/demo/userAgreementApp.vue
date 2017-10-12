@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="agreement_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
-            <span>用户注册协议</span>
-        </div>
         <div class="main">
             <div class="main_head">
                 杭州炬合网络科技有限公司在此郑重提示您，本文系您与“现金斗士”（包括域为moneyboom.cn的网站、手机客户端及其运营方杭州炬合网络科技有限公司，以下简称“我们”、“平台”或“本平台”）之间的法律协议，请您认真阅读并理解本协议。您通过平台点击确认本协议的，即表示您同意遵循本协议的所有约定，本协议在您和平台之间具有法律约束力。如发生法律纠纷，您不得以未仔细阅读或理解本协议为由进行抗辩。
@@ -106,23 +102,6 @@
 </script>
 
 <style>
-    .fr{
-        float: right;
-    }
-
-    .agreement_head{
-        height:3rem;
-        background:rgba(255,255,255,1);
-        text-align: center;
-        line-height: 3rem;
-        font-size:1.065rem;
-        color: rgba(0,0,0,1);
-        position: relative;
-    }
-    .agreement_head span:nth-of-type(1){
-        position: absolute;
-        left: 1.47rem;
-    }
     .main{
         background:rgba(255,255,255,1);
         margin-top: 2px;

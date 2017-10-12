@@ -187,7 +187,7 @@ export default {
           self.reqId = data.data.reqId;
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('校验成功!','middle')
-            setTimeout("window.location.href = '/views/cashloan/infoFill.html'",8000);
+            setTimeout("window.location.href = '/views/cashloan/demo.html'",8000);
           }else if(data.resultCode=='CCOM3014'){
             self.$vux.toast.text('二次鉴权码发送成功!','middle')
             self.verifyCode = ''    //重置验证码
@@ -218,7 +218,7 @@ export default {
           self.$vux.loading.hide();
           if(data.resultCode=='CCOM1000'){
             self.$vux.toast.text('校验二次鉴权码成功!','middle')
-            /*setTimeout("window.location.href = '/views/cashloan/infoFill.html'",8000);*/
+            /*setTimeout("window.location.href = '/views/cashloan/demo.html'",8000);*/
           }else{
             self.$vux.alert.show({title: '温馨提示',content: data.resultDesc})
           }

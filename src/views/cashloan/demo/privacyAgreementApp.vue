@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="agreement_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="../myInfo/assets/back.png" alt=""></span>
-            <span>隐私政策及授权使用协议</span>
-        </div>
         <div class="main">
             <div class="main_head">
                 <div class="first_head"><a href="#1">一、引言</a></div>
@@ -138,7 +134,7 @@
         },
         methods: {
             scroll(){
-               /*$(function () {
+               $(function () {
                    //滚动效果
                    var head_scroll_top = $('.main_head').height();
                    console.log(head_scroll_top);
@@ -152,49 +148,13 @@
                            $('body,html').animate({scrollTop:$('#'+($(this).index()+1)).offset().top - head_scroll_top},600);
                        });
                    });
-               })*/
-
-              /*  window.onload = function () {
-                    var main_head = document.getElementsByClassName('main_head');
-                    var head_scroll_top = main_head.offsetHeight;
-                    console.log(head_scroll_top);
-
-                   var first_head_arr = main_head.getElementsByClassName('first_head');
-
-                    for (var i = 0; i < first_head_arr.length; i++) {
-                        var first_head = first_head_arr[i];
-                        first_head.onclick(function (e) {
-
-                        })
-
-                    }
-                }*/
-
-
-
+               })
             }
         }
     }
 </script>
 
 <style>
-    .fr{
-        float: right;
-    }
-
-    .agreement_head{
-        height:3rem;
-        background:rgba(255,255,255,1);
-        text-align: center;
-        line-height: 3rem;
-        font-size:1.065rem;
-        color: rgba(0,0,0,1);
-        position: relative;
-    }
-    .agreement_head span:nth-of-type(1){
-        position: absolute;
-        left: 1.47rem;
-    }
     .main{
         background:rgba(255,255,255,1);
         margin-top: 2px;
