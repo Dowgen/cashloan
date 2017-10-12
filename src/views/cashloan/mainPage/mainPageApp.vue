@@ -40,11 +40,11 @@
       <div class="table tbody">
         <span>{{userGetMoney}}</span>
         <span>{{repayDate}}</span>
-        <span>{{interest}}</span>
+        <span>{{rePayMoney}}</span>
       </div>
       <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
     </div>
-    <main-nav-green></main-nav-green>
+    <main-nav which="mainPage"></main-nav>
   </div>
 </template>
 
@@ -54,12 +54,12 @@ import Lib from 'assets/js/Lib';
 
 import { XButton, Confirm } from 'vux'
 
-import MainNavGreen from 'components/mainNavGreen'
+import MainNav from 'components/mainNav'
 
 export default {
   name: 'add',	
   components: {
-    MainNavGreen,  XButton, Confirm
+    MainNav,  XButton, Confirm
   },
   data () {
     return {
@@ -77,10 +77,10 @@ export default {
   },
   computed:{
     userGetMoney(){
-       return this.loanAmount - this.loanAmount*this.term*0.01
+       return this.loanAmount 
     },
-    interest(){
-       return this.loanAmount*this.term*0.01
+    rePayMoney(){
+       return this.loanAmount*this.term*0.01 + this.loanAmount
     },
     repayDate(){
       return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
@@ -188,7 +188,6 @@ export default {
           user_id: self.userInfo.userInfo.userId
         },
         success:function (res){
-          console.log('length:'+res.data.length)
           if(res.data.length == 0){
             self.cardBinded = false
           }else{

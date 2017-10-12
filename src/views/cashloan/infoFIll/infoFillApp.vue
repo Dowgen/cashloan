@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <main-nav></main-nav>
+    <main-nav which="infoFill"></main-nav>
   </div>
 </template>
 
@@ -163,10 +163,12 @@ export default {
     /* 判断是否芝麻认证，如果认证了的话就把芝麻返回的参数传给后端 */
     isZhimaAuthed(){
       var self = this;
-      console.log(Lib.M.GetQueryString('params')== null)
       if( Lib.M.GetQueryString('params') == null){
         /* 还未芝麻认证，啥也不干 */
       }else{
+        this.$vux.loading.show({
+          text: '正在审核中，请稍等'
+        });
         /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
         Lib.M.ajax({
           type: 'get',
@@ -184,15 +186,16 @@ export default {
             console.log(res);
             if(res.code == 200){
               self.getInfo();
-                self.$vux.alert.show({
-                  content: '芝麻认证成功!',
-                  onShow () {
-                    console.log('Plugin: I\'m showing')
-                  },
-                  onHide () {
-                    window.location.replace('https://moneyboom.cn/views/cashloan/infoFill.html')
-                  }
-                })
+              self.$vux.loading.hide();
+              self.$vux.alert.show({
+                content: '芝麻认证成功!',
+                onShow () {
+                  console.log('Plugin: I\'m showing')
+                },
+                onHide () {
+                  window.location.replace('https://moneyboom.cn/views/cashloan/infoFill.html')
+                }
+              })
             }else{
               self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
             }
@@ -242,7 +245,7 @@ export default {
           biz_id: JSON.parse(localStorage.faceReturn).biz_id
         },
         success:function (data){
-          console.log('getResult:'+data)
+          self.getInfo();
           self.$vux.alert.show({
             content: '实名认证成功!',
             onShow () {

@@ -14,8 +14,8 @@
           <popup-picker :data="cityList" :columns="3" v-model="cityVal" ref="cityPicker" ></popup-picker>
         </div>
       </div>
-      <div class="inputer inputer-street">
-        <input type="text" v-model="specLoc"/>
+      <div class="inputer inputer-street" @click="getFocus">
+        <input id="specLocInput" type="text" v-model="specLoc"/>
         <p>请填写具体街道门牌号</p>
       </div>
       <div class="inputer">
@@ -159,6 +159,9 @@ export default {
           setTimeout("window.location.href = demo.html",800);
         }
       });
+    },
+    getFocus(){
+      document.getElementById("specLocInput").focus();
     }
   }
 }
@@ -190,14 +193,17 @@ export default {
     border: none;
     font-size: 0.94rem;
     padding-left: 0.5rem;
+    height: 2.75rem;
+    width: 100%;
   }
   .sel{
-    background: url('./assets/arrow_down.png') no-repeat center center;
+    background: url('./assets/arrow_down.png') no-repeat;
     background-size: 0.69rem 0.375rem;
-    width: 2rem;
+    background-position: 95% center; 
+    width: 100%;
     position:absolute;
     top:0;
-    right:1rem;
+    right:0;
     bottom:0;
     overflow: hidden;
   }

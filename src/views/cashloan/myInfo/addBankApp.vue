@@ -26,6 +26,7 @@
         <div class="exist_bank oBank" v-show="isShow" @click="clickCard"> 
             <p>{{bank_name}}</p>
             <p><span style="font-size: 0.94rem">**** **** **** </span><span>{{card_no}}</span></p>
+            <img src="./assets/unbind.png">
         </div>
 
 
@@ -160,8 +161,15 @@
         font-size: 1rem;
         color: rgba(255,255,255,1);
         line-height: 2.4rem;
+        position: relative;
     }
-
+    .exist_bank>img{
+        position: absolute;
+        width: 0.7rem;
+        height: 0.85rem;
+        right: 0.815rem;
+        top: 1.03rem;
+    }
 
 
     #wrap{

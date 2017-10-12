@@ -7,7 +7,7 @@
         <div class="us_main">
             <div>
                 <p><img src="./assets/logo.png" alt=""></p>
-                <p>炬有钱</p>
+                <p>现金斗士</p>
                 <p style="font-size: 0.875rem;color: rgba(181,181,181,1)">V 1.0.1</p>
             </div>
         </div>

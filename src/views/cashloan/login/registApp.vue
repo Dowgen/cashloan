@@ -98,7 +98,7 @@ export default {
         type:'get',
         url : 'cash-account/msg/sendVerify/'+ self.phoneNum,
         headers: {
-          Authorization:'Bearer '+ self.token
+          Authorization:'Bearer '+ localStorage.token
         },
         success:function(data){
           if(data=='success'){
@@ -114,7 +114,7 @@ export default {
         type:'get',
         url : 'cash-account/msg/checkVerify/'+ self.phoneNum+'/'+ self.verifyCode,
         headers: {
-          Authorization:'Bearer '+ self.token
+          Authorization:'Bearer '+ localStorage.token
         },
         dataType:'text',
         success:function(data){
@@ -139,7 +139,7 @@ export default {
       Lib.M.ajax({
         url : 'cash-account/user/account/regist',
         headers: {
-          Authorization:'Bearer '+ self.token
+          Authorization:'Bearer '+ localStorage.token
         },
         data:{
           phone: self.phoneNum,
@@ -169,7 +169,7 @@ export default {
       Lib.M.ajax({
         url : 'cash-account/user/account/login/message',
         headers: {
-          Authorization:'Bearer '+ self.token
+          Authorization:'Bearer '+ localStorage.token
         },
         data:{
           phone: self.phoneNum,
