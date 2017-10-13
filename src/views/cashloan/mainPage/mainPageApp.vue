@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div style="background:white;height:37.69rem">
+    <div style="background:white;height:33.69rem">
       
       <div class="banner">
         <img src="./assets/banner.png">
