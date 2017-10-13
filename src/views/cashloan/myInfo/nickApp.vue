@@ -9,7 +9,7 @@
             <input type="text" placeholder="输入昵称" v-model="nickName" maxlength=6 @keyup.enter="KeyDown">
             <span class="delete" @click="deleteName()" v-show="nickName!=''"><img src="./assets/delete.png" alt=""></span>
         </div>
-
+        <div class="btn" @click="ensure">确定</div>
     </div>
 </template>
 
@@ -30,29 +30,20 @@
         },
         mounted(){
             this.localUserInfo = JSON.parse(localStorage.userInfo);
-            this.KeyDown();
         },
         methods: {
-             KeyDown(){
-                 if (event.keyCode == 13)
-                 {
-                     var self = this;
+             ensure(){
+                 var self = this;
 
-                     event.returnValue=false;
-                     event.cancel = true;
-
-                     Lib.M.ajax({
-                         type:'get',
-                         url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone+'/'+self.nickName,
-                         success:function (res) {
-                             console.log(res);
-                             /*返回上一页*/
-                             self.$router.go(-1);
-                         }
-                     })
-
-
-                 }
+                 Lib.M.ajax({
+                     type:'get',
+                     url: "cash-account/user/account/userInfo/name/"+self.localUserInfo.userInfo.phone+'/'+self.nickName,
+                     success:function (res) {
+                         console.log(res);
+                         /*返回上一页*/
+                         self.$router.go(-1);
+                     }
+                 })
              },
             deleteName(){
                 this.nickName = '';
@@ -102,5 +93,26 @@
         display: block;
         width: 0.78rem;
         height: 0.78rem;
+    }
+
+</style>
+ <style scoped>
+    .btn{
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        font-size: 1.125rem;
+        text-align: center;
+        text-decoration: none;
+        color: #FFFFFF;
+        line-height: 2.33333333;
+        border-radius: 0.5rem;
+        -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+        overflow: hidden;
+        background-color: #1abc9c;
+        margin:0 auto;
+        margin-top: 2.19rem;
+        width:21.44rem;
+        height: 2.75rem;
     }
 </style>

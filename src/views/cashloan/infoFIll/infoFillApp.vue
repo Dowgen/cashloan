@@ -218,8 +218,13 @@ export default {
         }
       }
     },
-    doInfo(){
+    doInfo(){   
+      if(!this.realNamePassed){
+        /* 还未实名认证 */
+        this.$vux.toast.text('请先通过实名认证','middle')
+      }else{
         this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
+      }
     },
     doOperator(){
       if(!this.realNamePassed){
@@ -232,7 +237,9 @@ export default {
     /* 触发后台拿到face++认证 */
     face_getResult(){
       var self = this;
-
+      self.$vux.loading.show({
+          text: '数据获取中，请稍等'
+      });
       Lib.M.ajax({
         url : '/risk-manage/faceid/getResult',
         params:{
@@ -241,15 +248,22 @@ export default {
         },
         success:function (data){
           self.getInfo();
-          self.$vux.alert.show({
-            content: '实名认证成功!',
-            onShow () {
-              console.log('Plugin: I\'m showing')
-            },
-            onHide () {
-              window.location.reload()
-            }
-          })
+          self.$vux.loading.hide();
+          if(data.code=='200'){
+            self.$vux.alert.show({
+              content: '实名认证成功!',
+              onShow () {
+                console.log('Plugin: I\'m showing')
+              },
+              onHide () {
+                window.location.reload()
+              }
+            })
+          }else{
+            self.$vux.alert.show({
+              content: '实名认证失败，请重试!'
+            })
+          }
         }
       });
     }

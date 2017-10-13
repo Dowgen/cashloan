@@ -67,6 +67,7 @@ var Rxports = {
             },
             error => {
                 if (error.response) {
+                    vm.$vux.loading.hide();
                     switch (error.response.status) {
                         case 303:
                         case 401:

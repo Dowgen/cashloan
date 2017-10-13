@@ -66,6 +66,7 @@ export default {
   mounted(){
     this.phoneNum = this.$store.state.phoneNum;
     this.token = this.$store.state.token;
+    this.begin1();
   },
   methods: {
     /* 开始倒计时 */

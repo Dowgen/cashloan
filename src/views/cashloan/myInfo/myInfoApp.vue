@@ -109,34 +109,6 @@
             this.getImg();
         },
         methods: {
-           /* getToken(){
-                var self = this;
-                Lib.M.ajax({
-                    url : '/uaa/oauth/token',
-                    headers: {
-                        Accept:'application/json',
-                        Authorization:'Basic Y2xpZW50OnNlY3JldA=='
-                    },
-                    params:{
-                        username:'juhe',
-                        password:'Juhe2017!@#',
-                        grant_type:'password',
-                        scope:'read write'
-                    },
-                    success:function(data){
-                        self.token = data.access_token;
-                        把token放入 vuex 
-                        self.$store.commit('changeToken',data.access_token)
-                        self.getInfo();
-                        self.getOrderStatus();
-                        self.getAllRecord();
-                        self.getImg();
-                    },
-                    error:function(err){
-                        console.error(err);
-                    }
-                });
-          }, */
             getInfo(){
                 var self = this;
                 Lib.M.ajax({

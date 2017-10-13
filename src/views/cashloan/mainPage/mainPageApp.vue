@@ -1,7 +1,6 @@
 <template>
   <div>
-    <div style="background:white;height:37.69rem">
-      <div class="title">现金斗士</div>
+    <div style="background:white;height:33.69rem">
       
       <div class="banner">
         <img src="./assets/banner.png">
@@ -72,7 +71,8 @@ export default {
       },
       authPassed: 0,
       cardBinded: false,
-      userInfo:{}
+      userInfo:{},
+      hasOrder: false
     }
   },
   computed:{
@@ -96,6 +96,8 @@ export default {
     this.bankCardCheck();
     /* 得到认证通过标志 */
     this.getauthStatus();
+    /* 得到用户是否有正在进行中的订单 */
+    this.getOrderStatus();
   },
   methods: {
     setLoanAmount(amount){
@@ -148,6 +150,8 @@ export default {
             self.$router.push('./bindBankCard')
           }
         })
+      }else if( this.hasOrder){
+        self.$vux.toast.text('已有正在进行中的订单！','middle')
       }else{
         this.face_getToken();
       }
@@ -204,6 +208,21 @@ export default {
           self.$router.push('./confirmRent')
         }
       });
+    },
+    getOrderStatus(){
+      var self = this;
+      Lib.M.ajax({
+        type:'GET',
+        url:'cash-account/loan/getAllProcessing/'+self.userInfo.userInfo.userId,
+        success:function (res) {
+          if(res.data.length != 0){
+            self.hasOrder = true;
+          }else{
+            self.hasOrder = false;
+          }
+
+        }
+      })
     }
   }
 }
