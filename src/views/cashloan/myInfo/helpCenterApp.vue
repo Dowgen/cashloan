@@ -4,9 +4,9 @@
             <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
             <span>帮助中心</span>
         </div>
-        <div class="help_question" v-for="(item,index) in questionList">
-            <dl>
-            <dt class="fl">
+        <div class="help_question" style="display: flex" v-for="(item,index) in questionList">
+
+            <div class="q_left" style="flex: 2">
                 <!--<p><img :style=item.imgStyle :src="item.img"></p>-->
                <div class="img">
                    <p><img v-show="item.img == 1" :style=item.imgStyle src="./assets/check_data.png" alt=""></p>
@@ -16,23 +16,21 @@
                    <p><img v-show="item.img == 5" :style=item.imgStyle src="./assets/about_another.png" alt=""></p>
                </div>
 
-
-
                 <p class="title">{{item.title}}</p>
                 <p :id="'arrow'+index" @click="show(index)" class="arrows">
                     <img class="show_arrow" src="./assets/show_up.png" alt="">
                 </p>
 
-            </dt>
-            <dd class="fl questions">
+            </div>
+            <div class="q_right questions" style="flex: 7">
                 <p @click="jump(index,0)">{{item.questions[0]}}</p>
                 <p @click="jump(index,1)">{{item.questions[1]}}</p>
                 <div v-show="isShow">
                     <p @click="jump(index,2)">{{item.questions[2]}}</p>
                     <p @click="jump(index,3)">{{item.questions[3]}}</p>
                 </div>
-            </dd>
-        </dl>
+            </div>
+
         </div>
 
     </div>
@@ -241,23 +239,23 @@
         height: 6.345rem;
     }
 
-    .help_question dt{
-        width: 5.44rem;
+    .help_question .q_left{
+       /* width: 5.44rem;*/
         text-align: center;
         line-height: 1.5rem;
         margin-top: 1rem;
         position: relative;
     }
-    .help_question dt .img img{
+    .help_question .q_left .img img{
         display: block;
         margin:0 auto;
     }
-    .help_question dt .title{
+    .help_question .q_left .title{
         font-size: 0.875rem;
         color: rgba(18,128,106,1);
         line-height: 2rem;
     }
-    .help_question dt .arrows{
+    .help_question .q_left .arrows{
         width: 0.655rem;
         height: 0.405rem;
         line-height: 1rem;
@@ -271,8 +269,9 @@
         position:absolute;
         top:0;left:0;
     }
-    .help_question dd p{
-        width: 15.565rem;
+
+    .help_question .q_right p{
+        /*width: 15.565rem;*/
         height: 3.12rem;
         border-bottom:0.06rem solid rgba(230,230,230,1);
         border-left:0.06rem solid rgba(230,230,230,1);
@@ -281,7 +280,7 @@
         font-size: 0.815rem;
         color: rgba(85,85,85,1);
     }
-    .help_question dd p:last-child{
+    .help_question .q_right p:last-child{
         border-bottom:none;
     }
 
