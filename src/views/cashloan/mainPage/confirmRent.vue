@@ -108,11 +108,13 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          /*"loanAmount": self.loanAmount,*/
-          "loanAmount": 0.01,
-          "loanPeriod": self.term,
+          /*"loanAmount": self.loanAmount,
           "receivedAmount": self.userGetMoney,
-          "feeAmount": self.interest
+          "feeAmount": self.interest,*/
+          "loanAmount": 0.01,
+          "receivedAmount": 0.01,
+          "feeAmount": 0.01,
+          "loanPeriod": self.term
         },
         success:function (data){
           if(data.code==200){
