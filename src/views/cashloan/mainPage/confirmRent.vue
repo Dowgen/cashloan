@@ -108,7 +108,8 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          "loanAmount": self.loanAmount,
+          /*"loanAmount": self.loanAmount,*/
+          "loanAmount": 0.01,
           "loanPeriod": self.term,
           "receivedAmount": self.userGetMoney,
           "feeAmount": self.interest

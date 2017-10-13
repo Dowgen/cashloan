@@ -47,9 +47,6 @@
         methods: {
             submitAdvice(){
                 var self = this;
-               /* console.log(self.localUserInfo.userInfo.userId);
-                console.log(self.adviceType[0]);
-                console.log(self.words);*/
 
                 if(self.words !== '' && self.adviceType[0] !== undefined){
                    Lib.M.ajax({
@@ -60,8 +57,8 @@
                            "content":self.words
                        },
                        success:function (res) {
-                           console.log(res);
-
+                            self.$vux.toast.text('提交成功!','middle')
+                            self.$router.go(-1)
                        }
                    })
                }else{
