@@ -31,7 +31,7 @@
                 <div class="reviewing_pay public special" v-show="loanStatus==1" @click="jumpToLoanDetail">
                     <p>审核中(1)</p>
                     <p class="special_p">
-                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate }}00</em></span>
+                        <span>¥{{processLoan.shouldPay}}.00 <em>{{processLoan.repayDate }}</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
@@ -42,14 +42,14 @@
                 <div class="reviewing_pay public special" v-show="loanStatus==3"  @click="jumpToLoanDetail">
                     <p>已下款(1)</p>
                     <p class="special_p">
-                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
+                        <span>¥{{processLoan.shouldPay}}.00 <em>{{processLoan.repayDate}}</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
                 <div class="waiting_pay public special" v-show="loanStatus==4"  @click="jumpToLoanDetail">
                     <p>待还款(1)</p>
                     <p class="special_p">
-                        <span>¥{{processLoan.receivedAmount}}.00 <em>{{processLoan.payDate}}00</em></span>
+                        <span>¥{{processLoan.shouldPay}}.00 <em>{{processLoan.repayDate}}</em></span>
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
