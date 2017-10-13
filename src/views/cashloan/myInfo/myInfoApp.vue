@@ -134,7 +134,7 @@
                            console.log('这里有数据');
                            self.processLoan = res.data[0];
                            self.loanStatus = res.data[0].loanStatus;
-                           self.orderId = res.data[0].orderId;
+                           localStorage.orderId = res.data[0].orderId;
                            console.log(self.loanStatus);
                            console.log('1111');
                        }
@@ -173,7 +173,7 @@
                 })
             },
             jumpToLoanDetail(){
-                this.$router.push({path:'/loanDetail',query:{orderId:this.orderId}});
+                this.$router.push('/loanDetail');
 
             },
             jumpToLoanRecord(){
