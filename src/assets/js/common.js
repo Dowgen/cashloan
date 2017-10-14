@@ -119,7 +119,7 @@ var Rxports = {
             
                 
         }).catch(function (error){
-
+            vm.$vux.loading.hide();
             if (opts.error) {
                 opts.error(error);
             }else{

@@ -242,8 +242,8 @@ export default {
           +'&name=' + this.userInfo.idInfo.name
           +'&certNo=' + this.userInfo.idInfo.idCardNumber
           +'&mobile=' + this.userInfo.userInfo.phone
-          +'&backUrl=' + 'https://www.baidu.com/'
-          +'&failUrl=' + 'https://cn.bing.com/'
+          +'&backUrl=' + 'https://moneyboom.cn/views/cashloan/infoFill.html#/operatorS'
+          +'&failUrl=' + 'https://moneyboom.cn/views/cashloan/infoFill.html#/operatorS'
         }  
       }
     },
