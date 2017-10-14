@@ -46,7 +46,7 @@ export default {
         url : '/uaa/oauth/token',
         headers: {
           Accept:'application/json',
-          Authorization:'Basic Y2xpZW50OnNlY3JldA=='
+          Authorization:'Basic anVoZV9jYXNobG9hbjpKdWhlMTIzNjc4IUAj'
         },
         params:{
           username:'juhe',

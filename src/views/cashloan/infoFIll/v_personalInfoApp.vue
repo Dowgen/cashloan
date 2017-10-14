@@ -243,6 +243,7 @@ export default {
     margin-bottom: 0.5rem;
   }
   .marriged-extend>div>.inputer{
+    box-sizing: border-box;
     background: white;
     width: 100%;
     padding-left: 1rem;

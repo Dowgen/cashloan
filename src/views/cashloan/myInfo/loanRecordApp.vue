@@ -7,7 +7,7 @@
       <div class="record_detail" v-for="item in loanList">
           <div>
               <p>借款金额</p>
-              <p>{{item.loanAmount.toString()+".00"}}元</p>
+              <p>{{item.loanAmount.toString()}}元</p>
           </div>
           <div>
               <p>还款日期</p>

@@ -35,12 +35,12 @@
         <div>
           <p>到帐金额(元)</p>
           <p>还款日期</p>
-          <p>借款费用(元)</p>
+          <p>到期应还(元)</p>
         </div>
         <div>
-          <p>{{userGetMoney}}</p>
+          <p>{{loanAmount}}</p>
           <p>{{repayDate}}</p>
-          <p>{{interest}}</p>
+          <p>{{rePayMoney}}</p>
         </div>
       </div>
     </div>
@@ -72,14 +72,21 @@ export default {
   },
   computed:{
     userGetMoney(){
-       return this.loanAmount - this.loanAmount*this.term*0.01
+       return this.loanAmount
+    },
+    rePayMoney(){
+       return this.loanAmount + this.loanAmount*this.term*0.01
     },
     interest(){
        return this.loanAmount*this.term*0.01
     },
     repayDate(){
-      return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
-    },
+      let date = new Date(new Date().getTime() + this.term*24*60*60*1000)
+      let year = date.getFullYear();
+      let month = date.getMonth()+1; //0 === 1月 1===2月，因此+1
+      let day = date.getDate();
+      return year+'/'+month+'/'+day;
+    }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
@@ -109,7 +116,7 @@ export default {
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
           /*"loanAmount": self.loanAmount,
-          "receivedAmount": self.userGetMoney,
+          "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,*/
           "loanAmount": 0.01,
           "receivedAmount": 0.01,

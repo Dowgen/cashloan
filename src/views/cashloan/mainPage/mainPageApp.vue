@@ -84,7 +84,11 @@ export default {
        return this.loanAmount*this.term*0.01 + this.loanAmount
     },
     repayDate(){
-      return new Date(new Date().getTime() + this.term*24*60*60*1000).toLocaleDateString();
+      let date = new Date(new Date().getTime() + this.term*24*60*60*1000)
+      let year = date.getFullYear();
+      let month = date.getMonth()+1; //0 === 1月 1===2月，因此+1
+      let day = date.getDate();
+      return year+'/'+month+'/'+day;
     }
   },
   mounted(){

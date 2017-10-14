@@ -1,8 +1,11 @@
 <template>
   <div class="wrapper">
     <div class="title">评估结果</div>
-    <div v-show="pass==0">
+    <div v-show="pass==0">请等待</div>
+    <div v-show="pass==1">
       <p v-show="pass==1">您的认证通过了！</p>
+    </div>
+    <div>
       <p v-show="pass==2">认证失败，请重试！</p>
     </div>
     <div class="btn" @click="jump">确定</div>
