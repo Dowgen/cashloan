@@ -41,7 +41,7 @@
         <span>{{repayDate}}</span>
         <span>{{rePayMoney}}</span>
       </div>
-      <x-button type="primary" class="btn" @click.native="jump">立即申请</x-button>
+      <author-button page="mainPage" text="立即申请" styleMT="'{margin-top: 3.065rem;}'"></author-button>
     </div>
     <main-nav which="mainPage"></main-nav>
   </div>
@@ -54,11 +54,12 @@ import Lib from 'assets/js/Lib';
 import { XButton, Confirm } from 'vux'
 
 import MainNav from 'components/mainNav'
+import authorButton from 'components/authorButton'
 
 export default {
   name: 'add',	
   components: {
-    MainNav,  XButton, Confirm
+    MainNav,  XButton, Confirm, authorButton
   },
   data () {
     return {
@@ -69,10 +70,7 @@ export default {
         'border-color': '#1abc9c',
         'color': '#1abc9c'
       },
-      authPassed: 0,
-      cardBinded: false,
       userInfo:{},
-      hasOrder: false
     }
   },
   computed:{
@@ -92,12 +90,6 @@ export default {
     if(document.referrer.indexOf('megvii.com')!= -1){
       this.face_getResult();
     } 
-    /* 得到绑卡数据 */
-    this.bankCardCheck();
-    /* 得到认证通过标志 */
-    this.getauthStatus();
-    /* 得到用户是否有正在进行中的订单 */
-    this.getOrderStatus();
   },
   methods: {
     setLoanAmount(amount){
@@ -105,92 +97,6 @@ export default {
     },
     setTerm(term){
       this.term = term;
-    },
-    face_getToken(){
-      var self = this;
-
-      Lib.M.ajax({
-        url : '/risk-manage/faceid/getToken',
-        params:{
-          return_url: 'https://moneyboom.cn/views/cashloan/mainPage.html',
-          notify_url:'https://finbridge.cn/risk-manage/faceid/notify',
-          idcard_mode:0,
-          idcard_name: self.userInfo.idInfo.name,
-          idcard_number: self.userInfo.idInfo.idCardNumber
-        },
-        success:function (data){
-          if(data.code == 200){
-            let faceReturn = {
-              token : data.data.token,
-              biz_id : data.data.biz_id
-            }
-            localStorage.faceReturn = JSON.stringify(faceReturn);
-            /* 获取token后跳转第三方 */
-            window.location.href = 'https://api.megvii.com/faceid/lite/do?token='+ data.data.token;
-          }else{
-            self.$vux.toast.text(data.error,'middle');
-          }
-        }
-      });
-    },
-    jump(){
-      var self = this
-      let a = 2;
-      if(this.authPassed != 4){
-        this.$vux.confirm.show({
-          content: '亲,您的基础信息尚未完善，请先完善资料!',
-          onConfirm () {
-            window.location.href = '/views/cashloan/infoFill.html'
-          }
-        })
-      }else if( this.cardBinded === false){
-        this.$vux.confirm.show({
-          content: '亲,请先绑定银行卡再借款!',
-          onConfirm () {
-            self.$router.push('./bindBankCard')
-          }
-        })
-      }else if( this.hasOrder){
-        self.$vux.toast.text('已有正在进行中的订单！','middle')
-      }else{
-        this.face_getToken();
-      }
-    },
-    /* 检查认证是否全部通过 */
-    getauthStatus(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/risk-manage/auth/authStatus',
-        data:{
-          mobile: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId,
-          certNo: self.userInfo.idInfo.idCardNumber || '',
-          name: self.userInfo.idInfo.name || ''
-        },
-        success:function (res){
-          let data = res.data;
-          for(let i in data){
-            if(data[i].code=='2') ++self.authPassed;
-          }
-        }
-      });
-    },
-    /* 检查银行卡是否绑定 */
-    bankCardCheck(){
-      var self = this;
-      Lib.M.ajax({
-        url : '/pay/repayment/bankCardCheckList',
-        data:{
-          user_id: self.userInfo.userInfo.userId
-        },
-        success:function (res){
-          if(res.data.length == 0){
-            self.cardBinded = false
-          }else{
-            self.cardBinded = true
-          }
-        }
-      });
     },
     /* 触发后台拿到face++认证 */
     face_getResult(){
@@ -208,22 +114,7 @@ export default {
           self.$router.push('./confirmRent')
         }
       });
-    },
-    getOrderStatus(){
-      var self = this;
-      Lib.M.ajax({
-        type:'GET',
-        url:'cash-account/loan/getAllProcessing/'+self.userInfo.userInfo.userId,
-        success:function (res) {
-          if(res.data.length != 0){
-            self.hasOrder = true;
-          }else{
-            self.hasOrder = false;
-          }
-
-        }
-      })
-    }
+    } 
   }
 }
 </script>

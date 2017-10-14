@@ -3,7 +3,7 @@
   	<hb-head headfont="登录"></hb-head>
     
     <div class="welcome">
-      <h2>欢迎登录现金贷</h2>
+      <h2>欢迎登录现金斗士</h2>
       <p>{{phoneNum}}</p>
     </div>
     <div class="input">

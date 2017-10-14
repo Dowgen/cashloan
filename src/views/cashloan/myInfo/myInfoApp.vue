@@ -23,7 +23,7 @@
                 </div>
                 <div class="money_limit">
                     <p>最高额度(元) 1000</p>
-                    <p><!--最高额度(元)--> <a href="/views/cashloan/mainPage.html">去借款</a></p>
+                    <p><!--最高额度(元)--> <a href="/views/cashloan/mainPage.html#/confirmRent">去借款</a></p>
                 </div>
             </div>
 

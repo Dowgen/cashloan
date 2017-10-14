@@ -92,6 +92,17 @@
         },
         mounted(){
             this.userInfo = JSON.parse(localStorage.userInfo);
+            if(document.referrer.indexOf('lianlianpay.com')!= -1){
+                this.$vux.alert.show({
+                    content: '还款成功!',
+                    onShow () {
+                        console.log('Plugin: I\'m showing')
+                    },
+                    onHide () {
+                        window.location.href = '/views/cashloan/myInfo.html'
+                    }
+                })
+            }
             this.getLoanStatus();
         },
         methods: {
@@ -106,8 +117,8 @@
                         register_time: self.userInfo.idInfo.create_time,
                         id_no: self.userInfo.idInfo.idCardNumber,
                         acct_name: self.userInfo.idInfo.name,
-                        money_order: '0.01',
-                        oid_business: 'JHCL171009204631259180',
+                        money_order: self.money_order,
+                        oid_business: localStorage.orderId,
                         url_return: 'https://moneyboom.cn/views/cashloan/myInfo.html#/loanDetail'
                     },
                     success:function(data){
@@ -134,14 +145,14 @@
                 var self = this;
                 Lib.M.ajax({
                     type:'GET',
-                    url:'cash-account/loan/getOne/'+self.$route.query.orderId,
+                    url:'cash-account/loan/getOne/'+localStorage.orderId,
                     success:function (res) {
-                        /*console.log(res);*/
                         self.loanDetail = res.data;
                         self.loanStatus = res.data.loanStatus;
                         self.loanDate = res.data.loanDate;
                         self.repayDate = res.data.repayDate;
                         self.repayDateReal = res.data.repayDateReal;
+                        self.money_order = res.data.shouldPay.toString();
                         console.log(self.loanDate.split(' ')[0].replace(/-/g, "/"));
                         const loanTime = Date.parse(new Date(self.loanDate));
                         const repayTime = Date.parse(new Date(self.repayDate));

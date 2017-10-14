@@ -23,16 +23,6 @@
             <img src="./assets/arrow-right.png" v-show="information!='已完成'">
           </div>
         </div>
-
-        <div class="step">
-          <img v-show="zhima!='已完成'" src="./assets/zhima.png">
-          <img v-show="zhima=='已完成'" src="./assets/zhima_color.png">
-          <div @click="zhimaAuth">
-            <span>芝麻信用</span>
-            <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
-            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'">
-          </div>
-        </div>
         <div class="step">
           <img v-show="operator!='已完成'" src="./assets/phone_operator.png">
           <img v-show="operator=='已完成'" src="./assets/phone_operator_color.png">
@@ -40,6 +30,15 @@
             <span>手机运营商</span>
             <i :style="operator=='已完成'?fontBlack:''">{{operator}}</i>
             <img src="./assets/arrow-right.png" v-show="operator!='已完成'">
+          </div>
+        </div>
+        <div class="step">
+          <img v-show="zhima!='已完成'" src="./assets/zhima.png">
+          <img v-show="zhima=='已完成'" src="./assets/zhima_color.png">
+          <div @click="zhimaAuth">
+            <span>芝麻认证</span>
+            <i :style="zhima=='已完成'?fontBlack:''">{{zhima}}</i>
+            <img src="./assets/arrow-right.png" v-show="zhima!='已完成'">
           </div>
         </div>
       </div>
@@ -209,7 +208,6 @@ export default {
         if(this.zhima=='已完成'){
           /* 认证过了，不作跳转 */
         }else{
-          var self = this;
           window.location.href=
             'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
             '&certNo=' + this.userInfo.idInfo.idCardNumber +
@@ -218,6 +216,7 @@ export default {
         }
       }
     },
+    /* 点击完善信息 */
     doInfo(){   
       if(!this.realNamePassed){
         /* 还未实名认证 */
@@ -226,12 +225,21 @@ export default {
         this.$router.push({path:'./vPersonalInfo',query:{isPassed:this.informationPassed}})
       }
     },
+    /* 点击手机运营商 */
     doOperator(){
       if(!this.realNamePassed){
         /* 还未实名认证 */
         this.$vux.toast.text('请先通过实名认证','middle')
       }else{
-        if(this.operator!='已完成') this.$router.push('./vPhoneOperator')
+        if(this.operator!='已完成'){
+          window.location.href=
+          'https://credit.baiqishi.com/clclient/mno/login?partnerId='+ 'flowercredit'
+          +'&name=' + this.userInfo.idInfo.name
+          +'&certNo=' + this.userInfo.idInfo.idCardNumber
+          +'&mobile=' + this.userInfo.userInfo.phone
+          +'&backUrl=' + 'https://www.baidu.com/'
+          +'&failUrl=' + 'https://cn.bing.com/'
+        }  
       }
     },
     /* 触发后台拿到face++认证 */

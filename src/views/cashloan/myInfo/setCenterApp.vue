@@ -61,7 +61,7 @@ export default {
   methods: {
     wechat(){
         this.$vux.alert.show({
-            content: '打开微信—通讯录—关注“炬有钱”公众号'})
+            content: '打开微信—通讯录—关注“现金斗士”公众号'})
 
     },
       clearLocalStorage(){

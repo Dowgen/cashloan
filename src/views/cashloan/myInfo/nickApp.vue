@@ -9,7 +9,7 @@
             <input type="text" placeholder="输入昵称" v-model="nickName" maxlength=6 @keyup.enter="KeyDown">
             <span class="delete" @click="deleteName()" v-show="nickName!=''"><img src="./assets/delete.png" alt=""></span>
         </div>
-        <div class="btn" @click="ensure">确定</div>
+        <div class="btn" @click="ensure">保存</div>
     </div>
 </template>
 

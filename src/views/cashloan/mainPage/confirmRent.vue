@@ -44,20 +44,20 @@
         </div>
       </div>
     </div>
-    <x-button type="primary" class="btnEnsur" @click.native="confirm">确认借款</x-button>
+    <author-button page="confirmRent" text="立即申请" v-on:createOrder="createOrder"></author-button>
   </div>
 </template>
 
 <script>
 
 import Lib from 'assets/js/Lib';
-
 import { XButton } from 'vux'
+import authorButton from 'components/authorButton'
 
 export default {
   name: 'add',	
   components: {
-    XButton
+    XButton, authorButton
   },
   data () {
     return {

@@ -40,15 +40,15 @@
                 {{idInfo.idCardNumber.substr(0, 3) || '无'}}***********{{idInfo.idCardNumber.substr(14) || '号'}}
             </span>
         </div>
-        <div class="info_public pad">
+        <div class="info_public pad" @click="$router.push({'path':'/addBank'})">
             <span>银行卡号</span>
-            <span v-show="bankCard == ''" class="fr" @click="$router.push({'path':'/addBank'})">
+            <span v-show="bankCard == ''" class="fr">
                 <span>未绑定</span>
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
             <span v-show="bankCard != ''" class="fr color">
-                <span>*******{{bankCard}}</span>
-                <img style="width: 1.065rem;height: 1.065rem;display: inline-block" src="./assets/edit.png" @click="$router.push({path:'/addBank'})" alt="">
+                <span></span>
+                <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>
     </div>
@@ -72,12 +72,12 @@ export default {
         localUserInfo:{}
     }
   },
-    mounted(){
-        this.localUserInfo = JSON.parse(localStorage.userInfo);
-        this.getInfo();
-        this.getImg();
-        this.bankCardCheck();
-    },
+  mounted(){
+      this.localUserInfo = JSON.parse(localStorage.userInfo);
+      this.getInfo();
+      this.getImg();
+      this.bankCardCheck();
+  },
   methods: {
       preivewImg() {
           /* 用fileReader实现图片预览 */
