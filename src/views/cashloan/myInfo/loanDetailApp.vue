@@ -12,7 +12,7 @@
             </div>
             <div v-show="loanStatus==4">
                 <p>距离还款日</p>
-                <p style="font-size: 2.515rem">{{toPayDay}}<span style="font-size: 1.125rem">天</span></p>
+                <p style="font-size: 2.515rem">{{toPayDay}}<span style="font-size: 1.125rem;margin-left:0.3rem">天</span></p>
                 <p>请确保及时还款以保持您的良好信用记录</p>
             </div>
             <div v-show="loanStatus==4 && loanDetail.isOverdue == 1">
@@ -41,11 +41,11 @@
                 </li>
                 <li v-show="loanStatus==4 && loanDetail.isOverdue == 1">
                     <span>逾期罚息</span>
-                    <span style="margin-left: 5.75rem;">{{loanDetail.loanAmount+loanDetail.feeAmount}}元</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.penaltInterest}}元</span>
                 </li>
                 <li>
                     <span>应还金额</span>
-                    <span style="margin-left: 5.75rem;">{{loanDetail.loanAmount+loanDetail.feeAmount}}元</span>
+                    <span style="margin-left: 5.75rem;">{{loanDetail.shouldPay}}元</span>
                 </li>
             </ul>
             <div class="instruction" v-show="loanStatus == 1">正在审核中...</div>

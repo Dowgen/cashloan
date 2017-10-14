@@ -57,9 +57,9 @@ export default {
         url : '/risk-manage/auth/authStatus',
         data:{
           mobile: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId,
+          user_id: self.userInfo.userInfo.userId/*,
           certNo: self.userInfo.idInfo.idCardNumber || '',
-          name: self.userInfo.idInfo.name || ''
+          name: self.userInfo.idInfo.name || ''*/
         },
         success:function (res){
           let data = res.data;

@@ -41,9 +41,10 @@
         <span>{{repayDate}}</span>
         <span>{{rePayMoney}}</span>
       </div>
-      <author-button page="mainPage" text="立即申请" styleMT="'{margin-top: 3.065rem;}'"></author-button>
+      <author-button page="mainPage" text="立即申请" marginTop="3.065"></author-button>
     </div>
     <main-nav which="mainPage"></main-nav>
+    <loading :show="loading" :text="loadText"></loading>
   </div>
 </template>
 
@@ -51,7 +52,7 @@
 
 import Lib from 'assets/js/Lib';
 
-import { XButton, Confirm } from 'vux'
+import { Loading, XButton, Confirm } from 'vux'
 
 import MainNav from 'components/mainNav'
 import authorButton from 'components/authorButton'
@@ -59,7 +60,7 @@ import authorButton from 'components/authorButton'
 export default {
   name: 'add',	
   components: {
-    MainNav,  XButton, Confirm, authorButton
+    MainNav, Loading, XButton, Confirm, authorButton
   },
   data () {
     return {
@@ -71,6 +72,8 @@ export default {
         'color': '#1abc9c'
       },
       userInfo:{},
+      loading: false,
+      loadText: '请稍等'
     }
   },
   computed:{
@@ -101,7 +104,7 @@ export default {
     /* 触发后台拿到face++认证 */
     face_getResult(){
       var self = this;
-
+      self.loading = true
       Lib.M.ajax({
         url : '/risk-manage/faceid/getResult',
         params:{
@@ -109,7 +112,7 @@ export default {
           biz_id: JSON.parse(localStorage.faceReturn).biz_id
         },
         success:function (data){
-          console.log('getResult:'+data)
+          self.loading = false;
           self.$vux.toast.text('认证成功!')
           self.$router.push('./confirmRent')
         }

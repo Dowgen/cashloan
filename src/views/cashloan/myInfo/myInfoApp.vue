@@ -46,7 +46,7 @@
                         <span>还款金额 <em>应还款日期</em></span>
                     </p>
                 </div>
-                <div class="waiting_pay public special" v-show="loanStatus==4"  @click="jumpToLoanDetail">
+                <div class="waiting_pay public special" v-show="loanStatus==4 && processLoan.isOverdue!=1"  @click="jumpToLoanDetail">
                     <p>待还款(1)</p>
                     <p class="special_p">
                         <span>¥{{processLoan.shouldPay}}<em>{{processLoan.repayDate}}</em></span>

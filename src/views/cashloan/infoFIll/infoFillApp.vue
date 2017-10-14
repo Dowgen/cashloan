@@ -44,6 +44,7 @@
       </div>
     </div>
     <main-nav which="infoFill"></main-nav>
+    <loading :show="loading" :text="loadText"></loading>
   </div>
 </template>
 
@@ -51,14 +52,14 @@
 
 import Lib from 'assets/js/Lib';
 
-import { XButton } from 'vux'
+import { Loading, XButton } from 'vux'
 
 import MainNav from 'components/mainNav'
 
 export default {
   name: 'add',	
   components: {
-    MainNav,  XButton
+    MainNav,  Loading, XButton
   },
   data () {
     return {
@@ -71,7 +72,9 @@ export default {
       fontBlack:{
         'color': 'black',
         'font-style': 'normal'
-      }
+      },
+      loading: false,
+      loadText: '请稍等'
     }
   },
   mounted(){
@@ -101,9 +104,9 @@ export default {
         url : '/risk-manage/auth/authStatus',
         data:{
           mobile: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId,
+          user_id: self.userInfo.userInfo.userId/*,
           certNo: self.userInfo.idInfo.idCardNumber || '',
-          name: self.userInfo.idInfo.name || ''
+          name: self.userInfo.idInfo.name || ''*/
         },
         success:function (res){
           let data = res.data;
@@ -164,6 +167,7 @@ export default {
         /* 还未芝麻认证，啥也不干 */
       }else{
         /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
+        self.loading = true
         Lib.M.ajax({
           type: 'get',
           url : '/risk-manage/zhima/zhimaCredit',
@@ -180,6 +184,7 @@ export default {
             console.log(res);
             if(res.code == 200){
               self.getInfo();
+              self.loading = false
               self.$vux.alert.show({
                 content: '芝麻认证成功!',
                 onShow () {

@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <author-button page="confirmRent" text="立即申请" v-on:createOrder="createOrder"></author-button>
+    <author-button page="confirmRent" text="立即申请" marginTop="0" v-on:createOrder="createOrder"></author-button>
   </div>
 </template>
 

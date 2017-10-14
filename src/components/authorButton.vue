@@ -1,6 +1,6 @@
 <template>
   <div>
-	<x-button type="primary" :style="styleMT" @click.native="jump">{{text}}</x-button>
+	<x-button type="primary" :style="btnStype" @click.native="jump">{{text}}</x-button>
   </div>
 </template>
 
@@ -17,7 +17,10 @@ export default {
       cardBinded:false,
       hasOrder:false,
       loanStatus:0,
-      userInfo:{}
+      userInfo:{},
+      btnStype:{
+        'margin-top':this.marginTop + 'rem'
+      }
     }
   },
   components: {
@@ -32,7 +35,7 @@ export default {
       type: String,
       required: true
     },
-    styleMT:{
+    marginTop:{
       type: String,
       required: true
     }
@@ -86,8 +89,10 @@ export default {
       }else{ /* 首页人脸识别*/
         if(self.page=='mainPage'){
           self.face_getToken()
-        }else{ /*确认页提交订单*/
+        }else if(self.page == 'confirmRent'){ /*确认页提交订单*/
           self.$emit('createOrder')
+        }else{
+          self.$vux.toast.text('页面有误!','middle')
         }
       }
     },
