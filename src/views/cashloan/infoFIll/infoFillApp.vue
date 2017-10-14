@@ -181,10 +181,10 @@ export default {
             userid: self.userInfo.userInfo.userId
           },
           success:function (res){
+            self.loading = false
             console.log(res);
             if(res.code == 200){
               self.getInfo();
-              self.loading = false
               self.$vux.alert.show({
                 content: '芝麻认证成功!',
                 onShow () {
@@ -242,8 +242,8 @@ export default {
           +'&name=' + this.userInfo.idInfo.name
           +'&certNo=' + this.userInfo.idInfo.idCardNumber
           +'&mobile=' + this.userInfo.userInfo.phone
-          +'&backUrl=' + 'https://moneyboom.cn/views/cashloan/infoFill.html#/operatorS'
-          +'&failUrl=' + 'https://moneyboom.cn/views/cashloan/infoFill.html#/operatorS'
+          +'&backUrl=' + 'https://moneyboom.cn/views/cashloan/operatorS.html'
+          +'&failUrl=' + 'https://moneyboom.cn/views/cashloan/operatorS.html'
         }  
       }
     },

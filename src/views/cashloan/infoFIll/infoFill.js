@@ -6,7 +6,6 @@ import vname from './v_nameApp'
 import vpersonalInfo from './v_personalInfoApp'
 import vphoneOperator from './v_phoneOperatorApp'
 import privacyAgreement from './privacyAgreementApp'
-import operatorS from './operatorSApp'
 
 
 const routes = [
@@ -14,7 +13,6 @@ const routes = [
   { path: '/vName', component: vname },
   { path: '/vPersonalInfo', component: vpersonalInfo },
   { path: '/vPhoneOperator', component: vphoneOperator },
-  { path: '/operatorS', component: operatorS },
   { path: '/privacyAgreement', component: privacyAgreement }
 ]
 
