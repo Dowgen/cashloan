@@ -243,7 +243,7 @@ export default {
           +'&certNo=' + this.userInfo.idInfo.idCardNumber
           +'&mobile=' + this.userInfo.userInfo.phone
           +'&backUrl=' + 'https://moneyboom.cn/views/cashloan/operatorS.html'
-          +'&failUrl=' + 'https://moneyboom.cn/views/cashloan/operatorS.html'
+          +'&failUrl=' + 'https://moneyboom.cn/views/cashloan/operatorF.html'
         }  
       }
     },
