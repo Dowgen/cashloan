@@ -3,7 +3,7 @@
     <hb-head-green headfont="绑定银行卡"></hb-head-green>
     <div class="warning">您只能绑定与实名认证信息一致的银行卡</div>
     <group>
-      <x-input title='持卡人姓名' disabled v-model="realName"></x-input>
+      <x-input title='持卡人姓名' is-type="china-name" v-model="realName"></x-input>
       <x-input title='银行卡号 ' placeholder="请输入银行卡号" v-model="bankCard"></x-input>
     </group>
     <div class="button">
