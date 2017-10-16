@@ -12,6 +12,7 @@
         <input type="submit" value="确定"/>
       </form>
     </div>
+    <loading :show="loading" :text="loadText"></loading>
   </div>
 </template>
 
@@ -19,7 +20,7 @@
 
 import Lib from 'assets/js/Lib';
 
-import { XButton,XInput,Group } from 'vux'
+import { Loading,XButton,XInput,Group } from 'vux'
 
 
 import HbHeadGreen from 'components/HbHeadGreen';
@@ -27,14 +28,16 @@ import HbHeadGreen from 'components/HbHeadGreen';
 export default {
   name: 'add',	
   components: {
-    HbHeadGreen, XButton, XInput, Group
+    HbHeadGreen, Loading, XButton, XInput, Group
   },
   data () {
     return {
       bankCard:'',
       userInfo:{},
       realName: '', //姓名（固定）
-      backParams:'' //后台返回的参数，用来传给连连支付
+      backParams:'', //后台返回的参数，用来传给连连支付
+      loading: false,
+      loadText: '请稍等'
     }
   },
   mounted(){
@@ -95,6 +98,7 @@ export default {
     /* 触发后端查询连连支付信息 */
     trigBackLLPay(){
       let self = this;
+      self.loading = true;
       Lib.M.ajax({
         url : '/pay/repayment/instalmentSignData',
         data:{
@@ -104,6 +108,7 @@ export default {
           user_id: self.userInfo.userInfo.userId
         },
         success:function (data){
+          self.loading = false;
           if(data.code == '0000'){
             self.$vux.toast.text('绑定成功!请确认借款信息', 'middle')
             self.$router.replace('./confirmRent');

@@ -28,7 +28,7 @@ export default {
     return {
       pass:0,
       userInfo:{},
-      loading: false,
+      loading: true,
       loadText: '请稍等'
     }
   },
@@ -36,7 +36,6 @@ export default {
     document.getElementsByTagName('body')[0].style.paddingBottom = 0;
     this.userInfo = JSON.parse(localStorage.userInfo);
     this.wait();
-    this.loading = true
   },
   methods: {
     wait(){
@@ -47,6 +46,7 @@ export default {
           mobile:self.userInfo.userInfo.phone
         },
         success:function (res) {
+          self.loading = false
           if(res.code == 200 && res.data == '1'){
             self.$vux.toast.text('认证成功!')
             self.pass = 1
@@ -54,7 +54,6 @@ export default {
             self.$vux.toast.text('认证失败!')
             self.pass = 2
           }
-          self.loading = false
         }
       })
     },
