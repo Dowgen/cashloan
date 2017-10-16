@@ -125,7 +125,7 @@ export default {
           "loanAmount": 0.01,
           "receivedAmount": 0.01,
           "feeAmount": 0.01,
-          "loanPeriod": self.term
+          "loanPeriod": 0
         },
         success:function (data){
           if(data.code==200){

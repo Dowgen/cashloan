@@ -2,10 +2,16 @@
   <div>
     <hb-head-green headfont="绑定银行卡"></hb-head-green>
     <div class="warning">您只能绑定与实名认证信息一致的银行卡</div>
-    <group>
-      <x-input title='持卡人姓名' is-type="china-name" v-model="realName"></x-input>
-      <x-input title='银行卡号 ' placeholder="请输入银行卡号" v-model="bankCard"></x-input>
-    </group>
+    <div class="group">
+      <div class="realName wtf">
+        <label>持卡人姓名</label>
+        <span>{{realName}}</span>
+      </div>
+      <div class="bankCard wtf">
+        <label>银行卡号</label>
+        <input placeholder="请输入银行卡号" v-model="bankCard">
+      </div>
+    </div>
     <div class="button">
       <form id="myForm" v-on:submit.prevent="click" action="https://wap.lianlianpay.com/signApply.htm" method="post">
         <input id="backParams" type="text" name="req_data" value=""/>
@@ -28,7 +34,7 @@ import HbHeadGreen from 'components/HbHeadGreen';
 export default {
   name: 'add',	
   components: {
-    HbHeadGreen, Loading, XButton, XInput, Group
+    HbHeadGreen, Loading, XButton
   },
   data () {
     return {
@@ -183,5 +189,27 @@ export default {
   }
   .btn3{
     margin-top: 2.22rem;
+  }
+  .group{
+    background: white;
+    margin-top: 0.65rem;
+  }
+  .wtf{
+    padding-left: 1.28rem;
+    height: 3.125rem;
+    line-height: 3.125rem;
+    font-size: 0.94rem
+  }
+  .wtf>label{
+    display: inline-block;
+    width: 5rem;
+    text-align: left;
+    font-size: 0.875rem;
+  }
+  .wtf>input{
+    outline: none;
+    border: none;
+    height: 3rem;
+    line-height: 3rem;
   }
 </style>
