@@ -50,6 +50,8 @@ export default {
           mobile:self.userInfo.userInfo.phone
         },
         success:function (res) {
+          console.log('3分钟轮询已返回，如下')
+          console.log(res)
           self.loading = false
           if(res.code == 200 && res.data == '1'){
             self.$vux.toast.text('认证成功!')
