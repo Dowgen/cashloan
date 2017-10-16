@@ -40,7 +40,7 @@
         <div>
           <p>{{loanAmount}}</p>
           <p>{{repayDate}}</p>
-          <p>{{rePayMoney}}</p>
+          <p>{{shouldPay}}</p>
         </div>
       </div>
     </div>
@@ -71,10 +71,7 @@ export default {
     }
   },
   computed:{
-    userGetMoney(){
-       return this.loanAmount
-    },
-    rePayMoney(){
+    shouldPay(){
        return this.loanAmount + this.loanAmount*this.term*0.01
     },
     interest(){
@@ -117,7 +114,9 @@ export default {
           "phone": self.userInfo.userInfo.phone,
           /*"loanAmount": self.loanAmount,
           "receivedAmount": self.loanAmount,
-          "feeAmount": self.interest,*/
+          "feeAmount": self.interest,
+          "shouldPay": self.shouldPay,*/
+          "shouldPay": 0.01,
           "loanAmount": 0.01,
           "receivedAmount": 0.01,
           "feeAmount": 0.01,

@@ -2,13 +2,16 @@
   <div class="wrapper">
     <div class="title">评估结果</div>
     <div v-show="pass==0">请等待</div>
-    <div v-show="pass==1">
-      <p v-show="pass==1">您的认证通过了！</p>
+    <div v-show="pass==1" class="result">
+      <img src="./assets/pass.png">
+      <p v-show="pass==1">您信息认证成功了!</p>
+      <div @click="jump">确定</div>
     </div>
-    <div>
-      <p v-show="pass==2">认证失败，请重试！</p>
+    <div v-show="pass==2" class="result">
+      <img src="./assets/fail.png">
+      <p>对不起，您信息认证未成功!</p>
+      <div style="background:#ff7718" @click="jump">确定</div>
     </div>
-    <div class="btn" @click="jump">确定</div>
     <loading :show="loading" :text="loadText"></loading>
   </div>
 </template>
@@ -26,7 +29,7 @@ export default {
   },
   data () {
     return {
-      pass:0,
+      pass:1,
       userInfo:{},
       /*loading: true,*/
       loading:false,
@@ -76,16 +79,32 @@ export default {
     color: white;
     background: #1abc9c;
   }
-  .btn{
-    width: 20.625rem;
-    background: #1abc9c;
-    height: 2.75rem;
-    line-height: 2.75rem;
-    margin:0 auto;
-    border-radius: 10px;
+  .result{
+    height: 18.315rem;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .result>img{
+    width: 5.5rem;
+    height: 7.875rem;
+    margin-top: 2.1rem;
+  }
+  .result>p{
+    font-size:0.875rem;
+    color: #878787;
+    margin-top: 1.125rem;
+    font-weight: 300;
+  }
+  .result>div{
+    height: 2.375rem;
+    line-height: 2.375rem;
+    width: 10.315rem;
+    border-radius: 19px;
     text-align: center;
-    margin-top: 1.065rem;
-    font-size: 1rem;
+    background: #78cf79;
     color: white;
+    margin-top: 1.935rem;
   }
 </style>

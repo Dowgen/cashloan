@@ -39,7 +39,7 @@
       <div class="table tbody">
         <span>{{userGetMoney}}</span>
         <span>{{repayDate}}</span>
-        <span>{{rePayMoney}}</span>
+        <span>{{shouldPay}}</span>
       </div>
       <author-button page="mainPage" text="立即申请" marginTop="3.065"></author-button>
     </div>
@@ -80,7 +80,7 @@ export default {
     userGetMoney(){
        return this.loanAmount 
     },
-    rePayMoney(){
+    shouldPay(){
        return this.loanAmount*this.term*0.01 + this.loanAmount
     },
     repayDate(){
