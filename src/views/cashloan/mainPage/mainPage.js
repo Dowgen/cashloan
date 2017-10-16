@@ -5,13 +5,15 @@ import MainPage from './mainPageApp'
 import BindBankCard from './bindBankCard'
 import SubmitSuccess from './submitSuccess'
 import ConfirmRent from './confirmRent'
+import loanAgreement from './loanAgreementApp'
 
 
 const routes = [
   { path: '/', component: MainPage },
   { path: '/bindBankCard', component: BindBankCard },
   { path: '/submitSuccess', component: SubmitSuccess },
-  { path: '/confirmRent', component: ConfirmRent }
+  { path: '/confirmRent', component: ConfirmRent },
+  { path: '/loanAgreement', component: loanAgreement },
 ]
 
 Vue.use(VueRouter)
