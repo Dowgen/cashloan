@@ -111,12 +111,12 @@ export default {
           self.loading = false
           if(data.code == '0000'){
             self.$vux.alert.show({
-              content: data.msg,
+              content: '绑定成功！',
               onShow () {
                 console.log('Plugin: I\'m showing')
               },
               onHide () {
-                window.location.replace('/views/cashloan/infoFill.html')
+                window.location.replace('/views/cashloan/myInfo.html')
               }
             })
           }else{
