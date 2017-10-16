@@ -29,17 +29,16 @@ export default {
   },
   data () {
     return {
-      pass:1,
+      pass:0,
       userInfo:{},
-      /*loading: true,*/
-      loading:false,
+      loading: true,
       loadText: '请稍等'
     }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = 0;
     this.userInfo = JSON.parse(localStorage.userInfo);
-    /*this.wait();*/
+    this.wait();
   },
   methods: {
     wait(){

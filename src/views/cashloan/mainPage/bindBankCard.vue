@@ -68,7 +68,7 @@ export default {
           id_no: self.userInfo.idInfo.idCardNumber,
           acct_name: self.userInfo.idInfo.name,
           card_no: localStorage.bankCard,
-          url_return: 'https://moneyboom.cn/views/cashloan/mainPage.html#/bindBankCard'
+          url_return: 'https://moneyboom.cn/views/cashloan/mainPage.html#/'
         },
         success:function(data){
           if(data.code == '0000'){
