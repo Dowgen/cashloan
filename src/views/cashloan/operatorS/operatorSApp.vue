@@ -1,7 +1,7 @@
 <template>
   <div class="wrapper">
     <div class="title">评估结果</div>
-    <div v-show="pass==0">请等待</div>
+    <div v-show="pass==0"></div>
     <div v-show="pass==1" class="result">
       <img src="./assets/pass.png">
       <p v-show="pass==1">您信息认证成功了!</p>
@@ -45,6 +45,7 @@ export default {
       var self = this
       Lib.M.ajax({
         url:'risk-manage/auth/operatorFirstAuth/',
+        time: 200*1000,
         data:{
           mobile:self.userInfo.userInfo.phone
         },
