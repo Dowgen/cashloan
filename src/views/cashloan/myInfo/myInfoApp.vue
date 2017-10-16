@@ -338,6 +338,11 @@
         color:rgba(255,142,103,1);
         margin-top: 0.65rem;
     }
+    .special .special_p span:nth-of-type(2){
+        font-size:0.875rem;
+        margin-top: 0.3rem;
+        display: block;
+    }
     .special .special_p em{
         float: right;
     }
