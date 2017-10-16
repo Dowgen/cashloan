@@ -216,7 +216,9 @@ export default {
   }
   .inputer-street>input{
     position: absolute;
-    bottom: .5rem;
+    bottom: .3rem;
+    height: 1rem;
+    width: 90%;
   }
   .inputer-street>p{
     position: absolute;

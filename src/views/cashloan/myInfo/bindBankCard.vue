@@ -42,7 +42,7 @@ export default {
   },
   mounted(){
     this.userInfo = JSON.parse(localStorage.userInfo);
-    this.realName = this.userInfo.idInfo.name;
+    this.realName = JSON.parse(localStorage.userInfo).idInfo.name;
     /* 进页面判断一下是否是从连连跳过来的 */
     this.isBindCard();
   },

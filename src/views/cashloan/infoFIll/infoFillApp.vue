@@ -74,7 +74,7 @@ export default {
         'font-style': 'normal'
       },
       loading: false,
-      loadText: '请稍等'
+      loadText: '认证需要一些时间, 请稍等'
     }
   },
   mounted(){

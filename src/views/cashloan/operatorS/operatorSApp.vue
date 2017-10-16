@@ -28,14 +28,15 @@ export default {
     return {
       pass:0,
       userInfo:{},
-      loading: true,
+      /*loading: true,*/
+      loading:false,
       loadText: '请稍等'
     }
   },
   mounted(){
     document.getElementsByTagName('body')[0].style.paddingBottom = 0;
     this.userInfo = JSON.parse(localStorage.userInfo);
-    this.wait();
+    /*this.wait();*/
   },
   methods: {
     wait(){
