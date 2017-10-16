@@ -45,6 +45,11 @@
       </div>
     </div>
     <author-button page="confirmRent" text="立即申请" marginTop="0" v-on:createOrder="createOrder"></author-button>
+    <div class="agreement">
+      <img src="./assets/agreeProto.png">
+      已阅读及同意<span style="color:#1abc9c" @click="$router.push({path:'/loanAgreement'})">《现金斗士借款协议》</span>
+    </div>
+    <div class="tip">本产品不提供给未满18岁的用户借款</div>
   </div>
 </template>
 
@@ -240,5 +245,27 @@ export default {
   }
   .repay-info>div>p{
     margin-top: 1.125rem;
+  }
+  .agreement{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+    color: #919499;
+    font-size: 0.75rem;
+    margin-top: 0.6rem;
+  }
+  .agreement>img{
+    width: 0.6rem;
+    height:  0.6rem;
+    margin-right: 0.5rem;
+  }
+  .tip{
+    position: absolute;
+    bottom: 1rem;
+    font-size: 0.69rem;
+    color: #878787;
+    width: 100%;
+    text-align: center;
   }
 </style>
