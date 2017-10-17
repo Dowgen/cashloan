@@ -6,7 +6,7 @@
         <img src="./assets/banner.png">
       </div>
       <div class="choose" style="margin-top:1rem">
-        <span>贷款金额</span>
+        <span>到账金额</span>
         <div>
         <div class="choose-btn" :style="loanAmount==500?styleActive:''" 
          @click="setLoanAmount(500)">
