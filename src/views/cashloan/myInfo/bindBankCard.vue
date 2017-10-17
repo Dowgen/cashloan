@@ -200,6 +200,9 @@ export default {
     line-height: 3.125rem;
     font-size: 0.94rem
   }
+  .wtf:nth-child(1){
+    border-bottom: solid 1px #f2f2f2;
+  }
   .wtf>label{
     display: inline-block;
     width: 5rem;

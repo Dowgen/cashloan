@@ -45,7 +45,7 @@ export default {
       var self = this
       Lib.M.ajax({
         url:'risk-manage/auth/operatorFirstAuth/',
-        time: 200*1000,
+        timeout: 200*1000,
         data:{
           mobile:self.userInfo.userInfo.phone
         },

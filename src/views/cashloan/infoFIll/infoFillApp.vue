@@ -68,6 +68,7 @@ export default {
       information:'',
       informationPassed: false,
       zhima:'',
+      zhimaPassed:false,
       operator:'',
       fontBlack:{
         'color': 'black',
@@ -79,12 +80,6 @@ export default {
   },
   mounted(){
     this.userInfo = JSON.parse(localStorage.userInfo);
-    if(document.referrer.indexOf('megvii.com')!= -1){
-      this.face_getResult();
-    } 
-    if(document.referrer.indexOf('zmxy.com.cn')!= -1){
-      this.isZhimaAuthed();
-    } 
     this.getauthStatus();
   },
   methods: {
@@ -122,13 +117,29 @@ export default {
             }else if(data[i].code =='3'){
               self[data[i].type] = '认证失败'
             }
-            /* 获取完善信息是否完成 */
+            /* 完善信息是否完成 */
             if(data[i].type=='information' && data[i].code=='2'){
               self.informationPassed = true
             }
+
             /* face++实名认证是否完成 */
             if(data[i].type=='realName' && data[i].code=='2'){
               self.realNamePassed = true
+            }else{
+              /*未完成的话，判断一下页面来源 */
+              if(document.referrer.indexOf('megvii.com')!= -1){
+                this.face_getResult();
+              } 
+            }
+
+            /* 芝麻信用是否完成 */
+            if(data[i].type=='zhima' && data[i].code=='2'){
+              self.zhimaPassed = true
+            }else{
+              /*未完成的话，判断一下页面来源 */
+              if(document.referrer.indexOf('zmxy.com.cn')!= -1){
+                this.zhima_getResult();
+              } 
             }
           }
         }
@@ -163,7 +174,7 @@ export default {
       });
     },
     /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
-    isZhimaAuthed(){
+    zhima_getResult(){
       var self = this;
       self.loading = true
       Lib.M.ajax({
