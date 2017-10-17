@@ -123,8 +123,8 @@ export default {
 									if(res.code == 200){
 										self.$vux.toast.text('上传成功!')
 									}else{
+										self.$vux.alert.show(res.error)
 										this.getImg();
-										self.$vux.alert.show(res.data)
 									}
 							}
 					})

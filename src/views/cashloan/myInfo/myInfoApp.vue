@@ -64,7 +64,7 @@
             <div class="loan_record active public" @click="jumpToLoanRecord">
                 <p>借款记录</p>
                 <p style="margin-top: 1.25rem">
-                    共{{loanLength}}笔借款待还
+                    共{{loanLength}}笔借款已完成
                     <span v-show="loanLength !== 0"><img  class="arrow" src="./assets/arrow.png" alt=""></span>
                 </p>
             </div>

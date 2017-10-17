@@ -6,7 +6,7 @@
         </div>
         <div class="help_question" style="display: flex" v-for="(item,index) in questionList">
 
-            <div class="q_left" style="flex: 2">
+            <div class="q_left" style="flex: 2" @click="show(index)">
                 <!--<p><img :style=item.imgStyle :src="item.img"></p>-->
                <div class="img">
                    <p><img v-show="item.img == 1" :style=item.imgStyle src="./assets/check_data.png" alt=""></p>
@@ -17,7 +17,7 @@
                </div>
 
                 <p class="title">{{item.title}}</p>
-                <p :id="'arrow'+index" @click="show(index)" class="arrows">
+                <p :id="'arrow'+index" class="arrows">
                     <img class="show_arrow" src="./assets/show_up.png" alt="">
                 </p>
 
