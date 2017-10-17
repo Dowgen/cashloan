@@ -82,8 +82,10 @@ export default {
     if(document.referrer.indexOf('megvii.com')!= -1){
       this.face_getResult();
     } 
+    if(document.referrer.indexOf('zmxy.com.cn')!= -1){
+      this.isZhimaAuthed();
+    } 
     this.getauthStatus();
-    this.isZhimaAuthed();
   },
   methods: {
     /* 获取用户基本信息 */
@@ -160,46 +162,41 @@ export default {
         }
       });
     },
-    /* 判断是否芝麻认证，如果认证了的话就把芝麻返回的参数传给后端 */
+    /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
     isZhimaAuthed(){
       var self = this;
-      if( Lib.M.GetQueryString('params') == null){
-        /* 还未芝麻认证，啥也不干 */
-      }else{
-        /* 已芝麻认证，把芝麻返回的数据发给我们自己的服务器 */
-        self.loading = true
-        Lib.M.ajax({
-          type: 'get',
-          url : '/risk-manage/zhima/zhimaCredit',
-          /* 返回的数据需原封不动，因此用 encodeURIComponent 再编码 */
-          params:{
-            name:self.userInfo.idInfo.name,
-            certNo:self.userInfo.idInfo.idCardNumber,
-            phoneNum:self.userInfo.userInfo.phone,
-            params: encodeURIComponent( Lib.M.GetQueryString('params') ),
-            sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
-            userid: self.userInfo.userInfo.userId
-          },
-          success:function (res){
-            self.loading = false
-            console.log(res);
-            if(res.code == 200){
-              self.getInfo();
-              self.$vux.alert.show({
-                content: '芝麻认证成功!',
-                onShow () {
-                  console.log('Plugin: I\'m showing')
-                },
-                onHide () {
-                  window.location.replace('/views/cashloan/infoFill.html')
-                }
-              })
-            }else{
-              self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
-            }
+      self.loading = true
+      Lib.M.ajax({
+        type: 'get',
+        url : '/risk-manage/zhima/zhimaCredit',
+        /* 返回的数据需原封不动，因此用 encodeURIComponent 再编码 */
+        params:{
+          name:self.userInfo.idInfo.name,
+          certNo:self.userInfo.idInfo.idCardNumber,
+          phoneNum:self.userInfo.userInfo.phone,
+          params: encodeURIComponent( Lib.M.GetQueryString('params') ),
+          sign: encodeURIComponent( Lib.M.GetQueryString('sign') ),
+          userid: self.userInfo.userInfo.userId
+        },
+        success:function (res){
+          self.loading = false
+          console.log(res);
+          if(res.code == 200){
+            self.getInfo();
+            self.$vux.alert.show({
+              content: '芝麻认证成功!',
+              onShow () {
+                console.log('Plugin: I\'m showing')
+              },
+              onHide () {
+                window.location.replace('/views/cashloan/infoFill.html')
+              }
+            })
+          }else{
+            self.$vux.toast.text('芝麻认证失败，请重新认证!','middle');
           }
-        });
-      }
+        }
+      });
     },
     doFace(){
       if(this.realName!='已完成') this.face_getToken();

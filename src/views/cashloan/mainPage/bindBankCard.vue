@@ -3,11 +3,11 @@
     <hb-head-green headfont="绑定银行卡"></hb-head-green>
     <div class="warning">您只能绑定与实名认证信息一致的银行卡</div>
     <div class="group">
-      <div class="realName wtf">
+      <div class="wtf">
         <label>持卡人姓名</label>
         <span>{{realName}}</span>
       </div>
-      <div class="bankCard wtf">
+      <div class="wtf">
         <label>银行卡号</label>
         <input placeholder="请输入银行卡号" v-model="bankCard">
       </div>
@@ -202,7 +202,9 @@ export default {
   .wtf>input{
     outline: none;
     border: none;
-    height: 3rem;
-    line-height: 3rem;
+    height: 1.5rem;
+    line-height: 1.5rem;
+    padding:0.75rem 0;
+    font-size: 0.94rem
   }
 </style>
