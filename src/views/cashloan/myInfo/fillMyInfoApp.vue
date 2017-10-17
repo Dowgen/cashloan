@@ -122,6 +122,7 @@ export default {
 							success:function (res) {
 									if(res.code == 200){
 										self.$vux.toast.text('上传成功!')
+										this.getImg();
 									}else{
 										self.$vux.alert.show(res.error)
 										this.getImg();
