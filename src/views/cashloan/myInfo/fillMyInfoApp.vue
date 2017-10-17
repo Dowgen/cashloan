@@ -76,7 +76,6 @@ export default {
       this.localUserInfo = JSON.parse(localStorage.userInfo);
       this.getInfo();
       this.getImg();
-      this.bankCardCheck();
   },
   methods: {
       preivewImg() {
@@ -120,7 +119,7 @@ export default {
               url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
               data: fd,
               success:function (res) {
-                  /*self.getImg();*/
+                  self.$vux.alert.show(res.msg)
               }
           })
       },
@@ -179,23 +178,7 @@ export default {
               }
 
           })
-      },
-      /* 得到银行卡信息 */
-      bankCardCheck(){
-          var self = this;
-          Lib.M.ajax({
-              url : '/pay/repayment/bankCardCheckList',
-              data:{
-                user_id: self.localUserInfo.userInfo.userId
-              },
-              success:function (res){
-                console.log(res.data.length)
-                if(res.data.length!=0){
-                  self.bankCard = res.data[0].card_no
-                }
-              }
-          });
-      },
+      }
   }
 }
 
