@@ -101,7 +101,6 @@ export default {
               url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
               dataType:'blob',
               success:function (res) {
-                  console.log(res);
                   if(res.size!=0){
                       self.img_id =  window.URL.createObjectURL(res);
                       self.noAvatar = false;
@@ -111,19 +110,64 @@ export default {
               }
           })
       },
-      uploadImg(){
+      uploadImg(/*base64Data*/){
           var self = this;
           var fd = new FormData();
+         /* console.log(self.convertBase64UrlToBlob(base64Data))*/
           fd.append("upload", 1);
-          fd.append('file', document.getElementById("upfile").files[0]);
+          fd.append('file', document.getElementById("upfile").files[0]/*self.convertBase64UrlToBlob(base64Data)*/);
           Lib.M.ajax({
               url: "cash-account/user/account/iconImage/"+self.localUserInfo.userInfo.phone,
               data: fd,
               success:function (res) {
                   self.getImg();
+
               }
           })
       },
+      /* 压缩图片 */
+     /* canvasDataURL(re,w){
+          var self = this;
+          var newImg=new Image();
+          newImg.src=re;
+          var imgWidth,imgHeight,offsetX=0,offsetY=0;
+          newImg.onload=function(){
+              var img=document.createElement("img");
+              img.src=newImg.src;
+              imgWidth=img.width;
+              imgHeight=img.height;
+              var canvas=document.createElement("canvas");
+              canvas.width=w;
+              canvas.height=w;
+              var ctx=canvas.getContext("2d");
+              ctx.clearRect(0,0,w,w);
+              if(imgWidth>imgHeight){
+                  imgWidth=w*imgWidth/imgHeight;
+                  imgHeight=w;
+                  offsetX=-Math.round((imgWidth-w)/2);
+              }else{
+                  imgHeight=w*imgHeight/imgWidth;
+                  imgWidth=w;
+                  offsetY=-Math.round((imgHeight-w)/2);
+              }
+              ctx.drawImage(img,offsetX,offsetY,imgWidth,imgHeight);
+              let base64Data=canvas.toDataURL("image/jpeg",0.7);
+              self.uploadImg(base64Data);
+          }
+      },*/
+      /* base64转blob */
+      /*convertBase64UrlToBlob(urlData){
+          var bytes=window.atob(urlData.split(',')[1]); //去掉url的头，并转换为byte
+
+          //处理异常,将ascii码小于0的转换为大于0
+          var ab = new ArrayBuffer(bytes.length);
+          var ia = new Uint8Array(ab);
+          for (var i = 0; i < bytes.length; i++) {
+              ia[i] = bytes.charCodeAt(i);
+          }
+
+          return new Blob( [ab] , {type : 'image/png'});
+      },*/
       getInfo(){
           var self = this;
           Lib.M.ajax({
