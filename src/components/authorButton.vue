@@ -92,6 +92,7 @@ export default {
           for(let i in data){
             if(data[i].code=='2') ++self.authPassed;
           }
+          console.log(self.authPassed)
           if(self.authPassed != 4){
             self.$vux.confirm.show({
               content: '亲,您的基础信息尚未完善，请先完善资料!',
@@ -102,6 +103,7 @@ export default {
           }else{
             self.bankCardCheck();
           }
+          self.authPassed = 0; //重置认证通过数量
         }
       });
     },

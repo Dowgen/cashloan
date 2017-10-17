@@ -298,7 +298,7 @@
     }
     .aboutPayTime>div{
         width:21.25rem;
-        height:16.22rem;
+        height:15.9rem;
         background:rgba(255,255,255,1);
         border-radius: 0.315rem ;
         position: absolute;
@@ -312,7 +312,7 @@
     .aboutPayTime>div p:nth-of-type(1){
         height: 2rem;
         font-size: 0.94rem;
-        line-height: 2rem;
+        line-height: 1.5rem;
         color: rgba(136,136,136,1);
         margin-top: 1rem;
         border-bottom: 1px solid #C6C6C6;
@@ -320,6 +320,7 @@
     .aboutPayTime>div p:nth-of-type(2){
         text-align: left;
         font-size: 0.815rem;
+        height: 5.8rem;
         color: #000;
         margin:2rem 1.345rem 1rem 1.345rem;
         line-height: 1.3rem;
