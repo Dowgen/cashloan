@@ -138,7 +138,7 @@ export default {
             }else{
               /*未完成的话，判断一下页面来源 */
               if(document.referrer.indexOf('zmxy.com.cn')!= -1){
-                this.zhima_getResult();
+                self.zhima_getResult();
               } 
             }
           }
