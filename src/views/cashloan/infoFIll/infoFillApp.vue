@@ -128,7 +128,7 @@ export default {
             }else{
               /*未完成的话，判断一下页面来源 */
               if(document.referrer.indexOf('megvii.com')!= -1){
-                this.face_getResult();
+                self.face_getResult();
               } 
             }
 
