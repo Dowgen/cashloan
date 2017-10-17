@@ -1,6 +1,6 @@
 <template>
   <div>
-	<x-button type="primary" :style="btnStype" @click.native="jump">{{text}}</x-button>
+	<x-button type="primary" :style="btnStype" @click.native="getauthStatus">{{text}}</x-button>
   </div>
 </template>
 
@@ -54,12 +54,12 @@ export default {
   mounted(){
     console.log(this.page=='mainPage')
     this.userInfo = JSON.parse(localStorage.userInfo);
-    /* 得到绑卡数据 */
+   /*  得到绑卡数据 
     this.bankCardCheck();
-    /* 得到认证通过标志 */
+     得到认证通过标志 
     this.getauthStatus();
-    /* 得到用户是否有正在进行中的订单 */
-    this.getOrderStatus();
+     得到用户是否有正在进行中的订单 
+    this.getOrderStatus();*/
   },
   //相关操作事件
   methods: {
@@ -67,33 +67,13 @@ export default {
       var self = this
       let a = 2;
       if(this.authPassed != 4){
-        this.$vux.confirm.show({
-          content: '亲,您的基础信息尚未完善，请先完善资料!',
-          onConfirm () {
-            window.location.href = '/views/cashloan/infoFill.html'
-          }
-        })
+        
       }else if( this.cardBinded === false){
-        this.$vux.confirm.show({
-          content: '亲,请先绑定银行卡再借款!',
-          onConfirm () {
-            self.$router.push('./bindBankCard')
-          }
-        })
+        
       }else if( this.hasOrder){
-        if(this.loanStatus == 2){
-          self.$vux.toast.text('对不起，您未通过借款审核','middle')
-        }else{
-          self.$vux.toast.text('已有正在进行中的订单！','middle')
-        }
+        
       }else{ /* 首页人脸识别*/
-        if(self.page=='mainPage'){
-          self.face_getToken()
-        }else if(self.page == 'confirmRent'){ /*确认页提交订单*/
-          self.$emit('createOrder')
-        }else{
-          self.$vux.toast.text('页面有误!','middle')
-        }
+        
       }
     },
     /* 检查认证是否全部通过 */
@@ -112,6 +92,16 @@ export default {
           for(let i in data){
             if(data[i].code=='2') ++self.authPassed;
           }
+          if(self.authPassed != 4){
+            self.$vux.confirm.show({
+              content: '亲,您的基础信息尚未完善，请先完善资料!',
+              onConfirm () {
+                window.location.href = '/views/cashloan/infoFill.html'
+              }
+            })
+          }else{
+            self.bankCardCheck();
+          }
         }
       });
     },
@@ -125,9 +115,14 @@ export default {
         },
         success:function (res){
           if(res.data.length == 0){
-            self.cardBinded = false
+            self.$vux.confirm.show({
+              content: '亲,请先绑定银行卡再借款!',
+              onConfirm () {
+                self.$router.push('./bindBankCard')
+              }
+            })
           }else{
-            self.cardBinded = true
+            self.getOrderStatus();
           }
         }
       });
@@ -140,10 +135,20 @@ export default {
         url:'cash-account/loan/getAllProcessing/'+self.userInfo.userInfo.userId,
         success:function (res) {
           if(res.data.length != 0){
-            self.hasOrder = true;
-            self.loanStatus = res.data[0].loanStatus
-          }else{
-            self.hasOrder = false;
+            if(self.loanStatus == 2){
+              self.$vux.toast.text('对不起，您未通过借款审核','middle')
+            }else{
+              self.$vux.toast.text('已有正在进行中的订单！','middle')
+            }
+          }else{ /* 没有正在进行中的订单 */
+            /* 首页face++认证 */
+            if(self.page=='mainPage'){
+              self.face_getToken()
+            }else if(self.page == 'confirmRent'){ /*确认页提交订单*/
+              self.$emit('createOrder')
+            }else{
+              self.$vux.toast.text('页面有误!','middle')
+            }
           }
         }
       })

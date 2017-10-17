@@ -79,7 +79,7 @@ var Rxports = {
                         default: vm.$vux.toast.text('请求异常！请重试','middle')   
                     }
                 }
-                return Promise.reject(error.response.data)   // 返回接口返回的错误信息
+                return Promise.reject(error)   // 返回接口返回的错误信息
             }
         );
 		

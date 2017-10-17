@@ -83,15 +83,16 @@ export default {
           /* 用fileReader实现图片预览 */
           var self = this;
           var file = document.getElementById("upfile").files[0];
-          /*var name = file.name;*/
-          var reader = new FileReader();
-          reader.onload = function(e) {
-              /*if(i===1)*/
+          if(file.size > 200*1024){
+            self.$vux.alert.show('图片过大(需小于200KB)')
+          }else{
+            var reader = new FileReader();
+            reader.onload = function(e) {
               self.img_id = e.target.result;
-              /*if(i===2) that.img_idBack = e.target.result;*/
               self.uploadImg();
+            }
+            reader.readAsDataURL(file, "UTF-8");
           }
-          reader.readAsDataURL(file, "UTF-8");
       },
       getImg(){
           var self = this;
