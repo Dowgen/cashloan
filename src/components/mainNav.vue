@@ -34,7 +34,7 @@ export default {
   },
   mounted(){
     this.userInfo = JSON.parse(localStorage.userInfo);
-    this.getauthStatus();
+    /*this.getauthStatus();*/
   },
   //相关操作事件
   methods: {
