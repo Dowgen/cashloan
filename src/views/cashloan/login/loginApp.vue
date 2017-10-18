@@ -57,8 +57,6 @@ export default {
         success:function(data){
           self.token = data.access_token;
           localStorage.token = data.access_token;
-          /* 把token放入 vuex */
-          self.$store.commit('changeToken',data.access_token)
         },
         error:function(err){
           console.error(err);

@@ -43,7 +43,6 @@ export default {
   data () {
     return {
       phoneNum:'',
-      token:'',
       password:'',
       pswdShow:false,  //决定密码是否明文
       toastWarn: false,
@@ -52,7 +51,6 @@ export default {
   },
   mounted(){
     this.phoneNum = this.$store.state.phoneNum;
-    this.token = this.$store.state.token;
   },
   methods: {
     fgtPassword(){

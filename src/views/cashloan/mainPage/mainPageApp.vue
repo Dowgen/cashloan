@@ -96,7 +96,9 @@ export default {
     this.userInfo = JSON.parse(localStorage.userInfo);
     if(document.referrer.indexOf('megvii.com')!= -1){
       this.face_getResult();
-    } 
+    }else if(document.referrer.indexOf('lianlianpay.com')){
+      this.isBindCard();
+    }
   },
   methods: {
     setLoanAmount(amount){
@@ -117,11 +119,62 @@ export default {
         },
         success:function (data){
           self.loading = false;
-          self.$vux.toast.text('认证成功!')
-          self.$router.push('./confirmRent')
+          if(data.code=='200'){
+            self.$vux.alert.show({
+              content: '实名认证成功!',
+              onShow () {
+                console.log('Plugin: I\'m showing')
+              },
+              onHide () {
+                self.$router.push('./confirmRent')
+              }
+            })
+          }else{
+            self.$vux.alert.show({
+              content: '实名认证失败，请重试!'
+            })
+          }
         }
       });
-    } 
+    },
+    /* 判断是否绑定了银行卡，如果绑定了的话就推一下后端 */
+    isBindCard(){
+      var self = this;
+      console.log(self.$route.query.status)
+      if( self.$route.query.status == null){
+        /* 没绑卡，啥也不干 */
+      }else{
+        /* 绑了判断一下是成功还是失败 */
+        if(self.$route.query.status=='0000'){
+          self.trigBackLLPay();
+        }else{
+          self.$vux.toast.text(self.$route.query.result, 'middle')
+        }
+      }
+    },
+    /* 触发后端查询连连支付信息 */
+    trigBackLLPay(){
+      let self = this;
+      self.loading = true;
+      Lib.M.ajax({
+        url : '/pay/repayment/instalmentSignData',
+        data:{
+          card_no: localStorage.bankCard,
+          acct_name:self.userInfo.idInfo.name,
+          id_no:self.userInfo.idInfo.idCardNumber,
+          user_id: self.userInfo.userInfo.userId
+        },
+        success:function (data){
+          self.loading = false;
+          if(data.code == '0000'){
+            self.$vux.toast.text('绑定成功!请确认借款信息', 'middle')
+            self.$router.replace('./confirmRent');
+          }else{
+            self.$vux.toast.text(data.error,'middle')
+          }
+        }
+      });
+    }
   }
 }
 </script>

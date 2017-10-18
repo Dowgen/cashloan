@@ -23,6 +23,36 @@ import axios from 'axios';
     localStorage.deviceType = device
 })()
 
+/** 获取token **/
+function getToken(){
+    axios({
+        method: 'post',
+        url: 'https://finbridge.cn/uaa/oauth/token',
+        params: {
+            username:'juhe',
+            password:'Juhe2017!@#',
+            grant_type:'password',
+            scope:'read write'
+        },
+        headers:  {
+            Accept:'application/json',
+            Authorization:'Basic anVoZV9jYXNobG9hbjpKdWhlMTIzNjc4IUAj'
+        },
+        responseType:  'json'
+    }).then(function(res){
+        vm.$vux.loading.hide();
+        if(res.status == 200 ){
+            localStorage.token = data.access_token;   
+            window.location.reload();         
+        }else{
+            vm.$vux.toast.text('获取token异常！请重试')
+        } 
+    }).catch(function (error){
+        vm.$vux.loading.hide();
+        vm.$vux.toast.text('获取token异常！请重试')
+    });
+}
+
 
 var vm = new Vue({});
 var oproto = Object.prototype;
@@ -70,11 +100,14 @@ var Rxports = {
                     vm.$vux.loading.hide();
                     switch (error.response.status) {
                         case 303:
-                        case 401:
-                            // 返回 401 清除localStorage并跳转到登录页面
-                            vm.$vux.toast.text('token过期，请重新登录！','middle');
-                            localStorage.clear();
+                            // 返回 303 清除localStorage并跳转到登录页面
+                            vm.$vux.toast.text('session过期，请重新登录！','middle');
+                            /*localStorage.clear();*/
                             setTimeout("window.location.href = '/views/cashloan/login.html'",1200);  
+                            break;
+                        case 401:
+                            // 返回 401 重新获取token并刷新当前页面
+                            getToken();
                             break;
                         default: vm.$vux.toast.text('请求异常！请重试','middle')   
                     }

@@ -52,7 +52,6 @@ export default {
   data () {
     return {
       phoneNum:'',
-      token: '',
       password:'',
       pswdShow: false,        //决定密码是否明文
       verifyCode: '',       //用户输入的 验证码
@@ -65,7 +64,6 @@ export default {
   },
   mounted(){
     this.phoneNum = this.$store.state.phoneNum;
-    this.token = this.$store.state.token;
     this.begin1();
   },
   methods: {

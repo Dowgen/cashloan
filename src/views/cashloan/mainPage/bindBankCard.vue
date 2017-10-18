@@ -49,8 +49,6 @@ export default {
   mounted(){
     this.userInfo = JSON.parse(localStorage.userInfo);
     this.realName = JSON.parse(localStorage.userInfo).idInfo.name;
-    /* 进页面判断一下是否是从连连跳过来的 */
-    this.isBindCard();
   },
   methods: {
     /* 点击按钮 */
@@ -80,44 +78,6 @@ export default {
           if(data.code == '0000'){
             document.getElementById('backParams').value = JSON.stringify(data.data);
             document.getElementById('myForm').submit()
-          }else{
-            self.$vux.toast.text(data.error,'middle')
-          }
-        }
-      });
-    },
-    /* 判断是否绑定了银行卡，如果绑定了的话就推一下后端 */
-    isBindCard(){
-      var self = this;
-      console.log(self.$route.query.status)
-      if( self.$route.query.status == null){
-        /* 没绑卡，啥也不干 */
-      }else{
-        /* 绑了判断一下是成功还是失败 */
-        if(self.$route.query.status=='0000'){
-          self.trigBackLLPay();
-        }else{
-          self.$vux.toast.text(self.$route.query.result, 'middle')
-        }
-      }
-    },
-    /* 触发后端查询连连支付信息 */
-    trigBackLLPay(){
-      let self = this;
-      self.loading = true;
-      Lib.M.ajax({
-        url : '/pay/repayment/instalmentSignData',
-        data:{
-          card_no: localStorage.bankCard,
-          acct_name:self.userInfo.idInfo.name,
-          id_no:self.userInfo.idInfo.idCardNumber,
-          user_id: self.userInfo.userInfo.userId
-        },
-        success:function (data){
-          self.loading = false;
-          if(data.code == '0000'){
-            self.$vux.toast.text('绑定成功!请确认借款信息', 'middle')
-            self.$router.replace('./confirmRent');
           }else{
             self.$vux.toast.text(data.error,'middle')
           }
