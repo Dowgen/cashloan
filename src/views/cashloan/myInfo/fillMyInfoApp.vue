@@ -24,8 +24,12 @@
 				</div>
 				<div class="info_public pad" style="margin-top: 1rem">
 						<span>真实名字</span>
-						<span class="fr">
+						<span v-show="idInfo.name !== ''" class="fr">
 								{{idInfo.name}}
+						</span>
+						<span v-show="idInfo.name == ''" class="fr" @click="jump">
+								<span>未认证</span>
+								<img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
 						</span>
 				</div>
 				<div class="info_public pad">
@@ -36,11 +40,15 @@
 				</div>
 				<div class="info_public pad" style="margin-top: 1.0315rem">
 						<span>身份证号</span>
-						<span class="fr color">
-								{{idInfo.idCardNumber.substr(0, 3) || '无'}}***********{{idInfo.idCardNumber.substr(14) || '号'}}
+						<span v-show="idInfo.idCardNumber !== ''" class="fr color">
+							{{idInfo.idCardNumber.substr(0, 3)}}***********{{idInfo.idCardNumber.substr(14)}}
+						</span>
+						<span v-show="idInfo.idCardNumber == ''" class="fr" @click="jump">
+								<span>未认证</span>
+								<img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
 						</span>
 				</div>
-				<div class="info_public pad" @click="$router.push({'path':'/addBank'})">
+				<div v-show="idInfo.idCardNumber == ''" @click="jump" class="info_public pad">
 						<span>银行卡号</span>
 						<span v-show="!cardBinded" class="fr">
 								<span>未绑定</span>
@@ -51,6 +59,17 @@
 								<img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
 						</span>
 				</div>
+			<div v-show="idInfo.idCardNumber !== ''" class="info_public pad" @click="$router.push({'path':'/addBank'})">
+				<span>银行卡号</span>
+				<span v-show="!cardBinded" class="fr">
+								<span>未绑定</span>
+								<img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+						</span>
+				<span v-show="cardBinded" class="fr color">
+								<span></span>
+								<img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+						</span>
+			</div>
 		</div>
 </template>
 
@@ -77,6 +96,7 @@ export default {
 			this.getInfo();
 			this.getImg();
 			this.bankCardCheck();
+
 	},
 	methods: {
 			preivewImg() {
@@ -200,7 +220,15 @@ export default {
 								}
 							}
 					});
-			}
+			},
+        jump(){
+            this.$vux.confirm.show({
+                content: '亲，请先进行认证!',
+                onConfirm () {
+                    window.location.href = '/views/cashloan/infoFill.html'
+                }
+            })
+		}
 	}
 }
 

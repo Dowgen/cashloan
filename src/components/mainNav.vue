@@ -8,7 +8,7 @@
       <img v-show="which=='infoFill'" src="./img/renzheng.png">
       <img v-show="which!=='infoFill'" src="./img/renzheng1.png">
     </a>
-    <a href="javascript:void(0)" @click="jump">
+    <a href="myInfo.html" ><!--javascript:void(0) @click="jump"-->
       <img v-show="which=='myInfo'" src="./img/me.png">
       <img v-show="which!=='myInfo'" src="./img/me1.png">
     </a>
@@ -38,7 +38,7 @@ export default {
   },
   //相关操作事件
   methods: {
-    jump(){
+   /* jump(){
       if(this.realNamePassed){
         window.location.href = '/views/cashloan/myInfo.html'
       }else{
@@ -50,28 +50,28 @@ export default {
         })
       }
     },
-	   /* 获取用户认证信息 */
+	   /!* 获取用户认证信息 *!/
     getauthStatus(){
       var self = this;
       Lib.M.ajax({
         url : '/risk-manage/auth/authStatus',
         data:{
           mobile: self.userInfo.userInfo.phone,
-          user_id: self.userInfo.userInfo.userId/*,
+          user_id: self.userInfo.userInfo.userId/!*,
           certNo: self.userInfo.idInfo.idCardNumber || '',
-          name: self.userInfo.idInfo.name || ''*/
+          name: self.userInfo.idInfo.name || ''*!/
         },
         success:function (res){
           let data = res.data;
           for(let i in data){
-            /* face++实名认证是否完成 */
+            /!* face++实名认证是否完成 *!/
             if(data[i].type=='realName' && data[i].code=='2'){
               self.realNamePassed = true
             }
           }
         }
       });
-    }
+    }*/
   }
 }
 </script>
