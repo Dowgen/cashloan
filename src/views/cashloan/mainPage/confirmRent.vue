@@ -44,7 +44,7 @@
         </div>
       </div>
     </div>
-    <author-button page="confirmRent" text="立即申请" marginTop="0" v-on:createOrder="createOrder"></author-button>
+    <author-button page="confirmRent" text="立即申请" marginTop="0" v-on:createOrder="confirm"></author-button>
     <div class="agreement">
       <img src="./assets/agreeProto.png">
       已阅读及同意<span style="color:#1abc9c" @click="$router.push({path:'/loanAgreement'})">《现金斗士借款协议》</span>
@@ -110,6 +110,16 @@ export default {
         }
       })
     },
+    /*getProduct(){
+      var self = this;
+      Lib.M.ajax({
+        type:'get',
+        url : '/cash-account/loan/productList/',
+        success:function (data){
+          console.log(data);
+        }
+      });
+    },*/
     createOrder(){
       var self = this;
       Lib.M.ajax({
@@ -117,7 +127,7 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          "loanAmount": self.loanAmount,
+          "loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
           "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,
           "shouldPay": self.shouldPay,
