@@ -117,15 +117,15 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          /*"loanAmount": self.loanAmount,
+          "loanAmount": self.loanAmount,
           "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,
-          "shouldPay": self.shouldPay,*/
-          "shouldPay": 0.01,
+          "shouldPay": self.shouldPay,
+          /*"shouldPay": 0.01,
           "loanAmount": 0.01,
           "receivedAmount": 0.01,
-          "feeAmount": 0.01,
-          "loanPeriod": 0
+          "feeAmount": 0.01,*/
+          "loanPeriod": self.term
         },
         success:function (data){
           if(data.code==200){
