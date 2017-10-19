@@ -3,7 +3,7 @@
     <div style="background:white;height:33.69rem">
       
       <div class="banner">
-        <img src="./assets/banner.png">
+        <img src="./assets/banner_new.png">
       </div>
       <div class="choose" style="margin-top:1rem">
         <span>到账金额</span>
