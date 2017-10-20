@@ -43,6 +43,7 @@ function getToken(){
         },
         responseType:  'json'
     }).then(function(res){
+        console.log(res);
         vm.$vux.loading.hide();
         if(res.status == 200 ){
             localStorage.token = data.access_token;   

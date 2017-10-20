@@ -168,8 +168,8 @@ export default {
           self.loading = false;
           if(data.code == '0000'){
             self.$vux.toast.text('绑定成功!', 'middle')
-            /*self.$router.replace('./confirmRent');*/
-            window.location.reload();
+            /*self.$router.replace('./confirmRent');
+            window.location.reload();*/
           }else{
             self.$vux.toast.text(data.error,'middle')
           }
