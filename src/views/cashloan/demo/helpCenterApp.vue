@@ -2,7 +2,7 @@
     <div>
         <div class="help_question" style="display: flex" v-for="(item,index) in questionList">
 
-            <div class="q_left" style="flex: 2">
+            <div class="q_left" style="flex: 2" @click="show(index)">
                 <!--<p><img :style=item.imgStyle :src="item.img"></p>-->
                <div class="img">
                    <p><img v-show="item.img == 1" :style=item.imgStyle src="./assets/check_data.png" alt=""></p>
@@ -13,7 +13,7 @@
                </div>
 
                 <p class="title">{{item.title}}</p>
-                <p :id="'arrow'+index" @click="show(index)" class="arrows">
+                <p :id="'arrow'+index" class="arrows">
                     <img class="show_arrow" src="./assets/show_up.png" alt="">
                 </p>
 
@@ -82,7 +82,7 @@
                     title:'借款相关',
                     questions:[
                         '1.如何提高借款成功率/提高额度？',
-                        '2.借款失败的原因有哪些？',
+                        '2.借款失败的原因有哪些，该怎么处理？',
                         '3.审核通过后多久打款？如何查询进度？',
                         '4.绑定银行卡无法收到打款怎么办？'
                     ],
@@ -100,7 +100,13 @@
                         '支付平台打款失败，可能为银行卡信息有误/银行卡类型不符/支付系统出现问题，建议：\n' +
                         '（1）您可以尝试重新借款\n' +
                         '（2）您可以重新绑定银行卡尝试借款\n' +
-                        '（3）以上均无法解决，请联系客服:0571-28121621',
+                        '（3）以上均无法解决，请联系客服:0571-28121621\n' +
+                        '\n' +
+                        '若借款失败后，无法借款怎么办？\n' +
+                        'A : 如果借款失败，需等待前次订单关闭后才能再次提交借款申请。\n' +
+                        '现金斗士默认15天左右冷却期，如期间无操作则订单将自动关闭，您可再次申请借款。\n' +
+                        ' \n' +
+                        '您可以完善个人信息、提高信用等级，借款订单更容易审核通过。',
                         'A：审核通过后会立即打款，一般半小时内完成，请耐心等待。\n' +
                         '您可在【我的】-【借款记录】查看您的借款进度。',
                         'A：未完成借款期间，用户不可自行更换银行卡，您可联系客服重置借款状态，重新绑定银行卡。客服电话:0571-28121621'
@@ -136,7 +142,7 @@
                     img:4,
                     imgStyle:{
                         width: '1.44rem',
-                        height: '1.095rem'
+                        height: '1.595rem'
                     },
                     title:'费用管理',
                     questions:[
@@ -154,7 +160,7 @@
                     img:5,
                     imgStyle:{
                         width: '1.5rem',
-                        height: '1.03rem'
+                        height: '1.52rem'
                     },
                     title:'其他问题',
                     questions:[
@@ -211,6 +217,20 @@
 </script>
 
 <style>
+
+    .help_head{
+        height:3rem;
+        background:rgba(255,255,255,1);
+        text-align: center;
+        line-height: 3rem;
+        font-size:1.065rem;
+        color: rgba(0,0,0,1);
+        position: relative;
+    }
+    .help_head span:nth-of-type(1){
+        position: absolute;
+        left: 1.47rem;
+    }
     .help_question{
         width:21.065rem;
         background:rgba(255,255,255,1);
