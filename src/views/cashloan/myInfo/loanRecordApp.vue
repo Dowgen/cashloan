@@ -11,7 +11,7 @@
           </div>
           <div>
               <p>还款日期</p>
-              <p>{{item.payDate || 0}}</p>
+              <p>{{item.repayDateReal || 0}}</p>
           </div>
           <div>
               <p>借款周期</p>
