@@ -94,7 +94,7 @@
             this.userInfo = JSON.parse(localStorage.userInfo);
             if(document.referrer.indexOf('lianlianpay.com')!= -1){
                 this.$vux.alert.show({
-                    content: '还款成功!',
+                    content: '如您支付成功，支付结果会以短信通知，无需重复还款，请耐心等待!',
                     onShow () {
                         console.log('Plugin: I\'m showing')
                     },
