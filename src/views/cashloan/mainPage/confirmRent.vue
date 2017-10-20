@@ -127,14 +127,14 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          "loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
+          /*"loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
           "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,
-          "shouldPay": self.shouldPay,
-          /*"shouldPay": 0.01,
+          "shouldPay": self.shouldPay,*/
           "loanAmount": 0.01,
           "receivedAmount": 0.01,
-          "feeAmount": 0.01,*/
+          "feeAmount": 0.01,
+          "shouldPay": 0.01,
           "loanPeriod": self.term
         },
         success:function (data){
