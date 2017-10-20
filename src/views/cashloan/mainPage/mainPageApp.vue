@@ -167,8 +167,9 @@ export default {
         success:function (data){
           self.loading = false;
           if(data.code == '0000'){
-            self.$vux.toast.text('绑定成功!请确认借款信息', 'middle')
-            self.$router.replace('./confirmRent');
+            self.$vux.toast.text('绑定成功!', 'middle')
+            /*self.$router.replace('./confirmRent');*/
+            window.location.reload();
           }else{
             self.$vux.toast.text(data.error,'middle')
           }

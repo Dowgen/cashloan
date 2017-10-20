@@ -25,6 +25,9 @@ import axios from 'axios';
 
 /** 获取token **/
 function getToken(){
+    vm.$vux.loading.show({
+        text: '请稍等'
+    });
     axios({
         method: 'post',
         url: 'https://finbridge.cn/uaa/oauth/token',
