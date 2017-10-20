@@ -146,7 +146,7 @@
                     img:4,
                     imgStyle:{
                         width: '1.44rem',
-                        height: '1.095rem'
+                        height: '1.595rem'
                     },
                     title:'费用管理',
                     questions:[
@@ -164,7 +164,7 @@
                     img:5,
                     imgStyle:{
                         width: '1.5rem',
-                        height: '1.03rem'
+                        height: '1.52rem'
                     },
                     title:'其他问题',
                     questions:[
