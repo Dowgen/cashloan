@@ -1,7 +1,7 @@
 <template>
   <div>
     <div class="header">
-      <img src="./assets/back.png" @click="$router.go(-1)">
+      <img src="./assets/back.png" @click="back">
     </div>
     <div class="confirm">
       <p>亲，请再次确认您要借款的金额与期限</p>
@@ -101,6 +101,13 @@ export default {
     setTerm(term){
       this.term = term;
     },
+    back(){
+      if(document.referrer.indexOf('megvii.com')!= -1){
+        window.location.href = '/views/cashloan/mainPage.html';
+      }else{
+        this.$router.go(-1);
+      }
+    },
     confirm(){
       var self = this;
       self.$vux.confirm.show({
@@ -127,14 +134,14 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          /*"loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
+          "loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
           "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,
-          "shouldPay": self.shouldPay,*/
-          "loanAmount": 0.01,
+          "shouldPay": self.shouldPay,
+          /*"loanAmount": 0.01,
           "receivedAmount": 0.01,
           "feeAmount": 0.01,
-          "shouldPay": 0.01,
+          "shouldPay": 0.01,*/
           "loanPeriod": self.term
         },
         success:function (data){

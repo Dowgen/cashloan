@@ -25,6 +25,9 @@ import axios from 'axios';
 
 /** 获取token **/
 function getToken(){
+    vm.$vux.loading.show({
+        text: '请稍等'
+    });
     axios({
         method: 'post',
         url: 'https://finbridge.cn/uaa/oauth/token',
@@ -42,7 +45,7 @@ function getToken(){
     }).then(function(res){
         vm.$vux.loading.hide();
         if(res.status == 200 ){
-            localStorage.token = data.access_token;   
+            localStorage.token = res.data.access_token;   
             window.location.reload();         
         }else{
             vm.$vux.toast.text('获取token异常！请重试')
