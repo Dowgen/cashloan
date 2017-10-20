@@ -99,7 +99,7 @@
                         console.log('Plugin: I\'m showing')
                     },
                     onHide () {
-                        window.location.href = '/views/cashloan/myInfo.html'
+                        window.location.reload();
                     }
                 })
             }
