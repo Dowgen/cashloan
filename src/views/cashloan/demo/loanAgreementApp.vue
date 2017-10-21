@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="agreement_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
-            <span>借款协议</span>
-        </div>
 
         <div class="main">
             <div class="loan_num">编号：**订单生成后可见**</div>
@@ -278,7 +274,7 @@
                         </table>
                         <p class="first_con">丙方（居间方）：杭州炬合网络科技有限公司</p>
                         <p class="first_con">丁方（居间方）：**订单生成后可见**</p>
-                        <p class="date fr">2017年9月21日</p>
+                        <p class="date fr">{{date}}</p>
                     </div>
                 </div>
             </div>
@@ -302,7 +298,8 @@
             return {
                 name:'',
                 id:'',
-                amount:''
+                amount:'',
+                date:'',
             }
         },
         mounted(){
@@ -310,6 +307,11 @@
             this.id = this.$route.query.id
             this.id = '************'+this.id.substr(14,16)
             this.amount = this.$route.query.amount
+
+            let d = new Date();
+            this.date = d.getFullYear()+ '年' +
+                        (d.getMonth()+1) + '月' + 
+                        d.getDate() + '日'
         },
         computed:{
             amount_daxie(){
