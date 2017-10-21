@@ -47,7 +47,7 @@
     <author-button page="confirmRent" text="立即申请" marginTop="0" v-on:createOrder="confirm"></author-button>
     <div class="agreement">
       <img src="./assets/agreeProto.png">
-      已阅读及同意<span style="color:#1abc9c" @click="$router.push({path:'/loanAgreement'})">《现金斗士借款协议》</span>
+      已阅读及同意<span style="color:#1abc9c" @click="jumpToAgreement">《现金斗士借款协议》</span>
     </div>
     <div class="tip">本产品不提供给未满18岁的用户借款</div>
   </div>
@@ -154,6 +154,17 @@ export default {
           }
         }
       });
+    },
+    jumpToAgreement(){
+      var self = this;
+      self.$router.push({
+        path:'/loanAgreement',
+        query: { 
+          name: self.userInfo.idInfo.name,
+          id:   self.userInfo.idInfo.idCardNumber,
+          amount: self.shouldPay
+        }
+      })
     }
   }
 }
