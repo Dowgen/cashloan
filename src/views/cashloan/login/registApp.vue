@@ -59,12 +59,19 @@ export default {
       /* countdown所需参数 */
       time1: 60,
       start: false,
-      countDownText:'获取验证码'
+      countDownText:'获取验证码',
+
+      channel: '' //渠道商
     }
   },
   mounted(){
     this.phoneNum = this.$store.state.phoneNum;
     this.begin1();
+
+    /* 获取渠道信息 */
+    if(localStorage.channel!=null){
+      this.channel = localStorage.channel;
+    }
   },
   methods: {
     /* 开始倒计时 */
@@ -133,7 +140,7 @@ export default {
     regist(){
       var self = this;
       Lib.M.ajax({
-        url : 'cash-account/user/account/regist',
+        url : 'cash-account/user/account/regist?channel='+self.channel,
         headers: {
           Authorization:'Bearer '+ localStorage.token
         },

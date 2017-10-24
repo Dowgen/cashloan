@@ -38,6 +38,14 @@ export default {
   mounted(){
     /* 进入页面先获取token */
     this.getToken(); 
+
+    /* 获取渠道信息 */
+    let channel = Lib.M.GetQueryString('channel')
+    if(channel!=null){
+      localStorage.channel = channel
+    }else{
+      console.log('noChannel')
+    }
   },
   methods: {
     getToken(){
@@ -91,6 +99,7 @@ export default {
             self.$router.push('/login2');
           }else{  //未注册用户跳转至注册页
             self.$router.push('/regist');
+            self.$store.commit('changeRegistType','regist')
           }      
         },
         error:function(err){
