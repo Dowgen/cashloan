@@ -23,7 +23,7 @@ import axios from 'axios';
     localStorage.deviceType = device
 })()
 
-/** 获取token **/
+/** 获取token  **/
 function getToken(){
     vm.$vux.loading.show({
         text: '请稍等'
