@@ -8,18 +8,20 @@ import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
 import privacyAgreement from './privacyAgreementApp'
 import userAgreement from './userAgreementApp'
+import loanAgreement from './loanAgreementApp'
 
 
 
 
 const routes = [
-  { path: '/', component: demo },
-  { path: '/aboutJuHe', component: aboutJuHe },
-  { path: '/contactUs', component: contactUs },
-  { path: '/helpCenter', component: helpCenter },
+    { path: '/', component: demo },
+    { path: '/aboutJuHe', component: aboutJuHe },
+    { path: '/contactUs', component: contactUs },
+    { path: '/helpCenter', component: helpCenter },
     { path: '/questionList', component: questionList },
     { path: '/privacyAgreement', component: privacyAgreement },
-    { path: '/userAgreement', component: userAgreement }
+    { path: '/userAgreement', component: userAgreement },
+    { path: '/loanAgreement', component: loanAgreement }
 ]
 
 Vue.use(VueRouter)

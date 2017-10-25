@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="agreement_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
-            <span>借款协议</span>
-        </div>
 
         <div class="main">
             <div class="loan_num">编号：**订单生成后可见**</div>
@@ -303,7 +299,7 @@
                 name:'',
                 id:'',
                 amount:'',
-                date:''
+                date:'',
             }
         },
         mounted(){
