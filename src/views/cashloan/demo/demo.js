@@ -9,6 +9,7 @@ import questionList from './questionListApp'
 import privacyAgreement from './privacyAgreementApp'
 import userAgreement from './userAgreementApp'
 import loanAgreement from './loanAgreementApp'
+import errorTip from './errorTipApp'
 
 
 
@@ -21,7 +22,8 @@ const routes = [
     { path: '/questionList', component: questionList },
     { path: '/privacyAgreement', component: privacyAgreement },
     { path: '/userAgreement', component: userAgreement },
-    { path: '/loanAgreement', component: loanAgreement }
+    { path: '/loanAgreement', component: loanAgreement },
+    { path: '/errorTip', component: errorTip }
 ]
 
 Vue.use(VueRouter)
