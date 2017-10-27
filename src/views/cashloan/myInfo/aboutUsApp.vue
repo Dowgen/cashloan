@@ -19,7 +19,7 @@
                 </span>
             </div>
             <div  @click="$router.push({path:'/aboutJuHe'})">
-                <span>关于炬合</span>
+                <span>关于我们</span>
                 <span class="fr">
                     <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
                  </span>
@@ -27,7 +27,7 @@
 
         </div>
 
-        <div class="company">杭州炬合网络科技有限公司</div>
+       <!-- <div class="company">杭州炬合网络科技有限公司</div>-->
 
     </div>
 </template>
