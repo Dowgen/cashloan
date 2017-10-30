@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="contact_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
-            <span>联系我们</span>
-        </div>
         <div class="contact_ways">
             <ul>
                 <li>
@@ -45,20 +41,6 @@
 </script>
 
 <style>
-
-    .contact_head{
-        height:3rem;
-        background:rgba(255,255,255,1);
-        text-align: center;
-        line-height: 3rem;
-        font-size:1.065rem;
-        color: rgba(0,0,0,1);
-        position: relative;
-    }
-    .contact_head span:nth-of-type(1){
-        position: absolute;
-        left: 1.47rem;
-    }
     .contact_ways{
         /*height: 18.75rem;*/
         background:rgba(255,255,255,1);
