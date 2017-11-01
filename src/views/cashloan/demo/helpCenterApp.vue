@@ -3,7 +3,7 @@
         <div class="help_question" style="display: flex" v-for="(item,index) in questionList">
 
             <div class="q_left" style="flex: 2" @click="show(index)">
-                <!--<p><img :style=item.imgStyle :src="item.img"></p>-->
+                <!--<p><assets :style=item.imgStyle :src="item.assets"></p>-->
                <div class="img">
                    <p><img v-show="item.img == 1" :style=item.imgStyle src="./assets/check_data.png" alt=""></p>
                    <p><img v-show="item.img == 2" :style=item.imgStyle src="./assets/about_borrow.png" alt=""></p>

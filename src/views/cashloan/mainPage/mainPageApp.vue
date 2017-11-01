@@ -3,7 +3,8 @@
     <div style="background:white;height:33.69rem">
       
       <div class="banner">
-        <img src="./assets/banner_new.png">
+        <!--<assets src="./assets/banner_new.png"> auto-->
+        <swiper loop  :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>
       </div>
       <div class="choose" style="margin-top:1rem">
         <span>到账金额</span>
@@ -39,7 +40,7 @@
       <div class="table tbody">
         <span>{{userGetMoney}}</span>
         <span>{{repayDate}}</span>
-        <span>{{shouldPay}}</span>
+        <span>{{shouldPay}}<img @click="toCostAccount" style="width: 0.875rem;height: 0.875rem;margin-left: 0.3rem;display: inline-block;" src="./assets/question.png" alt=""></span>
       </div>
       <author-button page="mainPage" text="立即申请" marginTop="3.065"></author-button>
     </div>
@@ -51,16 +52,28 @@
 <script>
 
 import Lib from 'assets/js/Lib';
+/*import { Swiper, GroupTitle, SwiperItem, XButton, Divider } from 'vux'*/
 
-import { Loading, XButton, Confirm } from 'vux'
+import { Loading, XButton, Confirm,Swiper } from 'vux'
 
 import MainNav from 'components/mainNav'
 import authorButton from 'components/authorButton'
 
+const baseList = [{
+    img: '/static/assets/banner1.png',
+}, {
+    img: '/static/assets/banner2.png',
+}, {
+    img: '/static/assets/banner3.png',
+}]
+const urlList = baseList.map((item, index) => ({
+    img: item.img,
+}))
+
 export default {
   name: 'add',	
   components: {
-    MainNav, Loading, XButton, Confirm, authorButton
+    MainNav, Loading, XButton, Confirm, authorButton,Swiper
   },
   data () {
     return {
@@ -73,7 +86,9 @@ export default {
       },
       userInfo:{},
       loading: false,
-      loadText: '请稍等'
+      loadText: '请稍等',
+      demo06_list: urlList,
+      demo06_index: 0,
     }
   },
   computed:{
@@ -101,6 +116,12 @@ export default {
     }
   },
   methods: {
+      toCostAccount(){
+          this.$router.push({path:'/costAccount',query:{}});
+      },
+      demo06_onIndexChange (index) {
+          this.demo06_index = index
+      },
     setLoanAmount(amount){
       this.loanAmount = amount;
     },
@@ -194,6 +215,9 @@ export default {
 </style>
 
 <style scoped>
+ /* .vux-slider > .vux-swiper > .vux-swiper-item > a > p{
+    background-image:none;
+  }*/
   .title{
     height: 4rem;
     width: 100%;

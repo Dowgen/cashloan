@@ -157,10 +157,10 @@ export default {
 					newImg.src=re;
 					var imgWidth,imgHeight,offsetX=0,offsetY=0;
 					newImg.onload=function(){
-							var img=document.createElement("img");
-							img.src=newImg.src;
-							imgWidth=img.width;
-							imgHeight=img.height;
+							var assets=document.createElement("assets");
+							assets.src=newImg.src;
+							imgWidth=assets.width;
+							imgHeight=assets.height;
 							var canvas=document.createElement("canvas");
 							canvas.width=w;
 							canvas.height=w;
@@ -175,7 +175,7 @@ export default {
 									imgWidth=w;
 									offsetY=-Math.round((imgHeight-w)/2);
 							}
-							ctx.drawImage(img,offsetX,offsetY,imgWidth,imgHeight);
+							ctx.drawImage(assets,offsetX,offsetY,imgWidth,imgHeight);
 							let base64Data=canvas.toDataURL("image/jpeg",0.7);
 							self.uploadImg(base64Data);
 					}

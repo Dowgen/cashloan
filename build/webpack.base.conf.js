@@ -55,7 +55,7 @@ var webpackConfig = {
         loader: 'url-loader',
         query: {
           limit: 10000,
-          name: utils.assetsPath('img/[name].[ext]')
+          name: utils.assetsPath('assets/[name].[ext]')
         }
       },
       {

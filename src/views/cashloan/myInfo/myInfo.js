@@ -15,6 +15,7 @@ import aboutJuHe from './aboutJuHeApp'
 import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
 import BindBankCard from './bindBankCard'
+import repayFailure from './repayFailure'
 
 const routes = [
     { path: '/', component: MyInfo },
@@ -31,6 +32,7 @@ const routes = [
     { path: '/helpCenter', component: helpCenter},
     { path: '/questionList', component: questionList},
     { path: '/bindBankCard', component: BindBankCard },
+    { path: '/repayFailure', component: repayFailure },
 
 ]
 

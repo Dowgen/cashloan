@@ -50,8 +50,8 @@ export default {
   },
   data () {
     return {
-      img_idFront: '/static/img/id-front.png',
-      img_idBack: '/static/img/id-back.png'
+      img_idFront: '/static/assets/id-front.png',
+      img_idBack: '/static/assets/id-back.png'
     }
   },
   methods: {

@@ -10,6 +10,7 @@ import privacyAgreement from './privacyAgreementApp'
 import userAgreement from './userAgreementApp'
 import loanAgreement from './loanAgreementApp'
 import errorTip from './errorTipApp'
+import costAccount from './costAccount'
 
 
 
@@ -23,7 +24,8 @@ const routes = [
     { path: '/privacyAgreement', component: privacyAgreement },
     { path: '/userAgreement', component: userAgreement },
     { path: '/loanAgreement', component: loanAgreement },
-    { path: '/errorTip', component: errorTip }
+    { path: '/errorTip', component: errorTip },
+    { path: '/costAccount', component: costAccount },
 ]
 
 Vue.use(VueRouter)

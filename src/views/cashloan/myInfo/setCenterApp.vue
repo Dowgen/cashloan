@@ -22,10 +22,22 @@
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>
-      <!--  <div class="setCenter_public" style="margin-top: 1.0315rem">&lt;!&ndash;privacyAgreement userAgreement&ndash;&gt;
-            <span><img class="iconfont" style="width: 1.25rem;height: 1.22rem;" src="./assets/Rated.png" alt="">不错，去评分</span>
+        <div class="setCenter_public"  style="margin-top: 1.0315rem">
+            <span><img class="iconfont" style="width: 1.25rem;height: 1.125rem;" src="./assets/custom_service.png" alt="" >咨询客服</span>
             <span class="setCenter_fr">
                 <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+            </span>
+        </div>
+        <!--<div class="setCenter_public"  @click="share" >
+            <span><img class="iconfont" style="width: 1.25rem;height: 1.125rem;" src="./assets/share.png" alt="" >分享给朋友</span>
+            <span class="setCenter_fr">
+                <img style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
+            </span>
+        </div>-->
+      <!--  <div class="setCenter_public" style="margin-top: 1.0315rem">&lt;!&ndash;privacyAgreement userAgreement&ndash;&gt;
+            <span><assets class="iconfont" style="width: 1.25rem;height: 1.22rem;" src="./assets/Rated.png" alt="">不错，去评分</span>
+            <span class="setCenter_fr">
+                <assets style="width: 0.47rem;height: 0.78rem;display: inline-block" src="./assets/towards.png" alt="">
             </span>
         </div>-->
         <div class="setCenter_public"   @click="$router.push({path:'/aboutUs'})">

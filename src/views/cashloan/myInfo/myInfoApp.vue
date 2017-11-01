@@ -74,6 +74,7 @@
     </div>
 </template>
 
+
 <script>
 
     import Lib from 'assets/js/Lib';

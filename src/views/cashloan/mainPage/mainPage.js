@@ -6,6 +6,7 @@ import BindBankCard from './bindBankCard'
 import SubmitSuccess from './submitSuccess'
 import ConfirmRent from './confirmRent'
 import loanAgreement from './loanAgreementApp'
+import costAccount from './costAccount'
 
 
 const routes = [
@@ -14,6 +15,7 @@ const routes = [
   { path: '/submitSuccess', component: SubmitSuccess },
   { path: '/confirmRent', component: ConfirmRent },
   { path: '/loanAgreement', component: loanAgreement },
+    { path: '/costAccount', component: costAccount },
 ]
 
 Vue.use(VueRouter)

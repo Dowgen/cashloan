@@ -18,5 +18,71 @@
 		  <router-view></router-view>
     </div>
     <!-- built files will be auto injected -->
+    <script type='text/javascript'>
+        console.log(window.location.hash);
+        if(window.location.hash === '#/setCenter'){
+
+          /*  document.addEventListener('touchstart', function(event) {
+                // 判断默认行为是否可以被禁用
+                if (event.cancelable) {
+                    // 判断默认行为是否已经被禁用
+                    if (!event.defaultPrevented) {
+                        event.preventDefault();
+                    }
+                }
+            }, false);*/
+
+          (function(m, ei, q, i, a, j, s) {
+
+              m[i] = m[i] || function() {
+                  (m[i].a = m[i].a || []).push(arguments)
+              };
+              j = ei.createElement(q),
+                  s = ei.getElementsByTagName(q)[0];
+              j.async = true;
+              j.charset = 'UTF-8';
+              j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+              s.parentNode.insertBefore(j, s);
+          })(window, document, 'script', '_MEIQIA');
+          _MEIQIA('entId', 55280);
+
+            setTimeout(function () {
+                console.log(document.getElementById('MEIQIA-BTN'));
+                var ele = document.getElementById('MEIQIA-BTN');
+                ele.style.display = block;
+                /*ele.style.opacity = '1';*/
+
+            },1000)
+
+
+
+      }else{
+            if (document.getElementById('MEIQIA-BTN')){
+                var ele = document.getElementById('MEIQIA-BTN');
+                ele.style.display = none;
+            }
+        }
+
+
+    </script>
+    <style>
+      #MEIQIA-BTN{
+        /*visibility: hidden;*/
+        opacity: 0;
+        z-index: -1 !important;
+      }
+      #MEIQIA-BTN #MEIQIA-BTN-PICTURE {
+        display: block;
+        border: 0;
+        width: 23.405rem;
+        height: 2.815rem;
+      }
+      #MEIQIA-BTN-HOLDER{
+        right: 0;
+        bottom: 0;
+        top: 13.5rem;
+        /*opacity: 0;*/
+      }
+    </style>
   </body>
 </html>

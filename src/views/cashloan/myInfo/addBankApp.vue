@@ -1,7 +1,7 @@
 <template>
     <div>
         <!--<div class="bank_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
+            <span @click="$router.go(-1)" class="back"><assets style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
             <span v-show="!isShow">添加银行卡</span>
             <span v-show="isShow">银行卡信息</span>
         </div>-->
