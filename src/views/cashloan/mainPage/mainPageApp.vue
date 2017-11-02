@@ -48,6 +48,10 @@
     </div>
     <main-nav which="mainPage"></main-nav>
     <loading :show="loading" :text="loadText"></loading>
+
+    <img src="./assets/banner1.png" style="display:none;">
+    <img src="./assets/banner2.png" style="display:none;">
+    <img src="./assets/banner3.png" style="display:none;">
   </div>
 </template>
 
