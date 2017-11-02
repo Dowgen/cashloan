@@ -4,7 +4,9 @@
       
       <div class="banner">
         <!--<assets src="./assets/banner_new.png"> auto-->
-        <swiper loop  :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>
+        <!--<swiper loop  :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>-->
+      <!--</div>-->
+          <swiper loop auto :list="demo03_list"  style="width:100%;margin:0 auto;" height="9.375rem !important" dots-class="custom-bottom" dots-position="center"></swiper>
       </div>
       <div class="choose" style="margin-top:1rem">
         <span>到账金额</span>
@@ -58,7 +60,7 @@ import { Loading, XButton, Confirm,Swiper } from 'vux'
 
 import MainNav from 'components/mainNav'
 import authorButton from 'components/authorButton'
-
+/*
 const baseList = [{
     img: '/static/assets/banner1.png',
 }, {
@@ -68,6 +70,16 @@ const baseList = [{
 }]
 const urlList = baseList.map((item, index) => ({
     img: item.img,
+}))*/
+const imgList = [
+    '/static/assets/banner1.png',
+    '/static/assets/banner2.png',
+    '/static/assets/banner3.png',
+
+]
+const demoList = imgList.map((one, index) => ({
+    url: 'javascript:',
+    img: one
 }))
 
 export default {
@@ -87,8 +99,9 @@ export default {
       userInfo:{},
       loading: false,
       loadText: '请稍等',
-      demo06_list: urlList,
-      demo06_index: 0,
+     /* demo06_list: urlList,
+      demo06_index: 0,*/
+        demo03_list: demoList,
     }
   },
   computed:{
@@ -294,4 +307,25 @@ export default {
   .btn{
     margin-top: 3.065rem;
   }
+</style>
+<style>
+    .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-swiper-desc{
+        background-image:none !important;
+    }
+    .vux-slider > .vux-indicator{
+        display: none !important;
+    }
+    .vux-slider > .vux-indicator-center{
+        display: none !important;
+    }
+   /* .vux-slider > .vux-swiper{
+        overflow: visible !important;
+    }
+    .vux-slider{
+        overflow: visible !important;
+    }*/
+   /* .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-img{
+        background-size: contain !important;
+        box-shadow:4px 2px 6px #ccc;
+    }*/
 </style>
