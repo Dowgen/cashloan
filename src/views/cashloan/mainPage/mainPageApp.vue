@@ -6,7 +6,7 @@
         <!--<assets src="./assets/banner_new.png"> auto-->
         <!--<swiper loop  :list="demo06_list" :index="demo06_index" @on-index-change="demo06_onIndexChange"></swiper>-->
       <!--</div>-->
-          <swiper loop auto :list="demo03_list"  style="width:100%;margin:0 auto;" height="9.375rem !important" dots-class="custom-bottom" dots-position="center"></swiper>
+          <swiper loop :list="demo03_list" auto style="width:80%;margin:0 auto;" height="9.375rem !important" dots-class="custom-bottom" dots-position="center"></swiper>
       </div>
       <div class="choose" style="margin-top:1rem">
         <span>到账金额</span>
@@ -318,14 +318,14 @@ export default {
     .vux-slider > .vux-indicator-center{
         display: none !important;
     }
-   /* .vux-slider > .vux-swiper{
+    .vux-slider > .vux-swiper{
         overflow: visible !important;
     }
     .vux-slider{
         overflow: visible !important;
-    }*/
-   /* .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-img{
+    }
+    .vux-slider > .vux-swiper > .vux-swiper-item > a > .vux-img{
         background-size: contain !important;
         box-shadow:4px 2px 6px #ccc;
-    }*/
+    }
 </style>
