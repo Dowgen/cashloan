@@ -1,7 +1,12 @@
 <template>
     <div class="demo">
         <p>尊敬的用户您好，</p>
-        <p> 由于第三方运营商系统出现故障，现金斗士部分认证功能发生错误，攻城狮正在紧急修复中！请您稍后再试。</p>
+        
+        <p> 由于现金斗士服务器迁移，将暂停关闭服务1日。</p>
+
+<p>关闭服务时间为2017年11月15日至2017年11月16日。</p>
+
+<p>现金斗士将于11月16日凌晨恢复全部服务，由此带来的不便，敬请谅解！</p>
     </div>
 </template>
 
@@ -30,7 +35,8 @@
 <style scoped>
 .demo{
     background: white;
-    height: 10rem;
+    height: 15rem;
+    line-height: 1.8rem;
     padding:1rem 1.3rem;
 }
 .demo>p:nth-child(1){
