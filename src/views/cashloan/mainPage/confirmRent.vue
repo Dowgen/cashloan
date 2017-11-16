@@ -134,7 +134,7 @@ export default {
         data:{
           "userId":self.userInfo.userInfo.userId,
           "phone": self.userInfo.userInfo.phone,
-          "loanAmount": self.shouldPay, //后台逻辑：借款金额为应还金额
+          "loanAmount": self.loanAmount, //后台逻辑：借款金额为应还金额
           "receivedAmount": self.loanAmount,
           "feeAmount": self.interest,
           "shouldPay": self.shouldPay,
