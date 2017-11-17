@@ -283,7 +283,7 @@
                 </div>
                 <div class="con_item" style="margin-top: 15px">
                     <div>
-                        <p class="first_con">甲方（借款人）：杜健平</p>
+                        <p class="first_con">甲方（借款人）：</p>
                         <p class="first_con">乙方（出借人）</p>
                         <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;margin: 5px 0;">
                             <tr>
