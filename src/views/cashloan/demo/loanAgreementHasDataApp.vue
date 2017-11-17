@@ -6,15 +6,15 @@
         </div>
 
         <div class="main">
-            <div class="loan_num">编号：{{data.orderId}}</div>
+            <div class="loan_num">编号：{{info.orderId}}</div>
             <div class="main_content">
                 <div class="con_item" style="margin-top: 0;">
                     <div>
-                        <p class="first_con">甲方（借款人）：{{data.userName}}</p>
-                        <p class="first_con">身份证号码：************{{data.userId.substr(14,16)}}</p>
+                        <p class="first_con">甲方（借款人）：{{info.userName}}</p>
+                        <p class="first_con">身份证号码：************{{info.userId}}</p>
                         <p class="first_con">乙方（出借人）：乙方（出借人）相关明细详见本协议后附表。</p>
-                       <p class="first_con">丙方（居间方）：{{data.intermediary_side_A}} </p>
-                       <p class="first_con">丁方（居间方）：{{data.intermediary_side_B}}</p>
+                       <p class="first_con">丙方（居间方）：{{info.intermediary_side_A}} </p>
+                       <p class="first_con">丁方（居间方）：{{info.intermediary_side_B}}</p>
                     </div>
                 </div>
                 <div class="con_item">
@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <td>本金金额</td>
-                            <td colspan="3">人民币 {{data.loanAmount}}元</td>
+                            <td colspan="3">人民币 {{info.loanAmount}}元</td>
                         </tr>
                         <tr>
                             <td>大写</td>
@@ -34,13 +34,13 @@
                             <td>借款用途</td>
                             <td>个人消费</td>
                             <td>年化利率</td>
-                            <td>{{data.annual_interest_rate}}</td>
+                            <td>{{info.annual_interest_rate}}</td>
                         </tr>
                         <tr>
                             <td>借款起息日</td>
-                            <td>{{data.loan_interest_date}}</td>
+                            <td>{{info.loan_interest_date}}</td>
                             <td>借款到期日</td>
-                            <td>{{data.loan_due_date}}</td>
+                            <td>{{info.loan_due_date}}</td>
                         </tr>
                         <tr>
                             <td>还款方式</td>
@@ -48,7 +48,7 @@
                         </tr>
                         <tr>
                             <td>还款期数</td>
-                            <td colspan="3">{{data.loanPeriod}}期</td>
+                            <td colspan="3">{{info.loanPeriod}}期</td>
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
@@ -61,19 +61,19 @@
                         <tbody>
                             <tr>
                                 <td>期数</td>
-                                <td>{{data.loanPeriod}}期</td>
+                                <td>{{info.loanPeriod}}期</td>
                             </tr>
                             <tr>
                                 <td>还款日</td>
-                                <td>{{data.repayDate}}</td>
+                                <td>{{info.repayDate}}</td>
                             </tr>
                             <tr>
                                 <td>还款金额</td>
-                                <td>{{data.shouldPay}}元</td>
+                                <td>{{info.shouldPay}}元</td>
                             </tr>
                             <tr>
                                 <td>本金</td>
-                                <td>{{data.loanAmount}}元</td>
+                                <td>{{info.loanAmount}}元</td>
                             </tr>
                             <tr>
                                 <td>利息</td>
@@ -85,7 +85,7 @@
                             </tr>
                             <tr>
                                 <td>居间服务费</td>
-                                <td>{{data.serviceFee}}</td>
+                                <td>{{info.serviceFee}}</td>
                                 <!-- <p>500元/7天：13.25元</p>
                                     <p>500元/14天：46.5元</p>
                                     <p>1000元/7天：46.5元</p>
@@ -282,7 +282,7 @@
                 </div>
                 <div class="con_item" style="margin-top: 15px">
                     <div>
-                        <p class="first_con">甲方（借款人）：{{data.userName}}</p>
+                        <p class="first_con">甲方（借款人）：{{info.userName}}</p>
                         <p class="first_con">乙方（出借人）</p>
                         <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;margin: 5px 0;">
                             <tr>
@@ -293,12 +293,12 @@
                             <tr style="height: 26px;">
                                 <td></td>
                                 <td></td>
-                                <td>{{data.loanAmount}}元</td>
+                                <td>{{info.loanAmount}}元</td>
                             </tr>
                         </table>
-                        <p class="first_con">丙方（居间方）：{{data.intermediary_side_A}}</p>
-                        <p class="first_con">丁方（居间方）：{{data.intermediary_side_B}}</p>
-                        <p class="date fr">{{data.loan_interest_date}}</p>
+                        <p class="first_con">丙方（居间方）：{{info.intermediary_side_A}}</p>
+                        <p class="first_con">丁方（居间方）：{{info.intermediary_side_B}}</p>
+                        <p class="date fr">{{info.loan_interest_date}}</p>
                     </div>
                 </div>
             </div>
@@ -312,7 +312,6 @@
 <script>
 
     import Lib from 'assets/js/Lib';
-    import axios from 'axios';
     export default {
         name: 'add',
         components: {
@@ -325,26 +324,22 @@
                 amount:'',
                 date:'',
                 localUserInfo:{},
-                data:{}
+                info:{}
             }
         },
         mounted(){
-            this.name = this.$route.query.name
-            this.id = this.$route.query.id
-            this.id = '************'+this.id.substr(14,16)
-            this.amount = this.$route.query.amount
 
             let d = new Date();
             this.date = d.getFullYear()+ '年' +
                         (d.getMonth()+1) + '月' + 
                         d.getDate() + '日'
-            this.localUserInfo = JSON.parse(localStorage.userInfo);
+
             this.getLoanInfo();
         },
         computed:{
             amount_daxie(){
                 /*return this.DX(this.$route.query.amount)*/
-                return this.DX(this.data.loanAmount)
+                return this.DX(this.info.loanAmount)
             }
 
         },
@@ -363,15 +358,15 @@
                 return str.replace(/零(千|百|拾|角)/g, "零").replace(/(零)+/g, "零").replace(/零(万|亿|元)/g, "$1").replace(/(亿)万|壹(拾)/g, "$1$2").replace(/^元零?|零分/g, "").replace(/元$/g, "元整");
             },
             getLoanInfo(){
+                console.log(this.$route.query.orderId)
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
-                    url:'cash-account/loan/getLoanOrderInfo/'+Lib.M.GetQueryString('orderId'),
-                    success:function(){
+                    url:'cash-account/loan/getLoanOrderInfo/'+this.$route.query.orderId,
+                    success:function(res){
                         console.log(res)
-                        self.data = res.data.data;
-                        console.log(self.data);
-                }
+                        self.info = res.data;
+                    }
                 })
             },
         }
