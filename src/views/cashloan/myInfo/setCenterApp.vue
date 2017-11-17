@@ -70,6 +70,21 @@ export default {
         href:''
     }
   },
+    mounted(){
+    (function(m, ei, q, i, a, j, s) {
+
+        m[i] = m[i] || function() {
+            (m[i].a = m[i].a || []).push(arguments)
+        };
+        j = ei.createElement(q),
+            s = ei.getElementsByTagName(q)[0];
+        j.async = true;
+        j.charset = 'UTF-8';
+        j.src = 'https://static.meiqia.com/dist/meiqia.js?_=t';
+        s.parentNode.insertBefore(j, s);
+    })(window, document, 'script', '_MEIQIA');
+_MEIQIA('entId', 55280);
+    },
   methods: {
     wechat(){
         this.$vux.alert.show({
@@ -84,6 +99,29 @@ export default {
 }
 
 </script>
+<style>
+    #MEIQIA-BTN{
+        opacity:0;
+    }
+    #MEIQIA-BTN #MEIQIA-BTN-PICTURE {
+        display: block;
+        border: 0;
+        width: 23.405rem;
+        height: 2.815rem;
+    }
+    #MEIQIA-BTN-HOLDER{
+        right: 0;
+        bottom: 0;
+        top: 13.5rem;
+    }
+   /* #MEIQIA-PANEL-HOLDER{
+        top: 13.5rem;
+        height: 2.815rem !important;
+    }*/
+    #MEIQIA-BTN-HOLDER{
+        height: 2.815rem !important;
+    }
+</style>
 
 <style>
     .weui-mask{

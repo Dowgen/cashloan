@@ -8,6 +8,8 @@ import ConfirmRent from './confirmRent'
 import loanAgreement from './loanAgreementApp'
 import costAccount from './costAccount'
 
+var VueTouch = require('vue-touch')
+Vue.use(VueTouch, {name: 'v-touch'})
 
 const routes = [
   { path: '/', component: MainPage },

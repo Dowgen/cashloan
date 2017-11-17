@@ -56,6 +56,10 @@
                 <input id="backParams" type="text" name="req_data" value=""/>
                 <input type="submit" value="立即还款"/>
             </form>
+            <div class="agreement" v-show="loanStatus == 3 || loanStatus == 4">
+                <img src="./assets/agreeProto.png">
+                已阅读及同意<span style="color:#1abc9c" @click="jumpToAgreement">《现金斗士借款协议》</span>
+            </div>
         </div>
 
         <div class="aboutPayTime" v-show="isShow">
@@ -165,6 +169,17 @@
                         }
                         self.loanDate = self.loanDate.split(' ')[0].replace(/-/g, "/")
                         self.repayDate = self.repayDate.split(' ')[0].replace(/-/g, "/")
+                    }
+                })
+            },
+            jumpToAgreement(){
+                var self = this;
+                self.$router.push({
+                    path:'/loanAgreement',
+                    query: {
+                        name: self.userInfo.idInfo.name,
+                        id:   self.userInfo.idInfo.idCardNumber,
+                        amount: self.shouldPay
                     }
                 })
             }
@@ -331,6 +346,20 @@
         color: rgba(26,188,156,1);
         margin:1.6rem auto 1rem;
         line-height: 3rem;
+    }
+    .agreement{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        color: #919499;
+        font-size: 0.75rem;
+        margin-top: 3.5rem;
+    }
+    .agreement>img{
+        width: 0.6rem;
+        height:  0.6rem;
+        margin-right: 0.5rem;
     }
 </style>
 

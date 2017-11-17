@@ -116,7 +116,6 @@
                     type:'GET',
                     url:'cash-account/user/account/accountInfo/'+self.localUserInfo.userInfo.phone,
                     success:function (res) {
-                        /*console.log(res);*/
                         self.userInfo = res.data.userInfo;
                         localStorage.userInfo = JSON.stringify(res.data)
                     }
@@ -129,15 +128,10 @@
                     type:'GET',
                     url:'cash-account/loan/getAllProcessing/'+self.localUserInfo.userInfo.userId,
                     success:function (res) {
-                        console.log('这是getallprocessing');
-                        console.log(res);
                        if(res.data.length != 0){
-                           console.log('这里有数据');
                            self.processLoan = res.data[0];
                            self.loanStatus = res.data[0].loanStatus;
                            localStorage.orderId = res.data[0].orderId;
-                           console.log(self.loanStatus);
-                           console.log('1111');
                        }
 
                     }
@@ -149,9 +143,7 @@
                     type:'GET',
                     url:'cash-account/loan/getAllEnd/'+self.localUserInfo.userInfo.userId,
                     success:function (res) {
-                        /*console.log(res);*/
                         self.loanLength = res.data.length;
-                        console.log(self.loanLength);
                     }
                 })
             },
@@ -162,8 +154,6 @@
                     url:'cash-account/user/account/getIconImage/'+self.localUserInfo.userInfo.phone,
                     dataType:'blob',
                     success:function (res) {
-                        console.log('getImage:');
-                        console.log(res);
                         if(res.size!=0){
                             self.img_id =  window.URL.createObjectURL(res);
                             self.noAvatar = false;
@@ -178,7 +168,6 @@
 
             },
             jumpToLoanRecord(){
-                console.log('loanLength:'+ this.loanLength)
                 if(this.loanLength !== 0){
                     this.$router.push({path:'/loanRecord',query:{}});
                 }

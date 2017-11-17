@@ -16,6 +16,7 @@ import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
 import BindBankCard from './bindBankCard'
 import repayFailure from './repayFailure'
+import loanAgreement from './loanAgreementApp'
 
 const routes = [
     { path: '/', component: MyInfo },
@@ -33,6 +34,7 @@ const routes = [
     { path: '/questionList', component: questionList},
     { path: '/bindBankCard', component: BindBankCard },
     { path: '/repayFailure', component: repayFailure },
+    { path: '/loanAgreement', component: loanAgreement },
 
 ]
 
@@ -42,7 +44,27 @@ const router = new VueRouter({
   routes:routes,
 
 })
+router.beforeEach((to, from, next) => {
+    console.log(to.path);
+    if (to.path === '/setCenter') {
+       setTimeout(function () {
+           var ele = document.getElementById('MEIQIA-BTN');
+           ele.style.display = 'block';
+           ele.style.opacity = '0';
+       },500);
 
+    } else {
+        if(document.getElementById('MEIQIA-BTN')){
+            var ele = document.getElementById('MEIQIA-BTN');
+            ele.style.display = 'none';
+        }
+
+    }
+    next()
+})
+
+/*var VueTouch = require('vue-touch')
+Vue.use(VueTouch)*/
 
 new Vue({
   router: router,

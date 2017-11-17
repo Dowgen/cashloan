@@ -6,15 +6,15 @@
         </div>
 
         <div class="main">
-            <div class="loan_num">编号：**订单生成后可见**</div>
+            <div class="loan_num">编号：{{data.orderId}}</div>
             <div class="main_content">
-                <div class="con_item">
+                <div class="con_item" style="margin-top: 0;">
                     <div>
-                        <p class="first_con">甲方（借款人）：{{name}}</p>
-                        <p class="first_con">身份证号码：{{id}}</p>
+                        <p class="first_con">甲方（借款人）：{{data.userName}}</p>
+                        <p class="first_con">身份证号码：************{{data.userId.substr(14,16)}}</p>
                         <p class="first_con">乙方（出借人）：乙方（出借人）相关明细详见本协议后附表。</p>
-                       <p class="first_con">丙方（居间方）：**订单生成后可见** </p>
-                       <p class="first_con">丁方（居间方）：**订单生成后可见**</p>
+                       <p class="first_con">丙方（居间方）：{{data.intermediary_side_A}} </p>
+                       <p class="first_con">丁方（居间方）：{{data.intermediary_side_B}}</p>
                     </div>
                 </div>
                 <div class="con_item">
@@ -24,7 +24,7 @@
                         </tr>
                         <tr>
                             <td>本金金额</td>
-                            <td colspan="3">人民币 {{amount}}元</td>
+                            <td colspan="3">人民币 {{data.loanAmount}}元</td>
                         </tr>
                         <tr>
                             <td>大写</td>
@@ -34,13 +34,13 @@
                             <td>借款用途</td>
                             <td>个人消费</td>
                             <td>年化利率</td>
-                            <td>**订单生成后可见**</td>
+                            <td>{{data.annual_interest_rate}}</td>
                         </tr>
                         <tr>
                             <td>借款起息日</td>
-                            <td>**订单生成后可见**</td>
+                            <td>{{data.loan_interest_date}}</td>
                             <td>借款到期日</td>
-                            <td>**订单生成后可见**</td>
+                            <td>{{data.loan_due_date}}</td>
                         </tr>
                         <tr>
                             <td>还款方式</td>
@@ -48,7 +48,7 @@
                         </tr>
                         <tr>
                             <td>还款期数</td>
-                            <td colspan="3">1期</td>
+                            <td colspan="3">{{data.loanPeriod}}期</td>
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
@@ -61,19 +61,19 @@
                         <tbody>
                             <tr>
                                 <td>期数</td>
-                                <td>**订单生成后可见**</td>
+                                <td>{{data.loanPeriod}}期</td>
                             </tr>
                             <tr>
                                 <td>还款日</td>
-                                <td>**订单生成后可见**</td>
+                                <td>{{data.repayDate}}</td>
                             </tr>
                             <tr>
                                 <td>还款金额</td>
-                                <td>**订单生成后可见**</td>
+                                <td>{{data.shouldPay}}元</td>
                             </tr>
                             <tr>
                                 <td>本金</td>
-                                <td>**订单生成后可见**</td>
+                                <td>{{data.loanAmount}}元</td>
                             </tr>
                             <tr>
                                 <td>利息</td>
@@ -85,12 +85,11 @@
                             </tr>
                             <tr>
                                 <td>居间服务费</td>
-                                <td>
-                                    <p>500元/7天：13.25元</p>
+                                <td>{{data.serviceFee}}</td>
+                                <!-- <p>500元/7天：13.25元</p>
                                     <p>500元/14天：46.5元</p>
                                     <p>1000元/7天：46.5元</p>
-                                    <p>1000元/14天：113元</p>
-                                </td>
+                                    <p>1000元/14天：113元</p>-->
                             </tr>
                         </tbody>
                     </table>
@@ -102,7 +101,7 @@
                         <p class="first_con">1、	《借款协议》是指本协议（以下简称“借款协议”或“本协议”，其全部内容由甲、乙双方在线以类似点击确认方式视为认可并签署，幷严格受其约束行使权利、履行义务。</p>
                         <p class="first_con">2、	借款人（“甲方”）是指《借款协议》中列明的符合中华人民共和国法律规定的具有完全民事权利能力和民事行为能力，（非高等院校全日制学生），独立行使和承担本协议项下权利义务的个体。甲方为丙方平台上的注册用户，有借款需求。</p>
                         <p class="first_con">3、	出借人（“乙方”）是指《借款协议》中列明的符合中华人民共和国法律规定的具有完全民事权利能力和民事行为能力，独立行使和承担本协议项下权利义务的个体。乙方为丁方平台上的注册用户，愿意出借合法取得的自有资金。</p>
-                        <p class="first_con">4、	居间方丙方（“丙方”）是指《借款协议》中列明的杭州数氪网络科技有限公司（以下简称“数氪科技”），其是一家提供互联网大数据风控的科技型企业，为出借人与借款人提供技术支持与结果分析，对借款人的资格条件、信息的真实性、合法性进行必要审核，给出出借款申请是否通过的建议，为甲方提供信息服务、媒介服务、合同管理、贷后管理等平台服务，并与甲方签订《平台服务协议》，丙方有权收取综合服务费。丙方的综合服务费由丙丁双方根据约定，由丁方向甲方代收并支付给丙方。</p>
+                        <p class="first_con">4、居间方丙方（“丙方”）是指《借款协议》中列明的浙江数氪金融信息服务有限公司（以下简称“数氪金服”），其是一家提供互联网大数据风控的科技型企业，为出借人与借款人提供技术支持与结果分析，对借款人的资格条件、信息的真实性、合法性进行必要审核，给出出借款申请是否通过的建议，为甲方提供信息服务、媒介服务、合同管理、贷后管理等平台服务，并与甲方签订《平台服务协议》，丙方有权收取综合服务费。丙方的综合服务费由丙丁双方根据约定，由丁方向甲方代收并支付给丙方。</p>
                         <p class="first_con">5、 居间方丁方（“丁方”）是指《借款协议》中列明的**订单生成后可见**，其是一家在杭州市合法成立并有效存续的有限责任公司，为甲、乙双方的借款提供信息服务、合同管理等服务，丁方有权收取综合服务费。</p>
                         <p class="first_con">6、	甲方账户是指甲方在银行/第三方支付机构开立的用以接受借款，支付还款的相关账户。</p>
                         <p class="first_con">7、	乙方账户是指乙方在银行/第三方支付机构开立的用以提供的发放借款，收取还款的相关账户。</p>
@@ -283,7 +282,7 @@
                 </div>
                 <div class="con_item" style="margin-top: 15px">
                     <div>
-                        <p class="first_con">甲方（借款人）：杜健平</p>
+                        <p class="first_con">甲方（借款人）：{{data.userName}}</p>
                         <p class="first_con">乙方（出借人）</p>
                         <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;margin: 5px 0;">
                             <tr>
@@ -294,12 +293,12 @@
                             <tr style="height: 26px;">
                                 <td></td>
                                 <td></td>
-                                <td></td>
+                                <td>{{data.loanAmount}}元</td>
                             </tr>
                         </table>
-                        <p class="first_con">丙方（居间方）：浙江数氪金融信息服务有限公司</p>
-                        <p class="first_con">丁方（居间方）：**订单生成后可见**</p>
-                        <p class="date fr">{{date}}</p>
+                        <p class="first_con">丙方（居间方）：{{data.intermediary_side_A}}</p>
+                        <p class="first_con">丁方（居间方）：{{data.intermediary_side_B}}</p>
+                        <p class="date fr">{{data.loan_interest_date}}</p>
                     </div>
                 </div>
             </div>
@@ -313,7 +312,7 @@
 <script>
 
     import Lib from 'assets/js/Lib';
-
+    import axios from 'axios';
     export default {
         name: 'add',
         components: {
@@ -324,7 +323,9 @@
                 name:'',
                 id:'',
                 amount:'',
-                date:''
+                date:'',
+                localUserInfo:{},
+                data:{}
             }
         },
         mounted(){
@@ -337,11 +338,15 @@
             this.date = d.getFullYear()+ '年' +
                         (d.getMonth()+1) + '月' + 
                         d.getDate() + '日'
+            this.localUserInfo = JSON.parse(localStorage.userInfo);
+            this.getLoanInfo();
         },
         computed:{
             amount_daxie(){
-                return this.DX(this.$route.query.amount)
+                /*return this.DX(this.$route.query.amount)*/
+                return this.DX(this.data.loanAmount)
             }
+
         },
         methods: {
             DX(n) {
@@ -356,7 +361,19 @@
                 for (var i=0; i < n.length; i++)
                     str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
                 return str.replace(/零(千|百|拾|角)/g, "零").replace(/(零)+/g, "零").replace(/零(万|亿|元)/g, "$1").replace(/(亿)万|壹(拾)/g, "$1$2").replace(/^元零?|零分/g, "").replace(/元$/g, "元整");
-            }
+            },
+            getLoanInfo(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'get',
+                    url:'cash-account/loan/getLoanOrderInfo/'+Lib.M.GetQueryString('orderId'),
+                    success:function(){
+                        console.log(res)
+                        self.data = res.data.data;
+                        console.log(self.data);
+                }
+                })
+            },
         }
     }
 </script>
@@ -390,7 +407,7 @@
         padding:10px;
     }
     .main .loan_num{
-        float: right;
+        text-align: right;
         font-weight: 700;
     }
     .main_head{

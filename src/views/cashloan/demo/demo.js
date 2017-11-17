@@ -8,9 +8,10 @@ import helpCenter from './helpCenterApp'
 import questionList from './questionListApp'
 import privacyAgreement from './privacyAgreementApp'
 import userAgreement from './userAgreementApp'
-import loanAgreement from './loanAgreementApp'
 import errorTip from './errorTipApp'
 import costAccount from './costAccount'
+import loanAgreementNoData from './loanAgreementNoDataApp'
+import loanAgreementHasData from './loanAgreementHasDataApp'
 
 
 
@@ -23,9 +24,10 @@ const routes = [
     { path: '/questionList', component: questionList },
     { path: '/privacyAgreement', component: privacyAgreement },
     { path: '/userAgreement', component: userAgreement },
-    { path: '/loanAgreement', component: loanAgreement },
     { path: '/errorTip', component: errorTip },
     { path: '/costAccount', component: costAccount },
+    { path: '/loanAgreementHasData', component: loanAgreementHasData },
+    { path: '/loanAgreementNoData', component: loanAgreementNoData },
 ]
 
 Vue.use(VueRouter)

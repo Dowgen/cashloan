@@ -30,7 +30,7 @@
         <p class="title">紧急联系人1({{emrContact1}})</p>
         <div class="inputer">
           <input type="text" placeholder="TA的姓名" v-model="contName1">
-          <span class="contact_list"><img src="./assets/contact_list.png" alt=""></span>
+         <!-- <span class="contact_list"><img src="./assets/contact_list.png" alt=""></span>-->
         </div>
         <div class="inputer">
           <input type="number" placeholder="TA的手机号码" v-model="contPhone1">
@@ -40,7 +40,7 @@
         <p class="title">紧急联系人2({{emrContact2}})</p>
         <div class="inputer">
           <input type="text" placeholder="TA的姓名" v-model="contName2">
-          <span class="contact_list"><img src="./assets/contact_list.png" alt=""></span>
+        <!--  <span class="contact_list"><img src="./assets/contact_list.png" alt=""></span>-->
         </div>
         <div class="inputer">
           <input type="number" placeholder="TA的手机号码" v-model="contPhone2">
@@ -171,6 +171,7 @@ export default {
 }
 </script>
 
+
 <style scoped>
   .inputer{
     position: relative;
@@ -265,3 +266,5 @@ export default {
     padding-left: 1rem;
   }
 </style>
+
+

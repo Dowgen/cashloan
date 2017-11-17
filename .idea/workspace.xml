@@ -2,38 +2,32 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="098d6b21-ab0f-4b51-ae28-54ef875fc592" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/assets/contact_list.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/assets/choose.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/banner1.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/banner2.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/banner3.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/static/assets/banner_new.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/repayFailure.vue" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/about_another.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/about_borrow.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/about_cost.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/about_repay.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/check_data.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/id-back.png" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/static/img/id-front.png" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/assets/agreeProto.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementHasDataApp.vue" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/loanAgreementApp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build/webpack.base.conf.js" afterPath="$PROJECT_DIR$/build/webpack.base.conf.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/css/common.css" afterPath="$PROJECT_DIR$/src/assets/css/common.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/assets/js/common.js" afterPath="$PROJECT_DIR$/src/assets/js/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/aboutJuHeApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/aboutJuHeApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/demo.js" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/demo.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/helpCenterApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/helpCenterApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/privacyAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/privacyAgreementApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/userAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/userAgreementApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/privacyAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/privacyAgreementApp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/login/userAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/login/userAgreementApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/mainPage/loanAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/loanAgreementApp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.html" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementApp.vue" afterPath="$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementNoDataApp.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -47,41 +41,25 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="costAccount.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-              <folding>
-                <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#p#1;n#div#2;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="mainPageApp.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="mainPageApp.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="62" column="38" lean-forward="true" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
-              <folding>
-                <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#img#0;n#span#2;n#div#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                <element signature="e#2041#2095#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="455">
+              <caret line="187" column="11" lean-forward="false" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="costAccount.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue">
+      <file leaf-file-name="loanAgreementApp.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanAgreementApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
-              <folding />
+            <state relative-caret-position="168">
+              <caret line="369" column="60" lean-forward="false" selection-start-line="369" selection-start-column="25" selection-end-line="369" selection-end-column="60" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+                <element signature="e#19537#19569#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -89,8 +67,8 @@
       <file leaf-file-name="demo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/demo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+            <state relative-caret-position="368">
+              <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="34" />
               <folding>
                 <element signature="e#0#21#0" expanded="true" />
               </folding>
@@ -98,48 +76,41 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="repayFailure.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/repayFailure.vue">
+      <file leaf-file-name="common.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="23">
-              <caret line="83" column="24" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
-              <folding>
-                <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-              </folding>
+            <state relative-caret-position="83">
+              <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="setCenterApp.vue" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
+      <file leaf-file-name="loanAgreementHasDataApp.vue" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementHasDataApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="552">
-              <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-              <folding>
-                <marker date="1509441937259" expanded="false" signature="1967:1999" ph="..." />
-                <marker date="1509441937259" expanded="false" signature="2115:2167" ph="..." />
-              </folding>
+            <state relative-caret-position="320">
+              <caret line="371" column="43" lean-forward="true" selection-start-line="371" selection-start-column="43" selection-end-line="371" selection-end-column="43" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="myInfo.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js">
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/assets/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="276">
-              <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="159">
+              <caret line="213" column="18" lean-forward="false" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="18" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="mainPage.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js">
+      <file leaf-file-name="loanAgreementNoDataApp.vue" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementNoDataApp.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="184">
-              <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="18" />
+            <state relative-caret-position="1798">
+              <caret line="79" column="199" lean-forward="false" selection-start-line="79" selection-start-column="198" selection-end-line="79" selection-end-column="199" />
               <folding />
             </state>
           </provider>
@@ -151,6 +122,23 @@
     <findStrings>
       <find>about_loan</find>
       <find>loanStatus</find>
+      <find>styleActive</find>
+      <find>console</find>
+      <find>td</find>
+      <find>loandetail</find>
+      <find>agreement</find>
+      <find>tr</find>
+      <find>orderId</find>
+      <find>amount_daxie</find>
+      <find>期数</find>
+      <find>name</find>
+      <find>居间方丙方（“丙方”）是指《借款协议》</find>
+      <find>理财</find>
+      <find>理财</find>
+      <find>数氪</find>
+      <find>炬合</find>
+      <find>金融</find>
+      <find>body</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -161,14 +149,11 @@
       <list>
         <option value="$PROJECT_DIR$/src/components/HbHead.vue" />
         <option value="$PROJECT_DIR$/src/components/mainNav.vue" />
-        <option value="$PROJECT_DIR$/src/assets/js/common.js" />
         <option value="$PROJECT_DIR$/src/assets/js/pickerList.js" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/bankNumApp.vue" />
         <option value="$PROJECT_DIR$/src/assets/css/common.css" />
         <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/questionListApp.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue" />
@@ -178,19 +163,32 @@
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/test.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/bindBankCard.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/demo/contactUsApp.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/repayFailure.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/costAccount.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.html" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js" />
         <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.html" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue" />
-        <option value="$PROJECT_DIR$/src/views/cashloan/demo/demo.js" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue" />
+        <option value="$PROJECT_DIR$/src/assets/js/common.js" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/aboutJuHeApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/userAgreementApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementNoDataApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/infoFIll/privacyAgreementApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/login/userAgreementApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/loanAgreementApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/privacyAgreementApp.vue" />
         <option value="$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/myInfo/loanAgreementApp.vue" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/demo.js" />
+        <option value="$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementHasDataApp.vue" />
       </list>
     </option>
   </component>
@@ -205,7 +203,7 @@
   <component name="NodeModulesDirectoryManager">
     <handled-path value="$PROJECT_DIR$/node_modules" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="480" />
     <option name="width" value="919" />
     <option name="height" value="788" />
@@ -228,7 +226,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -247,6 +244,13 @@
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="assets" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="assets" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
@@ -290,7 +294,7 @@
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
-              <item name="mainPage" type="462c0819:PsiDirectoryNode" />
+              <item name="login" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
@@ -299,7 +303,6 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
               <item name="mainPage" type="462c0819:PsiDirectoryNode" />
-              <item name="assets" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
@@ -308,6 +311,22 @@
               <item name="views" type="462c0819:PsiDirectoryNode" />
               <item name="cashloan" type="462c0819:PsiDirectoryNode" />
               <item name="myInfo" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="operatorF" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="views" type="462c0819:PsiDirectoryNode" />
+              <item name="cashloan" type="462c0819:PsiDirectoryNode" />
+              <item name="operatorS" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="cashloan" type="b2602c69:ProjectViewProjectNode" />
@@ -324,6 +343,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -336,18 +356,19 @@
     <property name="node.js.path.for.package.standard" value="project" />
     <property name="node.js.detected.package.standard" value="true" />
     <property name="node.js.selected.package.standard" value="" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/现金斗士" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/juhe" />
+    <property name="ToolWindowTODO.ShowToolbar" value="false" />
   </component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\Project\cashloan\src\views\cashloan\demo" />
+      <recent name="E:\Project\cashloan\src\views\cashloan\myInfo\assets" />
+      <recent name="E:\Project\cashloan\src\views\cashloan\myInfo" />
+      <recent name="E:\Project\cashloan\static\assets" />
+      <recent name="E:\Project\cashloan\src\views\cashloan\infoFIll\assets" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="E:\Project\cashloan\src\views\cashloan\mainPage" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="E:\Project\cashloan\static\assets" />
-      <recent name="E:\Project\cashloan\src\views\cashloan\demo" />
-      <recent name="E:\Project\cashloan\src\views\cashloan\myInfo" />
-      <recent name="E:\Project\cashloan\src\views\cashloan\infoFIll\assets" />
-      <recent name="E:\Project\cashloan\src\views\cashloan\myInfo\assets" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -365,6 +386,9 @@
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="098d6b21-ab0f-4b51-ae28-54ef875fc592" name="Default" comment="" />
@@ -380,22 +404,39 @@
       <workItem from="1509327773719" duration="829000" />
       <workItem from="1509349750650" duration="6226000" />
       <workItem from="1509413491807" duration="18602000" />
-      <workItem from="1509501745171" duration="3528000" />
+      <workItem from="1509501745171" duration="16046000" />
+      <workItem from="1509589464196" duration="15929000" />
+      <workItem from="1510540053373" duration="1661000" />
+      <workItem from="1510714144946" duration="1704000" />
+      <workItem from="1510732027804" duration="7317000" />
+      <workItem from="1510815397443" duration="1928000" />
+      <workItem from="1510885619676" duration="15251000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122415000" />
+    <option name="totallyTimeSpent" value="178723000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <editor active="true" />
     <layout>
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24963397" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.234375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07742998" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -405,9 +446,27 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="npm" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23499268" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32857144" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -422,68 +481,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-184">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/mainNav.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="13" lean-forward="true" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/bankInfoApp.vue" />
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/loginApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="44" column="73" lean-forward="false" selection-start-line="44" selection-start-column="42" selection-end-line="44" selection-end-column="73" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/login2App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="46">
-          <caret line="2" column="4" lean-forward="false" selection-start-line="2" selection-start-column="4" selection-end-line="2" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/registApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="6" column="34" lean-forward="false" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_nameApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="483">
-          <caret line="65" column="6" lean-forward="true" selection-start-line="54" selection-start-column="3" selection-end-line="65" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/Lib.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="15" column="21" lean-forward="false" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/favicon.ico">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/conf.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/assets/js/pickerList.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="4215">
@@ -491,73 +488,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1110">
-          <caret line="563" column="11" lean-forward="true" selection-start-line="563" selection-start-column="11" selection-end-line="563" selection-end-column="11" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/tools/ajax/ajaxApp.vue" />
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/assets/headshot.png">
       <provider selected="true" editor-type-id="images">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23">
-          <caret line="49" column="22" lean-forward="false" selection-start-line="49" selection-start-column="22" selection-end-line="49" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="63" column="22" lean-forward="false" selection-start-line="63" selection-start-column="22" selection-end-line="63" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="70" column="24" lean-forward="false" selection-start-line="70" selection-start-column="24" selection-end-line="70" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="759">
-          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/questionListApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1058">
-          <caret line="45" column="22" lean-forward="false" selection-start-line="45" selection-start-column="22" selection-end-line="45" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2254">
-          <caret line="100" column="42" lean-forward="false" selection-start-line="100" selection-start-column="42" selection-end-line="100" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="897">
-          <caret line="39" column="22" lean-forward="false" selection-start-line="39" selection-start-column="22" selection-end-line="39" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/nickApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1265">
-          <caret line="55" column="49" lean-forward="false" selection-start-line="55" selection-start-column="49" selection-end-line="55" selection-end-column="49" />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue">
@@ -568,95 +502,10 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/wesds" />
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="10" column="21" lean-forward="false" selection-start-line="10" selection-start-column="21" selection-end-line="10" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/bindBankCard.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/confirmRent.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/privacyAgreementApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/questionListApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/userAgreementApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/helpCenterApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/errorTipApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/demoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/aboutJuHeApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/contactUsApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="42" column="7" lean-forward="false" selection-start-line="42" selection-start-column="7" selection-end-line="42" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="391">
-          <caret line="42" column="88" lean-forward="false" selection-start-line="42" selection-start-column="88" selection-end-line="42" selection-end-column="88" />
         </state>
       </provider>
     </entry>
@@ -665,124 +514,358 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6877">
-          <caret line="262" column="5" lean-forward="true" selection-start-line="262" selection-start-column="5" selection-end-line="262" selection-end-column="5" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/assets/loan_detail_head_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/assets/loan_record_head_bg.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/v_personalInfoApp.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="12" column="18" lean-forward="false" selection-start-line="12" selection-start-column="18" selection-end-line="12" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="552">
-          <caret line="24" column="39" lean-forward="false" selection-start-line="24" selection-start-column="39" selection-end-line="24" selection-end-column="39" />
-          <folding>
-            <marker date="1509441937259" expanded="false" signature="1967:1999" ph="..." />
-            <marker date="1509441937259" expanded="false" signature="2115:2167" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="107" column="0" lean-forward="false" selection-start-line="107" selection-start-column="0" selection-end-line="107" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#p#1;n#div#0;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#1;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#p#1;n#div#2;n#div#0;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="419">
+          <caret line="269" column="0" lean-forward="false" selection-start-line="269" selection-start-column="0" selection-end-line="269" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="33" column="0" lean-forward="true" selection-start-line="33" selection-start-column="0" selection-end-line="33" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="460">
+          <caret line="20" column="0" lean-forward="false" selection-start-line="20" selection-start-column="0" selection-end-line="20" selection-end-column="0" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="33" column="55" lean-forward="false" selection-start-line="33" selection-start-column="55" selection-end-line="33" selection-end-column="55" />
+        <state relative-caret-position="213">
+          <caret line="36" column="49" lean-forward="true" selection-start-line="36" selection-start-column="49" selection-end-line="36" selection-end-column="49" />
           <folding>
-            <element signature="e#0#21#0" expanded="true" />
+            <element signature="e#0#21#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="230">
-          <caret line="190" column="64" lean-forward="false" selection-start-line="190" selection-start-column="16" selection-end-line="190" selection-end-column="64" />
-          <folding>
-            <element signature="e#3795#3827#0" expanded="true" />
-          </folding>
-        </state>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/assets/agreeProto.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/repayFailure.vue">
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/confirmRent.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="83" column="24" lean-forward="false" selection-start-line="83" selection-start-column="24" selection-end-line="83" selection-end-column="24" />
+        <state relative-caret-position="173">
+          <caret line="49" column="63" lean-forward="false" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="63" />
           <folding>
-            <element signature="n#style#0;n#img#0;n#span#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#4346#4597#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPage.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="7" selection-end-line="8" selection-end-column="18" />
+        <state relative-caret-position="161">
+          <caret line="18" column="55" lean-forward="true" selection-start-line="18" selection-start-column="2" selection-end-line="18" selection-end-column="55" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/contactUsApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="11" column="20" lean-forward="false" selection-start-line="11" selection-start-column="20" selection-end-line="11" selection-end-column="20" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/costAccount.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="23">
-          <caret line="1" column="9" lean-forward="false" selection-start-line="1" selection-start-column="9" selection-end-line="1" selection-end-column="9" />
+        <state relative-caret-position="166">
+          <caret line="83" column="9" lean-forward="false" selection-start-line="83" selection-start-column="9" selection-end-line="83" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/demoApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/errorTipApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/helpCenterApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="188" column="33" lean-forward="false" selection-start-line="188" selection-start-column="33" selection-end-line="188" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/questionListApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="13" column="33" lean-forward="false" selection-start-line="13" selection-start-column="33" selection-end-line="13" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/userAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="4" column="131" lean-forward="false" selection-start-line="4" selection-start-column="130" selection-end-line="4" selection-end-column="131" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/registApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="6" column="25" lean-forward="true" selection-start-line="6" selection-start-column="25" selection-end-line="6" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/costAccount.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="230" column="5" lean-forward="true" selection-start-line="230" selection-start-column="5" selection-end-line="230" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/loanAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="299" column="67" lean-forward="false" selection-start-line="299" selection-start-column="67" selection-end-line="299" selection-end-column="67" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/aboutJuHeApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="7" column="37" lean-forward="false" selection-start-line="7" selection-start-column="37" selection-end-line="7" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/aboutUsApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="143">
+          <caret line="27" column="14" lean-forward="false" selection-start-line="27" selection-start-column="14" selection-end-line="27" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/addBankApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="107">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/adviceFillApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="70" column="9" lean-forward="true" selection-start-line="70" selection-start-column="9" selection-end-line="70" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/bindBankCard.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-31">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/contactUsApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="573">
+          <caret line="56" column="5" lean-forward="true" selection-start-line="56" selection-start-column="5" selection-end-line="56" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/fillMyInfoApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="251">
+          <caret line="29" column="8" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/helpCenterApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="246" column="0" lean-forward="true" selection-start-line="246" selection-start-column="0" selection-end-line="246" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanDetailApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="161" column="15" lean-forward="false" selection-start-line="161" selection-start-column="15" selection-end-line="161" selection-end-column="15" />
+          <folding>
+            <element signature="e#4716#5882#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanRecordApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="9" column="7" lean-forward="false" selection-start-line="9" selection-start-column="7" selection-end-line="9" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/myInfoApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="205">
+          <caret line="121" column="0" lean-forward="true" selection-start-line="121" selection-start-column="0" selection-end-line="121" selection-end-column="0" />
+          <folding>
+            <element signature="e#3795#3827#0" expanded="true" />
+            <element signature="e#6184#6792#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/nickApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="43" column="13" lean-forward="true" selection-start-line="43" selection-start-column="13" selection-end-line="43" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/questionListApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="273">
+          <caret line="36" column="5" lean-forward="true" selection-start-line="36" selection-start-column="5" selection-end-line="36" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/repayFailure.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="130">
+          <caret line="80" column="0" lean-forward="true" selection-start-line="80" selection-start-column="0" selection-end-line="80" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/setCenterApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="97" column="3" lean-forward="true" selection-start-line="97" selection-start-column="3" selection-end-line="97" selection-end-column="3" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/infoFIll/privacyAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="43" column="97" lean-forward="false" selection-start-line="43" selection-start-column="97" selection-end-line="43" selection-end-column="97" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/login/userAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="39" column="101" lean-forward="false" selection-start-line="39" selection-start-column="99" selection-end-line="39" selection-end-column="101" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/privacyAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="189">
+          <caret line="39" column="290" lean-forward="false" selection-start-line="39" selection-start-column="290" selection-end-line="39" selection-end-column="290" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/aboutJuHeApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="113">
+          <caret line="31" column="18" lean-forward="true" selection-start-line="31" selection-start-column="18" selection-end-line="31" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="455">
+          <caret line="187" column="11" lean-forward="false" selection-start-line="187" selection-start-column="11" selection-end-line="187" selection-end-column="11" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/demo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="276">
-          <caret line="27" column="53" lean-forward="true" selection-start-line="27" selection-start-column="53" selection-end-line="27" selection-end-column="53" />
+        <state relative-caret-position="368">
+          <caret line="28" column="34" lean-forward="false" selection-start-line="28" selection-start-column="14" selection-end-line="28" selection-end-column="34" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/views/cashloan/mainPage/mainPageApp.vue">
+    <entry file="file://$PROJECT_DIR$/src/assets/css/common.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="62" column="38" lean-forward="true" selection-start-line="62" selection-start-column="38" selection-end-line="62" selection-end-column="38" />
+        <state relative-caret-position="83">
+          <caret line="87" column="20" lean-forward="true" selection-start-line="87" selection-start-column="20" selection-end-line="87" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementNoDataApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1798">
+          <caret line="79" column="199" lean-forward="false" selection-start-line="79" selection-start-column="198" selection-end-line="79" selection-end-column="199" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/assets/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="213" column="18" lean-forward="false" selection-start-line="213" selection-start-column="4" selection-end-line="213" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/myInfo/loanAgreementApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="369" column="60" lean-forward="false" selection-start-line="369" selection-start-column="25" selection-end-line="369" selection-end-column="60" />
           <folding>
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#img#0;n#span#2;n#div#4;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="e#2041#2095#0" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#template#0;n#!!top" expanded="true" />
+            <element signature="e#19537#19569#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/views/cashloan/demo/loanAgreementHasDataApp.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="371" column="43" lean-forward="true" selection-start-line="371" selection-start-column="43" selection-end-line="371" selection-end-column="43" />
+          <folding />
         </state>
       </provider>
     </entry>

@@ -26,9 +26,6 @@
             </div>
 
         </div>
-
-       <!-- <div class="company">杭州炬合网络科技有限公司</div>-->
-
     </div>
 </template>
 

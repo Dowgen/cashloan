@@ -52,23 +52,26 @@
                <div class="fee_detail_item">
                    <div class="first_title">一、贷款费用说明</div>
                    <div class="second_con">
-                       现金斗士的贷后综合费用，按实际的贷款天数收取，低至万分之6/天，年利率最高不超过36%，实际利率将根据您的资料确定。期限为1个月，假如您在本月18号贷款，需在次月17号前还清贷款。可提前还款，利息按实际贷款天数收取。
+                       <p> 现金斗士的贷后综合费用按实际的天数收取，利息低至0.05%/天，年利率最高不超过20%。</p>
+                       <p>用户借款须支付信用认证费，每笔2-5元/周/100元；</p>
+                       <p>居间服务费为1-3元/周/100元（单笔上限50元/周，用于平台运营）</p>
                    </div>
                </div>
                <div class="fee_detail_item">
                    <div class="first_title">二、逾期费用说明</div>
                    <div class="second_con">
+                       <p>未及时还款时会产生相应的逾期违约金,计算方式如下：</p>
 
-                       当您贷款超过一个月仍未还款时，我们将根据贷款金额的不同，按日收取逾期综合费用。收取规则如下：
-                       <br>
-                       <br>
-                       逾期后，应还金额为：贷款金额 + 贷款金额 * 0.06% * 借款天数 + 逾期综合费用。
+                       <p>逾期 1～14天（含14天） &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.5% * 剩余本金</p>
+                       <p>逾期15～60天（含60天） &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.75% * 剩余本金</p>
+                       <p>逾期>60天             &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.85% * 剩余本金</p>
                    </div>
                </div>
                <div class="fee_detail_item">
                    <div class="first_title">三、逾期费用说明</div>
                    <div class="second_con">
-                       请保持良好的还款习惯，否则将影响您在现金都是的信用额度、贷款申请通过率及人行征信的信用评分。
+                       <p> 出借人为银行、消费金融公司或其他合法合规的出借人，利率严格遵行法律规定，现金斗士平台不直接放贷。以上费用为区间参考标准，将根据借款人的信用状况、信用额度、借款期数等多因素进行相应浮动，具体以最终确认并签署的相关协议所载明内容为准。</p>
+                       <p>请保持良好的还款习惯，否则会影响您在现金斗士的信用额度、审核通过率及信用评分。</p>
                    </div>
                </div>
            </div>
@@ -95,6 +98,10 @@ export default {
         href:'',
         loanAmount:500,
         term: 7,
+        styleActive:{
+            'border-color': '#1abc9c',
+            'color': '#1abc9c'
+        },
         loanFee:''
     }
   },
@@ -209,7 +216,6 @@ export default {
         height: 0.53rem;
     }
     .fee_des{
-        width:100%;
         height:2.5rem;
         background:rgba(250,250,250,1);
         line-height: 2.5rem;
@@ -221,6 +227,7 @@ export default {
     .fee_detail{
         width: 100%;
         background: #fff;
+        height: 35rem;
     }
     .fee_detail_item{
         padding: 0 1rem;
@@ -233,7 +240,7 @@ export default {
     }
     .fee_detail_item .second_con{
         color: #666;
-        line-height:1.155rem;
+        line-height:1.5rem;
         text-indent: 2em;
     }
 </style>
