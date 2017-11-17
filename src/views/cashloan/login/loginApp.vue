@@ -1,8 +1,9 @@
 <template>
-  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
+  <div class="wrapper">
   <!-- <hb-head headfont="注册"></hb-head> -->
     <div class="logo">
       <img src="./assets/logo.png">
+      <p>欢迎使用现金斗士</p>
     </div>
     <div class="input">
       <img src="./assets/phone.png" class="img-icon">
@@ -10,8 +11,11 @@
       <img src="./assets/delete.png" class="img-del" 
            v-show="phoneNum!=''" @click="phoneNum=''">
     </div>
-    <x-button type="primary" class="btn" @click.native="phoneVerify">开始使用</x-button>
+    <div type="primary" class="btn" @click="phoneVerify">开始使用</div>
     <div class="pad-btm"></div>
+    <div class="footer">
+      <img src="./assets/footer.png">
+    </div>
   </div>
 </template>
 
@@ -112,15 +116,16 @@ export default {
 </script>
 
 <style>
+  input::-webkit-input-placeholder{text-align: center;} 
   .wrapper{
     position: absolute;
     width: 100%;
     height: 100%;
-    background-image: url('./assets/bg1.png');
+    /* background-image: url('./assets/bg1.png');
     background-color: white;
     background-repeat: no-repeat;
     background-size: 100% 100%;
-    background-position: center 65px;
+    background-position: center 65px; */
   }
   @media screen and (orientation: landscape) {
     body{
@@ -139,26 +144,34 @@ export default {
   .logo{
     width: 100%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding-top: 8.1rem;
+    padding-top: 6rem;
   }
   .logo>img{
-    width:3.4rem;
-    height: 3.44rem;
+    width:5.6rem;
+    height: 5.6rem;
+  }
+  .logo>p{
+    color: #22A88A;
+    font-size: 0.815rem;
+    margin-top: 1.1rem;
   }
   .input{
     position: relative;
     display: flex;
     justify-content: flex-start;
     align-items: center;
-    width: 20.315rem;
+    width: 18.35rem;
     margin: 0 auto;
     margin-top: 5.31rem;
-    height: 2.41rem;
-    border-bottom: solid 1px #e6e6e6;
+    height: 2.565rem;
+    border: solid 1px #e6e6e6;
+    border-radius: 20px;
   }
   .img-icon{
+    display: none;
     width: 0.75rem;
     height: 1.065rem;
     margin-left: .2rem;
@@ -171,18 +184,35 @@ export default {
     right: 1rem;
   }
   .input>input{
+    width: 100%;
     outline: none;
     border: none;
-    margin-left: 1.375rem;
     font-size: 1rem;
-    height: 1.065rem;
-    line-height: 1.065rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+    margin: 0 1rem;
   }
   .btn{
-    margin-top: 2.25rem;
+    width: 18.35rem;
+    height: 2.565rem;
+    line-height: 2.565rem;
+    text-align: center;
+    background: #1abc9c;
+    color: white;
+    margin:0 auto;
+    margin-top: 1.69rem;
+    border-radius: 20px;
   }
   .pad-btm{
     height: 3rem;
     visibility: hidden;
+  }
+  .footer{
+    position: absolute;
+    bottom: 0;
+  }
+  .footer>img{
+    width: 100%;
+    height: 4.065rem;
   }
 </style>

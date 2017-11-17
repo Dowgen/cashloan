@@ -222,7 +222,7 @@ export default {
           /* 认证过了，不作跳转 */
         }else{
           window.location.href=
-            'https://finbridge.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
+            'https://api.moneyboom.cn/risk-manage/zhima/zhimaAuth?name=' + this.userInfo.idInfo.name +
             '&certNo=' + this.userInfo.idInfo.idCardNumber +
             '&phoneNum='+ this.userInfo.userInfo.phone +
             '&user_id=' + this.userInfo.userInfo.userId

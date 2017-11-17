@@ -1,14 +1,15 @@
 <template>
-  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
+  <div class="wrapper">
   	<hb-head headfont="手机验证"></hb-head>
     
     <div class="welcome">
+      <img src="./assets/logo.png">
       <h2>已发送验证短信到号码</h2>
       <p>{{phoneNum}}</p>
     </div>
     <div class="input input-regist">
       <img src="./assets/icon_key.png" class="img-icon" style="width:0.5rem;padding:0 0.125rem">
-      <input type="number" placeholder="短信验证码" v-model="verifyCode"
+      <input type="number" placeholder="请输入短信验证码" v-model="verifyCode"
              oninput="if(value.length>4)value=value.slice(0,4)">
       <div class="d-button">
         <div v-show="start" >
@@ -17,7 +18,7 @@
         <div v-show="!start" @click="begin1">{{countDownText}}</div>
       </div>
     </div>
-    <div class="input input-regist" style="margin-top:2.2rem;">
+    <div class="input input-regist" style="margin-top:1.69rem;">
       <img src="./assets/code_key.png" class="img-icon">
       <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
       <input placeholder="请设置登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
@@ -28,11 +29,13 @@
         <img src="./assets/eye_open.png" class="icon-eye icon-eye-open" v-show="pswdShow" @click="pswdShow=false">
       </div>
     </div>
-  	<x-button type="primary" style="margin-top:5.19rem" @click.native="registOrchange">登录</x-button>
+  	<div type="primary" class="btn" @click="registOrchange">登录</div>
 		<div class="agreeProto">
       开始使用即同意<span style="color:#1abc9c" @click="$router.push({path:'/userAgreement'})">《用户服务协议》</span>
     </div>
-
+    <div class="footer">
+      <img src="./assets/footer.png">
+    </div>
     <div class="pad-btm"></div>
   </div>
 </template>
@@ -213,12 +216,12 @@ export default {
 
 <style>
 .input-regist{
-  margin-top: 2.72rem;
+  margin-top: 2.3rem;
   height: 2.22rem;
 }
 .agreeProto{
   text-align: center;
-  color: #545454;
+  color: #919499;
   font-size: 0.75rem;
   margin-top: 0.72rem;
 }
@@ -233,4 +236,10 @@ export default {
   line-height:1.5rem;
   border-left: solid 1px #b5b5b5;
 }
+</style>
+<style scoped>
+  input::-webkit-input-placeholder{text-align: left;} 
+  .input>input{
+    margin:0 2rem;
+  }
 </style>

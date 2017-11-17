@@ -89,15 +89,6 @@ html {
     /* font-family: "PingFang-SC-Regular" !important; */
     height: 100%;
 }
-body{
-	box-sizing: border-box;
-    background: #f2f2f2;
-    max-width: 640px;
-	position: relative; /*!important;  此处important为了覆盖vux设置的fixed */
-	min-height: 100%;
-    margin:0 auto !important;
-    padding-bottom: 3.065rem;
-}
 @media screen and (min-width: 300px) {
     html {
         /* iPhone6的375px尺寸作为16px基准，414px正好18px大小, 600 20px */

@@ -1,12 +1,13 @@
 <template>
-  <div class="wrapper" style="background-image: url('../../static/img/bg1.png');">
+  <div class="wrapper">
   	<hb-head headfont="登录"></hb-head>
     
     <div class="welcome">
+      <img src="./assets/logo.png">
       <h2>欢迎登录现金斗士</h2>
       <p>{{phoneNum}}</p>
     </div>
-    <div class="input">
+    <div class="input" style="margin-top:4rem;">
       <img src="./assets/code_key.png" class="img-icon">
       <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="password" v-show="!pswdShow">
       <input placeholder="请输入登录密码" v-model="password" maxlength="16" type="text" v-show="pswdShow">
@@ -17,12 +18,14 @@
         <img src="./assets/eye_open.png" class="icon-eye icon-eye-open" v-show="pswdShow" @click="pswdShow=false">
       </div>
     </div>
-  	<x-button type="primary" class="btn" @click.native="login">登录</x-button>
+  	<div type="primary" class="btn" @click="login">登录</div>
   	<div class="fgtPassword" @click="fgtPassword">
         忘记密码？短信验证码登录  
     </div>
     <div class="pad-btm"></div>
-
+    <div class="footer">
+      <img src="./assets/footer.png">
+    </div>
     <toast v-model="toastWarn" type="warn">{{WarnText}}</toast>
   </div>
 </template>
@@ -109,10 +112,15 @@ export default {
   flex-direction: column;
   margin-top: 2.65rem;
 }
+.welcome>img{
+  width:5.6rem;
+  height: 5.6rem;
+}
 .welcome>h2{
   font-size: 0.94rem;
-  color: #535353;
+  color: #898989;
   font-weight: normal;
+  margin-top: 1.1rem;
 }
 .welcome>p{
   margin-top: 0.845rem;
@@ -123,13 +131,13 @@ export default {
   width: 19.315rem;
   margin: 0 auto;
   text-align: right;
-  color: #545454;
+  color: #898989;
   font-size: 0.75rem;
   margin-top: 0.72rem;
 }
 .password-icon{
   position: absolute;
-  right: 0.5rem;
+  right: 1rem;
   width: 4rem;
   height: 2.2rem;
   display: flex;

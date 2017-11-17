@@ -33,7 +33,7 @@
       <div class="main" v-show="page===2">
         <div class="main-con">
           <img src="./assets/right.png">
-          <div class="congratulation">恭喜您，注册成功!</div class="congratulation">
+          <div class="congratulation">恭喜您，注册成功!</div>
           <div class="btn" @click="openApp">去借款</div>
           <p>*下载【现金斗士APP】后，用手机号登录即可借款！</p>
         </div>
