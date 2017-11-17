@@ -175,12 +175,12 @@
             jumpToAgreement(){
                 var self = this;
                 self.$router.push({
-                    path:'/loanAgreement',
+                    path:'/loanAgreement'/*,
                     query: {
                         name: self.userInfo.idInfo.name,
                         id:   self.userInfo.idInfo.idCardNumber,
                         amount: self.shouldPay
-                    }
+                    }*/
                 })
             }
         }

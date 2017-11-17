@@ -319,25 +319,10 @@
         },
         data () {
             return {
-                name:'',
-                id:'',
-                amount:'',
-                date:'',
-                localUserInfo:{},
                 info:{}
             }
         },
         mounted(){
-            this.name = this.$route.query.name
-            this.id = this.$route.query.id
-            this.id = '************'+this.id.substr(14,16)
-            this.amount = this.$route.query.amount
-
-            let d = new Date();
-            this.date = d.getFullYear()+ '年' +
-                        (d.getMonth()+1) + '月' + 
-                        d.getDate() + '日'
-            this.localUserInfo = JSON.parse(localStorage.userInfo);
             this.getLoanInfo();
         },
         computed:{
@@ -365,7 +350,7 @@
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
-                   //http://192.168.1.174:6080/loan/getLoanOrderInfo/JHCL171021233617486447
+                    headers:{},
                     url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,
                     success:function(res){
                         console.log(res)

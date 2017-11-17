@@ -1,9 +1,5 @@
 <template>
     <div>
-        <div class="agreement_head">
-            <span @click="$router.go(-1)" class="back"><img style=" width:0.655rem;height: 1.065rem;display: inline-block;" src="./assets/back.png" alt=""></span>
-            <span>借款协议</span>
-        </div>
 
         <div class="main">
             <div class="loan_num">编号：{{info.orderId}}</div>
@@ -11,7 +7,7 @@
                 <div class="con_item" style="margin-top: 0;">
                     <div>
                         <p class="first_con">甲方（借款人）：{{info.userName}}</p>
-                        <p class="first_con">身份证号码：************{{info.userId}}</p>
+                        <p class="first_con">身份证号码：************{{info.userId.substr(14,16)}}</p>
                         <p class="first_con">乙方（出借人）：乙方（出借人）相关明细详见本协议后附表。</p>
                        <p class="first_con">丙方（居间方）：{{info.intermediary_side_A}} </p>
                        <p class="first_con">丁方（居间方）：{{info.intermediary_side_B}}</p>
@@ -319,21 +315,10 @@
         },
         data () {
             return {
-                name:'',
-                id:'',
-                amount:'',
-                date:'',
-                localUserInfo:{},
                 info:{}
             }
         },
         mounted(){
-
-            let d = new Date();
-            this.date = d.getFullYear()+ '年' +
-                        (d.getMonth()+1) + '月' + 
-                        d.getDate() + '日'
-
             this.getLoanInfo();
         },
         computed:{
@@ -362,6 +347,7 @@
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
+                    headers:{},
                     url:'cash-account/loan/getLoanOrderInfo/'+this.$route.query.orderId,
                     success:function(res){
                         console.log(res)
