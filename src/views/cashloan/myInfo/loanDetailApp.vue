@@ -354,7 +354,7 @@
         margin: 0 auto;
         color: #919499;
         font-size: 0.75rem;
-        margin-top: 3.5rem;
+        margin-top: 4.5rem;
     }
     .agreement>img{
         width: 0.6rem;
