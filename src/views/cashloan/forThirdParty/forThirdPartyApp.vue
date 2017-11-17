@@ -7,10 +7,10 @@
       <div class="main" v-show="page===1">
         <p class="tip1">已注册用户请<span @click="openApp">使用App登录</span></p>
         <div class="input">
-          <input placeholder="请输入手机号" v-model="phoneNum" maxlength="11">
+          <input placeholder="请输入手机号" v-model="phoneNum" maxlength="11" style="width:100%">
         </div>
         <div class="input">
-          <input placeholder="请设置密码" v-model="password" maxlength="11" type="password">
+          <input placeholder="请设置密码" v-model="password" maxlength="16" type="password" style="width:100%">
         </div>
         <div class="input">
           <input placeholder="请输入验证码" v-model="verifyCode" maxlength="11">
@@ -23,10 +23,10 @@
         </div>
         <div class="btn" @click="clickBtn">点此领钱</div>
         <p class="tip2">*注册即代表阅读并同意
-          <span>《注册协议》</span>
+          <span @click="$router.push('userAgreement')">《注册协议》</span>
         </p>
         <p class="tip2" style="margin-top:0">及
-          <span>《隐私政策及授权使用协议》</span>
+          <span @click="$router.push('privacyAgreement')">《隐私政策及授权使用协议》</span>
         </p>
         <p class="tip3">借贷有风险，需谨慎</p>
       </div>
@@ -320,8 +320,9 @@ export default {
   }
   .tip2{
     width: 100%;
+    height: 0.8rem;
     text-align: center;
-    margin-top: 0.6rem;
+    margin-top: 0.4rem;
     color: #ff7e00;
     font-size: 0.6rem;
   }
