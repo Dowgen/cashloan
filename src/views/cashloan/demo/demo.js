@@ -9,6 +9,7 @@ import questionList from './questionListApp'
 import privacyAgreement from './privacyAgreementApp'
 import userAgreement from './userAgreementApp'
 import errorTip from './errorTipApp'
+import errorTip2 from './errorTip2App'
 import costAccount from './costAccount'
 import loanAgreementNoData from './loanAgreementNoDataApp'
 import loanAgreementHasData from './loanAgreementHasDataApp'
@@ -25,6 +26,7 @@ const routes = [
     { path: '/privacyAgreement', component: privacyAgreement },
     { path: '/userAgreement', component: userAgreement },
     { path: '/errorTip', component: errorTip },
+    { path: '/errorTip2', component: errorTip2 },
     { path: '/costAccount', component: costAccount },
     { path: '/loanAgreementHasData', component: loanAgreementHasData },
     { path: '/loanAgreementNoData', component: loanAgreementNoData },

@@ -36,29 +36,56 @@
             return {
                 words:'',
                 adviceType:[],
-                adviceList: Lib.M.adviceList,
+                adviceList: [],
                 localUserInfo:{},
 
             }
         },
         mounted(){
             this.localUserInfo = JSON.parse(localStorage.userInfo);
+            this.getAdviceList();
         },
         methods: {
+            getAdviceList(){
+              var self = this;
+              Lib.M.ajax({
+                type: 'get',
+                url : 'cash-account/dict/getDict/suggestionType',
+                success:function (data){
+                  for(let i in data){
+                    let e = data[i];
+                    self.adviceList.push({
+                      name:e.label,
+                      value:e.label,
+                      key: e.key,
+                      parent: 0
+                    })
+                  }
+                }
+              });
+            },
             submitAdvice(){
                 var self = this;
-
+                console.log(self.adviceType)
+                // type生成
+                let type;
+                for(let i in self.adviceList){
+                    let e = self.adviceList[i];
+                    if(self.adviceType[0] == e.value){
+                        type = parseInt(e.key);
+                    }
+                }
                 if(self.words !== '' && self.adviceType[0] !== undefined){
                    Lib.M.ajax({
                        url: "cash-account/user/account/suggestions",
                        data: {
                            "user_id":self.localUserInfo.userInfo.userId,
-                           "type": parseInt(self.adviceType[0]),
+                           "type": type,
                            "content":self.words
                        },
                        success:function (res) {
                             self.$vux.toast.text('提交成功!','middle')
-                            self.$router.go(-1)
+                            /*self.$router.go(-1)*/
                        }
                    })
                }else{

@@ -68,7 +68,7 @@ export default {
   data () {
     return {
       workType: [],
-      workTypeList: Lib.M.workTypeList,
+      workTypeList: [],
       mariVal: [],
       mariList:Lib.M.mariList,
       cityVal: [],
@@ -102,8 +102,28 @@ export default {
       this.contPhone2 = u.userInfo.emergencyContactPhone2
       this.emerContChange();
     }
+    //获取workTypeList
+    this.getWorkTypeList();
   },
   methods: {
+    getWorkTypeList(){
+      var self = this;
+      Lib.M.ajax({
+        type: 'get',
+        url : 'cash-account/dict/getDict/jobType',
+        success:function (data){
+          for(let i in data){
+            let e = data[i];
+            self.workTypeList.push({
+              name:e.label,
+              value:e.label,
+              key: e.key,
+              parent: 0
+            })
+          }
+        }
+      });
+    },
     emerContChange(){
       if(this.mariVal[0] == '已婚'){
         this.emrContact1 = '配偶'
@@ -135,14 +155,13 @@ export default {
       if(self.mariVal[0] == '未婚'){
         mariVal = 1;
       }else{
-        mariVal = 0;
+        mariVal = 2;
       }
-      if(self.workType[0] == '上班族'){
-        workVal = 0;
-      }else if(self.workType[0] == '自由职业'){
-        workVal = 1;
-      }else if(self.workType[0] == '学生'){
-        workVal = 2;
+      for(let i in self.workTypeList){
+        let e = self.workTypeList[i];
+        if(self.workType[0] == e.value){
+          workVal = parseInt(e.key);
+        }
       }
       Lib.M.ajax({
         url : '/cash-account/user/account/userInfo/edit/'+ 

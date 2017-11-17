@@ -23,7 +23,7 @@ var eduList = [{
     value: '初中及以下',
     parent:0
 }];
-
+/* 弃用，改为调用接口
 var workTypeList = [{
     name:'上班族',
     value:'上班族',
@@ -36,7 +36,7 @@ var workTypeList = [{
     name:'学生',
     value:'学生',
     parent: 0
-}];
+}];*/
 
 var mariList = [{
     name: '已婚',
@@ -47,7 +47,7 @@ var mariList = [{
     value: '未婚',
     parent:0
 }];
-
+/* 弃用，改为调用接口
 var adviceList = [{
     name: '借款',
     value: '借款',
@@ -64,7 +64,7 @@ var adviceList = [{
     name: '其他',
     value: '其他',
     parent:0,
-}];
+}];*/
 
 var cityList = [{
     name: '北京',
