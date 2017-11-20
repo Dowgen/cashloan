@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="con_item">
-                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;">
+                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <tr>
                             <th colspan="4">借款明细</th>
                         </tr>
@@ -390,6 +390,7 @@
     .main .loan_num{
         text-align: right;
         font-weight: 700;
+        float: none;
     }
     .main_head{
         width:20.97rem;

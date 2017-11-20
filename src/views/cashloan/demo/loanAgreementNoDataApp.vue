@@ -14,7 +14,7 @@
                     </div>
                 </div>
                 <div class="con_item">
-                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;">
+                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <tr>
                             <th colspan="4">借款明细</th>
                         </tr>
@@ -48,7 +48,7 @@
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
-                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;">
+                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <tr>
                             <th></th>
                             <th colspan="4">借款人还款计划</th>
