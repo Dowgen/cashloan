@@ -368,7 +368,7 @@
                     type:'get',
                    //http://192.168.1.174:6080/loan/getLoanOrderInfo/JHCL171021233617486447
                     url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,
-                    success:function(){
+                    success:function(res){
                         console.log(res)
                         self.data = res.data.data;
                         console.log(self.data);
