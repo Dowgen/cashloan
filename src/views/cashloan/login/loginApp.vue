@@ -161,7 +161,7 @@ export default {
   .input{
     position: relative;
     display: flex;
-    justify-content: flex-start;
+    justify-content: center;
     align-items: center;
     width: 18.35rem;
     margin: 0 auto;
@@ -188,9 +188,10 @@ export default {
     outline: none;
     border: none;
     font-size: 1rem;
-    height: 2.5rem;
-    line-height: 2.5rem;
+    height: 2rem;
+    line-height: 2rem;
     margin: 0 1rem;
+    padding:0;
   }
   .btn{
     width: 18.35rem;

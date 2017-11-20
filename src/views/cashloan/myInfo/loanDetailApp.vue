@@ -175,12 +175,12 @@
             jumpToAgreement(){
                 var self = this;
                 self.$router.push({
-                    path:'/loanAgreement',
+                    path:'/loanAgreement'/*,
                     query: {
                         name: self.userInfo.idInfo.name,
                         id:   self.userInfo.idInfo.idCardNumber,
                         amount: self.shouldPay
-                    }
+                    }*/
                 })
             }
         }
@@ -354,7 +354,7 @@
         margin: 0 auto;
         color: #919499;
         font-size: 0.75rem;
-        margin-top: 3.5rem;
+        margin-top: 4.5rem;
     }
     .agreement>img{
         width: 0.6rem;
