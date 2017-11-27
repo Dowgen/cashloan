@@ -91,7 +91,7 @@ export default {
         }else{
           window.location.href = "https://moneyboom.cn/apk/v101/cash_1.0.1_getui.apk"
         }*/
-      window.location.href = "https://www.pgyer.com/Cash";
+      window.location.href = "https://www.pgyer.com/xjds";
     },
     /* 开始倒计时 */
     begin1(){
