@@ -1,79 +1,79 @@
 <template>
     <div>
-       <div class="fee_main">
-           <div class="fee_table">
-               <div class="fee_item">
-                   <p>借款金额</p>
-                   <p style="color: #FC7618;">{{userGetMoney}}.00元</p>
-               </div>
-               <div class="fee_item">
-                   <p>借款期限</p>
-                   <p style="color: #74CE79;">{{repayDate}}天</p>
-               </div>
-               <div class="fee_item three">
-                   <p>借款费用</p>
-                   <p style="color: #09A6E3;">{{loanAmount*term*0.01}}元</p>
-               </div>
-           </div>
-           <div class="fee_list">
-               <div class="choose">
-                   <span>到账金额</span>
-                   <div>
-                       <div class="choose-btn" :style="loanAmount==500?styleActive:''"
-                            @click="setLoanAmount(500)">
-                           500
-                           <img src="../myInfo/assets/choose.png" v-show="loanAmount==500">
-                       </div>
-                       <div class="choose-btn" :style="loanAmount==1000?styleActive:''"
-                            @click="setLoanAmount(1000)">
-                           1000
-                           <img src="../myInfo/assets/choose.png" v-show="loanAmount==1000">
-                       </div>
-                   </div>
-               </div>
-               <div class="choose">
-                   <span>借款期限</span>
-                   <div>
-                       <div class="choose-btn" :style="term==7?styleActive:''" @click="setTerm(7)">
-                           <img src="../myInfo/assets/choose.png" v-show="term==7">
-                           7天</div>
-                       <div class="choose-btn" :style="term==14?styleActive:''" @click="setTerm(14)">
-                           <img src="../myInfo/assets/choose.png" v-show="term==14">
-                           14天</div>
-                   </div>
-               </div>
-           </div>
-           <div class="fee_des">费用说明</div>
-           <div class="fee_detail">
-               <div class="fee_detail_item">
-                   <div class="first_title">一、贷款费用说明:</div>
-                   <div class="second_con">
-                       <p>借款日综合费率为{{data[3].key}}，综合年化费率{{data[2].key}}。</p>
-                       <p>其中平台使用费由现金斗士收取；</p>
-                       <p>代收利息由银行、信托、小额贷款、消费金融公司等公司收取。</p>
-                       <p>支付系统服务费、审核服务费、风险评估费用由第三方机构收取。</p>
-                   </div>
-               </div>
-               <div class="fee_detail_item">
-                   <div class="first_title">二、逾期费用说明:</div>
-                   <div class="second_con">
-                       <p>未及时还款时会产生相应的逾期违约金,计算方式如下：</p>
+        <div class="fee_main">
+            <div class="fee_table">
+                <div class="fee_item">
+                    <p>借款金额</p>
+                    <p style="color: #FC7618;">{{userGetMoney}}.00元</p>
+                </div>
+                <div class="fee_item">
+                    <p>借款期限</p>
+                    <p style="color: #74CE79;">{{repayDate}}天</p>
+                </div>
+                <div class="fee_item three">
+                    <p>借款费用</p>
+                    <p style="color: #09A6E3;">{{feeAmount}}元</p>
+                </div>
+            </div>
+            <div class="fee_list">
+                <div class="choose">
+                    <span>到账金额</span>
+                    <div>
+                        <div class="choose-btn" :style="loanAmount==500?styleActive:''"
+                             @click="setLoanAmount(500)">
+                            500
+                            <img src="../myInfo/assets/choose.png" v-show="loanAmount==500">
+                        </div>
+                        <div class="choose-btn" :style="loanAmount==1000?styleActive:''"
+                             @click="setLoanAmount(1000)">
+                            1000
+                            <img src="../myInfo/assets/choose.png" v-show="loanAmount==1000">
+                        </div>
+                    </div>
+                </div>
+                <div class="choose">
+                    <span>借款期限</span>
+                    <div>
+                        <div class="choose-btn" :style="term==7?styleActive:''" @click="setTerm(7)">
+                            <img src="../myInfo/assets/choose.png" v-show="term==7">
+                            7天</div>
+                        <div class="choose-btn" :style="term==14?styleActive:''" @click="setTerm(14)">
+                            <img src="../myInfo/assets/choose.png" v-show="term==14">
+                            14天</div>
+                    </div>
+                </div>
+            </div>
+            <div class="fee_des">费用说明</div>
+            <div class="fee_detail">
+                <div class="fee_detail_item">
+                    <div class="first_title">一、贷款费用说明:</div>
+                    <div class="second_con">
+                        <p>借款日综合费率为{{data[3].key}}，综合年化费率{{data[2].key}}。</p>
+                        <p>其中平台使用费由现金斗士收取；</p>
+                        <p>代收利息由银行、信托、小额贷款、消费金融公司等公司收取。</p>
+                        <p>支付系统服务费、审核服务费、风险评估费用由第三方机构收取。</p>
+                    </div>
+                </div>
+                <div class="fee_detail_item">
+                    <div class="first_title">二、逾期费用说明:</div>
+                    <div class="second_con">
+                        <p>未及时还款时会产生相应的贷后管理服务费,计算方式如下：</p>
 
-                       <p>逾期 1～14天（含14天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.5% * 剩余本金</p>
-                       <p>逾期15～60天（含60天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.75% * 剩余本金</p>
-                       <p>逾期>60天               &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.85% * 剩余本金</p>
-                       <p>若您未能在还款日当天24点前成功还款，平台将收取您1.00%平台维护费并加收贷后管理服务费（贷后管理服务费总计不超过剩余本金的50%），同时还会给您的信用额度造成影响！</p>
-                   </div>
-               </div>
-               <div class="fee_detail_item">
-                   <div class="first_title">三、友情提示：</div>
-                   <div class="second_con">
-                       <p> 出借人为银行、消费金融公司或其他合法合规的出借人，利率严格遵行法律规定，现金斗士平台不直接放贷。以上费用为区间参考标准，将根据借款人的信用状况、信用额度、借款期数等多因素进行相应浮动，具体以最终确认并签署的相关协议所载明内容为准。</p>
-                       <p>请保持良好的还款习惯，否则会影响您在现金斗士的信用额度、审核通过率及信用评分。</p>
-                   </div>
-               </div>
-           </div>
-       </div>
+                        <p>逾期 1～14天（含14天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.5% * 剩余本金</p>
+                        <p>逾期15～60天（含60天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.75% * 剩余本金</p>
+                        <p>逾期>60天               &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.85% * 剩余本金</p>
+                        <p>若您未能在还款日当天24点前成功还款，平台将收取您1.00%平台维护费并加收贷后管理服务费（贷后管理服务费总计不超过剩余本金的50%），同时还会给您的信用额度造成影响！</p>
+                    </div>
+                </div>
+                <div class="fee_detail_item">
+                    <div class="first_title">三、友情提示：</div>
+                    <div class="second_con">
+                        <p> 出借人为银行、消费金融公司或其他合法合规的出借人，利率严格遵行法律规定，现金斗士平台不直接放贷。以上费用为区间参考标准，将根据借款人的信用状况、信用额度、借款期数等多因素进行相应浮动，具体以最终确认并签署的相关协议所载明内容为准。</p>
+                        <p>请保持良好的还款习惯，否则会影响您在现金斗士的信用额度、审核通过率及信用评分。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
     </div>
@@ -83,65 +83,96 @@
 <script>
 
 
-import Lib from 'assets/js/Lib';
+    import Lib from 'assets/js/Lib';
 
 
 
-export default {
-  name: 'add',	
-  components: {
-  },
-  data () {
-    return {
-        href:'',
-        loanAmount:500,
-        term: 7,
-        styleActive:{
-            'border-color': '#1abc9c',
-            'color': '#1abc9c'
+    export default {
+        name: 'add',
+        components: {
         },
-        loanFee:'',
-        data:[]
+        data () {
+            return {
+                pdList:[],
+                href:'',
+                loanAmount:500,
+                term: 7,
+                styleActive:{
+                    'border-color': '#1abc9c',
+                    'color': '#1abc9c'
+                },
+                loanFee:'',
+                data:[]
+            }
+        },
+
+        computed:{
+            userGetMoney(){
+                let list = this.pdList;
+                for(let i in list){
+                    if(list[i].loanAmount == this.loanAmount
+                        && list[i].loanPeriod == this.term)
+                        return list[i].receivedAmount
+                }
+            },
+            repayDate(){
+                return this.term;
+            },
+            feeAmount(){
+                let list = this.pdList;
+                for(let i in list){
+                    if(list[i].loanAmount == this.loanAmount
+                        && list[i].loanPeriod == this.term)
+                        return list[i].feeAmount
+                }
+            },
+        },
+        mounted(){
+            this.getProductList();
+            this.getDictList();
+        },
+        methods: {
+            /* 获取产品列表 */
+            getProductList(){
+                let self = this;
+                Lib.M.ajax({
+                    type: 'get',
+                    url : '/cash-account/loan/productList',
+                    success:function (res){
+                        console.log(res.code);
+                        if(res.code == 200){
+                            self.pdList = res.data;
+                        }else{
+                            self.$vux.toast.text(res.error,'middle')
+                        }
+                    }
+                });
+            },
+            wechat(){
+                this.$vux.alert.show({
+                    content: '打开微信—通讯录—关注“现金斗士”公众号'})
+
+            },
+            setLoanAmount(amount){
+                this.loanAmount = amount;
+            },
+            setTerm(term){
+                this.term = term;
+            },
+            getDictList(){
+                var self = this;
+                Lib.M.ajax({
+                    type:'get',
+                    url:'cash-account/loan/getDictList',
+                    success:function(res){
+                        console.log(res)
+                        self.data = res.data;
+                    }
+                })
+            },
+
+        }
     }
-  },
-    computed:{
-        userGetMoney(){
-            return this.loanAmount
-        },
-        repayDate(){
-            return this.term
-        },
-
-    },
-    mounted(){
-        this.getDictList();
-    },
-  methods: {
-    wechat(){
-        this.$vux.alert.show({
-            content: '打开微信—通讯录—关注“现金斗士”公众号'})
-
-    },
-      setLoanAmount(amount){
-          this.loanAmount = amount;
-      },
-      setTerm(term){
-          this.term = term;
-      },
-      getDictList(){
-          var self = this;
-          Lib.M.ajax({
-              type:'get',
-              url:'cash-account/loan/getDictList',
-              success:function(res){
-                  console.log(res)
-                  self.data = res.data;
-              }
-          })
-      },
-
-  }
-}
 
 </script>
 
@@ -229,7 +260,6 @@ export default {
         height: 0.53rem;
     }
     .fee_des{
-        width:100%;
         height:2.5rem;
         background:rgba(250,250,250,1);
         line-height: 2.5rem;

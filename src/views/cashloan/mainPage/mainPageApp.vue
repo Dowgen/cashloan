@@ -90,6 +90,7 @@ export default {
   },
   data () {
     return {
+      pdList: [],
       show: false,
       loanAmount:500,
       term: 7,
@@ -114,10 +115,20 @@ export default {
   },
   computed:{
     userGetMoney(){
-       return this.loanAmount 
+      let list = this.pdList;
+      for(let i in list){
+        if(list[i].loanAmount == this.loanAmount 
+            && list[i].loanPeriod == this.term)
+          return list[i].receivedAmount
+      }
     },
     shouldPay(){
-       return this.loanAmount*this.term*0.01 + this.loanAmount
+      let list = this.pdList;
+      for(let i in list){
+        if(list[i].loanAmount == this.loanAmount 
+            && list[i].loanPeriod == this.term)
+          return list[i].shouldPay
+      }
     },
     repayDate(){
       let date = new Date(new Date().getTime() + this.term*24*60*60*1000)
@@ -128,7 +139,8 @@ export default {
     }
   },
   mounted(){
-      var that = this;
+    this.getProductList(); //获取产品列表
+    var that = this;
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
       that.userInfo = JSON.parse(localStorage.userInfo);
     if(document.referrer.indexOf('megvii.com')!= -1){
@@ -195,11 +207,11 @@ export default {
           this.demo06_index = index
       },
       setLoanAmount(amount){
-      this.loanAmount = amount;
-    },
+        this.loanAmount = amount;
+      },
       setTerm(term){
-      this.term = term;
-    },
+        this.term = term;
+      },
       /* 触发后台拿到face++认证 */
       face_getResult(){
       var self = this;
@@ -265,6 +277,22 @@ export default {
               window.location.reload();*/
             }else{
               self.$vux.toast.text(data.error,'middle')
+            }
+          }
+        });
+      },
+      /* 获取产品列表 */
+      getProductList(){
+        let self = this;
+        Lib.M.ajax({
+          type: 'get',
+          url : '/cash-account/loan/productList',
+          success:function (res){
+            console.log(res.code);
+            if(res.code == 200){
+              self.pdList = res.data;
+            }else{
+              self.$vux.toast.text(res.error,'middle')
             }
           }
         });
