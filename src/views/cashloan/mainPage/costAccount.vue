@@ -52,7 +52,7 @@
                <div class="fee_detail_item">
                    <div class="first_title">一、贷款费用说明:</div>
                    <div class="second_con">
-                       <p>借款日综合费率为0.098%，综合年化费率35.77%。</p>
+                       <p>借款日综合费率为{{data[3].key}}，综合年化费率{{data[2].key}}。</p>
                        <p>其中平台使用费由现金斗士收取；</p>
                        <p>代收利息由银行、信托、小额贷款、消费金融公司等公司收取。</p>
                        <p>支付系统服务费、审核服务费、风险评估费用由第三方机构收取。</p>
@@ -104,7 +104,8 @@ export default {
             'border-color': '#1abc9c',
             'color': '#1abc9c'
         },
-        loanFee:''
+        loanFee:'',
+        data:[]
     }
   },
     computed:{
@@ -115,6 +116,9 @@ export default {
             return this.term
         },
 
+    },
+    mounted(){
+        this.getDictList();
     },
   methods: {
     wechat(){
@@ -127,6 +131,17 @@ export default {
       },
       setTerm(term){
           this.term = term;
+      },
+      getDictList(){
+          var self = this;
+          Lib.M.ajax({
+              type:'get',
+              url:'cash-account/loan/getDictList',
+              success:function(res){
+                  console.log(res)
+                  self.data = res.data;
+              }
+          })
       },
 
   }

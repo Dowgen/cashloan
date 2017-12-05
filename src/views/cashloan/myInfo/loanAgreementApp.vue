@@ -398,7 +398,7 @@
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
-                    url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,/*'JHCL171023145350313239'*/
+                    url:'cash-account/loan/getLoanOrderInfo/'+'JHCL171023145350313239',/*'JHCL171023145350313239' localStorage.orderId*/
                     success:function(res){
                         console.log(res)
                         self.info = res.data;
