@@ -48,7 +48,7 @@
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
-                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
+                   <!-- <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <tr>
                             <th></th>
                             <th colspan="4">借款人还款计划</th>
@@ -68,8 +68,56 @@
                             <td>**订单生成后可见**</td>
                             <td>**订单生成后可见**</td>
                         </tr>
+                    </table>-->
+                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
+                        <thead>
+                        <tr>
+                            <th colspan="2">借款明细</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>借款金额</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>大写</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>到账金额</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>应还金额</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>约定还款日</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>支付系统服务费</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>借款平台使用费</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>代收利息</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>风险评估服务费</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        <tr>
+                            <td>审核服务费</td>
+                            <td>**订单生成后可见**</td>
+                        </tr>
+                        </tbody>
                     </table>
-
                 </div>
                 <div class="con_item">
                     <div class="first_head">释义</div>
@@ -258,7 +306,7 @@
                 </div>
                 <div class="con_item" style="margin-top: 15px">
                     <div>
-                        <p class="first_con">甲方（借款人）：{{}}</p>
+                        <p class="first_con">甲方（借款人）：{{name}}</p>
                         <p class="first_con">乙方（出借人）</p>
                         <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;margin: 5px 0;">
                             <tr>

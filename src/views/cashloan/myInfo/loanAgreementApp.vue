@@ -48,11 +48,11 @@
                         </tr>
                         <tr>
                             <td>还款期数</td>
-                            <td colspan="3">{{info.loanPeriod}}期</td>
+                            <td colspan="3">1期</td>
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
-                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
+                   <!-- <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <thead>
                             <tr>
                                 <th colspan="2">借款人还款计划</th>
@@ -86,14 +86,62 @@
                             <tr>
                                 <td>居间服务费</td>
                                 <td>{{info.serviceFee}}</td>
-                                <!-- <p>500元/7天：13.25元</p>
+                                &lt;!&ndash; <p>500元/7天：13.25元</p>
                                     <p>500元/14天：46.5元</p>
                                     <p>1000元/7天：46.5元</p>
-                                    <p>1000元/14天：113元</p>-->
+                                    <p>1000元/14天：113元</p>&ndash;&gt;
                             </tr>
                         </tbody>
+                    </table>-->
+                    <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
+                        <thead>
+                        <tr>
+                            <th colspan="2">借款明细</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        <tr>
+                            <td>借款金额</td>
+                            <td>人民币{{info.loanAmount}}元</td>
+                        </tr>
+                        <tr>
+                            <td>大写</td>
+                            <td>人民币{{amount_daxie}}</td>
+                        </tr>
+                        <tr>
+                            <td>到账金额</td>
+                            <td>{{info.receivedAmount}}</td>
+                        </tr>
+                        <tr>
+                            <td>应还金额</td>
+                            <td>{{info.shouldPay}}</td>
+                        </tr>
+                        <tr>
+                            <td>约定还款日</td>
+                            <td>{{info.repayDate}}</td>
+                        </tr>
+                        <tr>
+                            <td>支付系统服务费</td>
+                            <td>{{info.paySystemFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>借款平台使用费</td>
+                            <td>{{info.loanPlatformFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>代收利息</td>
+                            <td>{{info.receiveInterest}}</td>
+                        </tr>
+                        <tr>
+                            <td>风险评估服务费</td>
+                            <td>{{info.riskAssessmentFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>审核服务费</td>
+                            <td>{{info.auditServiceFee}}</td>
+                        </tr>
+                        </tbody>
                     </table>
-
                 </div>
                 <div class="con_item">
                     <div class="first_head">释义</div>
@@ -350,12 +398,13 @@
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
-                    headers:{},
-                    url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,
+                    url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,/*'JHCL171023145350313239'*/
                     success:function(res){
                         console.log(res)
                         self.info = res.data;
                         console.log(self.info);
+                        var auditServiceFee = self.info.auditServiceFee;
+                        console.log(auditServiceFee);
                     }
                 })
             },

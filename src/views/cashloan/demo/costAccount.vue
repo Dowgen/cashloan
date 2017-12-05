@@ -46,27 +46,29 @@
            <div class="fee_des">费用说明</div>
            <div class="fee_detail">
                <div class="fee_detail_item">
-                   <div class="first_title">一、借款费用说明</div>
+                   <div class="first_title">一、贷款费用说明:</div>
                    <div class="second_con">
-                       <p>  现金斗士的贷后综合费用按实际的天数收取，利息低至0.05%/天，年利率低于20%。</p>
-                       <p>用户借款须支付信用认证费，每笔20元</p>
-                       <p>居间服务费为1-7元/周/100元（单笔上限120元/周，用于平台运营）</p>
+                       <p>借款日综合费率为0.098%，综合年化费率35.77%。</p>
+                       <p>其中平台使用费由现金斗士收取；</p>
+                       <p>代收利息由银行、信托、小额贷款、消费金融公司等公司收取。</p>
+                       <p>支付系统服务费、审核服务费、风险评估费用由第三方机构收取。</p>
                    </div>
                </div>
                <div class="fee_detail_item">
-                   <div class="first_title">二、逾期费用说明</div>
+                   <div class="first_title">二、逾期费用说明:</div>
                    <div class="second_con">
                        <p>未及时还款时会产生相应的逾期违约金,计算方式如下：</p>
 
                        <p>逾期 1～14天（含14天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.5% * 剩余本金</p>
                        <p>逾期15～60天（含60天）  &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.75% * 剩余本金</p>
                        <p>逾期>60天               &nbsp;&nbsp;&nbsp;贷后管理服务费／日=0.85% * 剩余本金</p>
+                       <p>若您未能在还款日当天24点前成功还款，平台将收取您1.00%平台维护费并加收贷后管理服务费（贷后管理服务费总计不超过剩余本金的50%），同时还会给您的信用额度造成影响！</p>
                    </div>
                </div>
                <div class="fee_detail_item">
-                   <div class="first_title">三、友情提示</div>
+                   <div class="first_title">三、友情提示：</div>
                    <div class="second_con">
-                       <p>出借人为银行、消费金融公司或其他合法合规的出借人，利率严格遵行法律规定，现金斗士平台不直接放贷。以上费用为区间参考标准，将根据借款人的信用状况、信用额度、借款期数等多因素进行相应浮动，具体以最终确认并签署的相关协议所载明内容为准。</p>
+                       <p> 出借人为银行、消费金融公司或其他合法合规的出借人，利率严格遵行法律规定，现金斗士平台不直接放贷。以上费用为区间参考标准，将根据借款人的信用状况、信用额度、借款期数等多因素进行相应浮动，具体以最终确认并签署的相关协议所载明内容为准。</p>
                        <p>请保持良好的还款习惯，否则会影响您在现金斗士的信用额度、审核通过率及信用评分。</p>
                    </div>
                </div>
@@ -224,7 +226,7 @@ export default {
     .fee_detail{
         width: 100%;
         background: #fff;
-        height: 35rem;
+        height: 45rem;
     }
     .fee_detail_item{
         padding: 0 1rem;
