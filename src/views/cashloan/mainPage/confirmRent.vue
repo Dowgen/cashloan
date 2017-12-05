@@ -66,6 +66,7 @@ export default {
   },
   data () {
     return {
+      pdList:[],
       loanAmount:500,
       term: 7,
       styleActive:{
@@ -77,10 +78,20 @@ export default {
   },
   computed:{
     shouldPay(){
-       return this.loanAmount + this.loanAmount*this.term*0.01
+      let list = this.pdList;
+      for(let i in list){
+        if(list[i].loanAmount == this.loanAmount 
+            && list[i].loanPeriod == this.term)
+          return list[i].shouldPay
+      }
     },
     interest(){
-       return this.loanAmount*this.term*0.01
+       let list = this.pdList;
+        for(let i in list){
+          if(list[i].loanAmount == this.loanAmount 
+              && list[i].loanPeriod == this.term)
+            return list[i].feeAmount
+        }
     },
     repayDate(){
       let date = new Date(new Date().getTime() + this.term*24*60*60*1000)
@@ -91,10 +102,27 @@ export default {
     }
   },
   mounted(){
+    this.getProductList();
     document.getElementsByTagName('body')[0].style.paddingBottom = '3.065rem';
     this.userInfo = JSON.parse(localStorage.userInfo);
   },
   methods: {
+    /* 获取产品列表 */
+    getProductList(){
+      let self = this;
+      Lib.M.ajax({
+        type: 'get',
+        url : '/cash-account/loan/productList',
+        success:function (res){
+          console.log(res.code);
+          if(res.code == 200){
+            self.pdList = res.data;
+          }else{
+            self.$vux.toast.text(res.error,'middle')
+          }
+        }
+      });
+    },
     setLoanAmount(amount){
       this.loanAmount = amount;
     },

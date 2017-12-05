@@ -16,7 +16,7 @@
                </div>
                <div class="fee_item three">
                    <p>借款费用</p>
-                   <p style="color: #09A6E3;">{{loanAmount*term*0.01}}元</p>
+                   <p style="color: #09A6E3;">{{feeAmount}}元</p>
                </div>
            </div>
            <div class="fee_list">
@@ -95,6 +95,7 @@ export default {
   },
   data () {
     return {
+        pdList:[],
         href:'',
         loanAmount:500,
         term: 7,
@@ -105,16 +106,47 @@ export default {
         loanFee:''
     }
   },
-    computed:{
-        userGetMoney(){
-            return this.loanAmount
-        },
-        repayDate(){
-            return this.term
-        },
-
-    },
+  computed:{
+      userGetMoney(){
+        let list = this.pdList;
+        for(let i in list){
+          if(list[i].loanAmount == this.loanAmount 
+              && list[i].loanPeriod == this.term)
+            return list[i].receivedAmount
+        }
+      },
+      repayDate(){
+        return this.term;
+      },
+      feeAmount(){
+        let list = this.pdList;
+        for(let i in list){
+          if(list[i].loanAmount == this.loanAmount 
+              && list[i].loanPeriod == this.term)
+            return list[i].feeAmount
+        }
+      },
+  },
+  mounted(){
+    this.getProductList();
+  },
   methods: {
+    /* 获取产品列表 */
+    getProductList(){
+      let self = this;
+      Lib.M.ajax({
+        type: 'get',
+        url : '/cash-account/loan/productList',
+        success:function (res){
+          console.log(res.code);
+          if(res.code == 200){
+            self.pdList = res.data;
+          }else{
+            self.$vux.toast.text(res.error,'middle')
+          }
+        }
+      });
+    },
     wechat(){
         this.$vux.alert.show({
             content: '打开微信—通讯录—关注“现金斗士”公众号'})
