@@ -1,7 +1,6 @@
 <template>
     <div>
-
-        <div class="main">
+        <div class="main" vloak>
             <div class="loan_num">编号：{{info.orderId}}</div>
             <div class="main_content">
                 <div class="con_item" style="margin-top: 0;">
@@ -9,8 +8,8 @@
                         <p class="first_con">甲方（借款人）：{{info.userName}}</p>
                         <p class="first_con">身份证号码：************{{info.userId.substr(14,16)}}</p>
                         <p class="first_con">乙方（出借人）：乙方（出借人）相关明细详见本协议后附表。</p>
-                       <p class="first_con">丙方（居间方）：{{info.intermediary_side_A}} </p>
-                       <p class="first_con">丁方（居间方）：{{info.intermediary_side_B}}</p>
+                        <p class="first_con">丙方（居间方）：{{info.intermediary_side_A}} </p>
+                        <p class="first_con">丁方（居间方）：{{info.intermediary_side_B}}</p>
                     </div>
                 </div>
                 <div class="con_item">
@@ -44,52 +43,100 @@
                         </tr>
                         <tr>
                             <td>还款期数</td>
-                            <td colspan="3">{{info.loanPeriod}}期</td>
+                            <td colspan="3">1期</td>
                         </tr>
                     </table>
                     <p class="first_con" style="margin: 10px 0;">丙方平台收集的借款人甲方，通过丁方运营的融资平台向出借人乙方借款，出借人乙方亦同意出借款项，现经各方协商一致，达成如下条款：</p>
+                    <!-- <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
+                         <thead>
+                             <tr>
+                                 <th colspan="2">借款人还款计划</th>
+                             </tr>
+                         </thead>
+                         <tbody>
+                             <tr>
+                                 <td>期数</td>
+                                 <td>{{info.loanPeriod}}期</td>
+                             </tr>
+                             <tr>
+                                 <td>还款日</td>
+                                 <td>{{info.repayDate}}</td>
+                             </tr>
+                             <tr>
+                                 <td>还款金额</td>
+                                 <td>{{info.shouldPay}}元</td>
+                             </tr>
+                             <tr>
+                                 <td>本金</td>
+                                 <td>{{info.loanAmount}}元</td>
+                             </tr>
+                             <tr>
+                                 <td>利息</td>
+                                 <td>0.05%/日</td>
+                             </tr>
+                             <tr>
+                                 <td>信用认证费</td>
+                                 <td>20元/笔</td>
+                             </tr>
+                             <tr>
+                                 <td>居间服务费</td>
+                                 <td>{{info.serviceFee}}</td>
+                                 &lt;!&ndash; <p>500元/7天：13.25元</p>
+                                     <p>500元/14天：46.5元</p>
+                                     <p>1000元/7天：46.5元</p>
+                                     <p>1000元/14天：113元</p>&ndash;&gt;
+                             </tr>
+                         </tbody>
+                     </table>-->
                     <table border="1" cellspacing="0" cellpadding="0" style="text-align: center;width: 100%;">
                         <thead>
-                            <tr>
-                                <th colspan="2">借款人还款计划</th>
-                            </tr>
+                        <tr>
+                            <th colspan="2">借款明细</th>
+                        </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>期数</td>
-                                <td>{{info.loanPeriod}}期</td>
-                            </tr>
-                            <tr>
-                                <td>还款日</td>
-                                <td>{{info.repayDate}}</td>
-                            </tr>
-                            <tr>
-                                <td>还款金额</td>
-                                <td>{{info.shouldPay}}元</td>
-                            </tr>
-                            <tr>
-                                <td>本金</td>
-                                <td>{{info.loanAmount}}元</td>
-                            </tr>
-                            <tr>
-                                <td>利息</td>
-                                <td>0.05%/日</td>
-                            </tr>
-                            <tr>
-                                <td>信用认证费</td>
-                                <td>20元/笔</td>
-                            </tr>
-                            <tr>
-                                <td>居间服务费</td>
-                                <td>{{info.serviceFee}}</td>
-                                <!-- <p>500元/7天：13.25元</p>
-                                    <p>500元/14天：46.5元</p>
-                                    <p>1000元/7天：46.5元</p>
-                                    <p>1000元/14天：113元</p>-->
-                            </tr>
+                        <tr>
+                            <td>借款金额</td>
+                            <td>人民币{{info.loanAmount}}元</td>
+                        </tr>
+                        <tr>
+                            <td>大写</td>
+                            <td>人民币{{amount_daxie}}</td>
+                        </tr>
+                        <tr>
+                            <td>到账金额</td>
+                            <td>{{info.receivedAmount}}</td>
+                        </tr>
+                        <tr>
+                            <td>应还金额</td>
+                            <td>{{info.shouldPay}}</td>
+                        </tr>
+                        <tr>
+                            <td>约定还款日</td>
+                            <td>{{info.repayDate}}</td>
+                        </tr>
+                        <tr>
+                            <td>支付系统服务费</td>
+                            <td>{{info.paySystemFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>借款平台使用费</td>
+                            <td>{{info.loanPlatformFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>代收利息</td>
+                            <td>{{info.receiveInterest}}</td>
+                        </tr>
+                        <tr>
+                            <td>风险评估服务费</td>
+                            <td>{{info.riskAssessmentFee}}</td>
+                        </tr>
+                        <tr>
+                            <td>审核服务费</td>
+                            <td>{{info.auditServiceFee}}</td>
+                        </tr>
                         </tbody>
                     </table>
-
                 </div>
                 <div class="con_item">
                     <div class="first_head">释义</div>
@@ -97,7 +144,7 @@
                         <p class="first_con">1、	《借款协议》是指本协议（以下简称“借款协议”或“本协议”，其全部内容由甲、乙双方在线以类似点击确认方式视为认可并签署，幷严格受其约束行使权利、履行义务。</p>
                         <p class="first_con">2、	借款人（“甲方”）是指《借款协议》中列明的符合中华人民共和国法律规定的具有完全民事权利能力和民事行为能力，（非高等院校全日制学生），独立行使和承担本协议项下权利义务的个体。甲方为丙方平台上的注册用户，有借款需求。</p>
                         <p class="first_con">3、	出借人（“乙方”）是指《借款协议》中列明的符合中华人民共和国法律规定的具有完全民事权利能力和民事行为能力，独立行使和承担本协议项下权利义务的个体。乙方为丁方平台上的注册用户，愿意出借合法取得的自有资金。</p>
-                        <p class="first_con">4、居间方丙方（“丙方”）是指《借款协议》中列明的晨阳易贷（珠海）小额贷款有限公司（以下简称“晨阳易贷”），其是一家提供互联网大数据风控的科技型企业，为出借人与借款人提供技术支持与结果分析，对借款人的资格条件、信息的真实性、合法性进行必要审核，给出出借款申请是否通过的建议，为甲方提供信息服务、媒介服务、合同管理、贷后管理等平台服务，并与甲方签订《平台服务协议》，丙方有权收取综合服务费。丙方的综合服务费由丙丁双方根据约定，由丁方向甲方代收并支付给丙方。</p>
+                        <p class="first_con">4、居间方丙方（“丙方”）是指《借款协议》中列明的浙江数氪金融信息服务有限公司（以下简称“数氪金服”），其是一家提供互联网大数据风控的科技型企业，为出借人与借款人提供技术支持与结果分析，对借款人的资格条件、信息的真实性、合法性进行必要审核，给出出借款申请是否通过的建议，为甲方提供信息服务、媒介服务、合同管理、贷后管理等平台服务，并与甲方签订《平台服务协议》，丙方有权收取综合服务费。丙方的综合服务费由丙丁双方根据约定，由丁方向甲方代收并支付给丙方。</p>
                         <p class="first_con">5、 居间方丁方（“丁方”）是指《借款协议》中列明的**订单生成后可见**，其是一家在杭州市合法成立并有效存续的有限责任公司，为甲、乙双方的借款提供信息服务、合同管理等服务，丁方有权收取综合服务费。</p>
                         <p class="first_con">6、	甲方账户是指甲方在银行/第三方支付机构开立的用以接受借款，支付还款的相关账户。</p>
                         <p class="first_con">7、	乙方账户是指乙方在银行/第三方支付机构开立的用以提供的发放借款，收取还款的相关账户。</p>
@@ -333,25 +380,24 @@
                 if (!/^(0|[1-9]\d*)(\.\d+)?$/.test(n))
                     return "数据非法";
                 var unit = "千百拾亿千百拾万千百拾元角分", str = "";
-                    n += "00";
+                n += "00";
                 var p = n.indexOf('.');
                 if (p >= 0)
                     n = n.substring(0, p) + n.substr(p+1, 2);
-                    unit = unit.substr(unit.length - n.length);
+                unit = unit.substr(unit.length - n.length);
                 for (var i=0; i < n.length; i++)
                     str += '零壹贰叁肆伍陆柒捌玖'.charAt(n.charAt(i)) + unit.charAt(i);
                 return str.replace(/零(千|百|拾|角)/g, "零").replace(/(零)+/g, "零").replace(/零(万|亿|元)/g, "$1").replace(/(亿)万|壹(拾)/g, "$1$2").replace(/^元零?|零分/g, "").replace(/元$/g, "元整");
             },
             getLoanInfo(){
-                console.log(this.$route.query.orderId)
                 var self = this;
                 Lib.M.ajax({
                     type:'get',
-                    headers:{},
-                    url:'cash-account/loan/getLoanOrderInfo/'+this.$route.query.orderId,
+                    url:'cash-account/loan/getLoanOrderInfo/'+localStorage.orderId,/*'JHCL171023145350313239'*/
                     success:function(res){
                         console.log(res)
                         self.info = res.data;
+                        console.log(self.info);
                     }
                 })
             },
@@ -411,7 +457,7 @@
     }
     .first_con{
         text-align: left;
-       /* margin-top: 10px;*/
+        /* margin-top: 10px;*/
     }
     .second_con{
         text-indent: 2rem;
